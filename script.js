@@ -980,8 +980,8 @@ function submitCartOrder(e) {
   msg += `🛒 *المنتجات:*\n`;
   cart.forEach(i => {
     const lineTotal = i.price * i.qty;
-    const qtyText = i.qty > 1 ? ` (${i.qty} قطع)` : '';
-    msg += `  • ${i.name} (${i.weight})${qtyText} ← *${lineTotal} درهم*\n`;
+    const qty = i.qty > 1 ? `×${i.qty}  ` : ``;
+    msg += `  • ${qty}${i.name} (${i.weight}) — ${lineTotal} درهم\n`;
   });
   msg += `\n💰 *المجموع:* ${subtotal} درهم`;
   msg += `\n🚚 *التوصيل:* ${shipping === 0 ? 'مجاني' : shipping + ' درهم'}`;
