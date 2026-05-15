@@ -2782,22 +2782,119 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .why-card h3 { font-size: 14px; margin-bottom: 6px; }
   .why-card p { font-size: 12px; line-height: 1.6; }
 
-  /* ── About section ── */
+  /* ── About section — redesign mobile ── */
   .about-visual { display: none; }
   .about-container { grid-template-columns: 1fr; gap: 0; }
-  .about-section { padding: 30px 14px; }
-  .about-title { font-size: clamp(20px, 5.5vw, 26px); margin-bottom: 8px; }
-  .about-text { font-size: 13px; line-height: 1.65; margin-bottom: 8px; }
-  .about-tagline-wrap { margin: 10px 0; }
-  .about-tagline-text { font-size: 13px; }
-  .about-pill-badge { font-size: 13px; padding: 8px 16px; margin-bottom: 12px; }
-  .about-values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
-  .value-item { padding: 10px 10px; gap: 10px; border-radius: 10px; }
-  .value-icon { width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0; }
-  .value-icon svg { width: 18px; height: 18px; }
-  .value-text strong { font-size: 12px; }
-  .value-text span { font-size: 10px; }
   .about-stats { display: none; }
+
+  .about-section {
+    padding: 0;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .about-content {
+    gap: 0;
+    text-align: right;
+    background: #fff;
+  }
+
+  /* شريط العنوان الداكن */
+  .about-content .section-tag {
+    margin: 36px auto 20px;
+    background: rgba(254,214,23,0.13);
+    color: var(--gold);
+    border-color: rgba(254,214,23,0.35);
+    display: block;
+    width: fit-content;
+  }
+
+  .about-title {
+    font-size: clamp(22px, 6vw, 28px);
+    background: var(--green-dark);
+    color: #fff;
+    text-align: center;
+    padding: 28px 20px 36px;
+    margin: 0 0 0;
+    border-radius: 0;
+    line-height: 1.4;
+  }
+  .about-title .text-gold { color: var(--gold); }
+
+  /* قصة — كروت مع حد ذهبي */
+  .about-story {
+    gap: 0;
+    background: #fff;
+    border-radius: 22px 22px 0 0;
+    margin-top: -18px;
+    padding: 24px 18px 8px;
+    position: relative;
+    box-shadow: 0 -6px 24px rgba(0,0,0,0.07);
+  }
+
+  .about-text {
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: right;
+    color: #3a5446;
+    padding: 14px 16px 14px 12px;
+    margin-bottom: 10px;
+    background: #f8fdf5;
+    border-radius: 10px;
+    border-right: 3px solid var(--gold);
+    position: relative;
+  }
+
+  /* شعار وتاغلاين */
+  .about-tagline-wrap {
+    margin: 18px 18px 14px;
+    padding: 14px;
+    background: linear-gradient(135deg, #f0f9e8, #fffceb);
+    border-radius: 12px;
+    border: 1px solid rgba(42,73,55,0.08);
+  }
+  .about-tagline-text { font-size: 15px; }
+
+  .about-pill-badge {
+    font-size: 13px;
+    padding: 9px 20px;
+    margin: 0 18px 20px;
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  /* القيم — عمود كامل */
+  .about-values {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 18px 36px;
+    margin-top: 0;
+  }
+
+  .value-item {
+    padding: 14px 16px;
+    gap: 14px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(42,73,55,0.08);
+    box-shadow: 0 2px 10px rgba(42,73,55,0.05);
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .value-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2A4937, #3d6b4f);
+    flex-shrink: 0;
+  }
+  .value-icon svg { stroke: #fff; width: 20px; height: 20px; }
+
+  .value-text { display: flex; flex-direction: column; gap: 2px; }
+  .value-text strong { font-size: 14px; color: #2A4937; font-weight: 800; }
+  .value-text span { font-size: 12px; color: #6b8a76; }
 
   /* ── Hero video: crop to hide middle text overlay ── */
   .hero { min-height: 65vh; }
