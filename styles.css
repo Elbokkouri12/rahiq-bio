@@ -337,13 +337,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 7px 0;
   margin-bottom: 28px;
   backdrop-filter: blur(12px);
-  /* Fade edges for clean infinite feel */
-  -webkit-mask-image: linear-gradient(
-    to right, transparent 0%, black 22%, black 78%, transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right, transparent 0%, black 22%, black 78%, transparent 100%
-  );
+  opacity: 1 !important;
 }
 
 /* The full-width flex row that animates */
