@@ -2839,9 +2839,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     color: #3a5446;
     padding: 14px 16px 14px 12px;
     margin-bottom: 10px;
-    background: #f8fdf5;
+    background: #ffffff;
     border-radius: 10px;
     border-right: 3px solid var(--gold);
+    box-shadow: 0 2px 10px rgba(42,73,55,0.06);
     position: relative;
   }
 
