@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السياسات القانونية – Rahiq Bio</title>
+  <meta name="description" content="السياسات القانونية لشركة Rahiq Bio SARL — سياسة الخصوصية، شروط البيع، سياسة التوصيل والإرجاع والدفع.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #2A4937;
+      --green-light: #C2D838;
+      --gold: #FED617;
+      --white: #F9F9F9;
+      --text-main: #1a2e23;
+      --text-muted: #4a6357;
+      --border: rgba(42,73,55,0.12);
+      --card-bg: rgba(255,255,255,0.85);
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--white);
+      color: var(--text-main);
+      line-height: 1.8;
+      direction: rtl;
+    }
+
+    /* ───── NAV ───── */
+    .lp-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(42,73,55,0.97);
+      backdrop-filter: blur(12px);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .lp-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .lp-nav-logo img { height: 38px; }
+    .lp-nav-logo span {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .lp-nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .lp-nav-back:hover { color: var(--gold); }
+    .lp-nav-back svg { transform: scaleX(-1); }
+
+    /* ───── HERO ───── */
+    .legal-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1a3028 60%, #0f1f18 100%);
+      padding: 60px 24px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 0%, rgba(254,214,23,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .legal-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .legal-hero h1 span { color: var(--gold); }
+    .legal-hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      max-width: 540px;
+      margin: 0 auto 28px;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.8);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .hero-pill:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--green-dark);
+    }
+
+    /* ───── LAYOUT ───── */
+    .legal-layout {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ───── POLICY CARD ───── */
+    .policy-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(42,73,55,0.06);
+      scroll-margin-top: 80px;
+    }
+    .policy-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, rgba(42,73,55,0.06), rgba(194,216,56,0.06));
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .policy-card.open .policy-header {
+      border-bottom-color: var(--border);
+    }
+    .policy-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .policy-icon svg { color: var(--gold); }
+    .policy-header-text { flex: 1; }
+    .policy-header-text h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+    .policy-header-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .policy-toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(42,73,55,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+    .policy-card.open .policy-toggle {
+      background: var(--green-dark);
+      transform: rotate(180deg);
+    }
+    .policy-toggle svg { color: var(--green-dark); transition: color 0.3s; }
+    .policy-card.open .policy-toggle svg { color: white; }
+
+    .policy-body {
+      display: none;
+      padding: 24px;
+    }
+    .policy-card.open .policy-body { display: block; }
+
+    /* ───── TYPOGRAPHY INSIDE POLICY ───── */
+    .policy-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin: 20px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--green-light);
+      display: inline-block;
+    }
+    .policy-body h3:first-child { margin-top: 0; }
+    .policy-body p {
+      font-size: 0.95rem;
+      color: #2c3e33;
+      margin-bottom: 12px;
+      line-height: 1.85;
+    }
+    .policy-body ul, .policy-body ol {
+      margin: 8px 0 14px 0;
+      padding-right: 20px;
+    }
+    .policy-body li {
+      font-size: 0.92rem;
+      color: #2c3e33;
+      margin-bottom: 7px;
+      line-height: 1.7;
+    }
+    .policy-body li::marker { color: var(--green-dark); }
+    .policy-body strong { color: var(--green-dark); }
+    .policy-body a { color: var(--green-dark); text-decoration: underline; }
+    .policy-body a:hover { color: var(--gold); }
+
+    /* Info box */
+    .info-box {
+      background: rgba(42,73,55,0.06);
+      border-right: 4px solid var(--green-dark);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 12px 0;
+    }
+    .info-box p { margin: 0; font-size: 0.9rem; }
+
+    /* Warning box */
+    .warn-box {
+      background: rgba(254,214,23,0.12);
+      border-right: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 12px 0;
+    }
+    .warn-box p { margin: 0; font-size: 0.9rem; }
+
+    /* Data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0;
+    }
+    .data-table th {
+      background: var(--green-dark);
+      color: white;
+      padding: 10px 14px;
+      text-align: right;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #2c3e33;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: rgba(42,73,55,0.03); }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      background: var(--green-dark);
+      color: white;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+    .badge-gold {
+      background: var(--gold);
+      color: var(--green-dark);
+    }
+
+    /* ───── LEGAL IDS BOX ───── */
+    .legal-ids-section {
+      background: linear-gradient(135deg, var(--green-dark), #1a3028);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 32px;
+      color: white;
+    }
+    .legal-ids-section h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ids-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .id-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+    .id-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .id-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: white;
+      font-family: 'Jost', monospace;
+      direction: ltr;
+      text-align: right;
+    }
+
+    /* ───── FOOTER ───── */
+    .legal-footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.82rem;
+    }
+    .legal-footer a { color: var(--gold); text-decoration: none; }
+
+    /* ───── RESPONSIVE ───── */
+    @media (max-width: 600px) {
+      .legal-hero { padding: 40px 16px 36px; }
+      .legal-layout { padding: 24px 14px 60px; }
+      .policy-header { padding: 16px 16px; gap: 12px; }
+      .policy-body { padding: 18px 16px; }
+      .ids-grid { grid-template-columns: repeat(2, 1fr); }
+      .legal-ids-section { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="lp-nav">
+  <a href="index.html" class="lp-nav-logo">
+    <img src="assets/images/logo.png" alt="Rahiq Bio">
+    <span>Rahiq Bio</span>
+  </a>
+  <a href="index.html" class="lp-nav-back">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    العودة للموقع
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="legal-hero">
+  <h1>السياسات <span>القانونية</span></h1>
+  <p>نلتزم بالشفافية التامة مع زبناءنا — يمكنك الاطلاع على جميع سياساتنا أدناه</p>
+  <div class="hero-pills">
+    <a href="#shipping" class="hero-pill">سياسة التوصيل</a>
+    <a href="#returns" class="hero-pill">سياسة الإرجاع</a>
+    <a href="#payment" class="hero-pill">سياسة الدفع</a>
+    <a href="#privacy" class="hero-pill">سياسة الخصوصية</a>
+    <a href="#cookies" class="hero-pill">سياسة الكوكيز</a>
+    <a href="#terms" class="hero-pill">شروط البيع</a>
+    <a href="#disclaimer" class="hero-pill">إخلاء المسؤولية</a>
+    <a href="#legal-info" class="hero-pill">المعلومات القانونية</a>
+    <a href="#contact-policy" class="hero-pill">تواصل معنا</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="legal-layout">
+
+  <!-- ── 1. سياسة التوصيل ── -->
+  <div class="policy-card open" id="shipping">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>سياسة التوصيل</h2>
+        <p>مواعيد التسليم وتكاليف الشحن لجميع المناطق</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>نطاق التوصيل</h3>
+      <p>توصل شركة <strong>Rahiq Bio SARL</strong> منتجاتها إلى جميع مدن ومناطق المملكة المغربية.</p>
+
+      <h3>رسوم وآجال التوصيل</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>المنطقة</th>
+            <th>تكلفة التوصيل</th>
+            <th>المدة المتوقعة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>مدينة طنجة</strong></td>
+            <td><span class="badge badge-gold">مجاني</span></td>
+            <td>خلال 24 ساعة كحد أقصى</td>
+          </tr>
+          <tr>
+            <td>باقي المدن المغربية</td>
+            <td><strong>35 درهم</strong></td>
+            <td>من 24 إلى 48 ساعة</td>
+          </tr>
+          <tr>
+            <td>طلبات تفوق 350 درهم</td>
+            <td><span class="badge badge-gold">مجاني</span></td>
+            <td>من 24 إلى 48 ساعة</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <p>التوصيل المجاني ينطبق تلقائياً على كل الطلبات التي تبلغ قيمتها <strong>350 درهم أو أكثر</strong> بعد تطبيق أي خصومات.</p>
+      </div>
+
+      <h3>طريقة التوصيل والدفع</h3>
+      <p>يتم التوصيل عبر خدمات البريد السريع أو التوصيل المباشر حسب المنطقة. يتم الدفع عند استلام البضاعة مباشرة (الدفع عند التسليم — الدفع نقداً).</p>
+
+      <h3>تتبع الطلب</h3>
+      <p>بعد تأكيد طلبك، ستتلقى رسالة عبر واتساب تتضمن تفاصيل الطلب وموعد التسليم المتوقع. للاستفسار عن حالة طلبك، يرجى التواصل معنا على الرقم: <a href="tel:+212713793867">+212 713-793867</a>.</p>
+
+      <h3>الأحداث الخارجة عن الإرادة</h3>
+      <p>لا تتحمل Rahiq Bio SARL المسؤولية عن التأخيرات الناجمة عن ظروف قاهرة كالعوامل الجوية، الإضرابات، أو قرارات السلطات العمومية. في هذه الحالات، يتم إشعار الزبون فوراً.</p>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 2. سياسة الإرجاع ── -->
+  <div class="policy-card" id="returns">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.72"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>سياسة الإرجاع والاسترداد</h2>
+        <p>شروط وإجراءات إرجاع المنتجات واسترداد المبالغ</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>حق الإرجاع</h3>
+      <p>تمنح شركة <strong>Rahiq Bio SARL</strong> زبناءها الحق في إرجاع المنتجات خلال <strong>7 أيام</strong> من تاريخ الاستلام، وذلك وفق الشروط المحددة أدناه.</p>
+
+      <h3>شروط قبول الإرجاع</h3>
+      <ul>
+        <li>المنتج يجب أن يكون في حالته الأصلية — لم يُفتح ولم يُستخدم</li>
+        <li>العبوة الأصلية سليمة وغير تالفة</li>
+        <li>يجب إبلاغنا خلال <strong>7 أيام</strong> من تاريخ استلام الطلب</li>
+        <li>تقديم دليل الشراء (رقم الطلب أو المحادثة على واتساب)</li>
+      </ul>
+
+      <h3>حالات لا يُقبل فيها الإرجاع</h3>
+      <ul>
+        <li>المنتجات التي تم فتحها أو استخدامها جزئياً</li>
+        <li>المنتجات التالفة بسبب سوء الاستخدام من طرف الزبون</li>
+        <li>الطلبات التي مضى عليها أكثر من 7 أيام من تاريخ الاستلام</li>
+        <li>المنتجات المخصصة أو التي تحمل طلباً خاصاً</li>
+      </ul>
+
+      <div class="warn-box">
+        <p>بسبب الطبيعة الغذائية للمنتجات (العسل، الأملو، زيت الأركان)، لا يمكن قبول إرجاع المنتجات التي تم فتحها أو استخدامها لأسباب صحية وسلامة.</p>
+      </div>
+
+      <h3>إجراء الإرجاع</h3>
+      <ol>
+        <li>تواصل معنا عبر واتساب أو الهاتف خلال 7 أيام من الاستلام</li>
+        <li>أرسل صورة للمنتج وشرحاً للسبب</li>
+        <li>سنؤكد قبول الإرجاع خلال 24 ساعة</li>
+        <li>يتم إعادة المنتج عبر البريد أو بالتسليم المباشر في طنجة</li>
+      </ol>
+
+      <h3>استرداد المبالغ</h3>
+      <p>في حالة قبول الإرجاع، تُرد المبالغ خلال <strong>5 إلى 7 أيام عمل</strong> عبر نفس طريقة الدفع المستخدمة، أو عبر تحويل بنكي. تكلفة الشحن العائد تُتحمل من طرف الزبون إلا في حال وجود عيب مصنعي.</p>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 3. سياسة الدفع ── -->
+  <div class="policy-card" id="payment">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>سياسة الدفع</h2>
+        <p>طرق الدفع المتاحة وشروطها</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>طرق الدفع المتاحة</h3>
+      <p>حالياً، تعتمد <strong>Rahiq Bio SARL</strong> طريقة واحدة للدفع:</p>
+      <div class="info-box">
+        <p><strong>الدفع عند الاستلام (الدفع نقداً)</strong> — يتم دفع قيمة الطلب كاملاً نقداً عند تسليم البضاعة على يد مندوب التوصيل أو عند الاستلام الشخصي.</p>
+      </div>
+
+      <h3>لا يوجد دفع مسبق</h3>
+      <p>لا يُطلب منك دفع أي مبلغ مسبقاً عبر الإنترنت أو التحويل البنكي لإتمام طلبك. احذر من أي جهة تدّعي التواصل باسم Rahiq Bio وتطلب دفعاً مسبقاً.</p>
+
+      <h3>تأكيد الطلب</h3>
+      <p>بعد استلام طلبك عبر واتساب أو نموذج الطلب على الموقع، يتواصل معك فريقنا لتأكيد التفاصيل قبل الإرسال. لا يُعتبر الطلب مؤكداً إلا بعد تأكيد فريقنا له.</p>
+
+      <h3>الفاتورة</h3>
+      <p>يتم توفير فاتورة أو وصل استلام عند طلب الزبون عند تسليم الطلب. كما يمكن الحصول على ملخص الطلب عبر محادثة واتساب المحفوظة.</p>
+
+      <h3>التطورات المستقبلية</h3>
+      <p>تعمل Rahiq Bio SARL على إضافة طرق دفع إلكترونية مستقبلاً (بطاقة بنكية، CMI) وستُعلن عن ذلك عند توفرها.</p>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 4. سياسة الخصوصية ── -->
+  <div class="policy-card" id="privacy">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>سياسة الخصوصية وحماية البيانات</h2>
+        <p>كيف نجمع بياناتك ونستخدمها ونحميها — وفق القانون المغربي 08-09</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>المقدمة والالتزام القانوني</h3>
+      <p>تلتزم شركة <strong>Rahiq Bio SARL</strong> بحماية خصوصية بياناتك الشخصية وفقاً لأحكام <strong>القانون رقم 09-08</strong> المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي بالمغرب، والصادر بتنفيذه الظهير الشريف رقم 1.09.15 بتاريخ 18 فبراير 2009.</p>
+
+      <h3>المسؤول عن المعالجة</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>الشركة</strong></td><td>Rahiq Bio SARL</td></tr>
+          <tr><td><strong>العنوان</strong></td><td>Rue 12, Lotissement Saïdia 83, Quartier Beni Ouriaghel, Tanger, Maroc</td></tr>
+          <tr><td><strong>الهاتف</strong></td><td><a href="tel:+212713793867">+212 713-793867</a></td></tr>
+          <tr><td><strong>واتساب</strong></td><td><a href="https://wa.me/212713793867">+212 713-793867</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3>البيانات التي نجمعها</h3>
+      <ul>
+        <li><strong>بيانات الهوية:</strong> الاسم الكامل</li>
+        <li><strong>بيانات الاتصال:</strong> رقم الهاتف، عنوان التوصيل</li>
+        <li><strong>بيانات الطلب:</strong> المنتجات المطلوبة، الكميات، قيمة الطلب</li>
+        <li><strong>بيانات الاستخدام:</strong> صفحات الموقع المزارة (بدون تعريف شخصي)</li>
+      </ul>
+
+      <h3>أغراض المعالجة</h3>
+      <ul>
+        <li>معالجة الطلبات وتنظيم التوصيل</li>
+        <li>التواصل مع الزبون لتأكيد الطلبات والإشعارات</li>
+        <li>تحسين خدماتنا وتجربة الزبون</li>
+        <li>الامتثال للالتزامات القانونية والمحاسبية</li>
+      </ul>
+
+      <h3>مشاركة البيانات مع الغير</h3>
+      <p>لا تقوم Rahiq Bio SARL ببيع أو تأجير أو نقل بياناتك الشخصية إلى أطراف ثالثة لأغراض تجارية. قد تُشارك البيانات فقط مع:</p>
+      <ul>
+        <li>شركات التوصيل والخدمات اللوجستية اللازمة لتنفيذ الطلبات</li>
+        <li>السلطات المختصة عند الضرورة القانونية</li>
+      </ul>
+
+      <h3>مدة الاحتفاظ بالبيانات</h3>
+      <p>تُحتفظ بالبيانات الشخصية المرتبطة بالطلبات لمدة <strong>5 سنوات</strong> من تاريخ آخر معاملة، وذلك لأغراض المحاسبة والامتثال القانوني.</p>
+
+      <h3>حقوقك كزبون</h3>
+      <p>وفقاً للقانون 09-08، لك الحق في:</p>
+      <ul>
+        <li>الاطلاع على بياناتك الشخصية المحفوظة لدينا</li>
+        <li>تصحيح البيانات غير الدقيقة</li>
+        <li>طلب حذف بياناتك (مع مراعاة الالتزامات القانونية)</li>
+        <li>الاعتراض على معالجة بياناتك لأغراض التسويق</li>
+      </ul>
+      <p>لممارسة هذه الحقوق، تواصل معنا عبر الهاتف أو واتساب: <a href="https://wa.me/212713793867">+212 713-793867</a></p>
+
+      <h3>أمان البيانات</h3>
+      <p>نتخذ إجراءات تقنية وتنظيمية مناسبة لحماية بياناتك ضد الوصول غير المشروع أو الإفصاح أو التعديل أو الإتلاف.</p>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 5. سياسة الكوكيز ── -->
+  <div class="policy-card" id="cookies">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="8" r="1" fill="currentColor"/><circle cx="10" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>سياسة الكوكيز (ملفات تعريف الارتباط)</h2>
+        <p>كيف نستخدم الكوكيز وكيف يمكنك التحكم فيها</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>ما هي الكوكيز؟</h3>
+      <p>الكوكيز هي ملفات نصية صغيرة تُخزَّن على جهازك عند زيارة موقعنا. تساعدنا على تحسين تجربتك وتذكر تفضيلاتك.</p>
+
+      <h3>أنواع الكوكيز المستخدمة</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>النوع</th>
+            <th>الوصف</th>
+            <th>مدة الصلاحية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>كوكيز الجلسة</strong></td>
+            <td>ضرورية لعمل الموقع الأساسي (سلة التسوق، التنقل)</td>
+            <td>تنتهي عند إغلاق المتصفح</td>
+          </tr>
+          <tr>
+            <td><strong>كوكيز دائمة</strong></td>
+            <td>تذكر تفضيلاتك (اللغة، التنسيق)</td>
+            <td>حد أقصى 13 شهراً</td>
+          </tr>
+          <tr>
+            <td><strong>كوكيز تحليلية</strong></td>
+            <td>قياس عدد الزيارات وسلوك المستخدم (مجهول الهوية)</td>
+            <td>حتى 13 شهراً</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>كوكيز الطرف الثالث</h3>
+      <p>قد يستخدم موقعنا خدمات Google Maps و Google Analytics التي تضع كوكيزها الخاصة. هذه الكوكيز خاضعة لسياسة خصوصية Google المتاحة على <a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a>.</p>
+
+      <h3>كيفية التحكم في الكوكيز</h3>
+      <p>يمكنك في أي وقت:</p>
+      <ul>
+        <li>حذف الكوكيز الموجودة من إعدادات متصفحك</li>
+        <li>تعطيل الكوكيز كلياً في إعدادات المتصفح (قد يؤثر على بعض وظائف الموقع)</li>
+        <li>استخدام وضع التصفح الخاص (Incognito) لعدم حفظ الكوكيز</li>
+      </ul>
+
+      <div class="info-box">
+        <p>تعطيل الكوكيز الضرورية قد يؤثر على وظائف سلة التسوق وبعض مميزات الموقع.</p>
+      </div>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 6. شروط البيع ── -->
+  <div class="policy-card" id="terms">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>الشروط العامة للبيع</h2>
+        <p>الشروط والأحكام التي تحكم كل عملية شراء من متجرنا</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>المادة 1 — تعريف الأطراف</h3>
+      <p><strong>البائع:</strong> شركة Rahiq Bio SARL، رقم السجل التجاري 296959، الكائن مقرها بـ Rue 12, Lotissement Saïdia 83, Quartier Beni Ouriaghel, Tanger, Maroc.<br>
+      <strong>المشتري:</strong> كل شخص طبيعي أو اعتباري يقوم بإتمام طلب شراء من موقع Rahiq Bio أو عبر قنوات التواصل الخاصة به.</p>
+
+      <h3>المادة 2 — قبول الشروط</h3>
+      <p>يُعدّ إتمام أي طلب شراء من موقع <strong>rahiqbio.ma</strong> أو عبر واتساب قبولاً صريحاً وغير مشروط لهذه الشروط العامة للبيع بالكامل.</p>
+
+      <h3>المادة 3 — المنتجات</h3>
+      <p>تعرض Rahiq Bio SARL منتجات طبيعية وعضوية مغربية بما فيها العسل بأنواعه، زيت الأركان، والأملو. تُبذل العناية اللازمة لضمان دقة وصف المنتجات وصورها على الموقع. قد تختلف الألوان والمظهر قليلاً بسبب طبيعة المنتجات الطبيعية.</p>
+
+      <h3>المادة 4 — الأسعار</h3>
+      <p>جميع الأسعار معروضة بالدرهم المغربي (MAD) وتشمل الضريبة على القيمة المضافة حيثما كانت مطبقة. تحتفظ Rahiq Bio بحق تعديل الأسعار في أي وقت، غير أن الطلبات المؤكدة تُطبق عليها الأسعار السارية وقت التأكيد.</p>
+
+      <h3>المادة 5 — تقديم الطلبات</h3>
+      <p>يمكن تقديم الطلبات عبر:</p>
+      <ul>
+        <li>نموذج الطلب على الموقع الإلكتروني</li>
+        <li>واتساب على الرقم: <a href="https://wa.me/212713793867">+212 713-793867</a></li>
+        <li>الاتصال الهاتفي المباشر</li>
+      </ul>
+      <p>يتم تأكيد كل طلب خلال 24 ساعة من استلامه. يُعدّ الطلب نهائياً فقط بعد التأكيد من طرف فريقنا.</p>
+
+      <h3>المادة 6 — التوصيل</h3>
+      <p>تطبق شروط التوصيل المفصلة في <a href="#shipping">سياسة التوصيل</a> أعلاه.</p>
+
+      <h3>المادة 7 — الإرجاع والاسترداد</h3>
+      <p>تطبق شروط الإرجاع المفصلة في <a href="#returns">سياسة الإرجاع</a> أعلاه.</p>
+
+      <h3>المادة 8 — حدود المسؤولية</h3>
+      <p>لا تتحمل Rahiq Bio SARL المسؤولية عن الأضرار غير المباشرة الناجمة عن استخدام منتجاتها. مسؤوليتها محدودة بقيمة المنتجات المُشتراة. المنتجات الطبيعية ليست بديلاً عن العلاج الطبي.</p>
+
+      <h3>المادة 9 — القانون الواجب التطبيق والاختصاص القضائي</h3>
+      <p>تخضع هذه الشروط للقانون المغربي. في حال أي نزاع، يكون الاختصاص القضائي الحصري لمحاكم مدينة <strong>طنجة</strong> بالمملكة المغربية.</p>
+
+      <h3>المادة 10 — تعديل الشروط</h3>
+      <p>تحتفظ Rahiq Bio SARL بحق تعديل هذه الشروط في أي وقت. تسري الشروط المعدّلة على الطلبات المُقدَّمة بعد تاريخ نشرها على الموقع.</p>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 7. إخلاء المسؤولية ── -->
+  <div class="policy-card" id="disclaimer">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>إخلاء المسؤولية</h2>
+        <p>حدود مسؤولية Rahiq Bio تجاه استخدام المنتجات والموقع</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>المنتجات الطبيعية ليست علاجاً طبياً</h3>
+      <div class="warn-box">
+        <p><strong>تنبيه مهم:</strong> منتجات Rahiq Bio هي منتجات غذائية طبيعية. المعلومات المتعلقة بالفوائد الصحية مبنية على ما هو متعارف عليه تقليدياً وليست ادعاءات طبية معتمدة. يجب استشارة الطبيب قبل استخدام أي منتج كبديل للعلاج الطبي.</p>
+      </div>
+
+      <h3>دقة المعلومات على الموقع</h3>
+      <p>تبذل Rahiq Bio SARL جهودها لضمان دقة المحتوى على الموقع. ومع ذلك، لا تُقرّ بمسؤوليتها عن أي أخطاء أو سهو أو معلومات قديمة. المحتوى قابل للتغيير دون إشعار مسبق.</p>
+
+      <h3>روابط خارجية</h3>
+      <p>قد يحتوي الموقع على روابط لمواقع خارجية. Rahiq Bio غير مسؤولة عن محتوى هذه المواقع أو سياسات خصوصيتها.</p>
+
+      <h3>الحساسيات والتحذيرات</h3>
+      <ul>
+        <li>منتجاتنا قد تحتوي على مكسرات (جوز، لوز) — يُنصح من يعانون من حساسية بمراجعة المكونات قبل الاستخدام</li>
+        <li>العسل غير مناسب للأطفال دون عمر السنة</li>
+        <li>يُنصح المرضى بأمراض مزمنة (السكري مثلاً) باستشارة طبيبهم قبل استهلاك العسل بكميات كبيرة</li>
+        <li>منتجات زيت الأركان للاستخدام الخارجي — لا تبتلع</li>
+      </ul>
+
+      <h3>حدود التعويض</h3>
+      <p>في حالة أي مطالبة قانونية، تكون مسؤولية Rahiq Bio SARL محدودة في جميع الأحوال بقيمة المنتج المُشترى فعلياً. لا تتحمل الشركة مسؤولية الأضرار العرضية أو التبعية.</p>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 8. المعلومات القانونية ── -->
+  <div class="policy-card" id="legal-info">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>المعلومات القانونية للشركة</h2>
+        <p>هوية الشركة ومعرفاتها القانونية الرسمية</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>بيانات الشركة</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>الاسم القانوني</strong></td><td>RAHIQ BIO SARL</td></tr>
+          <tr><td><strong>الشكل القانوني</strong></td><td>شركة ذات مسؤولية محدودة (SARL)</td></tr>
+          <tr><td><strong>رأس المال</strong></td><td>مسجل بالسجل التجاري</td></tr>
+          <tr><td><strong>العنوان المسجل</strong></td><td>Rue 12, Lotissement Saïdia 83, Quartier Beni Ouriaghel, Tanger, Maroc</td></tr>
+          <tr><td><strong>المدينة</strong></td><td>طنجة — المملكة المغربية</td></tr>
+        </tbody>
+      </table>
+
+      <h3>المعرفات القانونية الرسمية</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>السجل التجاري (RC)</strong></td><td style="direction:ltr;text-align:right;font-family:monospace">296959</td></tr>
+          <tr><td><strong>المعرف الضريبي المشترك (ICE)</strong></td><td style="direction:ltr;text-align:right;font-family:monospace">003804646000080</td></tr>
+          <tr><td><strong>المعرف الجبائي (IF)</strong></td><td style="direction:ltr;text-align:right;font-family:monospace">68636648</td></tr>
+          <tr><td><strong>الباتنتا (Patente)</strong></td><td style="direction:ltr;text-align:right;font-family:monospace">57234762</td></tr>
+        </tbody>
+      </table>
+
+      <h3>معلومات الحساب البنكي</h3>
+      <div class="info-box">
+        <p><strong>رقم الحساب البنكي (RIB):</strong><br>
+        <span style="direction:ltr;display:block;text-align:right;font-family:monospace;font-size:1rem;margin-top:6px;letter-spacing:1px;">007 640 0008557000000474 35</span>
+        </p>
+      </div>
+      <p style="font-size:0.85rem;color:var(--text-muted);">يُستخدم هذا الحساب لأغراض الاسترداد عند الضرورة فقط. لا يتم الدفع مسبقاً عبر التحويل البنكي.</p>
+
+      <h3>التواصل الرسمي</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>الهاتف</strong></td><td><a href="tel:+212713793867">+212 713-793867</a></td></tr>
+          <tr><td><strong>واتساب</strong></td><td><a href="https://wa.me/212713793867">+212 713-793867</a></td></tr>
+          <tr><td><strong>إنستغرام</strong></td><td><a href="https://www.instagram.com/rahiqbio.officiel" target="_blank">@rahiqbio.officiel</a></td></tr>
+          <tr><td><strong>فيسبوك</strong></td><td><a href="https://www.facebook.com/share/18Nc41o16k/" target="_blank">Rahiq Bio</a></td></tr>
+          <tr><td><strong>تيك توك</strong></td><td><a href="https://www.tiktok.com/@rahiqbio.officiel" target="_blank">@rahiqbio.officiel</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3>هيئة الرقابة</h3>
+      <p>يخضع الموقع الإلكتروني لشركة Rahiq Bio SARL للقانون المغربي، ولا سيما القانون رقم 09-08 المتعلق بحماية البيانات الشخصية، والمُشرف عليه من طرف <strong>اللجنة الوطنية لمراقبة حماية المعطيات ذات الطابع الشخصي (CNDP)</strong>.</p>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- ── 9. تواصل معنا ── -->
+  <div class="policy-card" id="contact-policy">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      <div class="policy-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div class="policy-header-text">
+        <h2>تواصل معنا</h2>
+        <p>جميع قنوات التواصل وأوقات الدعم</p>
+      </div>
+      <div class="policy-toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="policy-body">
+      <h3>قنوات التواصل</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>القناة</th>
+            <th>معلومات التواصل</th>
+            <th>الوقت المتوقع للرد</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>واتساب</strong></td>
+            <td><a href="https://wa.me/212713793867">+212 713-793867</a></td>
+            <td>خلال 2-4 ساعات</td>
+          </tr>
+          <tr>
+            <td><strong>الهاتف</strong></td>
+            <td><a href="tel:+212713793867">+212 713-793867</a></td>
+            <td>أيام العمل 9ص – 6م</td>
+          </tr>
+          <tr>
+            <td><strong>إنستغرام</strong></td>
+            <td><a href="https://www.instagram.com/rahiqbio.officiel" target="_blank">@rahiqbio.officiel</a></td>
+            <td>خلال 24 ساعة</td>
+          </tr>
+          <tr>
+            <td><strong>فيسبوك</strong></td>
+            <td><a href="https://www.facebook.com/share/18Nc41o16k/" target="_blank">Rahiq Bio</a></td>
+            <td>خلال 24 ساعة</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>العنوان</h3>
+      <p>Rue 12, Lotissement Saïdia 83, Quartier Beni Ouriaghel, طنجة، المملكة المغربية</p>
+
+      <h3>أوقات العمل</h3>
+      <table class="data-table">
+        <tbody>
+          <tr><td>الاثنين – الجمعة</td><td>9:00 ص – 6:00 م</td></tr>
+          <tr><td>السبت</td><td>9:00 ص – 2:00 م</td></tr>
+          <tr><td>الأحد والعطل الرسمية</td><td>واتساب فقط</td></tr>
+        </tbody>
+      </table>
+
+      <h3>للشكاوى والتظلمات</h3>
+      <p>نلتزم بالرد على جميع الشكاوى خلال <strong>48 ساعة عمل</strong>. إذا لم يتم حل الأمر في الوقت المحدد، يحق لك التصعيد عبر القنوات القانونية المتاحة.</p>
+
+      <div class="info-box">
+        <p>يُفضل التواصل عبر <strong>واتساب</strong> للرد الأسرع. أرسل اسمك ورقم طلبك (إن وجد) لتسريع المعالجة.</p>
+      </div>
+
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-top:16px;">آخر تحديث: يناير 2025 — طنجة، المملكة المغربية</p>
+    </div>
+  </div>
+
+  <!-- LEGAL IDS BOTTOM BOX -->
+  <div class="legal-ids-section">
+    <h2>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      المعرفات القانونية — RAHIQ BIO SARL
+    </h2>
+    <div class="ids-grid">
+      <div class="id-item">
+        <div class="id-label">السجل التجاري (RC)</div>
+        <div class="id-value">296959</div>
+      </div>
+      <div class="id-item">
+        <div class="id-label">المعرف الضريبي المشترك (ICE)</div>
+        <div class="id-value">003804646000080</div>
+      </div>
+      <div class="id-item">
+        <div class="id-label">المعرف الجبائي (IF)</div>
+        <div class="id-value">68636648</div>
+      </div>
+      <div class="id-item">
+        <div class="id-label">الباتنتا (Patente)</div>
+        <div class="id-value">57234762</div>
+      </div>
+      <div class="id-item" style="grid-column: 1/-1">
+        <div class="id-label">رقم الحساب البنكي (RIB)</div>
+        <div class="id-value">007 640 0008557000000474 35</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /legal-layout -->
+
+<!-- FOOTER -->
+<footer class="legal-footer">
+  <p>© 2026 <strong style="color:white">Rahiq Bio SARL</strong> — جميع الحقوق محفوظة &nbsp;|&nbsp; RC: 296959 &nbsp;|&nbsp; ICE: 003804646000080</p>
+  <p style="margin-top:6px"><a href="index.html">العودة للموقع الرئيسي</a></p>
+</footer>
+
+<script>
+function togglePolicy(header) {
+  const card = header.closest('.policy-card');
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahiq Bio – منتجات طبيعية أصيلة من المغرب</title>
+  <meta name="description" content="Rahiq Bio - عسل طبيعي 100% وزيت الأركان والأملو من المغرب. جودة أصيلة، شفاء حقيقي.">
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rahiq Bio – منتجات طبيعية أصيلة من المغرب">
+  <meta property="og:description" content="عسل طبيعي 100%، زيت أركان، وأملو بجودة لا مثيل لها — مباشرة من قلب المغرب إلى بيتك.">
+  <meta property="og:image" content="assets/images/sidr.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rahiq Bio – منتجات طبيعية أصيلة من المغرب">
+  <meta name="twitter:description" content="عسل طبيعي 100%، زيت أركان، وأملو بجودة لا مثيل لها.">
+  <meta name="twitter:image" content="assets/images/sidr.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Two Free-Flying Bees (fixed to viewport, JS animated) -->
+<div class="free-bee" id="bee1" aria-hidden="true">
+  <img src="assets/images/bee.png" alt="" class="free-bee-img">
+</div>
+<div class="free-bee" id="bee2" aria-hidden="true">
+  <img src="assets/images/bee.png" alt="" class="free-bee-img">
+</div>
+
+<!-- Cart Float Button -->
+<button class="cart-float" id="cartFloat" onclick="toggleCart()" aria-label="سلة التسوق">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+  <span class="cart-badge" id="cartBadge"></span>
+</button>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-overlay" onclick="toggleCart()"></div>
+  <div class="cart-panel">
+    <div class="cart-panel-header">
+      <h3>سلة التسوق</h3>
+      <button class="cart-close-btn" onclick="toggleCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items-wrap" id="cartItems">
+      <div class="cart-empty-state">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c5ccc8" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <p>السلة فارغة</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total-row">
+        <span>المجموع</span>
+        <strong id="cartTotal">0 درهم</strong>
+      </div>
+      <button class="btn-checkout-main" onclick="openCheckout()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        إتمام الطلب
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/212713793867" target="_blank" class="whatsapp-float" aria-label="تواصل معنا عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="assets/images/logo.png" alt="Rahiq Bio" class="nav-logo-img">
+    </div>
+    <div class="nav-links">
+      <a href="#products" class="nav-link">منتجاتنا</a>
+      <a href="#about" class="nav-link">من نحن</a>
+      <a href="#why-us" class="nav-link">لماذا نحن</a>
+      <a href="#contact" class="nav-link">تواصل معنا</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://wa.me/212713793867" class="btn-nav-cta" target="_blank">اطلب الآن</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-links-grid">
+      <a href="#products" class="mobile-link">منتجاتنا</a>
+      <a href="#about" class="mobile-link">من نحن</a>
+      <a href="#why-us" class="mobile-link">لماذا نحن</a>
+      <a href="#contact" class="mobile-link">تواصل معنا</a>
+    </div>
+    <a href="https://wa.me/212713793867" class="mobile-cta" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      اطلب الآن عبر واتساب
+    </a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="honey-drops-bg" aria-hidden="true">
+    <span class="hdrop" style="--x:8%;--dur:5.2s;--delay:0s;--s:18px;--c:#FED617"></span>
+    <span class="hdrop" style="--x:22%;--dur:6.8s;--delay:1.2s;--s:12px;--c:#D4851A"></span>
+    <span class="hdrop" style="--x:38%;--dur:4.9s;--delay:2.1s;--s:22px;--c:#FED617"></span>
+    <span class="hdrop" style="--x:54%;--dur:7.3s;--delay:0.5s;--s:10px;--c:#C2D838"></span>
+    <span class="hdrop" style="--x:67%;--dur:5.6s;--delay:3.0s;--s:16px;--c:#F5A623"></span>
+    <span class="hdrop" style="--x:80%;--dur:6.1s;--delay:1.8s;--s:20px;--c:#FED617"></span>
+    <span class="hdrop" style="--x:91%;--dur:4.5s;--delay:0.9s;--s:14px;--c:#D4851A"></span>
+    <span class="hdrop" style="--x:14%;--dur:8.0s;--delay:4.5s;--s:9px;--c:#C2D838"></span>
+    <span class="hdrop" style="--x:46%;--dur:5.8s;--delay:2.7s;--s:15px;--c:#FFC200"></span>
+    <span class="hdrop" style="--x:73%;--dur:7.0s;--delay:1.0s;--s:11px;--c:#FED617"></span>
+  </div>
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline class="hero-video active" id="heroVideo">
+      <source src="assets/videos/hero-main.mp4" type="video/mp4">
+      <source src="assets/videos/hero-2.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Sound Control Button -->
+  <button class="hero-sound-btn" id="heroSoundBtn" aria-label="تشغيل الصوت" onclick="toggleHeroSound()">
+    <span class="sound-icon muted" id="soundIconWrap">
+      <!-- Muted icon -->
+      <svg id="iconMuted" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+      <!-- Unmuted icon (hidden initially) -->
+      <svg id="iconSound" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+    </span>
+    <span class="sound-label" id="soundLabel">تشغيل الصوت</span>
+  </button>
+
+  <div class="hero-content">
+    <div class="hero-badge-ticker" aria-label="100% طبيعي 100% شفاء">
+      <div class="ticker-inner">
+        <!-- نسخة أولى -->
+        <div class="ticker-copy">
+          <span class="ticker-text">100% طبيعي</span>
+          <img src="assets/images/logo.png" alt="" class="ticker-sep" aria-hidden="true">
+          <span class="ticker-text">100% شفاء</span>
+          <img src="assets/images/logo.png" alt="" class="ticker-sep" aria-hidden="true">
+        </div>
+        <!-- نسخة ثانية مطابقة — تضمن الحلقة اللانهائية -->
+        <div class="ticker-copy" aria-hidden="true">
+          <span class="ticker-text">100% طبيعي</span>
+          <img src="assets/images/logo.png" alt="" class="ticker-sep" aria-hidden="true">
+          <span class="ticker-text">100% شفاء</span>
+          <img src="assets/images/logo.png" alt="" class="ticker-sep" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+    <h1 class="hero-title">
+      <span class="hero-title-ar">طبيعة المغرب</span>
+      <span class="hero-title-highlight">في كل قطرة</span>
+    </h1>
+    <p class="hero-subtitle">عسل أصيل، زيت أركان، وأملو بجودة لا مثيل لها — مباشرة من قلب المغرب إلى بيتك</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">اكتشف منتجاتنا</a>
+      <a href="https://wa.me/212713793867" target="_blank" class="btn-ghost">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        تواصل معنا
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">طبيعي</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">+500</span><span class="stat-label">عميل راضٍ</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">9+</span><span class="stat-label">منتج أصيل</span></div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span>اكتشف المزيد</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- Trust Ticker -->
+<section class="trust-ticker-wrap">
+  <div class="ticker-track" id="tickerTrack">
+    <div class="ticker-half" id="tickerHalf">
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>جودة مضمونة — 100% أصيل ومعتمد</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>توصيل لكل المدن — سريع وآمن للباب</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>طبيعي 100% — بلا إضافات كيماوية</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>بدون مواد حافظة — نقي كما خلقته الطبيعة</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>تحضير تقليدي — وصفات موروثة أصيلة</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>جودة مضمونة — 100% أصيل ومعتمد</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>توصيل لكل المدن — سريع وآمن للباب</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>طبيعي 100% — بلا إضافات كيماوية</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>بدون مواد حافظة — نقي كما خلقته الطبيعة</span></div>
+      <span class="ticker-sep">✦</span>
+      <div class="ticker-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>تحضير تقليدي — وصفات موروثة أصيلة</span></div>
+      <span class="ticker-sep">✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <div class="section-tag">منتجاتنا</div>
+    <h2 class="section-title">كنوز الطبيعة المغربية</h2>
+    <p class="section-subtitle">اختر من بين أفضل منتجاتنا الطبيعية المختارة بعناية</p>
+    <!-- Honey drip decorative -->
+    <div class="honey-drip-deco">
+      <svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 Q50,30 100,10 Q150,35 200,5 Q250,30 300,8 Q350,32 400,0" fill="none" stroke="#FED617" stroke-width="3"/>
+        <circle cx="80" cy="28" r="6" fill="#FED617"/>
+        <circle cx="200" cy="22" r="8" fill="#FED617"/>
+        <circle cx="320" cy="26" r="5" fill="#FED617"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+
+    <!-- Product 1: Amlou Cacao -->
+    <article class="product-card" data-product="amlou-cacao">
+      <div class="product-image-wrap">
+        <img src="assets/images/amlou-cacao.jpg" alt="أملو كاكاو" loading="lazy" class="product-img">
+        <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
+        <div class="product-quick-view" onclick="openProduct('amlou-cacao')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">أملو</div>
+        <h3 class="product-name-ar">أملو كاكاو</h3>
+        <p class="product-name-fr">Amlou Cacahuète Au Miel De Citron</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="99">500g — 99د</button>
+          <button class="variant-btn" data-price="180">1kg — 180د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">99</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('amlou-cacao', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 2: Energie Royale Mix -->
+    <article class="product-card featured" data-product="energie-royale">
+      <div class="product-image-wrap">
+        <img src="assets/images/energie-royale.jpg" alt="مريج ملكي" loading="lazy" class="product-img">
+        <div class="product-badge-wrap">
+          <span class="badge-featured">الأكثر مبيعاً</span>
+          <span class="badge-natural">طبيعي 100%</span>
+        </div>
+        <div class="product-quick-view" onclick="openProduct('energie-royale')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">مريج ملكي</div>
+        <h3 class="product-name-ar">مريج ملكي Mix</h3>
+        <p class="product-name-fr">Énergie Royale Mix</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="170">500g — 170د</button>
+          <button class="variant-btn" data-price="325">1kg — 325د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">170</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('energie-royale', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 3: Daghmous Honey -->
+    <article class="product-card" data-product="daghmous">
+      <div class="product-image-wrap">
+        <img src="assets/images/daghmous-2.jpg" alt="عسل الدغموس" loading="lazy" class="product-img">
+        <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
+        <div class="product-quick-view" onclick="openProduct('daghmous')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">عسل</div>
+        <h3 class="product-name-ar">عسل الدغموس</h3>
+        <p class="product-name-fr">Miel de Daghmous</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="185">500g — 185د</button>
+          <button class="variant-btn" data-price="349">1kg — 349د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">185</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('daghmous', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 4: Shilajit -->
+    <article class="product-card" data-product="shilajit">
+      <div class="product-image-wrap">
+        <img src="assets/images/shilajit.jpg" alt="شيلاجيت" loading="lazy" class="product-img">
+        <div class="product-badge-wrap">
+          <span class="badge-rare">نادر</span>
+          <span class="badge-natural">طبيعي 100%</span>
+        </div>
+        <div class="product-quick-view" onclick="openProduct('shilajit')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">مكملات طبيعية</div>
+        <h3 class="product-name-ar">شيلاجيت</h3>
+        <p class="product-name-fr">Shilajit</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="120">30g — 120د</button>
+          <button class="variant-btn" data-price="199">50g — 199د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">120</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('shilajit', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 5: Eucalyptus Honey -->
+    <article class="product-card" data-product="eucalyptus">
+      <div class="product-image-wrap">
+        <img src="assets/images/eucalyptus.jpg" alt="عسل الكاليبتوس" loading="lazy" class="product-img">
+        <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
+        <div class="product-quick-view" onclick="openProduct('eucalyptus')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">عسل</div>
+        <h3 class="product-name-ar">عسل الكاليبتوس</h3>
+        <p class="product-name-fr">Miel d'Eucalyptus</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="109">500g — 109د</button>
+          <button class="variant-btn" data-price="199">1kg — 199د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">109</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('eucalyptus', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 6: Mardiria Honey -->
+    <article class="product-card" data-product="mardiria">
+      <div class="product-image-wrap">
+        <img src="assets/images/mardiria.jpg" alt="عسل مارديسيا" loading="lazy" class="product-img">
+        <div class="product-badge-wrap">
+          <span class="badge-premium">فاخر</span>
+          <span class="badge-natural">طبيعي 100%</span>
+        </div>
+        <div class="product-quick-view" onclick="openProduct('mardiria')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">عسل</div>
+        <h3 class="product-name-ar">عسل مارديسيا</h3>
+        <p class="product-name-fr">Miel de Mardiria</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="240">500g — 240د</button>
+          <button class="variant-btn" data-price="449">1kg — 449د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">240</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('mardiria', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 7: Sidr Honey -->
+    <article class="product-card premium-product" data-product="sidr">
+      <div class="product-image-wrap">
+        <img src="assets/images/sidr.jpg" alt="عسل السدر" loading="lazy" class="product-img">
+        <div class="product-badge-wrap">
+          <span class="badge-premium">ملكي</span>
+          <span class="badge-natural">طبيعي 100%</span>
+        </div>
+        <div class="product-quick-view" onclick="openProduct('sidr')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">عسل ملكي</div>
+        <h3 class="product-name-ar">عسل السدر</h3>
+        <p class="product-name-fr">Miel de Jujubier</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="480">500g — 480د</button>
+          <button class="variant-btn" data-price="899">1kg — 899د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">480</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('sidr', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 8: Lemon Honey -->
+    <article class="product-card" data-product="limon">
+      <div class="product-image-wrap">
+        <img src="assets/images/limon.jpg" alt="عسل الليمون" loading="lazy" class="product-img">
+        <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
+        <div class="product-quick-view" onclick="openProduct('limon')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">عسل</div>
+        <h3 class="product-name-ar">عسل الليمون</h3>
+        <p class="product-name-fr">Miel de Citronnier</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="99">500g — 99د</button>
+          <button class="variant-btn" data-price="179">1kg — 179د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">99</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('limon', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 9: Argan Oil -->
+    <article class="product-card" data-product="argan">
+      <div class="product-image-wrap">
+        <img src="assets/images/argan-front.jpg" alt="زيت أركان غذائي" loading="lazy" class="product-img">
+        <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
+        <div class="product-quick-view" onclick="openProduct('argan')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">زيوت طبيعية</div>
+        <h3 class="product-name-ar">زيت أركان غذائي</h3>
+        <p class="product-name-fr">Huile d'Argan Alimentaire</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="99">100ml — 99د</button>
+          <button class="variant-btn" data-price="185">200ml — 185د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">99</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('argan', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- About / Story Section -->
+<section class="about-section" id="about">
+  <div class="about-container">
+    <div class="about-visual">
+      <div class="about-video-frame">
+        <video autoplay muted loop playsinline class="about-video">
+          <source src="assets/videos/hero-3.mp4" type="video/mp4">
+        </video>
+        <div class="about-video-border"></div>
+      </div>
+      <div class="about-float-card">
+        <div class="float-icon">
+          <svg width="32" height="32" viewBox="0 0 60 60" fill="none"><ellipse cx="30" cy="35" rx="14" ry="10" fill="#FED617"/><line x1="22" y1="33" x2="22" y2="41" stroke="#2A4937" stroke-width="2"/><line x1="30" y1="33" x2="30" y2="41" stroke="#2A4937" stroke-width="2"/><line x1="38" y1="33" x2="38" y2="41" stroke="#2A4937" stroke-width="2"/><ellipse cx="30" cy="26" rx="8" ry="7" fill="#2A4937"/><ellipse cx="20" cy="28" rx="8" ry="4" fill="white" opacity="0.7" transform="rotate(-20 20 28)"/><ellipse cx="40" cy="28" rx="8" ry="4" fill="white" opacity="0.7" transform="rotate(20 40 28)"/></svg>
+        </div>
+        <div class="float-text">
+          <strong>+500</strong>
+          <span>عميل سعيد</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-tag">قصتنا</div>
+      <h2 class="about-title">هذه هي<br><span class="text-gold">قصة رحيق بيو</span></h2>
+      <div class="about-story">
+        <p class="about-text"><strong class="brand-inline">Rahiq Bio</strong> بدات من فكرة بسيطة: نرجعو الناس للطبيعة ونقدّمو ليهم منتجات صادقة، طبيعية، ومختارة بعناية.</p>
+        <p class="about-text">فزمن كثر فيه الغش والمعلبات، اخترنا نمشيو بعكس التيار.</p>
+        <p class="about-text">اليوم، <strong class="brand-inline">Rahiq Bio</strong> ماشي غير متجر، بل علامة كتحاول تبني الثقة، وتقدم منتجات طبيعية، وتجارب حقيقية، وقصة كتكبر يوم بعد يوم بفضل الله ثم بفضل ثقة الناس.</p>
+      </div>
+      <div class="about-tagline-wrap">
+        <div class="about-tagline-line"></div>
+        <span class="about-tagline-text">الصدق قبل التسويق</span>
+        <div class="about-tagline-line"></div>
+      </div>
+      <div class="about-pill-badge">
+        <span>100% طبيعي</span>
+        <span class="about-pill-sep">•</span>
+        <span>100% شفاء</span>
+      </div>
+      <div class="about-values">
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="value-text">
+            <strong>جودة مضمونة</strong>
+            <span>كل منتج مفحوص ومعتمد</span>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="value-text">
+            <strong>منتج محلي</strong>
+            <span>صنع بأيدٍ مغربية محلية</span>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="value-text">
+            <strong>بشغف حقيقي</strong>
+            <span>نحب ما نقدمه لكم</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us Section -->
+<section class="why-section" id="why-us">
+  <div class="why-bg-pattern"></div>
+  <div class="why-container">
+    <div class="section-header light">
+      <div class="section-tag light">مميزاتنا</div>
+      <h2 class="section-title light">لماذا تختار Rahiq Bio؟</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FED617" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>تحضير تقليدي أصيل</h3>
+        <p>وصفات توارثناها عن الأجداد، نحضّرها اليوم بنفس الحرص والأمانة</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FED617" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>ضمان الجودة</h3>
+        <p>كل منتج يمر بفحص دقيق قبل وصوله إليك، ضمان الجودة شعارنا</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FED617" stroke-width="1.5"><path d="M1 6s4-2 11-2 11 2 11 2v13s-4 2-11 2S1 19 1 19V6z"/><path d="M1 6l11 7 11-7"/></svg>
+        </div>
+        <h3>توصيل سريع لكل المدن</h3>
+        <p>نوصّل لجميع مدن المغرب في أسرع وقت وبأمان تام</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FED617" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>بلا مواد حافظة</h3>
+        <p>منتجاتنا خالية تماماً من المواد الحافظة والإضافات الاصطناعية</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FED617" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>خدمة عملاء متميزة</h3>
+        <p>فريقنا متاح دائماً على واتساب للإجابة على كل استفساراتك</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FED617" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <h3>+500 عميل راضٍ</h3>
+        <p>آلاف العملاء وثقوا بنا وعادوا للشراء مراراً — ثقتكم هي جائزتنا</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reels Section -->
+<section class="reels-section" id="reels">
+  <div class="reels-header">
+    <div class="section-tag">فيديوهاتنا</div>
+    <h2 class="section-title">شاهد منتجاتنا</h2>
+    <p class="section-subtitle">اضغط على أي فيديو لتشغيله بالصوت</p>
+  </div>
+
+  <div class="reels-container">
+
+    <!-- Reel 1 -->
+    <div class="reel-card" id="reel-0">
+      <div class="reel-video-wrap">
+        <video class="reel-video" playsinline loop muted preload="metadata" data-index="0">
+          <source src="assets/videos/hero-1.mp4" type="video/mp4">
+        </video>
+        <div class="reel-overlay" onclick="toggleReel(0)">
+          <div class="reel-play-btn" id="playBtn-0">
+            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div class="reel-sound-btn" id="soundBtn-0" onclick="event.stopPropagation(); toggleSound(0)">
+            <svg id="soundIcon-0" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </div>
+          <div class="reel-progress-wrap"><div class="reel-progress" id="progress-0"></div></div>
+          <div class="reel-label">
+            <img src="assets/images/logo.png" alt="Rahiq Bio" class="reel-logo">
+            <span>Rahiq Bio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reel 2 -->
+    <div class="reel-card" id="reel-1">
+      <div class="reel-video-wrap">
+        <video class="reel-video" playsinline loop muted preload="metadata" data-index="1">
+          <source src="assets/videos/hero-2.mp4" type="video/mp4">
+        </video>
+        <div class="reel-overlay" onclick="toggleReel(1)">
+          <div class="reel-play-btn" id="playBtn-1">
+            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div class="reel-sound-btn" id="soundBtn-1" onclick="event.stopPropagation(); toggleSound(1)">
+            <svg id="soundIcon-1" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </div>
+          <div class="reel-progress-wrap"><div class="reel-progress" id="progress-1"></div></div>
+          <div class="reel-label">
+            <img src="assets/images/logo.png" alt="Rahiq Bio" class="reel-logo">
+            <span>Rahiq Bio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reel 3 -->
+    <div class="reel-card" id="reel-2">
+      <div class="reel-video-wrap">
+        <video class="reel-video" playsinline loop muted preload="metadata" data-index="2">
+          <source src="assets/videos/hero-3.mp4" type="video/mp4">
+        </video>
+        <div class="reel-overlay" onclick="toggleReel(2)">
+          <div class="reel-play-btn" id="playBtn-2">
+            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div class="reel-sound-btn" id="soundBtn-2" onclick="event.stopPropagation(); toggleSound(2)">
+            <svg id="soundIcon-2" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </div>
+          <div class="reel-progress-wrap"><div class="reel-progress" id="progress-2"></div></div>
+          <div class="reel-label">
+            <img src="assets/images/logo.png" alt="Rahiq Bio" class="reel-logo">
+            <span>Rahiq Bio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reel 4 -->
+    <div class="reel-card" id="reel-3">
+      <div class="reel-video-wrap">
+        <video class="reel-video" playsinline loop muted preload="metadata" data-index="3">
+          <source src="assets/videos/hero-4.mp4" type="video/mp4">
+        </video>
+        <div class="reel-overlay" onclick="toggleReel(3)">
+          <div class="reel-play-btn" id="playBtn-3">
+            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div class="reel-sound-btn" id="soundBtn-3" onclick="event.stopPropagation(); toggleSound(3)">
+            <svg id="soundIcon-3" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </div>
+          <div class="reel-progress-wrap"><div class="reel-progress" id="progress-3"></div></div>
+          <div class="reel-label">
+            <img src="assets/images/logo.png" alt="Rahiq Bio" class="reel-logo">
+            <span>Rahiq Bio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section">
+  <div class="testimonials-container">
+    <div class="section-header">
+      <div class="section-tag">آراء عملائنا</div>
+      <h2 class="section-title">ماذا يقولون عنا</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p>"عسل السدر من راحيق بيو لا مثيل له، جربت كثيراً من المنتجات لكن هذا الأفضل على الإطلاق. التوصيل كان سريعاً والتغليف ممتاز."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ف.م</div>
+          <div class="author-info">
+            <strong>فاطمة المنصوري</strong>
+            <span>الدار البيضاء</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card featured-testimonial">
+        <div class="testimonial-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p>"الأملو رائع جداً، أطفالي يحبونه كثيراً على الخبز مع العسل. وزيت الأركان الغذائي أضفته للسلطات وكان طعمه مميزاً. بلا شك سأعيد الطلب!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">أ.ب</div>
+          <div class="author-info">
+            <strong>أحمد البوشيخي</strong>
+            <span>مراكش</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p>"عسل الدغموس أهدته لأمي وكانت مسرورة جداً. نكهة رائعة وجودة عالية. خدمة التوصيل احترافية جداً."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ن.ح</div>
+          <div class="author-info">
+            <strong>نورهان الحسناوي</strong>
+            <span>أكادير</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact / Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/images/logo.png" alt="Rahiq Bio" class="footer-logo-img">
+      </div>
+      <p class="footer-tagline">طبيعة المغرب في كل منتج</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/rahiqbio.officiel" target="_blank" aria-label="Instagram" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/18Nc41o16k/" target="_blank" aria-label="Facebook" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@rahiqbio.officiel" target="_blank" aria-label="TikTok" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a href="https://maps.app.goo.gl/vbruRCCsBB3X95nh7" target="_blank" aria-label="Google Maps" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.102 0 5 3.102 5 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.898-3.102-7-7-7zm0 9.5c-1.381 0-2.5-1.119-2.5-2.5S10.619 4.5 12 4.5s2.5 1.119 2.5 2.5S13.381 9.5 12 9.5z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <h4>روابط سريعة</h4>
+      <a href="#products">منتجاتنا</a>
+      <a href="#about">من نحن</a>
+      <a href="#why-us">لماذا نحن</a>
+      <a href="#contact">تواصل معنا</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>السياسات القانونية</h4>
+      <a href="legal.html#shipping">سياسة التوصيل</a>
+      <a href="legal.html#returns">سياسة الإرجاع</a>
+      <a href="legal.html#privacy">سياسة الخصوصية</a>
+      <a href="legal.html#terms">شروط البيع</a>
+      <a href="legal.html#legal-info">المعلومات القانونية</a>
+    </div>
+    <div class="footer-contact-col">
+      <h4>تواصل معنا</h4>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:+212713793867">+212 713-793867</a>
+      </div>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="https://wa.me/212713793867" target="_blank">واتساب: 212713793867+</a>
+      </div>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.app.goo.gl/sxdj6CsSiMqecsKS9" target="_blank">موقعنا على الخريطة</a>
+      </div>
+      <div class="footer-map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Rahiqbio+SARL&output=embed&hl=ar&z=16"
+          width="100%"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="موقع Rahiq Bio على الخريطة">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <span>Rahiq Bio SARL</span> — جميع الحقوق محفوظة</p>
+    <p class="footer-legal-ids">RC: 296959 &nbsp;|&nbsp; ICE: 003804646000080 &nbsp;|&nbsp; IF: 68636648 &nbsp;|&nbsp; Patente: 57234762</p>
+    <p class="footer-legal-links"><a href="legal.html#privacy">الخصوصية</a> &nbsp;·&nbsp; <a href="legal.html#terms">شروط البيع</a> &nbsp;·&nbsp; <a href="legal.html#shipping">التوصيل</a> &nbsp;·&nbsp; <a href="legal.html#returns">الإرجاع</a> &nbsp;·&nbsp; <a href="legal.html#cookies">الكوكيز</a></p>
+  </div>
+</footer>
+
+<!-- Product Modal / Landing Page -->
+<div class="product-modal" id="productModal" role="dialog" aria-modal="true">
+  <div class="modal-overlay" onclick="closeProduct()"></div>
+  <div class="modal-content" id="modalContent">
+    <button class="modal-close" onclick="closeProduct()" aria-label="إغلاق">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div id="modalInner"></div>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="checkout-modal" id="checkoutModal" aria-modal="true" role="dialog">
+  <div class="checkout-backdrop" onclick="closeCheckout()"></div>
+  <div class="checkout-sheet">
+
+    <!-- ── Header ── -->
+    <div class="chk-header">
+      <button class="chk-back-btn" onclick="closeCheckout()" aria-label="رجوع">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="chk-header-center">
+        <h3>إتمام الطلب</h3>
+        <p id="chkHeaderSub">تأكيد طلبك خطوة بخطوة</p>
+      </div>
+      <div class="chk-header-logo">
+        <img src="assets/images/logo.png" alt="Rahiq Bio" style="height:36px">
+      </div>
+    </div>
+
+    <!-- ── Scrollable body ── -->
+    <div class="checkout-body">
+
+      <!-- ① ملخص المنتجات -->
+      <div class="chk-block">
+        <div class="chk-block-title">
+          <div class="chk-block-icon" style="background:#fff3e0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4851A" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          </div>
+          <span>ملخص الطلب</span>
+        </div>
+        <div class="chk-items" id="chkSummary"></div>
+      </div>
+
+      <!-- ② form -->
+      <form class="chk-form" id="chkForm" onsubmit="submitCartOrder(event)" novalidate>
+
+        <!-- معلومات التواصل -->
+        <div class="chk-block">
+          <div class="chk-block-title">
+            <div class="chk-block-icon" style="background:#e8f5e9">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span>معلومات التواصل</span>
+          </div>
+          <div class="chk-fields">
+            <div class="chk-field">
+              <label for="chkName">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                الاسم الكامل
+              </label>
+              <input type="text" id="chkName" placeholder="مثال: محمد العلوي" autocomplete="name" required>
+            </div>
+            <div class="chk-field">
+              <label for="chkPhone">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                رقم الهاتف
+              </label>
+              <input type="tel" id="chkPhone" placeholder="0600000000" autocomplete="tel" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- عنوان التوصيل -->
+        <div class="chk-block">
+          <div class="chk-block-title">
+            <div class="chk-block-icon" style="background:#e3f2fd">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1976d2" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>عنوان التوصيل</span>
+          </div>
+          <div class="chk-fields">
+            <div class="chk-field">
+              <label for="chkCity">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                المدينة
+              </label>
+              <select id="chkCity" required>
+                <option value="">اختر مدينتك</option>
+                <option>الدار البيضاء</option><option>الرباط</option><option>مراكش</option>
+                <option>فاس</option><option>طنجة</option><option>أكادير</option>
+                <option>مكناس</option><option>وجدة</option><option>القنيطرة</option>
+                <option>تطوان</option><option>سلا</option><option>بني ملال</option>
+                <option>الحسيمة</option><option>الجديدة</option><option>آسفي</option>
+                <option>الناظور</option><option>خريبكة</option><option>سطات</option>
+                <option>خنيفرة</option><option>تازة</option><option>الداخلة</option>
+                <option>العيون</option><option>كلميم</option><option>ورززات</option>
+                <option>الرشيدية</option><option>إفران</option><option>شفشاون</option>
+                <option>الفقيه بن صالح</option><option>برشيد</option><option>سيدي سليمان</option>
+              </select>
+            </div>
+            <div class="chk-field chk-field-full">
+              <label for="chkAddress">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                العنوان التفصيلي
+              </label>
+              <input type="text" id="chkAddress" placeholder="الحي، الشارع، رقم المنزل..." autocomplete="street-address" required>
+            </div>
+            <div class="chk-field chk-field-full">
+              <label for="chkNotes">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                ملاحظات (اختياري)
+              </label>
+              <textarea id="chkNotes" rows="2" placeholder="أي تفاصيل أو طلبات خاصة..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- ③ الإجمالي -->
+        <div class="chk-total-card">
+          <div class="chk-total-row">
+            <span>مجموع المنتجات</span>
+            <span id="chkSubtotal">0 درهم</span>
+          </div>
+          <div class="chk-total-row">
+            <div class="chk-ship-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              التوصيل
+            </div>
+            <span id="chkShipping" class="chk-ship-val">اختر المدينة</span>
+          </div>
+          <div class="chk-total-divider"></div>
+          <div class="chk-total-row chk-grand-row">
+            <strong>المجموع الكلي</strong>
+            <strong id="chkGrand" class="chk-grand-amt">0 درهم</strong>
+          </div>
+        </div>
+
+        <!-- ④ ضمانات -->
+        <div class="chk-trust-strip">
+          <div class="chk-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span>دفع عند<br>الاستلام</span>
+          </div>
+          <div class="chk-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>جودة<br>مضمونة</span>
+          </div>
+          <div class="chk-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>توصيل<br>سريع</span>
+          </div>
+          <div class="chk-trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.72"/></svg>
+            <span>إرجاع<br>7 أيام</span>
+          </div>
+        </div>
+
+        <!-- ⑤ زر التأكيد -->
+        <button type="submit" class="btn-submit-chk" id="chkSubmitBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          تأكيد الطلب
+        </button>
+        <p class="chk-wa-note">سيتم إرسال تفاصيل طلبك عبر واتساب وتسجيله تلقائياً في نظامنا</p>
+
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<!-- Order Success Modal -->
+<div class="success-modal" id="successModal">
+  <div class="success-content">
+    <div class="success-icon">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2A4937" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+    <h3>تم استلام طلبك!</h3>
+    <p>شكراً لك. سنتواصل معك قريباً لتأكيد الطلب والتوصيل.</p>
+    <button onclick="closeSuccess()" class="btn-primary">حسناً</button>
+  </div>
+</div>
+
+<!-- CDN Libraries — Three.js removed (replaced with CSS), GSAP deferred -->
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="script.js"></script>
+<script defer src="anim.js"></script>
+</body>
+</html>
