@@ -591,6 +591,57 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin: 0 auto;
 }
 
+/* ===== MAINTENANCE BANNER ===== */
+.products-maintenance-banner {
+  background: linear-gradient(135deg, #1a3328, #2A4937);
+  border: 1px solid rgba(254,214,23,0.3);
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 36px;
+}
+.pmb-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--gold);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.pmb-inner svg { flex-shrink: 0; stroke: var(--gold); }
+.pmb-inner div { display: flex; flex-direction: column; gap: 4px; }
+.pmb-inner strong { font-size: 16px; font-weight: 800; color: var(--gold); }
+.pmb-inner span { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+/* ===== PRODUCT CARD — MAINTENANCE LOCK ===== */
+.product-card.maintenance {
+  position: relative;
+  pointer-events: none;
+}
+.product-card.maintenance::after {
+  content: 'قيد الإصلاح';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 51, 40, 0.82);
+  backdrop-filter: blur(3px);
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: 800;
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 1px;
+  z-index: 10;
+  border: 2px dashed rgba(254,214,23,0.4);
+}
+@media (max-width: 767px) {
+  .products-maintenance-banner { padding: 14px 16px; margin-bottom: 24px; border-radius: 12px; }
+  .pmb-inner strong { font-size: 14px; }
+  .pmb-inner span { font-size: 12px; }
+  .product-card.maintenance::after { font-size: 14px; }
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 40px;

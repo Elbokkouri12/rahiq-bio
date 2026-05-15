@@ -1137,3 +1137,13 @@ document.addEventListener('click', function(e) {
   }
 });
 
+
+// ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً =====
+(function applyMaintenance() {
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.classList.add('maintenance');
+  });
+  // تعطيل زر السلة العائم
+  const cartFloat = document.getElementById('cartFloat');
+  if (cartFloat) cartFloat.style.display = 'none';
+})();
