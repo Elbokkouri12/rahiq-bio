@@ -338,6 +338,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 28px;
   backdrop-filter: blur(12px);
   opacity: 1 !important;
+  direction: ltr;
 }
 
 /* The full-width flex row that animates */
@@ -346,10 +347,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   animation: tickerScroll 11s linear infinite;
   will-change: transform;
+  direction: ltr;
 }
 
-/* Each copy: padding ensures the gap between copies
-   equals the internal gap (8px + 8px = 16px total) */
+/* Each copy: padding ensures the gap between copies */
 .ticker-copy {
   display: flex;
   align-items: center;
@@ -359,7 +360,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   white-space: nowrap;
 }
 
-/* At -50% the inner moves exactly one copy width → seamless loop */
 @keyframes tickerScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -370,6 +370,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+/* موبايل: نص ثابت بدون تمرير */
+@media (max-width: 767px) {
+  .hero-badge-ticker {
+    width: auto;
+    padding: 7px 22px;
+  }
+  .ticker-inner {
+    animation: none;
+    justify-content: center;
+  }
+  .ticker-copy:last-child {
+    display: none;
+  }
 }
 
 .ticker-sep {
