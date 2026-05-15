@@ -1473,6 +1473,52 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background-size: 60px 60px;
 }
 .why-container { max-width: 1200px; margin: 0 auto; position: relative; }
+
+/* ── قصتنا داخل why-section ── */
+.story-in-why {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.story-paragraphs {
+  max-width: 720px;
+  margin: 24px auto 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.story-paragraphs p {
+  color: rgba(255,255,255,0.82);
+  font-size: 16px;
+  line-height: 1.85;
+}
+.story-paragraphs strong { color: var(--gold); font-weight: 800; }
+.story-tagline-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+.story-line {
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: rgba(254,214,23,0.35);
+}
+.story-tagline-text {
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Amiri', serif;
+  white-space: nowrap;
+}
+.why-inner-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 40px 0;
+}
+
 .why-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2776,6 +2822,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .product-quick-view { font-size: 11px; padding: 20px 10px 10px; }
 
   /* ── Why section: 2 per row ── */
+  .story-paragraphs p { font-size: 13px; line-height: 1.8; }
+  .story-tagline-text { font-size: 14px; }
+  .why-inner-divider { margin: 28px 0; }
   .why-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .why-card { padding: 20px 14px; border-radius: 16px; }
   .why-icon { width: 44px; height: 44px; font-size: 20px; margin-bottom: 10px; }

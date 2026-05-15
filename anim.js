@@ -205,7 +205,7 @@
     function setActive(id) {
       navLinks.forEach(l => l.classList.toggle('nav-active', l.getAttribute('href') === '#' + id));
     }
-    ['hero', 'products', 'about', 'why-us', 'contact'].forEach(id => {
+    ['hero', 'products', 'why-us', 'contact'].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
       ScrollTrigger.create({
