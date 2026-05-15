@@ -978,7 +978,11 @@ function submitCartOrder(e) {
   msg += `🏙️ *المدينة:* ${city}\n`;
   msg += `📍 *العنوان:* ${address}\n\n`;
   msg += `🛒 *المنتجات:*\n`;
-  cart.forEach(i => { msg += `  • ${i.name} (${i.weight}) × ${i.qty} = ${i.price * i.qty} درهم\n`; });
+  cart.forEach(i => {
+    const lineTotal = i.price * i.qty;
+    const qtyText = i.qty > 1 ? ` (${i.qty} قطع)` : '';
+    msg += `  • ${i.name} (${i.weight})${qtyText} ← *${lineTotal} درهم*\n`;
+  });
   msg += `\n💰 *المجموع:* ${subtotal} درهم`;
   msg += `\n🚚 *التوصيل:* ${shipping === 0 ? 'مجاني' : shipping + ' درهم'}`;
   msg += `\n✅ *الإجمالي:* ${grand} درهم`;
