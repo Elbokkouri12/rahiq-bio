@@ -40,10 +40,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float {
   position: fixed;
-  bottom: 30px;
-  left: 30px;
-  width: 60px;
-  height: 60px;
+  bottom: 24px;
+  left: 20px;
+  width: 52px;
+  height: 52px;
   background: linear-gradient(135deg, #25D366, #128C7E);
   border-radius: 50%;
   display: flex;
@@ -51,12 +51,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: center;
   color: white;
   z-index: 9999;
-  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.4);
   transition: var(--transition);
   animation: whatsapp-pulse 2s infinite;
 }
-.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.55); }
-.whatsapp-float svg { width: 32px; height: 32px; }
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(37,211,102,0.55); }
+.whatsapp-float svg { width: 26px; height: 26px; }
 
 @keyframes whatsapp-pulse {
   0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
@@ -876,11 +876,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ===== CART FLOAT ===== */
 .cart-float {
   position: fixed;
-  bottom: 160px;
-  left: 24px;
+  bottom: 84px;
+  left: 20px;
   z-index: 9990;
-  width: 54px;
-  height: 54px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--green-dark), #1a3328);
   color: white;
@@ -2986,8 +2986,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .footer-legal-links { font-size: 11px; }
 
   /* ── WhatsApp float ── */
-  .whatsapp-float { left: 12px; bottom: 12px; width: 48px; height: 48px; }
-  .whatsapp-float svg { width: 24px; height: 24px; }
+  .whatsapp-float { left: 16px; bottom: 20px; width: 50px; height: 50px; }
+  .whatsapp-float svg { width: 25px; height: 25px; }
+  .cart-float { left: 16px; bottom: 80px; width: 50px; height: 50px; }
 
   /* ── Modal (product page) ── */
   .modal-content { border-radius: 0; }
