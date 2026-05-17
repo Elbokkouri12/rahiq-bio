@@ -567,26 +567,40 @@ function _syncSoundBtn(isMuted) {
   if (label)     label.textContent        = isMuted ? 'تشغيل الصوت' : 'كتم الصوت';
 }
 
+// الحالة الداخلية — دائماً تبدأ مكتومة
+var _heroSoundMuted = true;
+
 function toggleHeroSound() {
   const video = document.getElementById('heroVideo');
   if (!video) return;
-  video.muted = !video.muted;
-  const isMuted = video.muted;
-  _syncSoundBtn(isMuted);
-  if (!isMuted) {
-    // على iOS يجب استدعاء play() بعد رفع الصوت حتى يشتغل الصوت
-    video.play().catch(() => {
+
+  _heroSoundMuted = !_heroSoundMuted;
+
+  if (_heroSoundMuted) {
+    video.muted = true;
+    _syncSoundBtn(true);
+  } else {
+    // iOS Safari: أوقف ثم أعد التشغيل بصوت
+    video.muted = false;
+    video.volume = 1;
+    const t = video.currentTime;
+    video.pause();
+    video.currentTime = t;
+    video.play().catch(function() {
+      _heroSoundMuted = true;
       video.muted = true;
       _syncSoundBtn(true);
     });
+    _syncSoundBtn(false);
   }
 }
 
-// مزامنة زر الصوت مع الحالة الحقيقية للفيديو عند التحميل
-document.addEventListener('DOMContentLoaded', function() {
+// تأكيد الحالة الابتدائية — دائماً مكتوم
+setTimeout(function() {
   const video = document.getElementById('heroVideo');
-  if (video) _syncSoundBtn(video.muted);
-});
+  if (video) { video.muted = true; }
+  _syncSoundBtn(true);
+}, 300);
 
 // ===== CSS SPIN ANIMATION =====
 const style = document.createElement('style');
