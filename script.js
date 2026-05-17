@@ -580,17 +580,18 @@ function toggleHeroSound() {
     video.muted = true;
     _syncSoundBtn(true);
   } else {
-    // iOS Safari: أوقف ثم أعد التشغيل بصوت
+    // iOS Safari: unmute must happen synchronously within the gesture — no pause/seek
     video.muted = false;
     video.volume = 1;
-    const t = video.currentTime;
-    video.pause();
-    video.currentTime = t;
-    video.play().catch(function() {
-      _heroSoundMuted = true;
-      video.muted = true;
-      _syncSoundBtn(true);
-    });
+    var playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function() {
+        _heroSoundMuted = true;
+        video.muted = true;
+        _syncSoundBtn(true);
+        return;
+      });
+    }
     _syncSoundBtn(false);
   }
 }
