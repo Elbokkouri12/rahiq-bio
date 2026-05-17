@@ -558,17 +558,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== HERO SOUND TOGGLE =====
+function _syncSoundBtn(isMuted) {
+  const iconMuted = document.getElementById('iconMuted');
+  const iconSound = document.getElementById('iconSound');
+  const label     = document.getElementById('soundLabel');
+  if (iconMuted) iconMuted.style.display = isMuted ? 'block' : 'none';
+  if (iconSound) iconSound.style.display  = isMuted ? 'none'  : 'block';
+  if (label)     label.textContent        = isMuted ? 'تشغيل الصوت' : 'كتم الصوت';
+}
+
 function toggleHeroSound() {
   const video = document.getElementById('heroVideo');
   if (!video) return;
   video.muted = !video.muted;
   const isMuted = video.muted;
-  document.getElementById('iconMuted').style.display = isMuted ? 'block' : 'none';
-  document.getElementById('iconSound').style.display  = isMuted ? 'none'  : 'block';
-  document.getElementById('soundLabel').textContent    = isMuted ? 'تشغيل الصوت' : 'كتم الصوت';
-  // Ensure video is playing when user turns on sound
-  if (!isMuted && video.paused) video.play().catch(() => {});
+  _syncSoundBtn(isMuted);
+  if (!isMuted) {
+    // على iOS يجب استدعاء play() بعد رفع الصوت حتى يشتغل الصوت
+    video.play().catch(() => {
+      video.muted = true;
+      _syncSoundBtn(true);
+    });
+  }
 }
+
+// مزامنة زر الصوت مع الحالة الحقيقية للفيديو عند التحميل
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('heroVideo');
+  if (video) _syncSoundBtn(video.muted);
+});
 
 // ===== CSS SPIN ANIMATION =====
 const style = document.createElement('style');
