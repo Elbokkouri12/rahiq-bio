@@ -580,17 +580,9 @@ function toggleHeroSound() {
     video.muted = true;
     _syncSoundBtn(true);
   } else {
-    // iOS Safari: must remove HTML 'muted' attribute separately from JS .muted property
     video.removeAttribute('muted');
     video.muted = false;
     video.volume = 1;
-    video.pause();
-    video.play().catch(function() {
-      _heroSoundMuted = true;
-      video.setAttribute('muted', '');
-      video.muted = true;
-      _syncSoundBtn(true);
-    });
     _syncSoundBtn(false);
   }
 }

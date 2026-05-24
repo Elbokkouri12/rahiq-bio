@@ -218,11 +218,10 @@
   function playHeroVideo() {
     var v = document.getElementById('heroVideo') || document.querySelector('video.hero-video');
     if (!v) return;
-    v.muted = true;
+    if (!v.paused) return; // already playing — don't interfere with sound state
     var p = v.play();
     if (p && p.catch) {
       p.catch(function() {
-        // If blocked: hide video, show background color fallback
         if (v.readyState === 0) v.style.opacity = '0';
       });
     }
