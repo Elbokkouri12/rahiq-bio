@@ -78,12 +78,12 @@ const products = {
     nameFr: "Miel d'Eucalyptus",
     category: 'عسل',
     price: 199,
-    image: 'assets/images/eucalyptus-1.png',
+    image: 'assets/images/eucalyptus-3.png',
     gallery: [
+      'assets/images/eucalyptus-3.png',
+      'assets/images/eucalyptus-2.png',
       'assets/images/eucalyptus-1.png',
       'assets/images/eucalyptus-4.png',
-      'assets/images/eucalyptus-2.png',
-      'assets/images/eucalyptus-3.png',
     ],
     slogan: '100% طبيعي — 100% شفاء',
     shortDesc: 'عسل الكاليتوس الطبيعي — يدعم الجهاز التنفسي، يقوي المناعة، مضاد طبيعي للبكتيريا والالتهابات',
@@ -102,8 +102,8 @@ const products = {
     lot: '01-01EUC',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 110, image: 'assets/images/eucalyptus-4.png' },
-      { label: '1 كيلوغرام', price: 199, image: 'assets/images/eucalyptus-1.png' }
+      { label: '500 غرام', price: 110, image: 'assets/images/eucalyptus-2.png' },
+      { label: '1 كيلوغرام', price: 199, image: 'assets/images/eucalyptus-3.png' }
     ]
   },
   'mardiria': {
