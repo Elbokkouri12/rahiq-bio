@@ -154,6 +154,40 @@ const products = {
       { label: '1 كيلوغرام', price: 250, image: 'assets/images/sidr-new-4.png' }
     ]
   },
+  'zaatar': {
+    id: 'zaatar',
+    nameAr: 'عسل الزعتر الطبيعي',
+    nameFr: 'Miel de Thym',
+    category: 'عسل',
+    price: 300,
+    image: 'assets/images/zaatar-4.png',
+    gallery: [
+      'assets/images/zaatar-4.png',
+      'assets/images/zaatar-1.png',
+      'assets/images/zaatar-2.png',
+      'assets/images/zaatar-3.png',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل الزعتر الطبيعي الداكن — مضاد حيوي طبيعي، يقوي المناعة، مفيد للجهاز التنفسي',
+    fullDesc: 'عسل الزعتر من Rahiq Bio هو عسل طبيعي 100% يُستخرج من رحيق أزهار الزعتر، يتميز بلونه الداكن ونكهته القوية. يُعتبر من أفضل أنواع العسل لعلاج مشاكل الجهاز التنفسي وتقوية المناعة، ويُستعمل تقليدياً كمضاد حيوي طبيعي. منتج طبيعي خاضع لمراقبة ONSSA، بدون أي إضافات أو مواد حافظة.',
+    benefits: [
+      'يساعد في علاج السعال وخفض التهابات الحلق',
+      'مضاد قوي للبكتيريا والفيروسات',
+      'يقوي جهاز المناعة',
+      'مفيد للصدر والرئة والجهاز التنفسي',
+      'يساعد على الهضم ويرفع الطاقة',
+    ],
+    ingredients: 'عسل الزعتر الطبيعي 100%',
+    storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس والحرارة — قد يتبلور بشكل طبيعي وهذا دليل على جودته',
+    warnings: 'لا يُنصح به للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يُمنع لمن لديهم حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    lot: 'D-LUO',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '500 غرام', price: 160, image: 'assets/images/zaatar-1.png' },
+      { label: '1 كيلوغرام', price: 300, image: 'assets/images/zaatar-4.png' }
+    ]
+  },
   'limon': {
     id: 'limon',
     nameAr: 'عسل الليمون',
@@ -1334,7 +1368,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
