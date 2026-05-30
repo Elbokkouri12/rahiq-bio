@@ -3560,9 +3560,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .product-card { border-radius: 14px; }
   .product-card-inner { flex-direction: column; }
   .product-image-wrap { height: 150px; }
-  /* Featured product: full width, bigger image */
-  .product-card.featured { grid-column: 1 / -1; }
-  .product-card.featured .product-image-wrap { height: 320px; }
+  .product-image-wrap { height: 200px; }
   .product-card-body { padding: 10px 12px 12px; gap: 4px; }
   .product-category { font-size: 9px; letter-spacing: 0.8px; }
   .product-name-ar { font-size: 14px; line-height: 1.2; }
