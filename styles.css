@@ -2944,43 +2944,72 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── 3. BENEFITS ─────────────────────────────────── */
 .lp-bens-section {
-  padding: 40px 32px;
+  padding: 28px 20px 20px;
   background: white;
 }
 .lp-sec-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
   color: var(--green-dark);
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 .lp-sec-title span { color: var(--honey); }
-.lp-bens-grid {
+
+/* Grid box — shared style for benefits & ingredients */
+.lp-grid-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  background: #f4f9f5;
+  border: 1.5px solid rgba(42,73,55,0.1);
+  border-radius: 16px;
+  overflow: hidden;
 }
-.lp-ben-card {
-  background: linear-gradient(145deg, #f4fbee, #ecf8e3);
-  border-radius: 18px;
-  padding: 22px 18px;
+.lp-grid-box--sm { background: #f9fbf9; }
+.lp-grid-item {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 12px;
-  border: 1px solid rgba(42,73,55,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-dark);
+  position: relative;
+  line-height: 1.4;
 }
-.lp-ben-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(42,73,55,0.1); }
-.lp-ben-icon {
-  width: 44px; height: 44px;
-  background: linear-gradient(135deg, var(--green-dark), #3d6b4f);
-  border-radius: 12px;
+/* Right border between columns */
+.lp-grid-item:nth-child(odd) { border-left: 1px solid rgba(42,73,55,0.1); }
+/* Bottom border between rows (all except last row) */
+.lp-grid-item:not(:nth-last-child(-n+2)) { border-bottom: 1px solid rgba(42,73,55,0.1); }
+/* If odd total items, last single item spans full width */
+.lp-grid-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  border-left: none;
+  border-bottom: none;
+  justify-content: center;
+}
+.lp-grid-icon {
+  width: 36px; height: 36px;
+  background: var(--green-dark);
+  border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   color: var(--gold);
   flex-shrink: 0;
 }
-.lp-ben-card p { font-size: 14px; color: var(--text-dark); line-height: 1.65; margin: 0; font-weight: 500; }
+.lp-grid-item--ing { font-size: 13px; color: #3a5a47; }
+.lp-grid-item--ing svg { color: var(--green-dark); flex-shrink: 0; }
+
+/* Section label */
+.lp-section-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+.lp-section-label svg { color: var(--green-dark); }
 
 /* ── 4. INGREDIENTS ──────────────────────────────── */
 .lp-ingredients-section {

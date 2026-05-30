@@ -327,14 +327,6 @@ function buildProductLanding(p) {
     `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
     `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/></svg>`,
   ];
-  const benefitCards = p.benefits.map((b, i) => `
-    <div class="lp-ben-card">
-      <div class="lp-ben-icon">${benefitIcons[i % 5]}</div>
-      <p>${b}</p>
-    </div>`).join('');
-
-  const ingChips = p.ingredients.split('،').map(ing =>
-    `<span class="lp-ing-chip">${ing.trim()}</span>`).join('');
 
   const nutritionSection = p.nutrition ? `
     <div class="lp-nutrition-section">
@@ -496,22 +488,33 @@ function buildProductLanding(p) {
       </div>
     </div>
 
-    <!-- BELOW FOLD: Benefits -->
+    <!-- BELOW FOLD: Benefits grid 2x2 -->
     <div class="lp-bens-section">
       <h2 class="lp-sec-title">لماذا تختار <span>${p.nameAr}</span>؟</h2>
-      <div class="lp-bens-grid">${benefitCards}</div>
+      <div class="lp-grid-box">
+        ${p.benefits.map((b, i) => `
+          <div class="lp-grid-item">
+            <div class="lp-grid-icon">${benefitIcons[i % 5]}</div>
+            <span>${b}</span>
+          </div>`).join('')}
+      </div>
     </div>
 
     <!-- BELOW FOLD: Details -->
     <div class="lp-details-section">
-      <div class="lp-ingredients-section">
-        <div class="lp-ing-header">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
-          المكونات الطبيعية
-        </div>
-        <div class="lp-ing-chips">${ingChips}</div>
-      </div>
       ${nutritionSection}
+      <!-- Ingredients as grid box -->
+      <div class="lp-section-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        المكونات الطبيعية
+      </div>
+      <div class="lp-grid-box lp-grid-box--sm">
+        ${p.ingredients.split('،').map(ing => `
+          <div class="lp-grid-item lp-grid-item--ing">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/></svg>
+            <span>${ing.trim()}</span>
+          </div>`).join('')}
+      </div>
       ${(p.storage || p.warnings) ? `
       <div class="lp-details-cards-row">
         ${p.storage ? `
@@ -524,15 +527,6 @@ function buildProductLanding(p) {
           <div class="lp-warn-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
           <div><strong>تحذيرات وتنبيهات</strong><p>${p.warnings}</p></div>
         </div>` : ''}
-      </div>` : ''}
-      ${p.onssa ? `
-      <div class="lp-onssa-section">
-        <div class="lp-onssa-logo">ONSSA</div>
-        <div class="lp-onssa-info">
-          <strong>معتمد من المكتب الوطني للسلامة الصحية للمنتجات الغذائية</strong>
-          <span>رقم الترخيص: ${p.onssa}</span>
-          ${p.lot ? `<span>رقم الدفعة: ${p.lot}</span>` : ''}
-        </div>
       </div>` : ''}
     </div>
 
