@@ -190,17 +190,37 @@ const products = {
   },
   'limon': {
     id: 'limon',
-    nameAr: 'عسل الليمون',
+    nameAr: 'عسل الليمون الطبيعي',
     nameFr: 'Miel de Citronnier',
     category: 'عسل',
-    price: 179,
-    image: 'assets/images/limon.jpg',
-    shortDesc: 'عسل أزهار الليمون المنعش — غني بمضادات الأكسدة',
-    fullDesc: 'عسل الليمون — يُستخرج من رحيق أزهار أشجار الليمون المتفتحة في حدائق المغرب. لونه عنبري ذهبي شفاف، طعمه خفيف ومنعش مع لمسة حمضية رقيقة. من أجمل أصناف العسل المغربي وأخفّها على الذوق.',
-    benefits: ['منعش ومقوٍّ للطاقة','غني بفيتامين C ومضادات الأكسدة','يدعم صحة الجهاز الهضمي','مثالي للأطفال والكبار'],
-    ingredients: 'عسل أزهار الليمون الطبيعي 100%',
+    price: 150,
+    image: 'assets/images/limon-1.png',
+    gallery: [
+      'assets/images/limon-1.png',
+      'assets/images/limon-4.png',
+      'assets/images/limon-2.png',
+      'assets/images/limon-3.png',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل الليمون الذهبي المنعش — يقوي المناعة، يدعم الهضم، مثالي للاستهلاك اليومي',
+    fullDesc: 'عسل الليمون من Rahiq Bio هو عسل طبيعي 100% يُستخرج من رحيق أزهار شجرة الليمون، يتميز بلونه الذهبي الفاتح وطعمه اللطيف المنعش. يُعتبر من أفضل أنواع العسل للاستهلاك اليومي، حيث يجمع بين الطعم الخفيف والفوائد الصحية المتعددة خصوصاً في دعم المناعة وتحسين الهضم. منتج طبيعي خاضع لمراقبة ONSSA، بدون أي إضافات أو مواد حافظة.',
+    benefits: [
+      'يقوي جهاز المناعة ويساعد على مقاومة البرد',
+      'يساعد على الهضم وتحسين عمل المعدة',
+      'غني بمضادات الأكسدة والفيتامينات',
+      'يمنح طاقة طبيعية ونشاطاً للجسم',
+      'مناسب للأطفال والكبار ومثالي مع الماء الدافئ',
+    ],
+    ingredients: 'عسل الليمون الطبيعي 100%',
+    storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس والحرارة — قد يتبلور بشكل طبيعي وهذا دليل على جودته',
+    warnings: 'لا يُنصح به للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يُمنع لمن لديهم حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    lot: '01-03T',
     badge: 'طبيعي 100%',
-    sizes: [{ label: '500 غرام', price: 99 }, { label: '1 كيلوغرام', price: 179 }]
+    sizes: [
+      { label: '500 غرام', price: 80, image: 'assets/images/limon-4.png' },
+      { label: '1 كيلوغرام', price: 150, image: 'assets/images/limon-1.png' }
+    ]
   },
   'argan': {
     id: 'argan',
@@ -1368,7 +1388,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
