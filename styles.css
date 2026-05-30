@@ -810,6 +810,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .badge-featured { background: var(--gold); color: var(--green-dark); }
 .badge-rare { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; }
 .badge-premium { background: linear-gradient(135deg, var(--green-dark), #1a2f24); color: var(--gold); }
+.badge-onssa { background: linear-gradient(135deg, #1d6fa4, #0e4d78); color: white; }
 
 .product-card-body {
   padding: 18px 20px 20px;
@@ -2509,6 +2510,84 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 50px;
   box-shadow: 0 2px 6px rgba(42,73,55,0.06);
 }
+
+/* ── ONSSA / Slogan / Warnings ── */
+.lp-slogan {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), #f5c400);
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+.lp-onssa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #e8f4fd, #d0eaf9);
+  color: #0e4d78;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  border: 1.5px solid #1d6fa4;
+  margin-bottom: 16px;
+}
+.lp-storage-card, .lp-warnings-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: white;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 14px;
+  border: 1.5px solid rgba(42,73,55,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.lp-storage-card strong, .lp-warnings-card strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+.lp-storage-card p, .lp-warnings-card p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+.lp-storage-icon { color: var(--green-dark); margin-top: 2px; flex-shrink: 0; }
+.lp-warnings-card { background: #fffbeb; border-color: #f59e0b33; }
+.lp-warn-icon { color: #d97706; margin-top: 2px; flex-shrink: 0; }
+.lp-warnings-card strong { color: #92400e; }
+.lp-onssa-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
+  border: 2px solid #1d6fa4;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 14px;
+}
+.lp-onssa-logo {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0e4d78;
+  background: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 2px solid #1d6fa4;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+.lp-onssa-info { display: flex; flex-direction: column; gap: 3px; }
+.lp-onssa-info strong { font-size: 13px; color: #0e4d78; font-weight: 800; }
+.lp-onssa-info span { font-size: 12px; color: #1d6fa4; }
 
 /* ── 5. ORDER FORM ───────────────────────────────── */
 .lp-order-section {

@@ -141,6 +141,37 @@ const products = {
     ingredients: 'زيت أركان بكر 100% معصور بارداً، عضوي طبيعي',
     badge: 'عضوي',
     sizes: [{ label: '100 مل', price: 99 }, { label: '200 مل', price: 185 }]
+  },
+  'jarjir': {
+    id: 'jarjir',
+    nameAr: 'عسل الجرجير الطبيعي',
+    nameFr: 'Miel de Roquette',
+    category: 'عسل',
+    price: 320,
+    image: 'assets/images/jarjir-1.jpg',
+    gallery: [
+      'assets/images/jarjir-1.jpg',
+      'assets/images/jarjir-2.jpg',
+      'assets/images/jarjir-3.jpg',
+      'assets/images/jarjir-4.jpg',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل الجرجير الكريمي الفاخر — مهدئ للأعصاب، محسّن للنوم، مقوٍّ للطاقة',
+    fullDesc: 'عسل الجرجير من Rahiq Bio هو منتج طبيعي فاخر يُستخرج بعناية من رحيق أزهار الجرجير، ليحافظ على جميع خصائصه الغذائية والصحية. يتميز بقوامه الكريمي الناعم وطعمه اللطيف المميز، مما يجعله مناسباً للاستهلاك اليومي. بفضل تركيبته الطبيعية الغنية، يساعد على تعزيز النشاط، تحسين المزاج، ودعم صحة الجسم بشكل عام. منتج مغربي أصيل خاضع لرقابة ONSSA، خالٍ من أي إضافات صناعية.',
+    benefits: [
+      'مفيد للأعصاب ويساعد على الاسترخاء',
+      'يحسّن جودة النوم ويقلل التوتر',
+      'يعزز الطاقة والنشاط الجسدي',
+      'يحتوي على خصائص مضادة للبكتيريا',
+      'يساعد في التخفيف من الالتهابات الخفيفة',
+    ],
+    ingredients: 'عسل الجرجير الطبيعي 100%',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن الضوء والحرارة — قد يتبلور بشكل طبيعي دون أن يؤثر على جودته',
+    warnings: 'لا يُعطى للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يُمنع لمن لديه حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    lot: '01-01ROQ',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '500 غرام', price: 179 }, { label: '1 كيلوغرام', price: 320 }]
   }
 };
 
@@ -334,6 +365,8 @@ function buildProductLanding(p) {
         <span class="lp-cat-tag">${p.category}</span>
         <h1 class="lp-title">${p.nameAr}</h1>
         <p class="lp-subtitle">${p.nameFr}</p>
+        ${p.slogan ? `<div class="lp-slogan">${p.slogan}</div>` : ''}
+        ${p.onssa ? `<div class="lp-onssa-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> مراقب من ONSSA — رقم ${p.onssa}</div>` : ''}
 
         <div class="lp-rating">
           ${STAR}${STAR}${STAR}${STAR}${STAR}
@@ -401,6 +434,25 @@ function buildProductLanding(p) {
       </div>
       ${nutritionSection}
       ${usageSection}
+      ${p.storage ? `
+      <div class="lp-storage-card">
+        <div class="lp-storage-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div><strong>طريقة التخزين</strong><p>${p.storage}</p></div>
+      </div>` : ''}
+      ${p.warnings ? `
+      <div class="lp-warnings-card">
+        <div class="lp-warn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <div><strong>تحذيرات وتنبيهات</strong><p>${p.warnings}</p></div>
+      </div>` : ''}
+      ${p.onssa ? `
+      <div class="lp-onssa-section">
+        <div class="lp-onssa-logo">ONSSA</div>
+        <div class="lp-onssa-info">
+          <strong>معتمد من المكتب الوطني للسلامة الصحية</strong>
+          <span>رقم الترخيص: ${p.onssa}</span>
+          ${p.lot ? `<span>رقم الدفعة: ${p.lot}</span>` : ''}
+        </div>
+      </div>` : ''}
     </div>
 
     <!-- ⑤ ORDER FORM -->
@@ -1162,12 +1214,13 @@ document.addEventListener('click', function(e) {
 });
 
 
-// ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً =====
+// ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
+  const liveProducts = ['jarjir']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
-    card.classList.add('maintenance');
+    const pid = card.dataset.product;
+    if (!liveProducts.includes(pid)) {
+      card.classList.add('maintenance');
+    }
   });
-  // تعطيل زر السلة العائم
-  const cartFloat = document.getElementById('cartFloat');
-  if (cartFloat) cartFloat.style.display = 'none';
 })();
