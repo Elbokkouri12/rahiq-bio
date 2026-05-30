@@ -2637,9 +2637,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lp-v2-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(37,211,102,0.45); }
 
 /* ── STICKY BUY BUTTON ── */
+/* Desktop: centered pill */
 .lp-sticky-buy {
   position: fixed;
-  bottom: 20px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9999;
@@ -2653,12 +2654,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lp-sticky-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: var(--green-dark);
   color: white;
   border: none;
   border-radius: 50px;
-  padding: 14px 28px;
+  padding: 14px 32px;
   font-size: 15px;
   font-weight: 800;
   font-family: inherit;
@@ -2666,13 +2668,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   white-space: nowrap;
   box-shadow: 0 8px 28px rgba(42,73,55,0.45);
   transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 280px;
 }
 .lp-sticky-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(42,73,55,0.55); }
 .lp-sticky-btn:active { transform: scale(0.97); }
 .lp-sticky-btn span { color: var(--gold); font-family: 'Jost', sans-serif; }
+
+/* Mobile: full-width bottom bar */
 @media (max-width: 767px) {
-  .lp-sticky-buy { bottom: 14px; left: 16px; right: 16px; transform: none; }
-  .lp-sticky-btn { width: 100%; justify-content: center; padding: 14px 20px; font-size: 14px; border-radius: 14px; }
+  .lp-sticky-buy {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    transform: none !important;
+    animation: slideUpBarIn 0.3s ease forwards;
+    background: white;
+    border-top: 1px solid rgba(42,73,55,0.1);
+    padding: 10px 16px 18px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+  @keyframes slideUpBarIn {
+    from { opacity: 0; transform: translateY(100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .lp-sticky-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    border-radius: 12px !important;
+    padding: 14px 20px !important;
+    font-size: 14px !important;
+    box-shadow: 0 4px 16px rgba(42,73,55,0.3) !important;
+  }
 }
 
 /* Trust bar — single horizontal strip */
