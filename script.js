@@ -305,7 +305,6 @@ function buildProductLanding(p) {
   const images = p.gallery || [p.image];
 
   const WA_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
-  const CHK = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>`;
   const STAR = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
 
   const thumbsHtml = images.map((img, i) => `
@@ -377,7 +376,7 @@ function buildProductLanding(p) {
           <span class="lp-cat-tag">${p.category}</span>
           <h1 class="lp-v2-title">${p.nameAr}</h1>
           <p class="lp-v2-subtitle">${p.nameFr}</p>
-          ${p.slogan ? `<div class="lp-slogan">${p.slogan}</div>` : ''}
+          ${p.slogan ? `<div class="lp-slogan lp-slogan--center">${p.slogan}</div>` : ''}
           ${p.onssa ? `<div class="lp-onssa-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> مراقب من ONSSA — ${p.onssa}</div>` : ''}
           <div class="lp-v2-rating">${STAR}${STAR}${STAR}${STAR}${STAR}<span>4.9 · <strong>+127 تقييم</strong></span></div>
         </div>
@@ -395,10 +394,14 @@ function buildProductLanding(p) {
           <span class="lp-v2-cod"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> الدفع عند الاستلام</span>
         </div>
 
-        <!-- Benefits mini list -->
-        <ul class="lp-v2-bullets">
-          ${p.benefits.map(b => `<li>${CHK}<span>${b}</span></li>`).join('')}
-        </ul>
+        <!-- Benefits as grid box -->
+        <div class="lp-v2-ben-grid">
+          ${p.benefits.map((b, i) => `
+            <div class="lp-v2-ben-item">
+              <div class="lp-v2-ben-icon">${benefitIcons[i % 5]}</div>
+              <span>${b}</span>
+            </div>`).join('')}
+        </div>
 
         <!-- COMPACT ORDER FORM -->
         <div class="lp-v2-form-box">

@@ -2382,23 +2382,47 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* Mini bullets */
-.lp-v2-bullets {
-  list-style: none;
-  padding: 12px 32px 0;
-  margin: 0;
+/* Benefits grid box in right column */
+.lp-v2-ben-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 12px 32px 0;
+  background: #f4f9f5;
+  border: 1.5px solid rgba(42,73,55,0.1);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.lp-v2-ben-item {
   display: flex;
   flex-direction: column;
-  gap: 7px;
-}
-.lp-v2-bullets li {
-  display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 8px;
-  font-size: 13px;
-  color: #444;
-  line-height: 1.5;
+  padding: 14px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green-dark);
+  line-height: 1.4;
+  position: relative;
 }
-.lp-v2-bullets li svg { color: var(--green-dark); flex-shrink: 0; margin-top: 2px; }
+.lp-v2-ben-item:nth-child(odd) { border-left: 1px solid rgba(42,73,55,0.1); }
+.lp-v2-ben-item:not(:nth-last-child(-n+2)) { border-bottom: 1px solid rgba(42,73,55,0.1); }
+.lp-v2-ben-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  border-left: none;
+}
+.lp-v2-ben-icon {
+  width: 34px; height: 34px;
+  background: var(--green-dark);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  .lp-v2-ben-grid { margin-left: 16px; margin-right: 16px; }
+}
 
 /* Order form box */
 .lp-v2-form-box {
@@ -2703,7 +2727,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .lp-v2-thumbs { justify-content: flex-start; }
   .lp-v2-thumb { width: 58px; height: 58px; }
   .lp-v2-right-col { max-height: none; overflow-y: visible; }
-  .lp-v2-prod-header, .lp-v2-size-section, .lp-v2-price-row, .lp-v2-bullets, .lp-v2-trust { padding-left: 16px; padding-right: 16px; }
+  .lp-v2-prod-header, .lp-v2-size-section, .lp-v2-price-row, .lp-v2-trust { padding-left: 16px; padding-right: 16px; }
   .lp-v2-form-box { margin-left: 16px; margin-right: 16px; }
   .lp-v2-title { font-size: 22px; }
   .lp-v2-price { font-size: 34px; }
@@ -3046,11 +3070,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--green-dark);
   font-size: 13px;
   font-weight: 800;
-  padding: 5px 16px;
+  padding: 6px 20px;
   border-radius: 50px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   letter-spacing: 0.3px;
+  text-align: center;
 }
+.lp-slogan--center {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+/* Center all grid-box items text */
+.lp-grid-box { text-align: center; }
+.lp-grid-item { justify-content: center; text-align: center; }
+.lp-grid-item--ing { justify-content: center; }
 .lp-onssa-badge {
   display: inline-flex;
   align-items: center;
