@@ -175,6 +175,42 @@ const products = {
       { label: '500 غرام', price: 179, image: 'assets/images/jarjir-2.jpg' },
       { label: '1 كيلوغرام', price: 320, image: 'assets/images/jarjir-1.jpg' }
     ]
+  },
+  'daghmous': {
+    id: 'daghmous',
+    nameAr: 'عسل الدغموس الطبيعي',
+    nameFr: 'Miel de Daghmous',
+    category: 'عسل',
+    price: 300,
+    image: 'assets/images/daghmous-1.jpg',
+    gallery: [
+      'assets/images/daghmous-1.jpg',
+      'assets/images/daghmous-3.jpg',
+      'assets/images/daghmous-2.jpg',
+      'assets/images/daghmous-4.jpg',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل الدغموس النادر الداكن — يقوي المناعة، يعزز الحيوية، مضاد طبيعي للالتهابات',
+    fullDesc: 'عسل الدغموس من أندر وأقوى أنواع العسل في المغرب، يُستخرج من نبات الدغموس المعروف بخصائصه العلاجية القوية. يتميز بلونه الداكن وطعمه القوي، وهو غني بالمركبات الطبيعية التي تساعد على تقوية الجسم وتعزيز المناعة. هذا العسل طبيعي 100% بدون أي إضافات، ويُجمع بعناية من خلايا النحل لضمان أعلى جودة وفائدة صحية.',
+    benefits: [
+      'يقوي جهاز المناعة',
+      'مفيد للجهاز التنفسي (الربو، الحساسية)',
+      'يساعد في محاربة الالتهابات',
+      'يعزز الطاقة والحيوية',
+      'يحتوي على خصائص مضادة للبكتيريا',
+      'مفيد للرجال ويعزز الحيوية',
+      'يساعد على تحسين الهضم',
+    ],
+    ingredients: 'عسل الدغموس الطبيعي 100%',
+    storage: 'يُحفظ في مكان جاف وبارد بعيد عن أشعة الشمس والحرارة — قد يتبلور بشكل طبيعي وهذا لا يؤثر على جودته',
+    warnings: 'لا يُنصح به للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يُمنع لمن لديهم حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    lot: '01-01DAG',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '500 غرام', price: 160, image: 'assets/images/daghmous-3.jpg' },
+      { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
+    ]
   }
 };
 
@@ -1224,7 +1260,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
