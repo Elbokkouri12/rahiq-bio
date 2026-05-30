@@ -790,24 +790,41 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   filter: drop-shadow(0 0 3px rgba(254,214,23,0.5));
 }
 
-/* mobile: scroll horizontally */
+/* tablet */
 @media (max-width: 860px) {
   .products-filter-outer {
     justify-content: flex-start;
-    padding: 6px 0 0;
-    margin-bottom: 36px;
+    padding: 4px 0 0;
+    margin-bottom: 28px;
   }
-  .products-filter-bar { margin: 0 16px; }
+  .products-filter-bar { margin: 0 14px; }
 }
+
+/* mobile */
 @media (max-width: 540px) {
-  .filter-btn {
-    padding: 9px 15px;
-    font-size: 13px;
-    gap: 6px;
-    border-radius: 13px;
+  .filter-heading-wrap { margin-bottom: 12px; padding: 0 12px; }
+  .filter-heading { gap: 8px; }
+  .fh-core { padding: 5px 13px; gap: 6px; }
+  .fh-core svg { width: 13px; height: 13px; }
+
+  .products-filter-outer {
+    padding: 3px 0 0;
+    margin-bottom: 20px;
   }
-  .filter-btn .fi { width: 15px; height: 15px; }
-  .products-filter-bar { gap: 4px; padding: 5px; border-radius: 18px; }
+  .products-filter-bar {
+    gap: 3px;
+    padding: 4px;
+    border-radius: 16px;
+    margin: 0 12px;
+  }
+  .filter-btn {
+    padding: 7px 11px;
+    font-size: 12px;
+    font-weight: 700;
+    gap: 5px;
+    border-radius: 11px;
+  }
+  .filter-btn .fi { width: 13px; height: 13px; }
 }
 
 .section-header {
@@ -3706,10 +3723,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .mobile-menu { display: none !important; }
 
   /* ── Sections: compact padding ── */
-  .products-section { padding: 36px 12px; }
+  .products-section { padding: 28px 12px 40px; }
   .about-section, .why-section, .testimonials-section,
   .cta-section, .reels-section { padding: 36px 14px; }
-  .section-header { margin-bottom: 24px; }
+  .section-header { margin-bottom: 18px; }
   .section-title { font-size: clamp(20px, 5.5vw, 28px); }
   .section-tag { font-size: 11px; padding: 5px 14px; margin-bottom: 8px; }
 
@@ -3744,6 +3761,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .variant-btn { font-size: 10px; padding: 3px 8px; border-radius: 6px; }
   .badge-natural, .badge-featured, .badge-rare, .badge-premium { font-size: 9px; padding: 3px 8px; }
   .product-quick-view { font-size: 11px; padding: 20px 10px 10px; }
+
+  /* ── Filter bar ── */
+  .filter-heading-wrap { margin-bottom: 10px; padding: 0 12px; }
+  .filter-heading { gap: 8px; }
+  .fh-core { padding: 5px 12px; gap: 5px; }
+  .fh-core svg { width: 12px; height: 12px; }
+  .fh-core span:not(.fh-dot):not(.fh-sub) { font-size: 11px; }
+  .fh-sub { display: none; }
+  .fh-dot { width: 3px; height: 3px; }
+
+  .products-filter-outer { margin-bottom: 20px; padding-top: 3px; }
+  .products-filter-bar { padding: 4px; gap: 3px; border-radius: 14px; margin: 0 10px; }
+  .filter-btn { padding: 7px 12px; font-size: 12px; gap: 5px; border-radius: 10px; }
+  .filter-btn .fi { width: 13px; height: 13px; }
 
   /* ── Why section: 2 per row ── */
   .story-paragraphs p { font-size: 13px; line-height: 1.8; }
