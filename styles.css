@@ -3742,7 +3742,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .cart-float { left: 16px; bottom: 80px; width: 50px; height: 50px; }
 
   /* ── Modal (product page) ── */
-  .modal-content { border-radius: 0; }
+  .modal-content { border-radius: 0; padding-bottom: 90px; }
   .form-row { grid-template-columns: 1fr; }
 
   /* ── Product landing page ── */
