@@ -171,7 +171,10 @@ const products = {
     onssa: 'N° M.28.10.25',
     lot: '01-01ROQ',
     badge: 'طبيعي 100%',
-    sizes: [{ label: '500 غرام', price: 179 }, { label: '1 كيلوغرام', price: 320 }]
+    sizes: [
+      { label: '500 غرام', price: 179, image: 'assets/images/jarjir-2.jpg' },
+      { label: '1 كيلوغرام', price: 320, image: 'assets/images/jarjir-1.jpg' }
+    ]
   }
 };
 
@@ -213,6 +216,15 @@ function selectSize(productId, sizeIdx) {
   if (priceEl) priceEl.textContent = p.sizes[sizeIdx].price.toLocaleString('ar-MA');
   const qty = parseInt(document.getElementById(`qty_${productId}`)?.value) || 1;
   updateTotal(p.sizes[sizeIdx].price, qty, productId);
+  // Switch main image if size has a dedicated image
+  const sizeImg = p.sizes[sizeIdx].image;
+  if (sizeImg) {
+    const mainImg = document.getElementById(`lp-main-img-${productId}`);
+    if (mainImg) {
+      mainImg.style.opacity = '0';
+      setTimeout(function() { mainImg.src = sizeImg; mainImg.style.opacity = '1'; }, 160);
+    }
+  }
 }
 
 function getCurrentPrice(productId) {
@@ -234,7 +246,8 @@ function switchGalleryImg(pid, src, btn) {
     mainImg.style.opacity = '0';
     setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 180);
   }
-  btn.closest('.lp-thumbs-strip').querySelectorAll('.lp-thumb-btn').forEach(b => b.classList.remove('active'));
+  var strip = btn.closest('.lp-thumbs-strip') || btn.closest('.lp-v2-thumbs');
+  if (strip) strip.querySelectorAll('.lp-thumb-btn, .lp-v2-thumb').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 }
 
@@ -272,48 +285,46 @@ function buildProductLanding(p) {
   const defaultPrice = p.sizes[defaultIdx].price;
   const images = p.gallery || [p.image];
 
-  const WA_SVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
-  const CHK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>`;
-  const STAR = `<svg width="16" height="16" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+  const WA_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+  const CHK = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>`;
+  const STAR = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
 
-  // Image Gallery
   const thumbsHtml = images.map((img, i) => `
-    <button type="button" class="lp-thumb-btn ${i === 0 ? 'active' : ''}" onclick="switchGalleryImg('${p.id}', '${img}', this)">
+    <button type="button" class="lp-v2-thumb ${i === 0 ? 'active' : ''}" onclick="switchGalleryImg('${p.id}','${img}',this)">
       <img src="${img}" alt="">
     </button>`).join('');
 
   const sizePicker = p.sizes.map((s, i) => `
-    <button type="button" class="lp-size-opt${i === defaultIdx ? ' active' : ''}"
-      data-pid="${p.id}" data-idx="${i}" onclick="selectSize('${p.id}', ${i})">
-      <span class="lp-size-name">${s.label}</span>
-      <span class="lp-size-price">${s.price} درهم</span>
+    <button type="button" class="lp-v2-size-btn${i === defaultIdx ? ' active' : ''}"
+      data-pid="${p.id}" data-idx="${i}" onclick="selectSize('${p.id}',${i})">
+      <span class="lp-v2-size-w">${s.label}</span>
+      <span class="lp-v2-size-p">${s.price} درهم</span>
     </button>`).join('');
 
   const benefitIcons = [
-    `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-    `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
-    `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
-    `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
+    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/></svg>`,
   ];
-
   const benefitCards = p.benefits.map((b, i) => `
     <div class="lp-ben-card">
-      <div class="lp-ben-icon">${benefitIcons[i % 4]}</div>
+      <div class="lp-ben-icon">${benefitIcons[i % 5]}</div>
       <p>${b}</p>
     </div>`).join('');
 
   const ingChips = p.ingredients.split('،').map(ing =>
     `<span class="lp-ing-chip">${ing.trim()}</span>`).join('');
 
-  // Nutrition section (only if product has it)
   const nutritionSection = p.nutrition ? `
     <div class="lp-nutrition-section">
       <div class="lp-section-header-wrap">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
         <h3 class="lp-sec-title-sm">القيمة الغذائية <small>لكل 100غ</small></h3>
       </div>
       <div class="lp-nut-grid">
-        <div class="lp-nut-card"><span class="lp-nut-val">${p.nutrition.calories}</span><span class="lp-nut-label">سعرات حرارية</span></div>
+        <div class="lp-nut-card"><span class="lp-nut-val">${p.nutrition.calories}</span><span class="lp-nut-label">سعرات</span></div>
         <div class="lp-nut-card"><span class="lp-nut-val">${p.nutrition.protein}</span><span class="lp-nut-label">بروتين</span></div>
         <div class="lp-nut-card"><span class="lp-nut-val">${p.nutrition.fat}</span><span class="lp-nut-label">دهون</span></div>
         <div class="lp-nut-card"><span class="lp-nut-val">${p.nutrition.carbs}</span><span class="lp-nut-label">كربوهيدرات</span></div>
@@ -322,23 +333,10 @@ function buildProductLanding(p) {
       </div>
     </div>` : '';
 
-  // Usage & Storage section
-  const usageSection = p.usage ? `
-    <div class="lp-usage-wrap">
-      <div class="lp-usage-card">
-        <div class="lp-usage-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg></div>
-        <div><h4>طريقة الاستخدام</h4><p>${p.usage}</p></div>
-      </div>
-      ${p.storage ? `<div class="lp-usage-card">
-        <div class="lp-usage-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <div><h4>طريقة الحفظ</h4><p>${p.storage}</p></div>
-      </div>` : ''}
-    </div>` : '';
-
   return `
   <div class="product-landing">
 
-    <!-- STICKY PAGE HEADER -->
+    <!-- HEADER -->
     <div class="lp-page-header">
       <button onclick="closeProduct()" class="lp-back-btn" aria-label="رجوع">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
@@ -348,65 +346,101 @@ function buildProductLanding(p) {
       <span class="lp-page-badge">${p.badge}</span>
     </div>
 
-    <!-- ① HERO: GALLERY + INFO -->
-    <div class="lp-hero">
+    <!-- MAIN 2-COLUMN GRID -->
+    <div class="lp-v2-main">
 
-      <div class="lp-img-col">
-        <div class="lp-gallery-wrap">
-          <div class="lp-main-img-wrap">
-            <img src="${images[0]}" alt="${p.nameAr}" class="lp-main-img" id="lp-main-img-${p.id}">
-            <div class="lp-img-badge">${p.badge}</div>
-          </div>
-          ${images.length > 1 ? `<div class="lp-thumbs-strip">${thumbsHtml}</div>` : ''}
+      <!-- LEFT: CLEAN IMAGES -->
+      <div class="lp-v2-imgs-col">
+        <div class="lp-v2-img-frame">
+          <div class="lp-img-badge">${p.badge}</div>
+          <img src="${images[0]}" alt="${p.nameAr}" class="lp-v2-main-img" id="lp-main-img-${p.id}">
         </div>
+        ${images.length > 1 ? `<div class="lp-v2-thumbs">${thumbsHtml}</div>` : ''}
       </div>
 
-      <div class="lp-info-col">
-        <span class="lp-cat-tag">${p.category}</span>
-        <h1 class="lp-title">${p.nameAr}</h1>
-        <p class="lp-subtitle">${p.nameFr}</p>
-        ${p.slogan ? `<div class="lp-slogan">${p.slogan}</div>` : ''}
-        ${p.onssa ? `<div class="lp-onssa-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> مراقب من ONSSA — رقم ${p.onssa}</div>` : ''}
+      <!-- RIGHT: INFO + ORDER FORM -->
+      <div class="lp-v2-right-col">
 
-        <div class="lp-rating">
-          ${STAR}${STAR}${STAR}${STAR}${STAR}
-          <span class="lp-rating-text">4.9 — <strong>+127 تقييم</strong></span>
+        <!-- Product info -->
+        <div class="lp-v2-prod-header">
+          <span class="lp-cat-tag">${p.category}</span>
+          <h1 class="lp-v2-title">${p.nameAr}</h1>
+          <p class="lp-v2-subtitle">${p.nameFr}</p>
+          ${p.slogan ? `<div class="lp-slogan">${p.slogan}</div>` : ''}
+          ${p.onssa ? `<div class="lp-onssa-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> مراقب من ONSSA — ${p.onssa}</div>` : ''}
+          <div class="lp-v2-rating">${STAR}${STAR}${STAR}${STAR}${STAR}<span>4.9 · <strong>+127 تقييم</strong></span></div>
         </div>
 
-        <p class="lp-tagline-text">${p.shortDesc}</p>
+        <!-- Size picker -->
+        <div class="lp-v2-size-section">
+          <p class="lp-v2-size-label">اختر الوزن / الحجم</p>
+          <div class="lp-v2-sizes">${sizePicker}</div>
+        </div>
 
-        <ul class="lp-bullets">
+        <!-- Price -->
+        <div class="lp-v2-price-row">
+          <span class="lp-v2-price" id="lp-price-${p.id}">${defaultPrice}</span>
+          <span class="lp-v2-cur">درهم</span>
+          <span class="lp-v2-cod"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> الدفع عند الاستلام</span>
+        </div>
+
+        <!-- Benefits mini list -->
+        <ul class="lp-v2-bullets">
           ${p.benefits.map(b => `<li>${CHK}<span>${b}</span></li>`).join('')}
         </ul>
 
-        <div class="lp-size-box">
-          <p class="lp-size-label">اختر الوزن / الحجم</p>
-          <div class="lp-size-picker">${sizePicker}</div>
+        <!-- COMPACT ORDER FORM -->
+        <div class="lp-v2-form-box">
+          <p class="lp-v2-form-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أكمل طلبك الآن
+          </p>
+          <form class="lp-v2-form" onsubmit="submitOrder(event,'${p.id}')">
+            <div class="lp-v2-form-row">
+              <input type="text" name="name" placeholder="الاسم الكامل *" required>
+              <input type="tel" name="phone" placeholder="رقم الهاتف *" required>
+            </div>
+            <div class="lp-v2-form-row">
+              <select name="city" required>
+                <option value="">اختر المدينة *</option>
+                ${cityOptions}
+              </select>
+              <div class="lp-v2-qty-wrap">
+                <span class="lp-v2-qty-label">الكمية</span>
+                <div class="lp-v2-qty">
+                  <button type="button" class="lp-v2-qty-btn" onclick="changeModalQty('${p.id}',-1)">−</button>
+                  <input type="number" id="qty_${p.id}" value="1" min="1" max="99" readonly>
+                  <button type="button" class="lp-v2-qty-btn" onclick="changeModalQty('${p.id}',1)">+</button>
+                </div>
+              </div>
+            </div>
+            <input type="text" name="address" placeholder="العنوان: الحي، الشارع، رقم الدار *" required>
+            <textarea name="notes" rows="2" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+            <div class="lp-v2-total-bar">
+              <span>المجموع الكلي</span>
+              <strong id="totalAmount_${p.id}">${defaultPrice} درهم</strong>
+            </div>
+            <button type="submit" class="lp-v2-submit" id="submitBtn_${p.id}">
+              ${WA_SVG} تأكيد الطلب عبر واتساب
+            </button>
+            <div class="lp-v2-divider">أو تواصل مباشرة</div>
+            <a href="#" id="waOrderBtn_${p.id}" class="lp-v2-wa" target="_blank">
+              ${WA_SVG} واتساب مباشر
+            </a>
+          </form>
         </div>
 
-        <div class="lp-price-row">
-          <div class="lp-price-block">
-            <span class="lp-price-num" id="lp-price-${p.id}">${defaultPrice}</span>
-            <span class="lp-price-cur">درهم</span>
-          </div>
-          <span class="lp-cod-tag">الدفع عند الاستلام</span>
-        </div>
-
-        <button class="lp-main-cta" onclick="document.getElementById('lp-order-${p.id}').scrollIntoView({behavior:'smooth'})">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-          اطلب الآن — توصيل مضمون
-        </button>
-
-        <div class="lp-trust-pills">
+        <!-- Trust signals -->
+        <div class="lp-v2-trust">
           <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> جودة مضمونة</span>
           <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> توصيل سريع</span>
           <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> دفع عند الاستلام</span>
-          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> طبيعي 100%</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/></svg> طبيعي 100%</span>
         </div>
       </div>
     </div>
 
-    <!-- ② DESCRIPTION -->
+    <!-- BELOW FOLD: Description -->
     <div class="lp-story-section">
       <div class="lp-story-inner">
         <div class="lp-story-icon">
@@ -417,23 +451,22 @@ function buildProductLanding(p) {
       </div>
     </div>
 
-    <!-- ③ BENEFITS -->
+    <!-- BELOW FOLD: Benefits -->
     <div class="lp-bens-section">
       <h2 class="lp-sec-title">لماذا تختار <span>${p.nameAr}</span>؟</h2>
       <div class="lp-bens-grid">${benefitCards}</div>
     </div>
 
-    <!-- ④ INGREDIENTS + NUTRITION + USAGE -->
+    <!-- BELOW FOLD: Details -->
     <div class="lp-details-section">
       <div class="lp-ingredients-section">
         <div class="lp-ing-header">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
           المكونات الطبيعية
         </div>
         <div class="lp-ing-chips">${ingChips}</div>
       </div>
       ${nutritionSection}
-      ${usageSection}
       ${p.storage ? `
       <div class="lp-storage-card">
         <div class="lp-storage-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
@@ -448,83 +481,11 @@ function buildProductLanding(p) {
       <div class="lp-onssa-section">
         <div class="lp-onssa-logo">ONSSA</div>
         <div class="lp-onssa-info">
-          <strong>معتمد من المكتب الوطني للسلامة الصحية</strong>
+          <strong>معتمد من المكتب الوطني للسلامة الصحية للمنتجات الغذائية</strong>
           <span>رقم الترخيص: ${p.onssa}</span>
           ${p.lot ? `<span>رقم الدفعة: ${p.lot}</span>` : ''}
         </div>
       </div>` : ''}
-    </div>
-
-    <!-- ⑤ ORDER FORM -->
-    <div class="lp-order-section" id="lp-order-${p.id}">
-      <div class="lp-order-header">
-        <h2 class="lp-order-title">اطلب الآن</h2>
-        <p class="lp-order-sub">التوصيل لجميع مدن المغرب — الدفع عند الاستلام</p>
-      </div>
-
-      <div class="lp-order-body">
-        <div class="lp-size-section-form">
-          <p class="lp-size-label">اختر الحجم</p>
-          <div class="lp-size-picker">${p.sizes.map((s, i) => `
-            <button type="button" class="lp-size-opt${i === defaultIdx ? ' active' : ''}"
-              data-pid="${p.id}" data-idx="${i}" onclick="selectSize('${p.id}', ${i})">
-              <span class="lp-size-name">${s.label}</span>
-              <span class="lp-size-price">${s.price} درهم</span>
-            </button>`).join('')}
-          </div>
-        </div>
-
-        <form class="order-form" onsubmit="submitOrder(event, '${p.id}')">
-          <div class="form-row">
-            <div class="form-group">
-              <label>الاسم الكامل *</label>
-              <input type="text" name="name" placeholder="أدخل اسمك الكامل" required>
-            </div>
-            <div class="form-group">
-              <label>رقم الهاتف *</label>
-              <input type="tel" name="phone" placeholder="0600000000" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>المدينة *</label>
-              <select name="city" required>
-                <option value="">اختر مدينتك</option>
-                ${cityOptions}
-              </select>
-            </div>
-            <div class="form-group">
-              <label>الكمية</label>
-              <div class="qty-control">
-                <button type="button" class="qty-btn" onclick="changeModalQty('${p.id}', -1)">−</button>
-                <input type="number" class="qty-display" id="qty_${p.id}" value="1" min="1" max="99" readonly>
-                <button type="button" class="qty-btn" onclick="changeModalQty('${p.id}', 1)">+</button>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>العنوان التفصيلي *</label>
-            <input type="text" name="address" placeholder="الحي، الشارع، رقم الدار..." required>
-          </div>
-          <div class="form-group">
-            <label>ملاحظات إضافية</label>
-            <textarea name="notes" rows="3" placeholder="أي تفاصيل أو ملاحظات..."></textarea>
-          </div>
-
-          <div class="total-display">
-            <span class="total-label">المجموع الكلي</span>
-            <span class="total-amount" id="totalAmount_${p.id}">${defaultPrice} درهم</span>
-          </div>
-
-          <button type="submit" class="btn-submit-order" id="submitBtn_${p.id}">
-            ${WA_SVG} تأكيد الطلب عبر واتساب
-          </button>
-          <div class="order-divider">أو تواصل مباشرة</div>
-          <a href="#" id="waOrderBtn_${p.id}" class="btn-whatsapp-order" target="_blank">
-            ${WA_SVG} واتساب مباشر
-          </a>
-        </form>
-      </div>
     </div>
 
   </div>`;
