@@ -74,17 +74,37 @@ const products = {
   },
   'eucalyptus': {
     id: 'eucalyptus',
-    nameAr: 'عسل الكاليبتوس',
+    nameAr: 'عسل الكاليتوس الطبيعي',
     nameFr: "Miel d'Eucalyptus",
     category: 'عسل',
     price: 199,
-    image: 'assets/images/eucalyptus.jpg',
-    shortDesc: 'عسل الكاليبتوس الطبيعي — شفاء للجهاز التنفسي',
-    fullDesc: 'عسل الكاليبتوس — يُستخرج من رحيق أزهار شجر الكاليبتوس (الأوكاليبتوس) في غابات المغرب. لونه عسلي ذهبي ورائحته منعشة مميزة. مشهور بتأثيره الشافي على الجهاز التنفسي والتهابات الحلق.',
-    benefits: ['يشفي التهابات الحلق والجهاز التنفسي','مضاد طبيعي للبكتيريا والفيروسات','يخفف السعال والرشح','منعش ومقوٍّ للجهاز المناعي'],
-    ingredients: 'عسل الكاليبتوس الطبيعي 100%',
+    image: 'assets/images/eucalyptus-1.png',
+    gallery: [
+      'assets/images/eucalyptus-1.png',
+      'assets/images/eucalyptus-4.png',
+      'assets/images/eucalyptus-2.png',
+      'assets/images/eucalyptus-3.png',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل الكاليتوس الطبيعي — يدعم الجهاز التنفسي، يقوي المناعة، مضاد طبيعي للبكتيريا والالتهابات',
+    fullDesc: 'عسل الكاليتوس من Rahiq Bio هو عسل طبيعي 100% يُستخرج من أزهار شجرة الأوكالبتوس، يتميز بلونه الداكن ونكهته القوية ورائحته المنعشة. يُستخدم بشكل واسع لدعم صحة الجهاز التنفسي خاصة في حالات الزكام والسعال، كما يساعد على تقوية المناعة وتحسين النشاط اليومي. منتج طبيعي خاضع لمراقبة ONSSA، بدون أي إضافات أو مواد حافظة.',
+    benefits: [
+      'يساعد في تخفيف السعال واحتقان الحلق',
+      'مفيد لنزلات البرد والأنفلونزا',
+      'يقوي جهاز المناعة',
+      'يساعد على تحسين التنفس',
+      'مضاد طبيعي للبكتيريا والالتهابات',
+    ],
+    ingredients: 'عسل الكاليتوس الطبيعي 100%',
+    storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس والحرارة — قد يتبلور بشكل طبيعي وهذا لا يؤثر على جودته',
+    warnings: 'لا يُنصح به للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يُمنع لمن لديهم حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    lot: '01-01EUC',
     badge: 'طبيعي 100%',
-    sizes: [{ label: '500 غرام', price: 109 }, { label: '1 كيلوغرام', price: 199 }]
+    sizes: [
+      { label: '500 غرام', price: 110, image: 'assets/images/eucalyptus-4.png' },
+      { label: '1 كيلوغرام', price: 199, image: 'assets/images/eucalyptus-1.png' }
+    ]
   },
   'mardiria': {
     id: 'mardiria',
@@ -1294,7 +1314,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
