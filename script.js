@@ -493,15 +493,18 @@ function buildProductLanding(p) {
         <div class="lp-ing-chips">${ingChips}</div>
       </div>
       ${nutritionSection}
-      ${p.storage ? `
-      <div class="lp-storage-card">
-        <div class="lp-storage-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-        <div><strong>طريقة التخزين</strong><p>${p.storage}</p></div>
-      </div>` : ''}
-      ${p.warnings ? `
-      <div class="lp-warnings-card">
-        <div class="lp-warn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <div><strong>تحذيرات وتنبيهات</strong><p>${p.warnings}</p></div>
+      ${(p.storage || p.warnings) ? `
+      <div class="lp-details-cards-row">
+        ${p.storage ? `
+        <div class="lp-storage-card">
+          <div class="lp-storage-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+          <div><strong>طريقة التخزين</strong><p>${p.storage}</p></div>
+        </div>` : ''}
+        ${p.warnings ? `
+        <div class="lp-warnings-card">
+          <div class="lp-warn-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div><strong>تحذيرات وتنبيهات</strong><p>${p.warnings}</p></div>
+        </div>` : ''}
       </div>` : ''}
       ${p.onssa ? `
       <div class="lp-onssa-section">
@@ -512,6 +515,19 @@ function buildProductLanding(p) {
           ${p.lot ? `<span>رقم الدفعة: ${p.lot}</span>` : ''}
         </div>
       </div>` : ''}
+    </div>
+
+    <!-- STICKY BUY BUTTON -->
+    <div class="lp-sticky-buy" id="lp-sticky-${p.id}">
+      <button class="lp-sticky-btn" onclick="
+        var box = document.querySelector('.lp-v2-form-box');
+        var col = document.querySelector('.lp-v2-right-col');
+        if(box && col){ col.scrollTo({top: box.offsetTop - 16, behavior:'smooth'}); }
+        else if(box){ box.scrollIntoView({behavior:'smooth'}); }
+      ">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        اطلب الآن — <span id="lp-sticky-price-${p.id}">${defaultPrice} درهم</span>
+      </button>
     </div>
 
   </div>`;
@@ -530,6 +546,8 @@ function updateTotal(price, qty, productId) {
   const total = price * qty;
   const totalEl = document.getElementById(`totalAmount_${productId}`);
   if (totalEl) totalEl.textContent = total.toLocaleString('ar-MA') + ' درهم';
+  const stickyPrice = document.getElementById(`lp-sticky-price-${productId}`);
+  if (stickyPrice) stickyPrice.textContent = total.toLocaleString('ar-MA') + ' درهم';
 
   // Update WhatsApp link
   const waBtn = document.getElementById(`waOrderBtn_${productId}`);
