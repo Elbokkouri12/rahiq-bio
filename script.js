@@ -222,6 +222,40 @@ const products = {
       { label: '1 كيلوغرام', price: 150, image: 'assets/images/limon-1.png' }
     ]
   },
+  'aachab': {
+    id: 'aachab',
+    nameAr: 'عسل الأعشاب الطبيعي',
+    nameFr: 'Miel Multi Fleurs',
+    category: 'عسل',
+    price: 250,
+    image: 'assets/images/aachab-1.png',
+    gallery: [
+      'assets/images/aachab-1.png',
+      'assets/images/aachab-4.png',
+      'assets/images/aachab-2.png',
+      'assets/images/aachab-3.png',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل الأعشاب المتعدد الأزهار — يجمع خصائص عدة نباتات، يقوي المناعة ويمنح طاقة طبيعية',
+    fullDesc: 'عسل الأعشاب من Rahiq Bio هو عسل طبيعي 100% يُجمع من رحيق مجموعة متنوعة من الأزهار والأعشاب البرية. يتميز بلونه الداكن وطعمه الغني المتوازن، ويُعتبر من أكثر أنواع العسل شمولية من حيث الفوائد لأنه يجمع خصائص عدة نباتات في منتج واحد. منتج طبيعي خاضع لمراقبة ONSSA، بدون أي إضافات أو مواد حافظة.',
+    benefits: [
+      'يقوي جهاز المناعة ويحمي الجسم',
+      'يساعد على تحسين الهضم وتقليل التعب',
+      'غني بمضادات الأكسدة والفيتامينات والمعادن',
+      'مفيد لنزلات البرد والحلق',
+      'يساعد على استرجاع الطاقة والنشاط اليومي',
+    ],
+    ingredients: 'عسل طبيعي متعدد الأزهار 100%',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — قد يتبلور بشكل طبيعي وهذا دليل على الجودة',
+    warnings: 'لا يُعطى للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يمكن أن يسبب حساسية لبعض الأشخاص',
+    onssa: 'N° M.28.10.25',
+    lot: '01-10-CT',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '500 غرام', price: 135, image: 'assets/images/aachab-4.png' },
+      { label: '1 كيلوغرام', price: 250, image: 'assets/images/aachab-1.png' }
+    ]
+  },
   'argan': {
     id: 'argan',
     nameAr: 'زيت أركان غذائي',
@@ -1388,7 +1422,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
