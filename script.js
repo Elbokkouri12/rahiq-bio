@@ -256,6 +256,38 @@ const products = {
       { label: '1 كيلوغرام', price: 250, image: 'assets/images/aachab-1.png' }
     ]
   },
+  'olive': {
+    id: 'olive',
+    nameAr: 'زيت الزيتون الطبيعي',
+    nameFr: "Huile d'Olive",
+    category: 'زيوت طبيعية',
+    price: 230,
+    image: 'assets/images/olive-2.png',
+    gallery: [
+      'assets/images/olive-2.png',
+      'assets/images/olive-1.png',
+    ],
+    slogan: '100% طبيعي — 100% فائدة',
+    shortDesc: 'زيت زيتون مغربي طبيعي 100% من Beni Mellal — غني بمضادات الأكسدة، مفيد للقلب والصحة العامة',
+    fullDesc: 'زيت الزيتون من Rahiq Bio هو زيت طبيعي 100% يُستخرج من أجود أنواع الزيتون المغربي (Beni Mellal) بطريقة تحافظ على القيمة الغذائية الكاملة. يتميز بلونه الذهبي ونكهته المتوازنة، ويُعتبر من أهم المكونات في التغذية الصحية سواء للطبخ أو الاستعمال اليومي. منتج طبيعي خاضع لمراقبة ONSSA، بدون أي إضافات أو مواد حافظة.',
+    benefits: [
+      'يساعد على تقوية صحة القلب والشرايين',
+      'غني بمضادات الأكسدة والدهون الصحية',
+      'يساهم في خفض الكوليسترول الضار',
+      'مفيد للبشرة والشعر',
+      'يساعد على تحسين الهضم',
+    ],
+    ingredients: 'زيت زيتون طبيعي 100%',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — يُغلق بإحكام بعد الاستعمال',
+    warnings: 'يُحفظ بعيد عن متناول الأطفال',
+    onssa: 'N° M.28.10.25',
+    lot: '01-01-OLB',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '1 لتر', price: 50, image: 'assets/images/olive-1.png' },
+      { label: '5 لتر', price: 230, image: 'assets/images/olive-2.png' }
+    ]
+  },
   'argan': {
     id: 'argan',
     nameAr: 'زيت أركان غذائي',
@@ -1422,7 +1454,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
