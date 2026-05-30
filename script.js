@@ -106,20 +106,6 @@ const products = {
       { label: '1 كيلوغرام', price: 199, image: 'assets/images/eucalyptus-3.png' }
     ]
   },
-  'mardiria': {
-    id: 'mardiria',
-    nameAr: 'عسل مارديسيا',
-    nameFr: 'Miel de Mardiria',
-    category: 'عسل',
-    price: 449,
-    image: 'assets/images/mardiria.jpg',
-    shortDesc: 'عسل الماردية الكريمي النادر — طعم زهري رفيع لا يُضاهى',
-    fullDesc: 'عسل مارديسيا — من أرقى أصناف العسل المغربي، يُستخرج من رحيق نبتة الماردية (الأسبيك) ذات الأزهار البنفسجية الجميلة. قوامه كريمي ناعم ولونه أبيض مائل للكريمي، طعمه زهري رفيع لا يُضاهى.',
-    benefits: ['غني بالفلافونويد ومضادات الأكسدة','يهدئ الأعصاب ويحسن النوم','مضاد طبيعي للالتهابات والعدوى','يشفي أمراض الجلد والحساسية'],
-    ingredients: 'عسل الماردية (الأسبيك/اللافندر) الطبيعي 100%',
-    badge: 'فاخر',
-    sizes: [{ label: '500 غرام', price: 240 }, { label: '1 كيلوغرام', price: 449 }]
-  },
   'sidr': {
     id: 'sidr',
     nameAr: 'عسل السدر الطبيعي',
@@ -287,20 +273,6 @@ const products = {
       { label: '1 لتر', price: 50, image: 'assets/images/olive-1.png' },
       { label: '5 لتر', price: 230, image: 'assets/images/olive-2.png' }
     ]
-  },
-  'argan': {
-    id: 'argan',
-    nameAr: 'زيت أركان غذائي',
-    nameFr: "Huile d'Argan Alimentaire",
-    category: 'زيوت طبيعية',
-    price: 99,
-    image: 'assets/images/argan-front.jpg',
-    shortDesc: 'الذهب السائل المغربي — معصور بارداً، عالي الجودة',
-    fullDesc: 'زيت أركان غذائي — "الذهب السائل" من قلب المغرب. يُعصر بارداً من بذور شجرة الأركان المعمّرة، الموجودة حصرياً في المغرب. غني بفيتامين E والأحماض الدهنية غير المشبعة الصحية. طعمه لذيذ مع عطر الزيتون المحمص.',
-    benefits: ['غني جداً بفيتامين E','يصح القلب والأوعية الدموية','يخفض الكوليسترول الضار','مضاد قوي للأكسدة والشيخوخة'],
-    ingredients: 'زيت أركان بكر 100% معصور بارداً، عضوي طبيعي',
-    badge: 'عضوي',
-    sizes: [{ label: '100 مل', price: 99 }, { label: '200 مل', price: 185 }]
   },
   'jarjir': {
     id: 'jarjir',
