@@ -1462,3 +1462,13 @@ document.addEventListener('click', function(e) {
     }
   });
 })();
+
+// ===== CATEGORY FILTER =====
+function filterProducts(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.products-grid .product-card').forEach(card => {
+    const show = category === 'all' || card.dataset.category === category;
+    card.style.display = show ? '' : 'none';
+  });
+}

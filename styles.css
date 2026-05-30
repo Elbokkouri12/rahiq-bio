@@ -642,6 +642,47 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .product-card.maintenance::after { font-size: 14px; }
 }
 
+/* ===== CATEGORY FILTER BAR ===== */
+.products-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto 36px;
+  padding: 0 16px;
+  max-width: 860px;
+}
+.filter-btn {
+  padding: 10px 24px;
+  border: 2px solid rgba(42,73,55,0.18);
+  border-radius: 50px;
+  background: #fff;
+  color: #2A4937;
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(42,73,55,0.06);
+}
+.filter-btn:hover {
+  border-color: var(--gold);
+  color: #2A4937;
+  background: rgba(254,214,23,0.12);
+  box-shadow: 0 4px 16px rgba(254,214,23,0.2);
+}
+.filter-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #2A4937;
+  box-shadow: 0 4px 16px rgba(254,214,23,0.35);
+}
+@media (max-width: 767px) {
+  .products-filter-bar { gap: 8px; margin-bottom: 24px; }
+  .filter-btn { padding: 8px 18px; font-size: 13px; }
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 40px;

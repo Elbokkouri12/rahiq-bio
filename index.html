@@ -338,17 +338,6 @@
 
 <!-- Products Section -->
 <section class="products-section" id="products">
-  <!-- ⚠️ MAINTENANCE BANNER -->
-  <div class="products-maintenance-banner">
-    <div class="pmb-inner">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <div>
-        <strong>المنتجات قيد التحديث</strong>
-        <span>نعمل على تحسين قائمة منتجاتنا — ستعود قريباً بشكل أفضل</span>
-      </div>
-    </div>
-  </div>
-
   <div class="section-header">
     <div class="section-tag">منتجاتنا</div>
     <h2 class="section-title">كنوز الطبيعة المغربية</h2>
@@ -364,10 +353,20 @@
     </div>
   </div>
 
+  <!-- Category Filter Bar -->
+  <div class="products-filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">الكل</button>
+    <button class="filter-btn" onclick="filterProducts('عسل', this)">العسل</button>
+    <button class="filter-btn" onclick="filterProducts('أملو', this)">أملوا</button>
+    <button class="filter-btn" onclick="filterProducts('زيت', this)">الزيت</button>
+    <button class="filter-btn" onclick="filterProducts('مكملات', this)">مكملات الطاقة</button>
+    <button class="filter-btn" onclick="filterProducts('باقات', this)">الباقات</button>
+  </div>
+
   <div class="products-grid" id="productsGrid">
 
     <!-- Product: Jarjir — LIVE -->
-    <article class="product-card featured" data-product="jarjir">
+    <article class="product-card featured" data-product="jarjir" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/jarjir-1.jpg" alt="عسل الجرجير الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('jarjir')">
@@ -397,7 +396,7 @@
     </article>
 
     <!-- Product: Daghmous — LIVE -->
-    <article class="product-card featured" data-product="daghmous">
+    <article class="product-card featured" data-product="daghmous" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/daghmous-1.jpg" alt="عسل الدغموس الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('daghmous')">
@@ -427,7 +426,7 @@
     </article>
 
     <!-- Product: Kharroub — LIVE -->
-    <article class="product-card featured" data-product="kharroub">
+    <article class="product-card featured" data-product="kharroub" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/kharroub-1.png" alt="عسل الخروب الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('kharroub')">
@@ -457,7 +456,7 @@
     </article>
 
     <!-- Product: Eucalyptus — LIVE -->
-    <article class="product-card featured" data-product="eucalyptus">
+    <article class="product-card featured" data-product="eucalyptus" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/eucalyptus-3.png" alt="عسل الكاليتوس الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('eucalyptus')">
@@ -487,7 +486,7 @@
     </article>
 
     <!-- Product: Sidr — LIVE -->
-    <article class="product-card featured" data-product="sidr">
+    <article class="product-card featured" data-product="sidr" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/sidr-new-4.png" alt="عسل السدر الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('sidr')">
@@ -517,7 +516,7 @@
     </article>
 
     <!-- Product: Zaatar — LIVE -->
-    <article class="product-card featured" data-product="zaatar">
+    <article class="product-card featured" data-product="zaatar" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/zaatar-4.png" alt="عسل الزعتر الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('zaatar')">
@@ -547,7 +546,7 @@
     </article>
 
     <!-- Product: Limon — LIVE -->
-    <article class="product-card featured" data-product="limon">
+    <article class="product-card featured" data-product="limon" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/limon-1.png" alt="عسل الليمون الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('limon')">
@@ -577,7 +576,7 @@
     </article>
 
     <!-- Product: Aachab — LIVE -->
-    <article class="product-card featured" data-product="aachab">
+    <article class="product-card featured" data-product="aachab" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/aachab-1.png" alt="عسل الأعشاب الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('aachab')">
@@ -607,7 +606,7 @@
     </article>
 
     <!-- Product: Olive Oil — LIVE -->
-    <article class="product-card featured" data-product="olive">
+    <article class="product-card featured" data-product="olive" data-category="زيت">
       <div class="product-image-wrap">
         <img src="assets/images/olive-2.png" alt="زيت الزيتون الطبيعي" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
         <div class="product-quick-view" onclick="openProduct('olive')">
@@ -637,7 +636,7 @@
     </article>
 
     <!-- Product 1: Amlou Cacao -->
-    <article class="product-card" data-product="amlou-cacao">
+    <article class="product-card" data-product="amlou-cacao" data-category="أملو">
       <div class="product-image-wrap">
         <img src="assets/images/amlou-cacao.jpg" alt="أملو كاكاو" loading="lazy" class="product-img">
         <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
@@ -668,7 +667,7 @@
     </article>
 
     <!-- Product 2: Energie Royale Mix -->
-    <article class="product-card featured" data-product="energie-royale">
+    <article class="product-card featured" data-product="energie-royale" data-category="مكملات">
       <div class="product-image-wrap">
         <img src="assets/images/energie-royale.jpg" alt="مريج ملكي" loading="lazy" class="product-img">
         <div class="product-badge-wrap">
@@ -702,7 +701,7 @@
     </article>
 
     <!-- Product 4: Shilajit -->
-    <article class="product-card" data-product="shilajit">
+    <article class="product-card" data-product="shilajit" data-category="مكملات">
       <div class="product-image-wrap">
         <img src="assets/images/shilajit.jpg" alt="شيلاجيت" loading="lazy" class="product-img">
         <div class="product-badge-wrap">
@@ -736,7 +735,7 @@
     </article>
 
     <!-- Product 6: Mardiria Honey -->
-    <article class="product-card" data-product="mardiria">
+    <article class="product-card" data-product="mardiria" data-category="عسل">
       <div class="product-image-wrap">
         <img src="assets/images/mardiria.jpg" alt="عسل مارديسيا" loading="lazy" class="product-img">
         <div class="product-badge-wrap">
@@ -770,7 +769,7 @@
     </article>
 
     <!-- Product 9: Argan Oil -->
-    <article class="product-card" data-product="argan">
+    <article class="product-card" data-product="argan" data-category="زيت">
       <div class="product-image-wrap">
         <img src="assets/images/argan-front.jpg" alt="زيت أركان غذائي" loading="lazy" class="product-img">
         <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
