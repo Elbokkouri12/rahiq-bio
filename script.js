@@ -122,17 +122,37 @@ const products = {
   },
   'sidr': {
     id: 'sidr',
-    nameAr: 'عسل السدر',
+    nameAr: 'عسل السدر الطبيعي',
     nameFr: 'Miel de Jujubier',
-    category: 'عسل ملكي',
-    price: 899,
-    image: 'assets/images/sidr.jpg',
-    shortDesc: 'ملك العسل العربي — مذكور في السنة النبوية، شفاء وطاقة',
-    fullDesc: 'عسل السدر — ملك العسل الأصيل، يُستخرج حصرياً من رحيق أزهار شجرة السدر (الكنار) المباركة. مذكور في الحديث النبوي الشريف، معروف منذ آلاف السنين بقدرته الشفائية الاستثنائية. نادر، ثمين، لا غنى عنه في كل بيت مسلم.',
-    benefits: ['مذكور في السنة النبوية الشريفة','يقوي جهاز المناعة بشكل استثنائي','يشفي أمراض الكبد والمعدة','يعالج الأنيميا وفقر الدم','مضاد قوي للسحر والعين','يزيد الطاقة والحيوية'],
-    ingredients: 'عسل السدر (الكنار) 100% طبيعي غير مسخن',
-    badge: 'ملكي',
-    sizes: [{ label: '500 غرام', price: 480 }, { label: '1 كيلوغرام', price: 899 }]
+    category: 'عسل',
+    price: 250,
+    image: 'assets/images/sidr-new-4.png',
+    gallery: [
+      'assets/images/sidr-new-4.png',
+      'assets/images/sidr-new-1.png',
+      'assets/images/sidr-new-2.png',
+      'assets/images/sidr-new-3.png',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل السدر الطبيعي الذهبي — يقوي المناعة، يعزز الطاقة، مضاد طبيعي للبكتيريا والالتهابات',
+    fullDesc: 'عسل السدر من Rahiq Bio هو عسل طبيعي 100% يُستخرج من أزهار شجرة السدر (النبق)، يتميز بلونه الذهبي الفاتح وقوامه الكثيف وطعمه الغني المميز. يُعتبر من أجود وأقوى أنواع العسل، ويُستخدم تقليدياً لتعزيز الصحة العامة وتقوية المناعة وزيادة النشاط البدني والذهني. منتج طبيعي خاضع لمراقبة ONSSA، بدون أي إضافات أو مواد حافظة.',
+    benefits: [
+      'يقوي جهاز المناعة بشكل كبير',
+      'يساعد في علاج مشاكل الجهاز الهضمي',
+      'يعزز الطاقة والنشاط',
+      'مضاد طبيعي للبكتيريا والفيروسات',
+      'يساعد في التئام الجروح',
+    ],
+    ingredients: 'عسل السدر الطبيعي 100%',
+    storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس والحرارة — قد يتبلور بشكل طبيعي وهذا لا يؤثر على جودته',
+    warnings: 'لا يُنصح به للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يُمنع لمن لديهم حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    lot: 'D-LUO',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '500 غرام', price: 135, image: 'assets/images/sidr-new-1.png' },
+      { label: '1 كيلوغرام', price: 250, image: 'assets/images/sidr-new-4.png' }
+    ]
   },
   'limon': {
     id: 'limon',
@@ -1314,7 +1334,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
