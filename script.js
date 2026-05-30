@@ -397,16 +397,37 @@ function buildProductLanding(p) {
           </p>
           <form class="lp-v2-form" onsubmit="submitOrder(event,'${p.id}')">
             <div class="lp-v2-form-row">
-              <input type="text" name="name" placeholder="الاسم الكامل *" required>
-              <input type="tel" name="phone" placeholder="رقم الهاتف *" required>
+              <div class="lp-v2-field">
+                <label class="lp-v2-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  الاسم الكامل
+                </label>
+                <input type="text" name="name" placeholder="مثال: أحمد بن علي" required>
+              </div>
+              <div class="lp-v2-field">
+                <label class="lp-v2-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.09 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  رقم الهاتف
+                </label>
+                <input type="tel" name="phone" placeholder="0600 000 000" required>
+              </div>
             </div>
             <div class="lp-v2-form-row">
-              <select name="city" required>
-                <option value="">اختر المدينة *</option>
-                ${cityOptions}
-              </select>
-              <div class="lp-v2-qty-wrap">
-                <span class="lp-v2-qty-label">الكمية</span>
+              <div class="lp-v2-field">
+                <label class="lp-v2-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  المدينة
+                </label>
+                <select name="city" required>
+                  <option value="">اختر مدينتك</option>
+                  ${cityOptions}
+                </select>
+              </div>
+              <div class="lp-v2-field">
+                <label class="lp-v2-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><line x1="12" y1="7" x2="12" y2="17"/></svg>
+                  الكمية
+                </label>
                 <div class="lp-v2-qty">
                   <button type="button" class="lp-v2-qty-btn" onclick="changeModalQty('${p.id}',-1)">−</button>
                   <input type="number" id="qty_${p.id}" value="1" min="1" max="99" readonly>
@@ -414,8 +435,20 @@ function buildProductLanding(p) {
                 </div>
               </div>
             </div>
-            <input type="text" name="address" placeholder="العنوان: الحي، الشارع، رقم الدار *" required>
-            <textarea name="notes" rows="2" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+            <div class="lp-v2-field">
+              <label class="lp-v2-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                العنوان التفصيلي
+              </label>
+              <input type="text" name="address" placeholder="الحي، الشارع، رقم الدار..." required>
+            </div>
+            <div class="lp-v2-field">
+              <label class="lp-v2-label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                ملاحظات إضافية <span style="font-weight:400;opacity:.7">(اختياري)</span>
+              </label>
+              <textarea name="notes" rows="2" placeholder="أي تفاصيل أو طلبات خاصة..."></textarea>
+            </div>
             <div class="lp-v2-total-bar">
               <span>المجموع الكلي</span>
               <strong id="totalAmount_${p.id}">${defaultPrice} درهم</strong>
