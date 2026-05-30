@@ -2731,7 +2731,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .lp-v2-form-box { margin-left: 16px; margin-right: 16px; }
   .lp-v2-title { font-size: 22px; }
   .lp-v2-price { font-size: 34px; }
-  .lp-v2-form-row { grid-template-columns: 1fr; }
+  .lp-v2-form-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .lp-v2-form input[type="text"],
+  .lp-v2-form input[type="tel"],
+  .lp-v2-form select { height: 42px; font-size: 13px; padding: 0 10px; }
+  .lp-v2-field .lp-v2-label { font-size: 11px; }
 }
 
 /* ── 1. HERO (legacy — kept for other products) ─── */
@@ -3086,17 +3090,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lp-grid-item { justify-content: center; text-align: center; }
 .lp-grid-item--ing { justify-content: center; }
 .lp-onssa-badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   background: linear-gradient(135deg, #e8f4fd, #d0eaf9);
   color: #0e4d78;
   font-size: 12px;
   font-weight: 700;
-  padding: 5px 14px;
+  padding: 8px 14px;
   border-radius: 50px;
   border: 1.5px solid #1d6fa4;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
 }
 /* Storage + Warnings: side by side */
 .lp-details-cards-row {
