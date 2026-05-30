@@ -425,29 +425,22 @@ function buildProductLanding(p) {
               </div>
               <div class="lp-v2-field">
                 <label class="lp-v2-label">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><line x1="12" y1="7" x2="12" y2="17"/></svg>
-                  الكمية
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  العنوان التفصيلي
                 </label>
-                <div class="lp-v2-qty">
-                  <button type="button" class="lp-v2-qty-btn" onclick="changeModalQty('${p.id}',-1)">−</button>
-                  <input type="number" id="qty_${p.id}" value="1" min="1" max="99" readonly>
-                  <button type="button" class="lp-v2-qty-btn" onclick="changeModalQty('${p.id}',1)">+</button>
-                </div>
+                <input type="text" name="address" placeholder="الحي، الشارع، رقم الدار..." required>
               </div>
             </div>
             <div class="lp-v2-field">
               <label class="lp-v2-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                العنوان التفصيلي
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><line x1="12" y1="7" x2="12" y2="17"/></svg>
+                الكمية
               </label>
-              <input type="text" name="address" placeholder="الحي، الشارع، رقم الدار..." required>
-            </div>
-            <div class="lp-v2-field">
-              <label class="lp-v2-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                ملاحظات إضافية <span style="font-weight:400;opacity:.7">(اختياري)</span>
-              </label>
-              <textarea name="notes" rows="2" placeholder="أي تفاصيل أو طلبات خاصة..."></textarea>
+              <div class="lp-v2-qty">
+                <button type="button" class="lp-v2-qty-btn" onclick="changeModalQty('${p.id}',-1)">−</button>
+                <input type="number" id="qty_${p.id}" value="1" min="1" max="99" readonly>
+                <button type="button" class="lp-v2-qty-btn" onclick="changeModalQty('${p.id}',1)">+</button>
+              </div>
             </div>
             <div class="lp-v2-total-bar">
               <span>المجموع الكلي</span>
