@@ -211,6 +211,40 @@ const products = {
       { label: '500 غرام', price: 160, image: 'assets/images/daghmous-3.jpg' },
       { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
     ]
+  },
+  'kharroub': {
+    id: 'kharroub',
+    nameAr: 'عسل الخروب الطبيعي',
+    nameFr: 'Miel de Caroubier',
+    category: 'عسل',
+    price: 230,
+    image: 'assets/images/kharroub-1.png',
+    gallery: [
+      'assets/images/kharroub-1.png',
+      'assets/images/kharroub-4.png',
+      'assets/images/kharroub-2.png',
+      'assets/images/kharroub-3.png',
+    ],
+    slogan: '100% طبيعي — 100% شفاء',
+    shortDesc: 'عسل الخروب الطبيعي الداكن — يحسّن الهضم، غني بمضادات الأكسدة، طاقة طبيعية للجسم',
+    fullDesc: 'عسل الخروب من Rahiq Bio هو عسل طبيعي 100% يُستخرج من أزهار شجرة الخروب، يتميز بلونه الداكن وقوامه الكثيف ومذاقه الغني المميز. يحتوي على عناصر غذائية مهمة كالمعادن والفيتامينات، ويُعتبر من أفضل أنواع العسل لدعم الصحة العامة وتحسين الهضم. منتج طبيعي خاضع لمراقبة ONSSA، بدون أي إضافات أو مواد حافظة.',
+    benefits: [
+      'يساعد على تحسين الهضم ويخفف مشاكل المعدة',
+      'غني بمضادات الأكسدة والمعادن',
+      'يعزز الطاقة والنشاط الطبيعي',
+      'يقوي جهاز المناعة',
+      'مفيد للأطفال والكبار',
+    ],
+    ingredients: 'عسل الخروب الطبيعي 100%',
+    storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس والحرارة — قد يتبلور بشكل طبيعي وهذا لا يؤثر على جودته',
+    warnings: 'لا يُنصح به للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يُمنع لمن لديهم حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    lot: '01-01CAR',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '500 غرام', price: 120, image: 'assets/images/kharroub-1.png' },
+      { label: '1 كيلوغرام', price: 230, image: 'assets/images/kharroub-4.png' }
+    ]
   }
 };
 
@@ -1260,7 +1294,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
