@@ -1026,6 +1026,13 @@
 <!-- Product Modal / Landing Page -->
 <div class="product-modal" id="productModal" role="dialog" aria-modal="true">
   <div class="modal-overlay" onclick="closeProduct()"></div>
+  <!-- Sticky button outside modal-content (avoids transform stacking context) -->
+  <div class="lp-sticky-buy" id="globalStickyBuy" style="display:none">
+    <button class="lp-sticky-btn" id="globalStickyBtn" onclick="scrollToOrderForm()">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>اطلب الآن</span> — <span id="globalStickyPrice" style="color:var(--gold);font-family:'Jost',sans-serif"></span>
+    </button>
+  </div>
   <div class="modal-content" id="modalContent">
     <button class="modal-close" onclick="closeProduct()" aria-label="إغلاق">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>

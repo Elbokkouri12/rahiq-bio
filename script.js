@@ -255,7 +255,7 @@ function openProduct(productId) {
   const p = products[productId];
   if (!p) return;
 
-  selectedSizes[productId] = p.sizes.length - 1; // default: largest size
+  selectedSizes[productId] = p.sizes.length - 1;
 
   const modal = document.getElementById('productModal');
   const modalInner = document.getElementById('modalInner');
@@ -264,14 +264,33 @@ function openProduct(productId) {
   document.body.style.overflow = 'hidden';
 
   updateTotal(getCurrentPrice(productId), 1, productId);
-  // Scroll modal to top
   document.getElementById('modalContent')?.scrollTo(0, 0);
+
+  // Show sticky button
+  var stickyBuy = document.getElementById('globalStickyBuy');
+  var stickyBtn = document.getElementById('globalStickyBtn');
+  if (stickyBuy) {
+    stickyBuy.style.display = 'block';
+    if (stickyBtn) stickyBtn.dataset.pid = productId;
+  }
 }
 
 function closeProduct() {
-  const modal = document.getElementById('productModal');
-  modal.classList.remove('open');
+  document.getElementById('productModal').classList.remove('open');
   document.body.style.overflow = '';
+  var stickyBuy = document.getElementById('globalStickyBuy');
+  if (stickyBuy) stickyBuy.style.display = 'none';
+}
+
+function scrollToOrderForm() {
+  var formBox = document.querySelector('.lp-v2-form-box');
+  var rightCol = document.querySelector('.lp-v2-right-col');
+  var modalContent = document.getElementById('modalContent');
+  if (formBox && rightCol && rightCol.scrollHeight > rightCol.clientHeight) {
+    rightCol.scrollTo({ top: formBox.offsetTop - 10, behavior: 'smooth' });
+  } else if (formBox && modalContent) {
+    modalContent.scrollTo({ top: formBox.getBoundingClientRect().top + modalContent.scrollTop - 70, behavior: 'smooth' });
+  }
 }
 
 // Close on Escape key
@@ -517,19 +536,6 @@ function buildProductLanding(p) {
       </div>` : ''}
     </div>
 
-    <!-- STICKY BUY BUTTON -->
-    <div class="lp-sticky-buy" id="lp-sticky-${p.id}">
-      <button class="lp-sticky-btn" onclick="
-        var box = document.querySelector('.lp-v2-form-box');
-        var col = document.querySelector('.lp-v2-right-col');
-        if(box && col){ col.scrollTo({top: box.offsetTop - 16, behavior:'smooth'}); }
-        else if(box){ box.scrollIntoView({behavior:'smooth'}); }
-      ">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        اطلب الآن — <span id="lp-sticky-price-${p.id}">${defaultPrice} درهم</span>
-      </button>
-    </div>
-
   </div>`;
 }
 
@@ -546,8 +552,8 @@ function updateTotal(price, qty, productId) {
   const total = price * qty;
   const totalEl = document.getElementById(`totalAmount_${productId}`);
   if (totalEl) totalEl.textContent = total.toLocaleString('ar-MA') + ' درهم';
-  const stickyPrice = document.getElementById(`lp-sticky-price-${productId}`);
-  if (stickyPrice) stickyPrice.textContent = total.toLocaleString('ar-MA') + ' درهم';
+  const globalPrice = document.getElementById('globalStickyPrice');
+  if (globalPrice) globalPrice.textContent = total.toLocaleString('ar-MA') + ' درهم';
 
   // Update WhatsApp link
   const waBtn = document.getElementById(`waOrderBtn_${productId}`);
