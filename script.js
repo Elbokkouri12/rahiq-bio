@@ -50,7 +50,7 @@ const products = {
     nameFr: 'Shilajit Pur',
     category: 'مكملات طبيعية',
     price: 170,
-    image: 'assets/images/shilajit.jpg',
+    image: 'assets/images/shilajit-new.png',
     shortDesc: 'شيلاجيت نقي 100% — مستخلص أصلي من أعالي جبال الهيمالايا، مقوي طبيعي للطاقة والمناعة والقدرة الجنسية',
     fullDesc: 'شيلاجيت Rahiq Bio مستخلص أصلي من أعالي جبال الهيمالايا. مادة طبيعية نادرة غنية بالمعادن وحمض الفولفيك. مقوي عام للجسم، يزيد الطاقة والنشاط، ويدعم المناعة والقدرة الجنسية. منتج نقي 100% بدون إضافات.',
     benefits: [
