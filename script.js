@@ -457,6 +457,8 @@ function openProduct(productId) {
 
   // Update URL so each product has its own shareable link
   history.pushState({ product: productId }, p.nameAr, '#' + productId);
+  // Reveal page (hidden on direct product URL to prevent homepage flash)
+  document.documentElement.style.opacity = '1';
 
   // Show sticky button
   var stickyBuy = document.getElementById('globalStickyBuy');
