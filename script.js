@@ -332,6 +332,30 @@ const products = {
       { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
     ]
   },
+  'psyllium': {
+    id: 'psyllium',
+    nameAr: 'نخالة القاطونة',
+    nameFr: 'Psyllium Husk',
+    category: 'مكملات طبيعية',
+    price: 65,
+    image: 'assets/images/psyllium.png',
+    gallery: ['assets/images/psyllium.png'],
+    slogan: '100% طبيعي — غني بالألياف الذائبة',
+    shortDesc: 'نخالة القاطونة الطبيعية 100% — تحسين الهضم، تنظيم الأمعاء، دعم صحة القلب وتنظيم السكر',
+    fullDesc: 'نخالة القاطونة (Psyllium Husk) من Rahiq Bio هي ألياف طبيعية مستخرجة من بذور نبات Plantago ovata. عند مزجها بالماء تكوّن مادة هلامية تساعد على تحسين الهضم وتنظيم حركة الأمعاء بشكل طبيعي. تدعم صحة القلب وتساعد في التحكم بمستويات السكر والكوليسترول ضمن نظام غذائي متوازن. منتج طبيعي 100% معبأ من طرف Rahiq Bio.',
+    benefits: [
+      'تساعد على تحسين الهضم وتنظيم حركة الأمعاء',
+      'تزيد الشعور بالشبع وتساعد على التحكم في الوزن',
+      'تساعد على خفض الكوليسترول الضار (LDL)',
+      'تساهم في استقرار مستويات السكر بعد الوجبات',
+    ],
+    ingredients: 'نخالة القاطونة الطبيعية 100% (Psyllium Husk)',
+    usage: 'تُمزج ملعقة صغيرة إلى ملعقتين في كوب كبير من الماء أو العصير — تُشرب مباشرة بعد التحريك مع شرب كمية كافية من الماء خلال اليوم',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — يُغلق جيداً بعد كل استعمال',
+    warnings: 'يجب تناولها مع كمية كافية من الماء • لا تُستخدم في حالة صعوبة البلع إلا بعد استشارة مختص • إذا كنت تتناول أدوية يُفضل الفصل بينها وبين القاطونة بساعتين • يُحفظ بعيداً عن متناول الأطفال',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '200 غرام', price: 65 }]
+  },
   'kharroub': {
     id: 'kharroub',
     nameAr: 'عسل الخروب',
@@ -1438,7 +1462,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
