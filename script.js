@@ -332,6 +332,30 @@ const products = {
       { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
     ]
   },
+  'bee-pollen': {
+    id: 'bee-pollen',
+    nameAr: 'حبوب اللقاح',
+    nameFr: 'Bee Pollen',
+    category: 'مكملات طبيعية',
+    price: 50,
+    image: 'assets/images/bee-pollen.png',
+    gallery: ['assets/images/bee-pollen.png'],
+    slogan: '100% طبيعي — غذاء النحل الطبيعي',
+    shortDesc: 'حبوب لقاح بلدية طبيعية 100% — غنية بالبروتينات والفيتامينات ومضادات الأكسدة، تدعم الطاقة والمناعة',
+    fullDesc: 'حبوب اللقاح البلدية من Rahiq Bio هي كريات طبيعية يجمعها النحل من أزهار متنوعة. غنية بالبروتينات والأحماض الأمينية والفيتامينات والمعادن ومضادات الأكسدة. تُعتبر من أكثر الأغذية الطبيعية قيمة غذائية، تدعم النشاط اليومي والمناعة وصحة الجسم بشكل عام. منتج طبيعي 100% بدون إضافات أو مواد حافظة.',
+    benefits: [
+      'غنية بالبروتينات والأحماض الأمينية والفيتامينات',
+      'تدعم الطاقة والنشاط اليومي',
+      'غنية بمضادات الأكسدة الطبيعية',
+      'تساهم في دعم المناعة والصحة العامة',
+    ],
+    ingredients: 'حبوب لقاح بلدية طبيعية 100%',
+    usage: 'ملعقة صغيرة يومياً — تؤخذ مباشرة أو تُضاف إلى العسل، الزبادي، العصائر أو الشوفان',
+    storage: 'يحفظ في مكان جاف وبارد بعيداً عن الرطوبة وأشعة الشمس — يُغلق جيداً بعد كل استعمال',
+    warnings: 'غير مناسب لمن يعاني من حساسية تجاه حبوب اللقاح أو منتجات النحل • النساء الحوامل أو المرضعات يُفضل استشارة مختص • يُحفظ بعيداً عن متناول الأطفال',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '100 غرام', price: 50 }]
+  },
   'psyllium': {
     id: 'psyllium',
     nameAr: 'نخالة القاطونة',
@@ -1462,7 +1486,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
