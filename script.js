@@ -477,10 +477,15 @@ function closeProduct() {
 }
 
 // Open product directly from URL on page load (e.g. rahiqbio.com/#jarjir)
-window.addEventListener('load', function() {
+function _openFromHash() {
   const hash = location.hash.slice(1);
   if (hash && products[hash]) openProduct(hash);
-});
+}
+if (document.readyState === 'complete') {
+  _openFromHash();
+} else {
+  window.addEventListener('load', _openFromHash);
+}
 
 // Handle browser back/forward buttons
 window.addEventListener('popstate', function(e) {
