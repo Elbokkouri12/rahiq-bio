@@ -481,10 +481,10 @@ function _openFromHash() {
   const hash = location.hash.slice(1);
   if (hash && products[hash]) openProduct(hash);
 }
-if (document.readyState === 'complete') {
-  _openFromHash();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', _openFromHash);
 } else {
-  window.addEventListener('load', _openFromHash);
+  _openFromHash();
 }
 
 // Handle browser back/forward buttons
