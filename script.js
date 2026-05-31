@@ -332,6 +332,30 @@ const products = {
       { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
     ]
   },
+  'bundle-sante': {
+    id: 'bundle-sante',
+    nameAr: 'باقة الصحة والطبيعة',
+    nameFr: 'Santé & Nature',
+    category: 'باقات',
+    price: 299,
+    image: 'assets/images/bundle-sante-nature.png',
+    gallery: ['assets/images/bundle-sante-nature.png'],
+    slogan: 'وفر 100 درهم — باقة متكاملة من الطبيعة',
+    shortDesc: 'باقة متكاملة: عسل الجرجير 500g + عسل الخروب 500g + زيت الزيتون 1L + حبوب اللقاح 50g — بدل 399 درهم بـ 299 درهم فقط',
+    fullDesc: 'باقة الصحة والطبيعة من Rahiq Bio — مجموعة متكاملة من أجود المنتجات الطبيعية المغربية في عبوة واحدة. تحتوي على عسل الجرجير 500g، عسل الخروب 500g، زيت الزيتون البكر من بني ملال 1L، وحبوب اللقاح الطبيعية 50g. جميع المنتجات طبيعية 100% بدون مواد حافظة. منتجات مراقبة ومعتمدة من ONSSA.',
+    benefits: [
+      'عسل الجرجير: يعزز المناعة ويساعد على الراحة والنوم',
+      'عسل الخروب: مفيد للهضم ويمنح طاقة طبيعية',
+      'زيت الزيتون: غني بالدهون الصحية ومفيد للقلب',
+      'حبوب اللقاح: مصدر طاقة وفيتامينات طبيعية',
+    ],
+    ingredients: 'عسل الجرجير الطبيعي 100% • عسل الخروب الطبيعي 100% • زيت زيتون طبيعي 100% (بني ملال) • حبوب لقاح طبيعية 100%',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — العسل قد يتبلور بشكل طبيعي وهذا لا يؤثر على الجودة',
+    warnings: 'لا يُعطى للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يجب الحذر لمن لديهم حساسية من منتجات النحل',
+    onssa: 'N° M.28.10.25',
+    badge: 'وفر 100 درهم',
+    sizes: [{ label: 'الباقة الكاملة', price: 299 }]
+  },
   'bee-pollen': {
     id: 'bee-pollen',
     nameAr: 'حبوب اللقاح',
@@ -1486,7 +1510,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
