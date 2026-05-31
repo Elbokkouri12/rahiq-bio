@@ -445,6 +445,25 @@ const products = {
   }
 };
 
+// ===== UPSELL MAP — related products per product =====
+const relatedMap = {
+  'jarjir':         ['kharroub', 'sidr', 'daghmous', 'bundle-sante'],
+  'daghmous':       ['jarjir', 'eucalyptus', 'sidr', 'kharroub'],
+  'kharroub':       ['jarjir', 'daghmous', 'aachab', 'bundle-sante'],
+  'eucalyptus':     ['zaatar', 'sidr', 'daghmous', 'aachab'],
+  'sidr':           ['zaatar', 'eucalyptus', 'jarjir', 'daghmous'],
+  'zaatar':         ['sidr', 'eucalyptus', 'limon', 'kharroub'],
+  'limon':          ['zaatar', 'aachab', 'kharroub', 'jarjir'],
+  'aachab':         ['limon', 'kharroub', 'zaatar', 'eucalyptus'],
+  'olive':          ['bundle-sante', 'jarjir', 'kharroub', 'bee-pollen'],
+  'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
+  'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
+  'bee-pollen':     ['shilajit', 'psyllium', 'bundle-sante', 'jarjir'],
+  'bundle-sante':   ['jarjir', 'kharroub', 'olive', 'bee-pollen'],
+  'amlou-cacao':    ['energie-royale', 'jarjir', 'limon', 'kharroub'],
+  'energie-royale': ['amlou-cacao', 'shilajit', 'bee-pollen', 'psyllium'],
+};
+
 const moroccanCities = [
   'الدار البيضاء','الرباط','مراكش','فاس','طنجة','أكادير','مكناس','وجدة','القنيطرة','تطوان',
   'سلا','بني ملال','الحسيمة','الجديدة','آسفي','الناظور','خريبكة','سطات','خنيفرة','تازة',
@@ -824,6 +843,46 @@ function buildProductLanding(p) {
         </div>` : ''}
       </div>` : ''}
     </div>
+
+    ${(function() {
+      const ids = (relatedMap[p.id] || []).filter(id => products[id]).slice(0, 4);
+      if (!ids.length) return '';
+      const STAR_SVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#FED617"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+      const EYE_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+      const cards = ids.map(id => {
+        const rp = products[id];
+        const minPrice = Math.min(...rp.sizes.map(s => s.price));
+        return `
+          <div class="lp-upsell-card" onclick="openProduct('${id}')">
+            <div class="lp-upsell-img-wrap">
+              <img src="${rp.image}" alt="${rp.nameAr}" loading="lazy">
+              <div class="lp-upsell-badge">${rp.badge || 'طبيعي'}</div>
+              <div class="lp-upsell-overlay">${EYE_SVG}</div>
+            </div>
+            <div class="lp-upsell-body">
+              <p class="lp-upsell-name">${rp.nameAr}</p>
+              <p class="lp-upsell-fr">${rp.nameFr}</p>
+              <div class="lp-upsell-footer">
+                <span class="lp-upsell-price">${minPrice} <small>درهم</small></span>
+                <button class="lp-upsell-btn" onclick="event.stopPropagation();openProduct('${id}')">عرض ←</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+      return `
+    <div class="lp-upsell-section">
+      <div class="lp-upsell-head">
+        <div class="lp-upsell-line"></div>
+        <div class="lp-upsell-title-wrap">
+          <div class="lp-upsell-icon">${STAR_SVG}</div>
+          <span class="lp-upsell-title">منتجات قد تعجبك</span>
+          <span class="lp-upsell-sub">Vous pourriez aussi aimer</span>
+        </div>
+        <div class="lp-upsell-line"></div>
+      </div>
+      <div class="lp-upsell-grid">${cards}</div>
+    </div>`;
+    })()}
 
   </div>`;
 }

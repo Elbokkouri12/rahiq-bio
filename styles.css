@@ -4013,6 +4013,223 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .why-card p { font-size: 11px; }
 }
 
+/* ===== UPSELL — منتجات قد تعجبك ===== */
+.lp-upsell-section {
+  background: linear-gradient(160deg, #f8faf8 0%, #eef4ef 100%);
+  border-top: 1px solid #ddeade;
+  padding: 36px 24px 32px;
+}
+
+.lp-upsell-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.lp-upsell-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b5ccb9);
+}
+.lp-upsell-line:last-child {
+  background: linear-gradient(90deg, #b5ccb9, transparent);
+}
+
+.lp-upsell-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.lp-upsell-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2A4937, #3d6b50);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FED617;
+  margin-bottom: 2px;
+  box-shadow: 0 2px 8px rgba(42,73,55,.25);
+}
+
+.lp-upsell-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1a2e22;
+  letter-spacing: 0.2px;
+}
+
+.lp-upsell-sub {
+  font-size: 10px;
+  color: #7a9880;
+  font-style: italic;
+  font-family: 'Jost', sans-serif;
+}
+
+.lp-upsell-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.lp-upsell-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(42,73,55,.07);
+  transition: transform 0.28s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease, border-color 0.2s;
+  border: 1.5px solid #edf2ee;
+  position: relative;
+}
+
+.lp-upsell-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(42,73,55,.15);
+  border-color: #FED617;
+}
+
+.lp-upsell-img-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f5f9f5;
+}
+
+.lp-upsell-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  transition: transform 0.35s ease;
+}
+
+.lp-upsell-card:hover .lp-upsell-img-wrap img {
+  transform: scale(1.08);
+}
+
+.lp-upsell-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(42,73,55,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.22s;
+  backdrop-filter: blur(2px);
+}
+
+.lp-upsell-card:hover .lp-upsell-overlay {
+  opacity: 1;
+}
+
+.lp-upsell-overlay svg {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.3));
+}
+
+.lp-upsell-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #2A4937;
+  color: #FED617;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 20px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.lp-upsell-body {
+  padding: 10px 12px 12px;
+}
+
+.lp-upsell-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1a2e22;
+  margin: 0 0 2px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lp-upsell-fr {
+  font-size: 9.5px;
+  color: #8aaa8f;
+  font-style: italic;
+  margin: 0 0 9px;
+  font-family: 'Jost', sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lp-upsell-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.lp-upsell-price {
+  font-size: 14px;
+  font-weight: 800;
+  color: #2A4937;
+  line-height: 1;
+}
+
+.lp-upsell-price small {
+  font-size: 9px;
+  font-weight: 500;
+  color: #6b8a72;
+}
+
+.lp-upsell-btn {
+  background: linear-gradient(135deg, #2A4937, #1c3628);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 11px;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, transform 0.15s, color 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(42,73,55,.2);
+}
+
+.lp-upsell-btn:hover {
+  background: linear-gradient(135deg, #FED617, #D4A017);
+  color: #1a2e22;
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(254,214,23,.35);
+}
+
+@media (max-width: 768px) {
+  .lp-upsell-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .lp-upsell-section {
+    padding: 24px 14px 20px;
+  }
+}
+
+/* ===== END UPSELL ===== */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.1ms !important; }
 }
