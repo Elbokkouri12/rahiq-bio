@@ -455,6 +455,9 @@ function openProduct(productId) {
   updateTotal(getCurrentPrice(productId), 1, productId);
   document.getElementById('modalContent')?.scrollTo(0, 0);
 
+  // Update URL so each product has its own shareable link
+  history.pushState({ product: productId }, p.nameAr, '#' + productId);
+
   // Show sticky button
   var stickyBuy = document.getElementById('globalStickyBuy');
   var stickyBtn = document.getElementById('globalStickyBtn');
@@ -469,7 +472,28 @@ function closeProduct() {
   document.body.style.overflow = '';
   var stickyBuy = document.getElementById('globalStickyBuy');
   if (stickyBuy) stickyBuy.style.display = 'none';
+  // Restore clean URL
+  if (location.hash) history.pushState({}, '', location.pathname);
 }
+
+// Open product directly from URL on page load (e.g. rahiqbio.com/#jarjir)
+window.addEventListener('load', function() {
+  const hash = location.hash.slice(1);
+  if (hash && products[hash]) openProduct(hash);
+});
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate', function(e) {
+  const modal = document.getElementById('productModal');
+  if (e.state && e.state.product) {
+    openProduct(e.state.product);
+  } else if (modal && modal.classList.contains('open')) {
+    document.getElementById('productModal').classList.remove('open');
+    document.body.style.overflow = '';
+    var stickyBuy = document.getElementById('globalStickyBuy');
+    if (stickyBuy) stickyBuy.style.display = 'none';
+  }
+});
 
 function scrollToOrderForm() {
   var formBox = document.querySelector('.lp-v2-form-box');
