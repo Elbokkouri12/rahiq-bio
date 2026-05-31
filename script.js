@@ -457,8 +457,6 @@ function openProduct(productId) {
 
   // Update URL so each product has its own shareable link
   history.pushState({ product: productId }, p.nameAr, '#' + productId);
-  // Reveal page (hidden on direct product URL to prevent homepage flash)
-  document.documentElement.style.opacity = '1';
 
   // Show sticky button
   var stickyBuy = document.getElementById('globalStickyBuy');
@@ -478,16 +476,12 @@ function closeProduct() {
   if (location.hash) history.pushState({}, '', location.pathname);
 }
 
-// Open product directly from URL on page load (e.g. rahiqbio.com/#jarjir)
-function _openFromHash() {
+// Open product directly from URL (e.g. rahiqbio.com/#jarjir)
+// Script is at bottom of body so DOM is already ready — run immediately
+(function() {
   const hash = location.hash.slice(1);
   if (hash && products[hash]) openProduct(hash);
-}
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', _openFromHash);
-} else {
-  _openFromHash();
-}
+})();
 
 // Handle browser back/forward buttons
 window.addEventListener('popstate', function(e) {
