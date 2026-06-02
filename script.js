@@ -72,7 +72,7 @@ const products = {
     nameAr: 'عسل الكاليبتوس',
     nameFr: "Miel d'Eucalyptus",
     category: 'عسل',
-    price: 199,
+    price: 200,
     image: 'assets/images/eucalyptus-3.png',
     gallery: [
       'assets/images/eucalyptus-3.png',
@@ -98,7 +98,7 @@ const products = {
     badge: 'طبيعي 100%',
     sizes: [
       { label: '500 غرام', price: 110, image: 'assets/images/eucalyptus-2.png' },
-      { label: '1 كيلوغرام', price: 199, image: 'assets/images/eucalyptus-3.png' }
+      { label: '1 كيلوغرام', price: 200, image: 'assets/images/eucalyptus-3.png' }
     ]
   },
   'sidr': {
@@ -172,7 +172,7 @@ const products = {
     nameAr: 'عسل الليمون',
     nameFr: 'Miel de Citronnier',
     category: 'عسل',
-    price: 150,
+    price: 130,
     image: 'assets/images/limon-1.png',
     gallery: [
       'assets/images/limon-1.png',
@@ -197,8 +197,8 @@ const products = {
     lot: '01-01CIT',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 80, image: 'assets/images/limon-4.png' },
-      { label: '1 كيلوغرام', price: 150, image: 'assets/images/limon-1.png' }
+      { label: '500 غرام', price: 70, image: 'assets/images/limon-4.png' },
+      { label: '1 كيلوغرام', price: 130, image: 'assets/images/limon-1.png' }
     ]
   },
   'aachab': {
@@ -206,7 +206,7 @@ const products = {
     nameAr: 'عسل الأعشاب',
     nameFr: 'Miel Multi Fleurs',
     category: 'عسل',
-    price: 250,
+    price: 280,
     image: 'assets/images/aachab-1.png',
     gallery: [
       'assets/images/aachab-1.png',
@@ -230,8 +230,8 @@ const products = {
     lot: '01-01HER',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 135, image: 'assets/images/aachab-4.png' },
-      { label: '1 كيلوغرام', price: 250, image: 'assets/images/aachab-1.png' }
+      { label: '500 غرام', price: 150, image: 'assets/images/aachab-4.png' },
+      { label: '1 كيلوغرام', price: 280, image: 'assets/images/aachab-1.png' }
     ]
   },
   'olive': {
@@ -1401,10 +1401,6 @@ function submitCartOrder(e) {
   const isTanger = city === 'طنجة';
   const shipping = subtotal >= 350 ? 0 : (isTanger ? 0 : 35);
   const grand    = subtotal + shipping;
-
-  const productsText = cart.map(i =>
-    `${i.name} (${i.weight}) × ${i.qty} = ${i.price * i.qty} درهم`
-  ).join('\n');
 
   // Build WhatsApp message
   let msg = `🌿 *طلب جديد - Rahiq Bio*\n\n`;
