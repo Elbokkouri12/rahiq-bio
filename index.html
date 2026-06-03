@@ -173,10 +173,6 @@
       </div>
     </div>
     <div class="cart-footer" id="cartFooter" style="display:none">
-      <div class="cart-ship-progress" id="cartShipProgress">
-        <div class="cart-ship-bar-wrap"><div class="cart-ship-bar" id="cartShipBar"></div></div>
-        <p class="cart-ship-msg" id="cartShipMsg"></p>
-      </div>
       <div class="cart-total-row">
         <span>المجموع</span>
         <strong id="cartTotal">0 درهم</strong>
@@ -1319,6 +1315,12 @@
                 <option>الفقيه بن صالح</option><option>برشيد</option><option>سيدي سليمان</option>
               </select>
             </div>
+            <!-- Shipping progress — shows after city selected -->
+            <div id="chkShipProgressWrap" style="display:none" class="chk-ship-progress-wrap">
+              <div class="chk-ship-bar-outer"><div class="chk-ship-bar-fill" id="chkShipBarFill"></div></div>
+              <p class="chk-ship-progress-msg" id="chkShipProgressMsg"></p>
+            </div>
+
             <div class="chk-field chk-field-full">
               <label for="chkAddress">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>

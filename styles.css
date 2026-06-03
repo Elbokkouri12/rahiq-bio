@@ -1295,39 +1295,41 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: #f9faf9;
 }
 
-/* Free shipping progress bar */
-.cart-ship-progress {
-  padding: 12px 20px 10px;
-  border-bottom: 1px solid rgba(42,73,55,0.07);
-  margin-bottom: 4px;
+/* Checkout shipping progress bar */
+.chk-ship-progress-wrap {
+  background: #f2f7f3;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 8px 0 4px;
+  border: 1px solid #ddeade;
 }
-.cart-ship-bar-wrap {
+.chk-ship-bar-outer {
   height: 6px;
-  background: #e2ebe4;
+  background: #ddeade;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 7px;
 }
-.cart-ship-bar {
+.chk-ship-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, #FED617 0%, #2A4937 100%);
   border-radius: 10px;
   transition: width 0.5s cubic-bezier(.34,1.56,.64,1);
   width: 0%;
 }
-.cart-ship-bar--done {
+.chk-ship-bar-fill--done {
   background: linear-gradient(90deg, #25D366, #1aab54) !important;
 }
-.cart-ship-msg {
-  font-size: 11.5px;
-  color: #5a7a62;
+.chk-ship-progress-msg {
+  font-size: 12px;
+  color: #4a6a55;
   text-align: center;
   margin: 0;
   direction: rtl;
 }
-.cart-ship-msg strong { color: #2A4937; font-weight: 800; }
-.cart-ship-msg--free { color: #1aab54 !important; font-weight: 600; }
-.cart-ship-msg--free strong { color: #1aab54 !important; }
+.chk-ship-progress-msg strong { color: #2A4937; font-weight: 800; }
+.chk-ship-progress-msg--free { color: #1aab54 !important; font-weight: 700; }
+.chk-ship-progress-msg--free strong { color: #1aab54 !important; }
 
 .cart-total-row { padding: 10px 20px 0; }
 .cart-total-row {

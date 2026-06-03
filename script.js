@@ -1401,10 +1401,37 @@ function _updateCheckoutTotals(subtotal) {
   const grd = document.getElementById('chkGrand');
   if (sub) sub.textContent = subtotal + ' درهم';
   if (shp) {
-    shp.textContent = shipping === 0 ? 'مجاني' : shipping + ' درهم';
-    shp.style.color = shipping === 0 ? '#25D366' : 'inherit';
+    shp.textContent = !city ? 'اختر المدينة' : (shipping === 0 ? 'مجاني 🎉' : shipping + ' درهم');
+    shp.style.color = shipping === 0 && city ? '#25D366' : 'inherit';
   }
   if (grd) grd.textContent = grand + ' درهم';
+
+  // Shipping progress bar — shows after city selected
+  const wrap = document.getElementById('chkShipProgressWrap');
+  const bar  = document.getElementById('chkShipBarFill');
+  const msg  = document.getElementById('chkShipProgressMsg');
+  if (!wrap || !bar || !msg) return;
+  if (!city) { wrap.style.display = 'none'; return; }
+
+  const threshold = isTanger ? 150 : 350;
+  const pct = Math.min((subtotal / threshold) * 100, 100);
+  bar.style.width = pct + '%';
+  wrap.style.display = 'block';
+
+  if (subtotal >= threshold) {
+    bar.className = 'chk-ship-bar-fill chk-ship-bar-fill--done';
+    msg.innerHTML = isTanger
+      ? '🎉 <strong>مبروك!</strong> توصيل مجاني داخل طنجة'
+      : '🎉 <strong>مبروك!</strong> توصيل مجاني لمدينتك';
+    msg.className = 'chk-ship-progress-msg chk-ship-progress-msg--free';
+  } else {
+    bar.className = 'chk-ship-bar-fill';
+    const remaining = threshold - subtotal;
+    msg.innerHTML = isTanger
+      ? `🚚 أضف <strong>${remaining} درهم</strong> للتوصيل المجاني داخل طنجة`
+      : `🚚 أضف <strong>${remaining} درهم</strong> للتوصيل المجاني (من ${threshold} درهم)`;
+    msg.className = 'chk-ship-progress-msg';
+  }
 }
 
 function submitCartOrder(e) {
@@ -1527,25 +1554,6 @@ function updateCartUI() {
   const footer = document.getElementById('cartFooter');
   if (footer) footer.style.display = cart.length > 0 ? 'block' : 'none';
 
-  // Free shipping progress bar (Tanger: free from 150 DH)
-  const shipProgress = document.getElementById('cartShipProgress');
-  const shipBar = document.getElementById('cartShipBar');
-  const shipMsg = document.getElementById('cartShipMsg');
-  if (shipProgress && shipBar && shipMsg) {
-    if (cart.length > 0) {
-      const pct = Math.min((total / 150) * 100, 100);
-      shipBar.style.width = pct + '%';
-      if (total >= 150) {
-        shipBar.className = 'cart-ship-bar cart-ship-bar--done';
-        shipMsg.innerHTML = '🎉 <strong>مبروك!</strong> توصيل مجاني داخل طنجة';
-        shipMsg.className = 'cart-ship-msg cart-ship-msg--free';
-      } else {
-        shipBar.className = 'cart-ship-bar';
-        shipMsg.innerHTML = `🚚 أضف <strong>${150 - total} درهم</strong> للتوصيل المجاني داخل طنجة`;
-        shipMsg.className = 'cart-ship-msg';
-      }
-    }
-  }
 
   const itemsEl = document.getElementById('cartItems');
   if (!itemsEl) return;
