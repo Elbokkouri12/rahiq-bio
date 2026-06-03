@@ -1597,7 +1597,7 @@ function initTicker() {
   const halfW = half.getBoundingClientRect().width || half.scrollWidth;
 
   // Set animation to move exactly one half-width in pixels (seamless reset)
-  const speed = 60; // px per second
+  const speed = 110; // px per second
   const dur   = halfW / speed;
   track.style.setProperty('--ticker-move', `-${halfW}px`);
   track.style.setProperty('--ticker-duration', `${dur.toFixed(1)}s`);

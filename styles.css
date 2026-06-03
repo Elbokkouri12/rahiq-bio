@@ -583,18 +583,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== PROMO TICKER ===== */
 .promo-ticker-wrap {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d1a00 40%, #1a1000 100%) !important;
-  border-top: 2px solid rgba(254,214,23,0.6) !important;
-  border-bottom: 2px solid rgba(254,214,23,0.6) !important;
-  animation: promo-pulse-bg 3s ease-in-out infinite;
+  background: linear-gradient(135deg, #1c3626 0%, #2A4937 50%, #1c3626 100%) !important;
+  border-top: 2.5px solid #FED617 !important;
+  border-bottom: 2.5px solid #FED617 !important;
+  box-shadow: 0 0 0 4px rgba(254,214,23,.12), 0 6px 30px rgba(0,0,0,.3) !important;
 }
-.promo-ticker-wrap::before { background: linear-gradient(to left, #2d1a00, transparent) !important; }
-.promo-ticker-wrap::after  { background: linear-gradient(to right, #2d1a00, transparent) !important; }
-
-@keyframes promo-pulse-bg {
-  0%, 100% { box-shadow: 0 0 20px rgba(254,214,23,.1), 0 6px 30px rgba(0,0,0,.4); }
-  50%       { box-shadow: 0 0 40px rgba(254,214,23,.25), 0 6px 30px rgba(0,0,0,.4); }
-}
+.promo-ticker-wrap::before { background: linear-gradient(to left, #1c3626, transparent) !important; }
+.promo-ticker-wrap::after  { background: linear-gradient(to right, #1c3626, transparent) !important; }
 
 .ticker-promo-item {
   display: inline-flex;
