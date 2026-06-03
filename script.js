@@ -341,7 +341,7 @@ const products = {
     id: 'granola',
     nameAr: 'جرانولا بالمكسرات',
     nameFr: 'Granola Nuts Mix',
-    category: 'أملو',
+    category: 'مكملات طبيعية',
     price: 90,
     image: 'assets/images/granola-500g.png',
     gallery: [
