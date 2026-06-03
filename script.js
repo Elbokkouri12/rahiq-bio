@@ -1393,7 +1393,7 @@ function _updateCheckoutTotals(subtotal) {
   const cityEl = document.getElementById('chkCity');
   const city = cityEl ? cityEl.value : '';
   const isTanger = city === 'طنجة';
-  const shipping = isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35);
+  const shipping = !city ? 0 : (isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35));
   const grand = subtotal + shipping;
 
   const sub = document.getElementById('chkSubtotal');
@@ -1465,7 +1465,7 @@ function submitCartOrder(e) {
 
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const isTanger = city === 'طنجة';
-  const shipping = isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35);
+  const shipping = !city ? 0 : (isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35));
   const grand    = subtotal + shipping;
 
   // Build WhatsApp message
