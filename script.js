@@ -332,6 +332,39 @@ const products = {
       { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
     ]
   },
+  'granola': {
+    id: 'granola',
+    nameAr: 'جرانولا بالمكسرات',
+    nameFr: 'Granola Nuts Mix',
+    category: 'أملو',
+    price: 90,
+    image: 'assets/images/granola-500g.png',
+    gallery: [
+      'assets/images/granola-500g.png',
+      'assets/images/granola-220g.png',
+      'assets/images/granola-back-500g.png',
+      'assets/images/granola-back-220g.png',
+    ],
+    slogan: '100% طبيعي — فطور صحي بالمكسرات',
+    shortDesc: 'جرانولا طبيعية 100% بالمكسرات والبذور — فطور صحي لذيذ يمنحك الطاقة والنشاط طوال اليوم',
+    fullDesc: 'جرانولا بالمكسرات من Rahiq Bio — مزيج طبيعي 100% يجمع بين الشوفان والمكسرات المختارة والبذور الصحية. مصدر غني بالطاقة والبروتين والألياف الطبيعية. مثالي للفطور الصحي أو كسناك يومي للحفاظ على نشاطك وطاقتك. بدون مواد حافظة، بدون إضافات صناعية، منتج مغربي 100%.',
+    benefits: [
+      'مصدر غني بالطاقة الطبيعية',
+      'يحتوي على بروتينات وألياف طبيعية',
+      'يساعد على تحسين الهضم',
+      'مناسب للرياضيين ونمط الحياة الصحي',
+    ],
+    ingredients: 'شوفان، لوز، زريعة القرع، زريعة نوار الشمس، كاجو، بندق، بيستاج، زبيب بلدي، مشمش، قطع شوكولاتة، عسل طبيعي',
+    usage: 'ملعقتين كبيرتين مع الياغورت كوجبة فطور، أو مع الحليب، أو يتناول مباشرة كسناك صحي',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن الرطوبة وأشعة الشمس — يُغلق بإحكام بعد الفتح',
+    warnings: 'يحتوي على مكسرات — قد يسبب حساسية لمن لديهم حساسية من المكسرات',
+    lot: '01-01GRA',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '220 غرام', price: 50, image: 'assets/images/granola-220g.png' },
+      { label: '500 غرام', price: 90, image: 'assets/images/granola-500g.png' },
+    ]
+  },
   'bundle-sante': {
     id: 'bundle-sante',
     nameAr: 'باقة الصحة والطبيعة',
@@ -461,7 +494,8 @@ const relatedMap = {
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-sante', 'jarjir'],
   'bundle-sante':   ['jarjir', 'kharroub', 'olive', 'bee-pollen'],
   'amlou-cacao':    ['energie-royale', 'jarjir', 'limon', 'kharroub'],
-  'energie-royale': ['amlou-cacao', 'shilajit', 'bee-pollen', 'psyllium'],
+  'energie-royale': ['amlou-cacao', 'granola', 'bee-pollen', 'psyllium'],
+  'granola':        ['amlou-cacao', 'energie-royale', 'bee-pollen', 'psyllium'],
 };
 
 const moroccanCities = [
@@ -1571,7 +1605,7 @@ document.addEventListener('click', function(e) {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
