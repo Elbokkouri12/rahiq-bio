@@ -580,6 +580,63 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   0%   { transform: translateX(0); }
   100% { transform: translateX(var(--ticker-move, -1000px)); }
 }
+
+/* ===== PROMO TICKER ===== */
+.promo-ticker-wrap {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d1a00 40%, #1a1000 100%) !important;
+  border-top: 2px solid rgba(254,214,23,0.6) !important;
+  border-bottom: 2px solid rgba(254,214,23,0.6) !important;
+  animation: promo-pulse-bg 3s ease-in-out infinite;
+}
+.promo-ticker-wrap::before { background: linear-gradient(to left, #2d1a00, transparent) !important; }
+.promo-ticker-wrap::after  { background: linear-gradient(to right, #2d1a00, transparent) !important; }
+
+@keyframes promo-pulse-bg {
+  0%, 100% { box-shadow: 0 0 20px rgba(254,214,23,.1), 0 6px 30px rgba(0,0,0,.4); }
+  50%       { box-shadow: 0 0 40px rgba(254,214,23,.25), 0 6px 30px rgba(0,0,0,.4); }
+}
+
+.ticker-promo-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tp-badge {
+  background: linear-gradient(135deg, #FED617, #D4A017);
+  color: #1a1a00;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 8px rgba(254,214,23,.4);
+}
+
+.tp-text {
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tp-text strong {
+  color: #FED617;
+  font-weight: 800;
+}
+
+.tp-sep {
+  color: #FED617 !important;
+  font-size: 12px !important;
+  opacity: 1 !important;
+  padding: 0 8px !important;
+}
+/* ===== END PROMO TICKER ===== */
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none !important; }
 }
