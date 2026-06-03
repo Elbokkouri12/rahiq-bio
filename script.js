@@ -1393,7 +1393,7 @@ function _updateCheckoutTotals(subtotal) {
   const cityEl = document.getElementById('chkCity');
   const city = cityEl ? cityEl.value : '';
   const isTanger = city === 'طنجة';
-  const shipping = subtotal >= 350 ? 0 : (isTanger ? 0 : 35);
+  const shipping = isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35);
   const grand = subtotal + shipping;
 
   const sub = document.getElementById('chkSubtotal');
@@ -1438,7 +1438,7 @@ function submitCartOrder(e) {
 
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const isTanger = city === 'طنجة';
-  const shipping = subtotal >= 350 ? 0 : (isTanger ? 0 : 35);
+  const shipping = isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35);
   const grand    = subtotal + shipping;
 
   // Build WhatsApp message
@@ -1526,6 +1526,26 @@ function updateCartUI() {
 
   const footer = document.getElementById('cartFooter');
   if (footer) footer.style.display = cart.length > 0 ? 'block' : 'none';
+
+  // Free shipping progress bar (Tanger: free from 150 DH)
+  const shipProgress = document.getElementById('cartShipProgress');
+  const shipBar = document.getElementById('cartShipBar');
+  const shipMsg = document.getElementById('cartShipMsg');
+  if (shipProgress && shipBar && shipMsg) {
+    if (cart.length > 0) {
+      const pct = Math.min((total / 150) * 100, 100);
+      shipBar.style.width = pct + '%';
+      if (total >= 150) {
+        shipBar.className = 'cart-ship-bar cart-ship-bar--done';
+        shipMsg.innerHTML = '🎉 <strong>مبروك!</strong> توصيل مجاني داخل طنجة';
+        shipMsg.className = 'cart-ship-msg cart-ship-msg--free';
+      } else {
+        shipBar.className = 'cart-ship-bar';
+        shipMsg.innerHTML = `🚚 أضف <strong>${150 - total} درهم</strong> للتوصيل المجاني داخل طنجة`;
+        shipMsg.className = 'cart-ship-msg';
+      }
+    }
+  }
 
   const itemsEl = document.getElementById('cartItems');
   if (!itemsEl) return;
