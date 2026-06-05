@@ -4393,13 +4393,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
   height: 30px;
 }
-.section-bunting-wrap::before {
-  content: '';
-  position: absolute;
-  top: 3px; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212,133,26,0.5) 15%, var(--gold) 50%, rgba(212,133,26,0.5) 85%, transparent 100%);
-}
 .section-bunting {
   display: flex;
   justify-content: center;
