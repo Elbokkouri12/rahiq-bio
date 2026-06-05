@@ -4320,6 +4320,153 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== END UPSELL ===== */
 
+/* ===== OPENING SALE / عروض الافتتاح ===== */
+
+/* Strikethrough original price */
+.price-orig {
+  font-size: 12px;
+  color: #bbb;
+  text-decoration: line-through;
+  font-weight: 500;
+  align-self: center;
+  white-space: nowrap;
+}
+.price-orig-cur { font-size: 10px; }
+
+/* Opening badge on product cards */
+.badge-opening {
+  background: linear-gradient(135deg, #e53935, #b71c1c);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(229,57,53,0.45);
+}
+
+/* ===== Opening Celebration Banner ===== */
+.opening-celebration-section {
+  position: relative;
+  background: linear-gradient(135deg, #1c3626 0%, #2a4939 45%, #1a2f24 100%);
+  padding: 52px 20px 48px;
+  overflow: hidden;
+  text-align: center;
+  isolation: isolate;
+}
+
+/* Corner frame decorations */
+.opening-corner {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  pointer-events: none;
+}
+.opening-corner.tl { top: 0; left: 0; border-top: 3px solid var(--gold); border-left: 3px solid var(--gold); border-radius: 0 0 8px 0; }
+.opening-corner.tr { top: 0; right: 0; border-top: 3px solid var(--gold); border-right: 3px solid var(--gold); border-radius: 0 0 0 8px; }
+.opening-corner.bl { bottom: 0; left: 0; border-bottom: 3px solid var(--gold); border-left: 3px solid var(--gold); border-radius: 0 8px 0 0; }
+.opening-corner.br { bottom: 0; right: 0; border-bottom: 3px solid var(--gold); border-right: 3px solid var(--gold); border-radius: 8px 0 0 0; }
+
+/* Confetti */
+.opening-confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.cp {
+  position: absolute;
+  top: -14px;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  opacity: 0.85;
+  animation: cpFall linear infinite;
+}
+@keyframes cpFall {
+  0%   { transform: translateY(0)   rotate(0deg); opacity: 0.85; }
+  80%  { opacity: 0.6; }
+  100% { transform: translateY(420px) rotate(400deg); opacity: 0; }
+}
+
+.opening-content { position: relative; z-index: 2; }
+
+.opening-emoji {
+  font-size: 46px;
+  display: block;
+  margin-bottom: 14px;
+  animation: openingBounce 1.8s ease-in-out infinite;
+}
+@keyframes openingBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-9px) scale(1.08); }
+}
+
+.opening-title {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--gold);
+  font-family: 'Cairo', sans-serif;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 12px rgba(254,214,23,0.25);
+}
+
+.opening-subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+.opening-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(254,214,23,0.12);
+  border: 1.5px solid rgba(254,214,23,0.45);
+  padding: 9px 22px;
+  border-radius: 50px;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.opening-offers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.opening-offer-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 9px 16px;
+  border-radius: 50px;
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.opening-offer-pill:hover { background: rgba(255,255,255,0.12); }
+.opening-offer-pill .oop-icon { font-size: 17px; }
+
+/* Divider waves below banner */
+.opening-wave-bottom {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  line-height: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .opening-title { font-size: 22px; }
+  .opening-emoji { font-size: 36px; }
+  .opening-offer-pill { font-size: 12px; padding: 7px 12px; }
+  .opening-date-pill { font-size: 13px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.1ms !important; }
 }

@@ -1633,6 +1633,10 @@ document.addEventListener('click', function(e) {
     priceEl.textContent = btn.dataset.price;
     setTimeout(() => { priceEl.style.transform = ''; }, 200);
   }
+  const origValEl = card.querySelector('.price-orig-val');
+  if (origValEl && btn.dataset.origPrice) {
+    origValEl.textContent = btn.dataset.origPrice;
+  }
 });
 
 
