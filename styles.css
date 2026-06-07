@@ -1111,6 +1111,47 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-color: var(--green-dark);
   background: rgba(42,73,55,0.1);
 }
+.variant-btn[data-soldout="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #9ca3af;
+  color: #6b7280;
+  background: rgba(156,163,175,0.1);
+  position: relative;
+}
+.variant-btn[data-soldout="true"]::after {
+  content: 'نفذ';
+  font-size: 9px;
+  background: #dc2626;
+  color: white;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Cairo', sans-serif;
+}
+.variant-btn[data-soldout="true"].active {
+  background: #9ca3af;
+  color: white;
+  border-color: #9ca3af;
+  box-shadow: none;
+}
+.variant-btn[data-soldout="true"]:hover {
+  opacity: 0.5;
+  transform: none;
+  border-color: #9ca3af;
+  background: rgba(156,163,175,0.1);
+}
+.btn-add-cart.soldout {
+  background: linear-gradient(135deg, #9ca3af, #6b7280) !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  box-shadow: none !important;
+  transform: none !important;
+  color: white !important;
+}
 
 .product-footer {
   display: flex;

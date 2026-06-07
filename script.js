@@ -1287,6 +1287,7 @@ const cart = [];
 function addToCart(productId, btn) {
   const card = document.querySelector(`[data-product="${productId}"]`);
   const activeVariant = card.querySelector('.variant-btn.active');
+  if (activeVariant && activeVariant.dataset.soldout === 'true') return;
   const priceEl = card.querySelector('.price-val');
   const nameEl = card.querySelector('.product-name-ar');
   const p = products[productId];
@@ -1619,6 +1620,20 @@ if (document.readyState === 'complete') {
   window.addEventListener('load', initTicker);
 }
 
+// Sold-out state helper
+function updateSoldOutState(card) {
+  const activeVariant = card.querySelector('.variant-btn.active');
+  const addBtn = card.querySelector('.btn-add-cart');
+  if (!addBtn) return;
+  if (activeVariant && activeVariant.dataset.soldout === 'true') {
+    addBtn.classList.add('soldout');
+    addBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> نفذ المخزون`;
+  } else {
+    addBtn.classList.remove('soldout');
+    addBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg> أضف للسلة`;
+  }
+}
+
 // Variant price switching
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.variant-btn');
@@ -1637,6 +1652,12 @@ document.addEventListener('click', function(e) {
   if (origValEl && btn.dataset.origPrice) {
     origValEl.textContent = btn.dataset.origPrice;
   }
+  updateSoldOutState(card);
+});
+
+// Initialize sold-out state on page load
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.product-card').forEach(updateSoldOutState);
 });
 
 
