@@ -41,7 +41,12 @@ const products = {
     nameFr: 'Amlou cacahuète Au Miel De Citron',
     category: 'أملو',
     price: 80,
-    image: 'assets/images/amlou-cacao.jpg',
+    image: 'assets/images/amlou-cacao-1.png',
+    gallery: [
+      'assets/images/amlou-cacao-1.png',
+      'assets/images/amlou-cacao-2.png',
+      'assets/images/amlou-cacao-3.png',
+    ],
     slogan: 'مزيج كاكاو وعسل حر وزيت زيتون طبيعي و بعض الزرارع!',
     shortDesc: 'أملو كاكاو بعسل الليمون — مزيج طبيعي مغربي من الكاكاو (فول سوداني) وعسل الليمون وزيت الزيتون والزرارع',
     fullDesc: 'أملو الكاكاو من Rahiq Bio — مزيج طبيعي مغربي أصيل يجمع بين الكاكاو (الفول السوداني) المحمص والمطحون بجودة عالية، وعسل الليمون الحر الطبيعي، وزيت الزيتون البلدي، وبذور الزنجلان والزرارع. غني بالبروتينات والدهون الصحية والطاقة الطبيعية. بلا سكر مضاف، بلا حافظات، مصنوع بالمغرب 100%.',
