@@ -2,6 +2,39 @@
 
 // Products Data
 const products = {
+  'amlou-louz': {
+    id: 'amlou-louz',
+    nameAr: 'أملو اللوز',
+    nameFr: 'Amlou Amande Au Miel De Citron',
+    category: 'أملو',
+    price: 220,
+    image: 'assets/images/amlou-louz-1.png',
+    gallery: [
+      'assets/images/amlou-louz-1.png',
+      'assets/images/amlou-louz-2.png',
+      'assets/images/amlou-louz-3.png',
+    ],
+    slogan: 'مزيج لوز وعسل حر وزيت أركان طبيعي',
+    shortDesc: 'أملو اللوز بعسل الليمون — مزيج طبيعي أصيل من لوز محمص وعسل ليمون طبيعي وزيت أركان غذائي',
+    fullDesc: 'أملو اللوز من Rahiq Bio — مزيج طبيعي مغربي أصيل يجمع بين اللوز المحمص المطحون بجودة عالية وعسل الليمون الحر الطبيعي وزيت الأركان الغذائي الأصلي. غني بالبروتينات والدهون الصحية والطاقة الطبيعية. بلا سكر مضاف، بلا حافظات، مصنوع بالمغرب 100%.',
+    benefits: [
+      'مصدر ممتاز للطاقة الطبيعية والبروتينات',
+      'يحتوي على زيت أركان الغذائي الأصلي',
+      'مثالي للفطور الصحي والرياضيين',
+      'بلا سكر مضاف، بلا مواد حافظة',
+    ],
+    ingredients: 'لوز محمص ومطحون بجودة عالية (50%)، عسل ليمون حر طبيعي (40%)، زيت أركان غذائي أصلي (10%)',
+    usage: 'مثالي للفطور أو كسناك طبيعي للطاقة — مناسب للرياضيين والطلاب — يُستهلك بملعقة أو مع الخبز يومياً',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — يُغلق بإحكام بعد الاستعمال',
+    warnings: 'يحتوي على لوز — غير مناسب للأشخاص الذين يعانون من حساسية المكسرات',
+    nutrition: { calories: '520–540', protein: '10–12غ', fat: '32–35غ', carbs: '45–50غ', sugar: '30–35غ', fiber: '5–7غ' },
+    lot: '01-01AMA',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '500 غرام', price: 110 },
+      { label: '1 كيلوغرام', price: 220 },
+    ]
+  },
   'amlou-cacao': {
     id: 'amlou-cacao',
     nameAr: 'أملو كاكاو',
@@ -498,7 +531,8 @@ const relatedMap = {
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-sante', 'jarjir'],
   'bundle-sante':   ['jarjir', 'kharroub', 'olive', 'bee-pollen'],
-  'amlou-cacao':    ['energie-royale', 'jarjir', 'limon', 'kharroub'],
+  'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
+  'amlou-cacao':    ['amlou-louz', 'energie-royale', 'jarjir', 'limon'],
   'energie-royale': ['amlou-cacao', 'granola', 'bee-pollen', 'psyllium'],
   'granola':        ['amlou-cacao', 'energie-royale', 'bee-pollen', 'psyllium'],
 };
@@ -1663,7 +1697,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola', 'energie-royale']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola', 'energie-royale', 'amlou-louz']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
