@@ -805,11 +805,11 @@
       </div>
     </article>
 
-    <!-- Product 1: Amlou Cacao -->
-    <article class="product-card" data-product="amlou-cacao" data-category="أملو">
+    <!-- Product: Amlou Cacao — LIVE -->
+    <article class="product-card featured" data-product="amlou-cacao" data-category="أملو">
       <div class="product-image-wrap">
-        <img src="assets/images/amlou-cacao.jpg" alt="أملو كاكاو" loading="lazy" class="product-img">
-        <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
+        <img src="assets/images/amlou-cacao.jpg" alt="أملو كاكاو" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
+        <div class="product-badge-wrap"><span class="badge-opening">🎉 افتتاح</span></div>
         <div class="product-quick-view" onclick="openProduct('amlou-cacao')">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           عرض التفاصيل
@@ -818,14 +818,15 @@
       <div class="product-card-body">
         <div class="product-category">أملو</div>
         <h3 class="product-name-ar">أملو كاكاو</h3>
-        <p class="product-name-fr">Amlou Cacahuète Au Miel De Citron</p>
+        <p class="product-name-fr">Amlou cacahuète Au Miel De Citron</p>
         <div class="product-variants">
-          <button class="variant-btn active" data-price="99">500g — 99د</button>
-          <button class="variant-btn" data-price="180">1kg — 180د</button>
+          <button class="variant-btn active" data-price="40" data-orig-price="50" data-soldout="true">500g — 40د</button>
+          <button class="variant-btn" data-price="80" data-orig-price="90">1kg — 80د</button>
         </div>
         <div class="product-footer">
           <div class="product-price-wrap">
-            <span class="price-val">99</span>
+            <del class="price-orig"><span class="price-orig-val">50</span><span class="price-orig-cur">د</span></del>
+            <span class="price-val">40</span>
             <span class="currency">درهم</span>
           </div>
           <button class="btn-add-cart" onclick="addToCart('amlou-cacao', this)">

@@ -38,16 +38,30 @@ const products = {
   'amlou-cacao': {
     id: 'amlou-cacao',
     nameAr: 'أملو كاكاو',
-    nameFr: 'Amlou Cacahuète Au Miel De Citron',
+    nameFr: 'Amlou cacahuète Au Miel De Citron',
     category: 'أملو',
-    price: 180,
+    price: 80,
     image: 'assets/images/amlou-cacao.jpg',
-    shortDesc: 'مزيج مغربي أصيل: كاكاو + عسل الليمون + زيت زيتون + زرازع',
-    fullDesc: 'أملو الكاكاو — تحفة مغربية أصيلة تجمع بين الكاكاو المطحون ناعماً وعسل الليمون الطبيعي وزيت الزيتون البكر وحبات الزرازع المنتقاة. غني بالبروتينات والدهون الصحية والمعادن الأساسية. طعمه لذيذ ومميز يذوب في الفم.',
-    benefits: ['غني بالبروتينات والدهون الصحية','مصدر ممتاز للطاقة الطبيعية','يحتوي على مضادات الأكسدة','بلا سكر مضاف، بلا حافظات'],
-    ingredients: 'كاكاو، عسل الليمون الطبيعي، زيت الزيتون البكر، زرازع',
-    badge: 'طبيعي 100%',
-    sizes: [{ label: '500 غرام', price: 99 }, { label: '1 كيلوغرام', price: 180 }]
+    slogan: 'مزيج كاكاو وعسل حر وزيت زيتون طبيعي و بعض الزرارع!',
+    shortDesc: 'أملو كاكاو بعسل الليمون — مزيج طبيعي مغربي من الكاكاو (فول سوداني) وعسل الليمون وزيت الزيتون والزرارع',
+    fullDesc: 'أملو الكاكاو من Rahiq Bio — مزيج طبيعي مغربي أصيل يجمع بين الكاكاو (الفول السوداني) المحمص والمطحون بجودة عالية، وعسل الليمون الحر الطبيعي، وزيت الزيتون البلدي، وبذور الزنجلان والزرارع. غني بالبروتينات والدهون الصحية والطاقة الطبيعية. بلا سكر مضاف، بلا حافظات، مصنوع بالمغرب 100%.',
+    benefits: [
+      'مصدر ممتاز للطاقة الطبيعية والبروتينات',
+      'يحتوي على زيت الزيتون البلدي الطبيعي',
+      'مثالي للفطور الصحي والرياضيين',
+      'بلا سكر مضاف، بلا مواد حافظة',
+    ],
+    ingredients: 'كاكاو (فول سوداني) محمص ومطحون بجودة عالية، عسل ليمون حر طبيعي، زيت زيتون بلدية، زنجلان (سمسم محمص)، نافع (يانسون)، حبة حلاوة، بودرة خروب، بودرة نبك (سدر بري)، بودرة عراق سوس',
+    usage: 'مثالي للفطور أو كسناك طبيعي للطاقة — مناسب للرياضيين والطلاب — يُستهلك بملعقة أو مع الخبز يومياً',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — يُغلق بإحكام بعد الاستعمال',
+    warnings: 'يُنصح بعدم استخدامه من طرف الأطفال أو النساء الحوامل إلا بعد استشارة الطبيب — لا يُستخدم مع أدوية أخرى في نفس الوقت، يجب الفصل بـ 1 إلى 2 ساعة',
+    nutrition: { calories: '520–540', protein: '10–12غ', fat: '32–35غ', carbs: '45–50غ', sugar: '30–35غ', fiber: '5–7غ' },
+    lot: '01-01AMC',
+    badge: '🎉 افتتاح',
+    sizes: [
+      { label: '500 غرام', price: 40 },
+      { label: '1 كيلوغرام', price: 80 },
+    ]
   },
   'energie-royale': {
     id: 'energie-royale',
@@ -1697,7 +1711,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola', 'energie-royale', 'amlou-louz']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola', 'energie-royale', 'amlou-louz', 'amlou-cacao']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
