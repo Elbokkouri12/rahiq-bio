@@ -2,6 +2,36 @@
 
 // Products Data
 const products = {
+  'zaytoun': {
+    id: 'zaytoun',
+    nameAr: 'زيتون طبيعي',
+    nameFr: 'Olives Naturelles de Béni Mellal',
+    category: 'زيوت طبيعية',
+    price: 25,
+    image: 'assets/images/olive-beldi-1.png',
+    gallery: [
+      'assets/images/olive-beldi-1.png',
+      'assets/images/olive-beldi-2.png',
+      'assets/images/olive-beldi-3.png',
+    ],
+    slogan: 'زيتون طبيعي من بني ملال — بدون صودة أو مواد كيميائية',
+    shortDesc: 'زيتون طبيعي أصلي من بني ملال، محضَّر بالطريقة التقليدية بدون صودة ولا مواد إضافية',
+    fullDesc: 'زيتون طبيعي من Rahiq Bio — منتج مغربي أصيل من منطقة بني ملال الشهيرة بزيتونها الممتاز. يُحضَّر بطريقة تقليدية صحية بدون استعمال الصودة أو أي مواد كيميائية، مما يحافظ على الطعم الحقيقي والفوائد الغذائية الكاملة. زيتون لذيذ متوازن في الملوحة، مثالي للاستهلاك اليومي مع الأكل المغربي الأصيل.',
+    benefits: [
+      'طبيعي 100% بدون صودة أو مواد كيميائية',
+      'محضَّر بالطريقة التقليدية الصحية',
+      'منتج مغربي أصيل من بني ملال',
+      'طعم لذيذ وجودة عالية',
+    ],
+    ingredients: 'زيتون طبيعي 100% من بني ملال',
+    usage: 'مثالي مع الفطور — يقدم مع الطاجين — مناسب للسلطات — يمكن تناوله مباشرة',
+    storage: 'يُحفظ في مكان بارد — يُغلق جيداً بعد الاستعمال — يُفضَّل وضعه في الثلاجة بعد الفتح',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: '1 كيلوغرام', price: 25 },
+      { label: '2 كيلوغرام', price: 50 },
+    ]
+  },
   'amlou-louz': {
     id: 'amlou-louz',
     nameAr: 'أملو اللوز',
@@ -545,7 +575,8 @@ const relatedMap = {
   'zaatar':         ['sidr', 'eucalyptus', 'limon', 'kharroub'],
   'limon':          ['zaatar', 'aachab', 'kharroub', 'jarjir'],
   'aachab':         ['limon', 'kharroub', 'zaatar', 'eucalyptus'],
-  'olive':          ['bundle-sante', 'jarjir', 'kharroub', 'bee-pollen'],
+  'olive':          ['zaytoun', 'bundle-sante', 'jarjir', 'kharroub'],
+  'zaytoun':        ['olive', 'bundle-sante', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-sante', 'jarjir'],
@@ -1716,7 +1747,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola', 'energie-royale', 'amlou-louz', 'amlou-cacao']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola', 'energie-royale', 'amlou-louz', 'amlou-cacao']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
