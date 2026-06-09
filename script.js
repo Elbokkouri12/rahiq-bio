@@ -345,7 +345,7 @@ const products = {
     storage: 'يحفظ في مكان بارد وجاف بعيداً عن الضوء — يُفضل إغلاق العبوة جيداً بعد الاستعمال',
     warnings: 'لا توجد مواد مسببة للحساسية • يُحفظ بعيداً عن الأطفال',
     lot: '01-01OLB',
-    badge: '100% طبيعي',
+    badge: 'طبيعي 100%',
     sizes: [
       { label: '1 لتر', price: 50, image: 'assets/images/olive-1.png' },
       { label: '5 لتر', price: 230, image: 'assets/images/olive-2.png' }
