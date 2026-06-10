@@ -4204,6 +4204,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   -webkit-overflow-scrolling: touch;
   padding-bottom: 6px;
   justify-content: center;
+  direction: ltr;
 }
 .lp-videos-row::-webkit-scrollbar { display: none; }
 .lp-video-card {
