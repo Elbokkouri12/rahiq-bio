@@ -129,6 +129,11 @@ const products = {
     sizes: [
       { label: '450 غرام', price: 100, image: 'assets/images/energie-royale-450g.png' },
       { label: '900 غرام', price: 180, image: 'assets/images/energie-royale-900g.png' },
+    ],
+    videos: [
+      'assets/videos/energie-royale-1.mp4',
+      'assets/videos/energie-royale-2.mp4',
+      'assets/videos/energie-royale-3.mp4',
     ]
   },
   'shilajit': {
