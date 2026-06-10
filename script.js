@@ -947,6 +947,39 @@ function buildProductLanding(p) {
       </div>
     </div>
 
+    ${p.videos && p.videos.length ? `
+    <div class="lp-videos-section">
+      <div class="lp-sec-header">
+        <div class="lp-sec-header-inner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <h2 class="lp-sec-title">شاهد المنتج</h2>
+        </div>
+      </div>
+      <div class="lp-sec-divider">
+        <div class="lp-sec-divider-line"></div>
+        <div class="lp-sec-divider-dot"></div>
+        <div class="lp-sec-divider-line" style="background:linear-gradient(90deg,#c8dcc9,transparent)"></div>
+      </div>
+      <div class="lp-videos-row">
+        ${p.videos.map((src, idx) => `
+          <div class="lp-video-card" id="lpvc-${p.id}-${idx}">
+            <video class="lp-product-video" src="${src}" playsinline loop muted preload="metadata"></video>
+            <div class="lp-video-overlay" onclick="toggleLpVideo('${p.id}',${idx})">
+              <div class="lp-video-play-btn" id="lpPlayBtn-${p.id}-${idx}">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </div>
+            <button class="lp-video-sound-btn" id="lpSound-${p.id}-${idx}" onclick="event.stopPropagation();toggleLpSound('${p.id}',${idx})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="18" height="18">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+            </button>
+            <div class="lp-video-progress-wrap"><div class="lp-video-progress" id="lpProg-${p.id}-${idx}"></div></div>
+          </div>`).join('')}
+      </div>
+    </div>` : ''}
+
     <!-- BELOW FOLD: Description -->
     <div class="lp-story-section">
       <div class="lp-story-inner">
@@ -999,39 +1032,6 @@ function buildProductLanding(p) {
         </div>` : ''}
       </div>` : ''}
     </div>
-
-    ${p.videos && p.videos.length ? `
-    <div class="lp-videos-section">
-      <div class="lp-sec-header">
-        <div class="lp-sec-header-inner">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <h2 class="lp-sec-title">شاهد المنتج</h2>
-        </div>
-      </div>
-      <div class="lp-sec-divider">
-        <div class="lp-sec-divider-line"></div>
-        <div class="lp-sec-divider-dot"></div>
-        <div class="lp-sec-divider-line" style="background:linear-gradient(90deg,#c8dcc9,transparent)"></div>
-      </div>
-      <div class="lp-videos-row">
-        ${p.videos.map((src, idx) => `
-          <div class="lp-video-card" id="lpvc-${p.id}-${idx}">
-            <video class="lp-product-video" src="${src}" playsinline loop muted preload="metadata"></video>
-            <div class="lp-video-overlay" onclick="toggleLpVideo('${p.id}',${idx})">
-              <div class="lp-video-play-btn" id="lpPlayBtn-${p.id}-${idx}">
-                <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
-            </div>
-            <button class="lp-video-sound-btn" id="lpSound-${p.id}-${idx}" onclick="event.stopPropagation();toggleLpSound('${p.id}',${idx})">
-              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="18" height="18">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-              </svg>
-            </button>
-            <div class="lp-video-progress-wrap"><div class="lp-video-progress" id="lpProg-${p.id}-${idx}"></div></div>
-          </div>`).join('')}
-      </div>
-    </div>` : ''}
 
     ${(function() {
       const ids = (relatedMap[p.id] || []).filter(id => products[id]).slice(0, 4);

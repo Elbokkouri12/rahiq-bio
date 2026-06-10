@@ -4197,25 +4197,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 50%;
 }
 .lp-videos-row {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 6px;
-  justify-content: center;
-  direction: ltr;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
-.lp-videos-row::-webkit-scrollbar { display: none; }
 .lp-video-card {
   position: relative;
-  flex-shrink: 0;
-  width: 220px;
-  height: 390px;
-  border-radius: 14px;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
   overflow: hidden;
   background: #111;
-  scroll-snap-align: start;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(42,73,55,0.15), 0 2px 6px rgba(0,0,0,0.1);
   border: 2px solid #e8f0e9;
@@ -4291,7 +4283,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 @media (max-width: 767px) {
   .lp-videos-section { padding: 24px 16px 20px; }
-  .lp-video-card { width: 145px; height: 258px; }
+  .lp-videos-row { gap: 8px; }
 }
 
 .lp-upsell-section {
