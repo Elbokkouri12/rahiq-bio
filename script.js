@@ -450,6 +450,9 @@ const products = {
     sizes: [
       { label: '220 غرام', price: 50, image: 'assets/images/granola-220g.png' },
       { label: '500 غرام', price: 90, image: 'assets/images/granola-500g.png' },
+    ],
+    videos: [
+      'assets/videos/granola-1.mp4',
     ]
   },
   'bundle-sante': {
@@ -967,6 +970,32 @@ function buildProductLanding(p) {
       </div>` : ''}
     </div>
 
+    ${p.videos && p.videos.length ? `
+    <div class="lp-videos-section">
+      <div class="lp-sec-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <h2 class="lp-sec-title" style="margin:0">شاهد المنتج</h2>
+      </div>
+      <div class="lp-videos-row">
+        ${p.videos.map((src, idx) => `
+          <div class="lp-video-card" id="lpvc-${p.id}-${idx}">
+            <video class="lp-product-video" src="${src}" playsinline loop muted preload="metadata"></video>
+            <div class="lp-video-overlay" onclick="toggleLpVideo('${p.id}',${idx})">
+              <div class="lp-video-play-btn" id="lpPlayBtn-${p.id}-${idx}">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </div>
+            <button class="lp-video-sound-btn" id="lpSound-${p.id}-${idx}" onclick="event.stopPropagation();toggleLpSound('${p.id}',${idx})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="18" height="18">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+            </button>
+            <div class="lp-video-progress-wrap"><div class="lp-video-progress" id="lpProg-${p.id}-${idx}"></div></div>
+          </div>`).join('')}
+      </div>
+    </div>` : ''}
+
     ${(function() {
       const ids = (relatedMap[p.id] || []).filter(id => products[id]).slice(0, 4);
       if (!ids.length) return '';
@@ -1008,6 +1037,35 @@ function buildProductLanding(p) {
     })()}
 
   </div>`;
+}
+
+function toggleLpVideo(pid, idx) {
+  const card = document.getElementById(`lpvc-${pid}-${idx}`);
+  if (!card) return;
+  const video = card.querySelector('.lp-product-video');
+  const playBtn = document.getElementById(`lpPlayBtn-${pid}-${idx}`);
+  if (video.paused) {
+    video.play();
+    if (playBtn) playBtn.style.opacity = '0';
+    const prog = document.getElementById(`lpProg-${pid}-${idx}`);
+    if (prog) {
+      video.ontimeupdate = () => { prog.style.width = (video.currentTime / video.duration * 100) + '%'; };
+    }
+  } else {
+    video.pause();
+    if (playBtn) playBtn.style.opacity = '1';
+  }
+}
+
+function toggleLpSound(pid, idx) {
+  const card = document.getElementById(`lpvc-${pid}-${idx}`);
+  if (!card) return;
+  const video = card.querySelector('.lp-product-video');
+  const btn = document.getElementById(`lpSound-${pid}-${idx}`);
+  video.muted = !video.muted;
+  if (btn) {
+    btn.style.background = video.muted ? 'rgba(0,0,0,0.5)' : 'rgba(var(--green-rgb,42,73,55),0.9)';
+  }
 }
 
 function changeModalQty(productId, delta) {
