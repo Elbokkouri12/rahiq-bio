@@ -4287,7 +4287,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 @media (min-width: 768px) {
   .lp-videos-row {
-    grid-template-columns: repeat(3, 195px);
+    grid-template-columns: repeat(3, 150px);
     justify-content: center;
   }
 }
