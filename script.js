@@ -357,11 +357,12 @@ const products = {
     ],
     videos: [
       'assets/videos/olive-1.mp4',
-      'assets/videos/olive-2.mp4',
       'assets/videos/olive-3.mp4',
       'assets/videos/olive-4.mp4',
       'assets/videos/olive-5.mp4',
       'assets/videos/olive-6.mp4',
+    ],
+    videosExtra: [
       'assets/videos/olive-7.mp4',
       'assets/videos/olive-8.mp4',
       'assets/videos/olive-9.mp4',
@@ -1032,6 +1033,31 @@ function buildProductLanding(p) {
         </div>` : ''}
       </div>` : ''}
     </div>
+
+    ${p.videosExtra && p.videosExtra.length ? `
+    <div class="lp-videos-section lp-videos-extra">
+      <div class="lp-videos-row">
+        ${p.videosExtra.map((src, idx) => {
+          const eidx = (p.videos ? p.videos.length : 0) + idx;
+          return `
+          <div class="lp-video-card" id="lpvc-${p.id}-${eidx}">
+            <video class="lp-product-video" src="${src}" playsinline loop muted preload="metadata"></video>
+            <div class="lp-video-overlay" onclick="toggleLpVideo('${p.id}',${eidx})">
+              <div class="lp-video-play-btn" id="lpPlayBtn-${p.id}-${eidx}">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </div>
+            <button class="lp-video-sound-btn" id="lpSound-${p.id}-${eidx}" onclick="event.stopPropagation();toggleLpSound('${p.id}',${eidx})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="18" height="18">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+            </button>
+            <div class="lp-video-progress-wrap"><div class="lp-video-progress" id="lpProg-${p.id}-${eidx}"></div></div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>` : ''}
 
     ${(function() {
       const ids = (relatedMap[p.id] || []).filter(id => products[id]).slice(0, 4);

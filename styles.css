@@ -4152,6 +4152,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: #fff;
   border-top: 1px solid #e8f0e9;
 }
+.lp-videos-extra {
+  padding: 24px 24px 32px;
+  border-top: 1px solid #e8f0e9;
+}
 .lp-sec-header {
   display: flex;
   align-items: center;
