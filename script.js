@@ -417,6 +417,11 @@ const products = {
     sizes: [
       { label: '500 غرام', price: 160, image: 'assets/images/daghmous-3.jpg' },
       { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
+    ],
+    videos: [
+      'assets/videos/daghmous-1.mp4',
+      'assets/videos/daghmous-2.mp4',
+      'assets/videos/daghmous-3.mp4',
     ]
   },
   'granola': {
