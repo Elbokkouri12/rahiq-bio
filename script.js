@@ -417,11 +417,6 @@ const products = {
     sizes: [
       { label: '500 غرام', price: 160, image: 'assets/images/daghmous-3.jpg' },
       { label: '1 كيلوغرام', price: 300, image: 'assets/images/daghmous-1.jpg' }
-    ],
-    videos: [
-      'assets/videos/daghmous-1.mp4',
-      'assets/videos/daghmous-2.mp4',
-      'assets/videos/daghmous-3.mp4',
     ]
   },
   'granola': {
@@ -538,7 +533,12 @@ const products = {
     storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — يُغلق جيداً بعد كل استعمال',
     warnings: 'يجب تناولها مع كمية كافية من الماء • لا تُستخدم في حالة صعوبة البلع إلا بعد استشارة مختص • إذا كنت تتناول أدوية يُفضل الفصل بينها وبين القاطونة بساعتين • يُحفظ بعيداً عن متناول الأطفال',
     badge: 'طبيعي 100%',
-    sizes: [{ label: '200 غرام', price: 65 }]
+    sizes: [{ label: '200 غرام', price: 65 }],
+    videos: [
+      'assets/videos/psyllium-1.mp4',
+      'assets/videos/psyllium-2.mp4',
+      'assets/videos/psyllium-3.mp4',
+    ]
   },
   'kharroub': {
     id: 'kharroub',
