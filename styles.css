@@ -4290,11 +4290,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
   }
   .lp-video-card {
-    width: 150px;
-    flex-shrink: 0;
+    flex: 1;
+    max-width: 230px;
+    min-width: 0;
   }
 }
 @media (max-width: 767px) {
