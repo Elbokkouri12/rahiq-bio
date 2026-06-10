@@ -4285,6 +4285,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: width 0.2s linear;
   border-radius: 2px;
 }
+@media (min-width: 768px) {
+  .lp-videos-row {
+    grid-template-columns: repeat(3, 195px);
+    justify-content: center;
+  }
+}
 @media (max-width: 767px) {
   .lp-videos-section { padding: 24px 16px 20px; }
   .lp-videos-row { gap: 8px; }
