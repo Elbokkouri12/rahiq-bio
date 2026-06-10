@@ -4197,32 +4197,31 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 50%;
 }
 .lp-videos-row {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 6px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 .lp-videos-row::-webkit-scrollbar { display: none; }
 .lp-video-card {
   position: relative;
-  flex-shrink: 0;
-  width: 260px;
+  width: 100%;
   aspect-ratio: 9 / 16;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  background: #000;
-  scroll-snap-align: start;
+  background: #111;
   cursor: pointer;
-  box-shadow: 0 8px 32px rgba(42,73,55,0.18), 0 2px 8px rgba(0,0,0,0.12);
-  border: 3px solid #e8f0e9;
+  box-shadow: 0 6px 24px rgba(42,73,55,0.15), 0 2px 8px rgba(0,0,0,0.1);
+  border: 2px solid #e8f0e9;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .lp-video-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(42,73,55,0.22), 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 36px rgba(42,73,55,0.2), 0 4px 12px rgba(0,0,0,0.13);
+}
+.lp-video-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 6px);
+  margin: 0 auto;
 }
 .lp-product-video {
   width: 100%;
@@ -4289,8 +4288,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 2px;
 }
 @media (max-width: 767px) {
-  .lp-videos-section { padding: 28px 16px 24px; }
-  .lp-video-card { width: min(72vw, 240px); }
+  .lp-videos-section { padding: 28px 14px 24px; }
+  .lp-videos-row { gap: 10px; }
 }
 
 .lp-upsell-section {

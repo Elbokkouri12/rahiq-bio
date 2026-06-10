@@ -677,6 +677,13 @@ function openProduct(productId) {
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 
+  // Show first frame of product videos (fix black thumbnail on iOS)
+  setTimeout(() => {
+    document.querySelectorAll('.lp-product-video').forEach(v => {
+      v.currentTime = 0.01;
+    });
+  }, 80);
+
   updateTotal(getCurrentPrice(productId), 1, productId);
   document.getElementById('modalContent')?.scrollTo(0, 0);
 
