@@ -354,6 +354,17 @@ const products = {
     sizes: [
       { label: '1 لتر', price: 50, image: 'assets/images/olive-1.png' },
       { label: '5 لتر', price: 230, image: 'assets/images/olive-2.png' }
+    ],
+    videos: [
+      'assets/videos/olive-1.mp4',
+      'assets/videos/olive-2.mp4',
+      'assets/videos/olive-3.mp4',
+      'assets/videos/olive-4.mp4',
+      'assets/videos/olive-5.mp4',
+      'assets/videos/olive-6.mp4',
+      'assets/videos/olive-7.mp4',
+      'assets/videos/olive-8.mp4',
+      'assets/videos/olive-9.mp4',
     ]
   },
   'jarjir': {
