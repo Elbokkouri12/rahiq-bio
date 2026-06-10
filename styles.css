@@ -4146,39 +4146,83 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== UPSELL — منتجات قد تعجبك ===== */
 /* ===== PRODUCT VIDEOS SECTION ===== */
+/* ===== PRODUCT VIDEOS SECTION ===== */
 .lp-videos-section {
-  padding: 32px 24px 28px;
-  background: #0e1f16;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 40px 24px 36px;
+  background: #fff;
+  border-top: 1px solid #e8f0e9;
 }
 .lp-sec-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  color: #FED617;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 28px;
+  text-align: center;
 }
-.lp-sec-header svg { color: #FED617; flex-shrink: 0; }
+.lp-sec-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lp-sec-header-inner svg {
+  color: #2A4937;
+  flex-shrink: 0;
+}
+.lp-sec-header .lp-sec-title {
+  color: #1a3228;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+}
+.lp-sec-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.lp-sec-divider-line {
+  flex: 1;
+  max-width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c8dcc9);
+  border-radius: 2px;
+}
+.lp-sec-divider-dot {
+  width: 8px;
+  height: 8px;
+  background: #2A4937;
+  border-radius: 50%;
+}
 .lp-videos-row {
   display: flex;
-  gap: 14px;
+  gap: 16px;
+  justify-content: center;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 .lp-videos-row::-webkit-scrollbar { display: none; }
 .lp-video-card {
   position: relative;
   flex-shrink: 0;
-  width: 200px;
-  height: 355px;
-  border-radius: 16px;
+  width: 260px;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
   overflow: hidden;
   background: #000;
   scroll-snap-align: start;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(42,73,55,0.18), 0 2px 8px rgba(0,0,0,0.12);
+  border: 3px solid #e8f0e9;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.lp-video-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(42,73,55,0.22), 0 4px 12px rgba(0,0,0,0.15);
 }
 .lp-product-video {
   width: 100%;
@@ -4192,26 +4236,33 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.25) 0%, transparent 40%);
 }
 .lp-video-play-btn {
-  width: 52px;
-  height: 52px;
-  background: rgba(0,0,0,0.55);
+  width: 60px;
+  height: 60px;
+  background: rgba(255,255,255,0.92);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s;
-  backdrop-filter: blur(4px);
+  transition: opacity 0.25s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
-.lp-video-play-btn svg { width: 22px; height: 22px; margin-right: -2px; }
+.lp-video-play-btn svg {
+  width: 22px;
+  height: 22px;
+  margin-right: -2px;
+  fill: #1a3228;
+}
+.lp-video-play-btn:hover { transform: scale(1.08); }
 .lp-video-sound-btn {
   position: absolute;
-  bottom: 36px;
-  left: 10px;
-  width: 32px;
-  height: 32px;
-  background: rgba(0,0,0,0.5);
+  bottom: 14px;
+  left: 12px;
+  width: 34px;
+  height: 34px;
+  background: rgba(26,50,40,0.75);
   border: none;
   border-radius: 50%;
   display: flex;
@@ -4220,24 +4271,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   cursor: pointer;
   transition: background 0.2s;
   padding: 0;
+  backdrop-filter: blur(6px);
 }
 .lp-video-progress-wrap {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: rgba(255,255,255,0.2);
+  height: 4px;
+  background: rgba(255,255,255,0.25);
 }
 .lp-video-progress {
   height: 100%;
   width: 0%;
   background: #FED617;
   transition: width 0.2s linear;
+  border-radius: 2px;
 }
 @media (max-width: 767px) {
-  .lp-videos-section { padding: 24px 16px 20px; }
-  .lp-video-card { width: 170px; height: 302px; }
+  .lp-videos-section { padding: 28px 16px 24px; }
+  .lp-video-card { width: min(72vw, 240px); }
 }
 
 .lp-upsell-section {

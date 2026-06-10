@@ -973,8 +973,15 @@ function buildProductLanding(p) {
     ${p.videos && p.videos.length ? `
     <div class="lp-videos-section">
       <div class="lp-sec-header">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        <h2 class="lp-sec-title" style="margin:0">شاهد المنتج</h2>
+        <div class="lp-sec-header-inner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <h2 class="lp-sec-title">شاهد المنتج</h2>
+        </div>
+      </div>
+      <div class="lp-sec-divider">
+        <div class="lp-sec-divider-line"></div>
+        <div class="lp-sec-divider-dot"></div>
+        <div class="lp-sec-divider-line" style="background:linear-gradient(90deg,#c8dcc9,transparent)"></div>
       </div>
       <div class="lp-videos-row">
         ${p.videos.map((src, idx) => `
