@@ -4209,8 +4209,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lp-video-card {
   position: relative;
   flex-shrink: 0;
-  width: 160px;
-  height: 284px;
+  width: 220px;
+  height: 390px;
   border-radius: 14px;
   overflow: hidden;
   background: #111;
