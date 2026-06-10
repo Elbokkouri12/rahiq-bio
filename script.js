@@ -152,7 +152,12 @@ const products = {
     warnings: 'لا يُنصح به للنساء الحوامل أو المرضعات • يُمنع على الأشخاص المصابين بأمراض مزمنة دون استشارة طبية • يُحفظ بعيداً عن متناول الأطفال',
     lot: '01-01SHI',
     badge: 'نقي 100% طبيعي',
-    sizes: [{ label: '50 غرام', price: 170 }]
+    sizes: [{ label: '50 غرام', price: 170 }],
+    videos: [
+      'assets/videos/shilajit-1.mp4',
+      'assets/videos/shilajit-2.mp4',
+      'assets/videos/shilajit-3.mp4',
+    ]
   },
   'eucalyptus': {
     id: 'eucalyptus',
