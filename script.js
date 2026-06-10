@@ -30,6 +30,11 @@ const products = {
     sizes: [
       { label: '1 كيلوغرام', price: 25 },
       { label: '2 كيلوغرام', price: 50 },
+    ],
+    videos: [
+      'assets/videos/zaytoun-1.mp4',
+      'assets/videos/zaytoun-2.mp4',
+      'assets/videos/zaytoun-3.mp4',
     ]
   },
   'amlou-louz': {
