@@ -4197,31 +4197,32 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 50%;
 }
 .lp-videos-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  justify-content: center;
 }
 .lp-videos-row::-webkit-scrollbar { display: none; }
 .lp-video-card {
   position: relative;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  border-radius: 16px;
+  flex-shrink: 0;
+  width: 160px;
+  height: 284px;
+  border-radius: 14px;
   overflow: hidden;
   background: #111;
+  scroll-snap-align: start;
   cursor: pointer;
-  box-shadow: 0 6px 24px rgba(42,73,55,0.15), 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 16px rgba(42,73,55,0.15), 0 2px 6px rgba(0,0,0,0.1);
   border: 2px solid #e8f0e9;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .lp-video-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(42,73,55,0.2), 0 4px 12px rgba(0,0,0,0.13);
-}
-.lp-video-card:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  max-width: calc(50% - 6px);
-  margin: 0 auto;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(42,73,55,0.2);
 }
 .lp-product-video {
   width: 100%;
@@ -4288,8 +4289,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 2px;
 }
 @media (max-width: 767px) {
-  .lp-videos-section { padding: 28px 14px 24px; }
-  .lp-videos-row { gap: 10px; }
+  .lp-videos-section { padding: 24px 16px 20px; }
+  .lp-video-card { width: 145px; height: 258px; }
 }
 
 .lp-upsell-section {
