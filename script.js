@@ -452,9 +452,9 @@ const products = {
       { label: '500 غرام', price: 90, image: 'assets/images/granola-500g.png' },
     ],
     videos: [
-      'assets/videos/granola-1.mp4',
       'assets/videos/granola-2.mp4',
       'assets/videos/granola-3.mp4',
+      'assets/videos/granola-1.mp4',
     ]
   },
   'bundle-sante': {
