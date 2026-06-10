@@ -512,7 +512,12 @@ const products = {
     warnings: 'لا يُعطى للأطفال أقل من سنة • قد يحتوي على آثار حبوب اللقاح • يجب الحذر لمن لديهم حساسية من منتجات النحل',
     onssa: 'N° M.28.10.25',
     badge: 'وفر 100 درهم',
-    sizes: [{ label: 'الباقة الكاملة', price: 299 }]
+    sizes: [{ label: 'الباقة الكاملة', price: 299 }],
+    videos: [
+      'assets/videos/bundle-sante-1.mp4',
+      'assets/videos/bundle-sante-2.mp4',
+      'assets/videos/bundle-sante-3.mp4',
+    ]
   },
   'bee-pollen': {
     id: 'bee-pollen',
