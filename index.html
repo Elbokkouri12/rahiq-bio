@@ -37,92 +37,111 @@
   <link rel="stylesheet" href="styles.css">
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "Rahiq Bio | رحيق بيو",
-    "alternateName": "رحيق بيو",
-    "url": "https://www.rahiqbio.com",
-    "logo": "https://www.rahiqbio.com/assets/images/logo.png",
-    "image": "https://www.rahiqbio.com/assets/images/sidr.jpg",
-    "description": "متجر منتجات طبيعية مغربية أصيلة: عسل السدر، زيت الأركان، أملو كاكاو، شيلاجيت. توصيل لجميع مدن المغرب.",
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Rahiq Bio | رحيق بيو",
+  "alternateName": "رحيق بيو",
+  "url": "https://www.rahiqbio.com",
+  "logo": "https://www.rahiqbio.com/assets/images/logo.png",
+  "image": "https://www.rahiqbio.com/assets/images/sidr.jpg",
+  "description": "متجر منتجات طبيعية مغربية أصيلة: عسل السدر، زيت الأركان، أملو كاكاو، شيلاجيت. توصيل لجميع مدن المغرب.",
+  "telephone": "+212713793867",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rue 12, Lotissement Saïdia 83, Quartier Beni Ouriaghel",
+    "addressLocality": "Tanger",
+    "addressCountry": "MA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "35.7595",
+    "longitude": "-5.8340"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Morocco"
+  },
+  "priceRange": "99-899 MAD",
+  "currenciesAccepted": "MAD",
+  "paymentAccepted": "Cash on delivery",
+  "openingHours": "Mo-Su 08:00-22:00",
+  "contactPoint": {
+    "@type": "ContactPoint",
     "telephone": "+212713793867",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rue 12, Lotissement Saïdia 83, Quartier Beni Ouriaghel",
-      "addressLocality": "Tanger",
-      "addressCountry": "MA"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "35.7595",
-      "longitude": "-5.8340"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Morocco"
-    },
-    "priceRange": "99-899 MAD",
-    "currenciesAccepted": "MAD",
-    "paymentAccepted": "Cash on delivery",
-    "openingHours": "Mo-Su 08:00-22:00",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+212713793867",
-      "contactType": "customer service",
-      "availableLanguage": ["Arabic", "French"]
-    },
-    "sameAs": [
-      "https://www.instagram.com/rahiqbio",
-      "https://www.facebook.com/rahiqbio"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "منتجات رحيق بيو الطبيعية",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "عسل السدر الجبلي",
-            "description": "عسل السدر الجبلي المغربي 100% طبيعي بدون مواد حافظة",
-            "image": "https://www.rahiqbio.com/assets/images/sidr.jpg",
-            "brand": {"@type": "Brand", "name": "Rahiq Bio"}
-          },
-          "priceCurrency": "MAD",
-          "price": "480",
-          "availability": "https://schema.org/InStock"
+    "contactType": "customer service",
+    "availableLanguage": [
+      "Arabic",
+      "French"
+    ]
+  },
+  "sameAs": [
+    "https://www.instagram.com/rahiqbio",
+    "https://www.facebook.com/rahiqbio"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "منتجات رحيق بيو الطبيعية",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "عسل السدر الجبلي",
+          "description": "عسل السدر الجبلي المغربي 100% طبيعي بدون مواد حافظة",
+          "image": "https://www.rahiqbio.com/assets/images/sidr.jpg",
+          "brand": {
+            "@type": "Brand",
+            "name": "Rahiq Bio"
+          }
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "زيت أركان الطبيعي",
-            "description": "زيت الأركان المغربي الأصيل للشعر والبشرة",
-            "image": "https://www.rahiqbio.com/assets/images/argan-front.jpg",
-            "brand": {"@type": "Brand", "name": "Rahiq Bio"}
-          },
-          "priceCurrency": "MAD",
-          "price": "99",
-          "availability": "https://schema.org/InStock"
+        "priceCurrency": "MAD",
+        "price": "480",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "زيت أركان الطبيعي",
+          "description": "زيت الأركان المغربي الأصيل للشعر والبشرة",
+          "image": "https://www.rahiqbio.com/assets/images/argan-front.jpg",
+          "brand": {
+            "@type": "Brand",
+            "name": "Rahiq Bio"
+          }
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "أملو كاكاو مغربي",
-            "description": "أملو كاكاو مغربي أصيل مصنوع يدوياً من أركان واللوز والعسل",
-            "image": "https://www.rahiqbio.com/assets/images/amlou-cacao.jpg",
-            "brand": {"@type": "Brand", "name": "Rahiq Bio"}
-          },
-          "priceCurrency": "MAD",
-          "price": "99",
-          "availability": "https://schema.org/InStock"
-        }
-      ]
-    }
+        "priceCurrency": "MAD",
+        "price": "99",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "أملو كاكاو مغربي",
+          "description": "أملو كاكاو مغربي أصيل مصنوع يدوياً من أركان واللوز والعسل",
+          "image": "https://www.rahiqbio.com/assets/images/amlou-cacao.jpg",
+          "brand": {
+            "@type": "Brand",
+            "name": "Rahiq Bio"
+          }
+        },
+        "priceCurrency": "MAD",
+        "price": "99",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "156"
   }
-  </script>
+}
+</script>
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -140,7 +159,475 @@
     src="https://www.facebook.com/tr?id=1978239439688283&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-   <!-- SEO: Product JSON-LD Schemas -->   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "زيتون طبيعي",   "description": "زيتون طبيعي أصلي من بني ملال، محضَّر بالطريقة التقليدية بدون صودة ولا مواد إضافية",   "image": "https://www.rahiqbio.com/assets/images/olive-beldi-1.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "25", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-zaytoun" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "أملو اللوز",   "description": "أملو اللوز بعسل الليمون — مزيج طبيعي أصيل من لوز محمص وعسل ليمون طبيعي وزيت أركان غذائي",   "image": "https://www.rahiqbio.com/assets/images/amlou-louz-1.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "220", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-amlou-louz" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "أملو كاكاو",   "description": "أملو كاكاو بعسل الليمون — مزيج طبيعي مغربي من الكاكاو وعسل الليمون وزيت الزيتون",   "image": "https://www.rahiqbio.com/assets/images/amlou-cacao-1.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "80", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-amlou-cacao" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "مزيج ملكي بالعسل والمكسرات",   "description": "مزيج طبيعي فاخر من العسل الحر والمكسرات المختارة — طاقة فورية مثالية للفطور والرياضة",   "image": "https://www.rahiqbio.com/assets/images/energie-royale-900g.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "180", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-energie-royale" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "شيلاجيت",   "description": "شيلاجيت نقي 100% — مستخلص أصلي من أعالي جبال الهيمالايا، مقوي طبيعي للطاقة والمناعة",   "image": "https://www.rahiqbio.com/assets/images/shilajit-new.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "170", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-shilajit" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل الكاليبتوس",   "description": "عسل الكاليبتوس الطبيعي — مفيد لمشاكل الجهاز التنفسي، يُسهل التنفس ويُقوي المناعة",   "image": "https://www.rahiqbio.com/assets/images/eucalyptus-3.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "200", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-eucalyptus" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل السدر",   "description": "عسل السدر الطبيعي الذهبي — مفيد للجهاز الهضمي والمعدة، يعزز الطاقة",   "image": "https://www.rahiqbio.com/assets/images/sidr-new-4.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "250", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-sidr" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل الزعتر",   "description": "عسل الزعتر الطبيعي — مضاد حيوي طبيعي، مفيد للجهاز التنفسي ويُنشط الدورة الدموية",   "image": "https://www.rahiqbio.com/assets/images/zaatar-4.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "300", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-zaatar" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل الليمون",   "description": "عسل الليمون الذهبي المنعش — يُنقي الجسم، يُهدئ الأعصاب، مفيد للحلق والبلعوم",   "image": "https://www.rahiqbio.com/assets/images/limon-1.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "130", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-limon" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل الأعشاب",   "description": "عسل الأعشاب المتعدد الأزهار — يقوي المناعة، يمنح طاقة طبيعية، مناسب للاستهلاك اليومي",   "image": "https://www.rahiqbio.com/assets/images/aachab-1.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "280", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-aachab" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "زيت الزيتون الطبيعي",   "description": "زيت زيتون طبيعي 100% من منطقة بني ملال — استخراج تقليدي بالمعصرة الحجرية",   "image": "https://www.rahiqbio.com/assets/images/olive-2.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "230", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-olive" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل الجرجير",   "description": "عسل الجرجير الطبيعي — مهدئ للأعصاب، يُحسّن النوم، يقوي المناعة ومضاد للبكتيريا",   "image": "https://www.rahiqbio.com/assets/images/jarjir-1.jpg",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "320", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-jarjir" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل الدغموس",   "description": "عسل الدغموس الطبيعي — مقو ممتاز للجسم، مفيد للجهاز التنفسي ويُعزز المناعة",   "image": "https://www.rahiqbio.com/assets/images/daghmous-1.jpg",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "300", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-daghmous" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "جرانولا بالمكسرات",   "description": "جرانولا طبيعية 100% بالمكسرات والبذور — فطور صحي لذيذ يمنحك الطاقة والنشاط طوال اليوم",   "image": "https://www.rahiqbio.com/assets/images/granola-500g.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "90", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-granola" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "باقة الصحة والطبيعة",   "description": "باقة متكاملة: عسل الجرجير + عسل الخروب + زيت الزيتون + حبوب اللقاح — بدل 399 درهم بـ 299 درهم",   "image": "https://www.rahiqbio.com/assets/images/bundle-sante-nature.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "299", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-bundle-sante" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "حبوب اللقاح",   "description": "حبوب لقاح بلدية طبيعية 100% — غنية بالبروتينات والفيتامينات ومضادات الأكسدة",   "image": "https://www.rahiqbio.com/assets/images/bee-pollen.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "50", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-bee-pollen" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "نخالة القاطونة",   "description": "نخالة القاطونة الطبيعية 100% — تحسين الهضم، تنظيم الأمعاء، دعم صحة القلب",   "image": "https://www.rahiqbio.com/assets/images/psyllium.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "65", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-psyllium" } }   </script>   <script type="application/ld+json">   {   "@context": "https://schema.org/",   "@type": "Product",   "name": "عسل الخروب",   "description": "عسل الخروب الطبيعي — غني بالمعادن ومضادات الأكسدة، يقوي الجهاز الهضمي ويعزز الطاقة",   "image": "https://www.rahiqbio.com/assets/images/kharroub-1.png",   "brand": { "@type": "Brand", "name": "رحيق بيو" },   "offers": { "@type": "Offer", "price": "230", "priceCurrency": "MAD", "availability": "https://schema.org/InStock", "url": "https://www.rahiqbio.com/#product-kharroub" } }   </script> </head>
+   <!-- SEO: Product JSON-LD Schemas -->   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "زيتون طبيعي",
+  "description": "زيتون طبيعي أصلي من بني ملال، محضَّر بالطريقة التقليدية بدون صودة ولا مواد إضافية",
+  "image": "https://www.rahiqbio.com/assets/images/olive-beldi-1.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "25",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-zaytoun"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "34"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "أملو اللوز",
+  "description": "أملو اللوز بعسل الليمون — مزيج طبيعي أصيل من لوز محمص وعسل ليمون طبيعي وزيت أركان غذائي",
+  "image": "https://www.rahiqbio.com/assets/images/amlou-louz-1.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "220",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-amlou-louz"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "67"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "أملو كاكاو",
+  "description": "أملو كاكاو بعسل الليمون — مزيج طبيعي مغربي من الكاكاو وعسل الليمون وزيت الزيتون",
+  "image": "https://www.rahiqbio.com/assets/images/amlou-cacao-1.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "80",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-amlou-cacao"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "28"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "مزيج ملكي بالعسل والمكسرات",
+  "description": "مزيج طبيعي فاخر من العسل الحر والمكسرات المختارة — طاقة فورية مثالية للفطور والرياضة",
+  "image": "https://www.rahiqbio.com/assets/images/energie-royale-900g.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "180",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-energie-royale"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "19"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "شيلاجيت",
+  "description": "شيلاجيت نقي 100% — مستخلص أصلي من أعالي جبال الهيمالايا، مقوي طبيعي للطاقة والمناعة",
+  "image": "https://www.rahiqbio.com/assets/images/shilajit-new.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "170",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-shilajit"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "41"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل الكاليبتوس",
+  "description": "عسل الكاليبتوس الطبيعي — مفيد لمشاكل الجهاز التنفسي، يُسهل التنفس ويُقوي المناعة",
+  "image": "https://www.rahiqbio.com/assets/images/eucalyptus-3.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "200",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-eucalyptus"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "55"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل السدر",
+  "description": "عسل السدر الطبيعي الذهبي — مفيد للجهاز الهضمي والمعدة، يعزز الطاقة",
+  "image": "https://www.rahiqbio.com/assets/images/sidr-new-4.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "250",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-sidr"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "72"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل الزعتر",
+  "description": "عسل الزعتر الطبيعي — مضاد حيوي طبيعي، مفيد للجهاز التنفسي ويُنشط الدورة الدموية",
+  "image": "https://www.rahiqbio.com/assets/images/zaatar-4.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "300",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-zaatar"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "23"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل الليمون",
+  "description": "عسل الليمون الذهبي المنعش — يُنقي الجسم، يُهدئ الأعصاب، مفيد للحلق والبلعوم",
+  "image": "https://www.rahiqbio.com/assets/images/limon-1.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "130",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-limon"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "48"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل الأعشاب",
+  "description": "عسل الأعشاب المتعدد الأزهار — يقوي المناعة، يمنح طاقة طبيعية، مناسب للاستهلاك اليومي",
+  "image": "https://www.rahiqbio.com/assets/images/aachab-1.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "280",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-aachab"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "31"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "زيت الزيتون الطبيعي",
+  "description": "زيت زيتون طبيعي 100% من منطقة بني ملال — استخراج تقليدي بالمعصرة الحجرية",
+  "image": "https://www.rahiqbio.com/assets/images/olive-2.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "230",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-olive"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "39"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل الجرجير",
+  "description": "عسل الجرجير الطبيعي — مهدئ للأعصاب، يُحسّن النوم، يقوي المناعة ومضاد للبكتيريا",
+  "image": "https://www.rahiqbio.com/assets/images/jarjir-1.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "320",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-jarjir"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "17"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل الدغموس",
+  "description": "عسل الدغموس الطبيعي — مقو ممتاز للجسم، مفيد للجهاز التنفسي ويُعزز المناعة",
+  "image": "https://www.rahiqbio.com/assets/images/daghmous-1.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "300",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-daghmous"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "26"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "جرانولا بالمكسرات",
+  "description": "جرانولا طبيعية 100% بالمكسرات والبذور — فطور صحي لذيذ يمنحك الطاقة والنشاط طوال اليوم",
+  "image": "https://www.rahiqbio.com/assets/images/granola-500g.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "90",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-granola"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "44"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "باقة الصحة والطبيعة",
+  "description": "باقة متكاملة: عسل الجرجير + عسل الخروب + زيت الزيتون + حبوب اللقاح — بدل 399 درهم بـ 299 درهم",
+  "image": "https://www.rahiqbio.com/assets/images/bundle-sante-nature.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "299",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-bundle-sante"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "12"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "حبوب اللقاح",
+  "description": "حبوب لقاح بلدية طبيعية 100% — غنية بالبروتينات والفيتامينات ومضادات الأكسدة",
+  "image": "https://www.rahiqbio.com/assets/images/bee-pollen.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "50",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-bee-pollen"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "33"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "نخالة القاطونة",
+  "description": "نخالة القاطونة الطبيعية 100% — تحسين الهضم، تنظيم الأمعاء، دعم صحة القلب",
+  "image": "https://www.rahiqbio.com/assets/images/psyllium.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "65",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-psyllium"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "21"
+  }
+}
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "عسل الخروب",
+  "description": "عسل الخروب الطبيعي — غني بالمعادن ومضادات الأكسدة، يقوي الجهاز الهضمي ويعزز الطاقة",
+  "image": "https://www.rahiqbio.com/assets/images/kharroub-1.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "230",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.rahiqbio.com/#product-kharroub"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "15"
+  }
+}
+</script> </head>
 <body>
 
 <!-- Two Free-Flying Bees (fixed to viewport, JS animated) -->
