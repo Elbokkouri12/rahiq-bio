@@ -4235,6 +4235,108 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: width 0.2s linear;
   border-radius: 2px;
 }
+.lp-video-expand-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background: rgba(0,0,0,0.55);
+  border: none;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+.lp-video-expand-btn:hover { background: rgba(0,0,0,0.8); }
+
+/* ===== VIDEO VIEWER MODAL ===== */
+#videoViewerModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+}
+#videoViewerModal.active { display: flex; }
+.vv-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+}
+.vv-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 98vw;
+}
+#vvPlayer {
+  display: block;
+  max-height: 85vh;
+  max-width: 75vw;
+  width: auto;
+  border-radius: 14px;
+  background: #000;
+  outline: none;
+}
+@media (max-width: 600px) {
+  #vvPlayer { max-width: 90vw; max-height: 75vh; }
+}
+.vv-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.vv-close:hover { background: rgba(255,255,255,0.3); }
+.vv-nav {
+  width: 46px;
+  height: 46px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.vv-nav:hover { background: rgba(255,255,255,0.3); }
+.vv-dots {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+}
+.vv-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.vv-dot.on { background: #FED617; transform: scale(1.25); }
 @media (min-width: 768px) {
   .lp-videos-row {
     display: flex;

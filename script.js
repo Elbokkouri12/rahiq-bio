@@ -772,6 +772,7 @@ function openProduct(productId) {
 }
 
 function closeProduct() {
+  closeVideoViewer();
   document.getElementById('productModal').classList.remove('open');
   document.body.style.overflow = '';
   var stickyBuy = document.getElementById('globalStickyBuy');
@@ -821,7 +822,13 @@ function scrollToOrderForm() {
 
 // Close on Escape key
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeProduct(); closeSuccess(); }
+  if (e.key === 'Escape') {
+    if (document.getElementById('videoViewerModal')?.classList.contains('active')) {
+      closeVideoViewer();
+    } else {
+      closeProduct(); closeSuccess();
+    }
+  }
 });
 
 function buildProductLanding(p) {
@@ -1034,6 +1041,9 @@ function buildProductLanding(p) {
                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
               </svg>
             </button>
+            <button class="lp-video-expand-btn" onclick="event.stopPropagation();openVideoViewer('${p.id}',${idx})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="15" height="15"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </button>
             <div class="lp-video-progress-wrap"><div class="lp-video-progress" id="lpProg-${p.id}-${idx}"></div></div>
           </div>`).join('')}
       </div>
@@ -1111,6 +1121,9 @@ function buildProductLanding(p) {
                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
               </svg>
             </button>
+            <button class="lp-video-expand-btn" onclick="event.stopPropagation();openVideoViewer('${p.id}',${eidx})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="15" height="15"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </button>
             <div class="lp-video-progress-wrap"><div class="lp-video-progress" id="lpProg-${p.id}-${eidx}"></div></div>
           </div>`;
         }).join('')}
@@ -1187,6 +1200,84 @@ function toggleLpSound(pid, idx) {
   if (btn) {
     btn.style.background = video.muted ? 'rgba(0,0,0,0.5)' : 'rgba(var(--green-rgb,42,73,55),0.9)';
   }
+}
+
+// ===== VIDEO VIEWER =====
+var _vvData = { sources: [], current: 0 };
+
+function openVideoViewer(pid, idx) {
+  const p = products[pid];
+  if (!p) return;
+  _vvData.sources = [...(p.videos || []), ...(p.videosExtra || [])];
+  _vvData.current = idx;
+
+  if (!document.getElementById('videoViewerModal')) {
+    const m = document.createElement('div');
+    m.id = 'videoViewerModal';
+    m.innerHTML = `
+      <div class="vv-backdrop" onclick="closeVideoViewer()"></div>
+      <div class="vv-inner">
+        <button class="vv-close" onclick="closeVideoViewer()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="18" height="18"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <button class="vv-nav vv-prev" id="vvPrev" onclick="videoViewerNav(-1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="22" height="22"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <video id="vvPlayer" controls playsinline webkit-playsinline x5-playsinline></video>
+        <button class="vv-nav vv-next" id="vvNext" onclick="videoViewerNav(1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="22" height="22"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="vv-dots" id="vvDots"></div>
+      </div>`;
+    document.body.appendChild(m);
+  }
+
+  _renderVideoViewer();
+  document.getElementById('videoViewerModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function _renderVideoViewer() {
+  const { sources, current } = _vvData;
+  const player = document.getElementById('vvPlayer');
+  if (!player) return;
+  player.src = sources[current];
+  player.load();
+  player.play().catch(() => {});
+
+  const prev = document.getElementById('vvPrev');
+  const next = document.getElementById('vvNext');
+  if (prev) prev.style.visibility = current > 0 ? 'visible' : 'hidden';
+  if (next) next.style.visibility = current < sources.length - 1 ? 'visible' : 'hidden';
+
+  const dots = document.getElementById('vvDots');
+  if (dots && sources.length > 1) {
+    dots.innerHTML = sources.map((_, i) =>
+      `<span class="vv-dot${i === current ? ' on' : ''}" onclick="videoViewerGo(${i})"></span>`
+    ).join('');
+  } else if (dots) {
+    dots.innerHTML = '';
+  }
+}
+
+function videoViewerNav(delta) {
+  const n = Math.max(0, Math.min(_vvData.sources.length - 1, _vvData.current + delta));
+  if (n === _vvData.current) return;
+  _vvData.current = n;
+  _renderVideoViewer();
+}
+
+function videoViewerGo(i) {
+  _vvData.current = i;
+  _renderVideoViewer();
+}
+
+function closeVideoViewer() {
+  const modal = document.getElementById('videoViewerModal');
+  if (modal) modal.classList.remove('active');
+  const player = document.getElementById('vvPlayer');
+  if (player) { player.pause(); player.src = ''; }
+  document.body.style.overflow = '';
 }
 
 function changeModalQty(productId, delta) {
