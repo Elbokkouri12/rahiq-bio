@@ -97,7 +97,7 @@ const products = {
     warnings: 'يُنصح بعدم استخدامه من طرف الأطفال أو النساء الحوامل إلا بعد استشارة الطبيب — لا يُستخدم مع أدوية أخرى في نفس الوقت، يجب الفصل بـ 1 إلى 2 ساعة',
     nutrition: { calories: '520–540', protein: '10–12غ', fat: '32–35غ', carbs: '45–50غ', sugar: '30–35غ', fiber: '5–7غ' },
     lot: '01-01AMC',
-    badge: '🎉 افتتاح',
+    badge: 'طبيعي 100%',
     sizes: [
       { label: '500 غرام', price: 40 },
       { label: '1 كيلوغرام', price: 80 },
@@ -1855,33 +1855,6 @@ document.addEventListener('change', function(e) {
   }
 });
 
-// ===== TICKER: pixel-perfect seamless loop =====
-function initTicker() {
-  const track = document.getElementById('tickerTrack');
-  const half  = document.getElementById('tickerHalf');
-  if (!track || !half) return;
-
-  // Clone the half once — track = [half][clone]
-  const clone = half.cloneNode(true);
-  track.appendChild(clone);
-
-  // Measure after layout is stable
-  const halfW = half.getBoundingClientRect().width || half.scrollWidth;
-
-  // Set animation to move exactly one half-width in pixels (seamless reset)
-  const speed = 110; // px per second
-  const dur   = halfW / speed;
-  track.style.setProperty('--ticker-move', `-${halfW}px`);
-  track.style.setProperty('--ticker-duration', `${dur.toFixed(1)}s`);
-  track.classList.add('ticker-ready');
-}
-
-// Run after fonts & images are loaded for accurate measurement
-if (document.readyState === 'complete') {
-  initTicker();
-} else {
-  window.addEventListener('load', initTicker);
-}
 
 // Sold-out state helper
 function updateSoldOutState(card) {
