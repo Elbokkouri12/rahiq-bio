@@ -652,20 +652,19 @@ const products = {
 
 // ===== UPSELL MAP — related products per product =====
 const relatedMap = {
-  'jarjir':         ['kharroub', 'sidr', 'daghmous', 'bundle-sante'],
+  'jarjir':         ['kharroub', 'sidr', 'daghmous', 'bundle-breakfast'],
   'daghmous':       ['jarjir', 'eucalyptus', 'sidr', 'kharroub'],
-  'kharroub':       ['jarjir', 'daghmous', 'aachab', 'bundle-sante'],
+  'kharroub':       ['jarjir', 'daghmous', 'aachab', 'bundle-breakfast'],
   'eucalyptus':     ['zaatar', 'sidr', 'daghmous', 'aachab'],
   'sidr':           ['zaatar', 'eucalyptus', 'jarjir', 'daghmous'],
   'zaatar':         ['sidr', 'eucalyptus', 'limon', 'kharroub'],
   'limon':          ['zaatar', 'aachab', 'kharroub', 'bundle-breakfast'],
   'aachab':         ['limon', 'kharroub', 'zaatar', 'eucalyptus'],
-  'olive':          ['zaytoun', 'bundle-breakfast', 'bundle-sante', 'kharroub'],
-  'zaytoun':        ['olive', 'bundle-breakfast', 'bundle-sante', 'aachab'],
+  'olive':          ['zaytoun', 'bundle-breakfast', 'jarjir', 'kharroub'],
+  'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
-  'bee-pollen':     ['shilajit', 'psyllium', 'bundle-sante', 'jarjir'],
-  'bundle-sante':   ['jarjir', 'kharroub', 'olive', 'bee-pollen'],
+  'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
   'amlou-cacao':    ['amlou-louz', 'bundle-breakfast', 'jarjir', 'limon'],
@@ -2045,7 +2044,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-louz', 'amlou-cacao']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-louz', 'amlou-cacao']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
