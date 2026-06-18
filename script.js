@@ -114,7 +114,7 @@ const products = {
     nameAr: 'مزيج ملكي بالعسل والمكسرات',
     nameFr: 'Énergie Royale Mix',
     category: 'مريج ملكي',
-    price: 180,
+    price: 170,
     image: 'assets/images/energie-royale-900g.png',
     gallery: [
       'assets/images/energie-royale-900g.png',
@@ -138,8 +138,8 @@ const products = {
     nutrition: { calories: '490–510', protein: '11–13غ', fat: '28–30غ', carbs: '48–52غ', sugar: '34–38غ', fiber: '6–7غ' },
     badge: 'الأكثر مبيعاً',
     sizes: [
-      { label: '450 غرام', price: 100, image: 'assets/images/energie-royale-450g.png' },
-      { label: '900 غرام', price: 180, image: 'assets/images/energie-royale-900g.png' },
+      { label: '450 غرام', price: 90, image: 'assets/images/energie-royale-450g.png' },
+      { label: '900 غرام', price: 170, image: 'assets/images/energie-royale-900g.png' },
     ],
     videos: [
       'assets/videos/energie-royale-1.mp4',
