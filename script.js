@@ -519,6 +519,39 @@ const products = {
       'assets/videos/bundle-sante-3.mp4',
     ]
   },
+  'bundle-breakfast': {
+    id: 'bundle-breakfast',
+    nameAr: 'باقة الفطور',
+    nameFr: 'Breakfast Pack',
+    category: 'باقات',
+    price: 220,
+    image: 'assets/images/bundle-breakfast-small.png',
+    gallery: [
+      'assets/images/bundle-breakfast-small.png',
+      'assets/images/bundle-breakfast-large.png',
+      'assets/images/bundle-breakfast-miel.png',
+      'assets/images/bundle-breakfast-amlou.png',
+      'assets/images/bundle-breakfast-huile.png',
+      'assets/images/bundle-breakfast-olives.png',
+    ],
+    slogan: 'طاقة طبيعية ليومك — جودة وصحة في كل منتج',
+    shortDesc: 'باقة متكاملة للفطور الطبيعي: عسل الليمون، أملو كاوكاو، زيت الزيتون البلدي وزيتون بني ملال — بجودة عالية وبدون أي إضافات',
+    fullDesc: 'باقة الفطور من رحيق بيو هي اختيار مثالي لكل من يبحث عن فطور صحي وطبيعي 100%. جمعنا لك في هذه الباقة أهم المنتجات المغربية الأصيلة، بعناية وجودة عالية، لتستمتع بطعم تقليدي وفوائد غذائية متكاملة. مناسبة للكبار والصغار، طبيعية بدون مواد حافظة، ومثالية للفطور اليومي أو كهدية.',
+    benefits: [
+      'عسل الليمون الحر: غني بالفيتامينات ويعزز المناعة',
+      'أملو كاوكاو: مصدر طاقة طبيعي بطعم تقليدي مغربي',
+      'زيت الزيتون: مطحون على الحجرة وغني بالدهون الصحية',
+      'زيتون بني ملال: طبيعي 100% بدون سودة',
+    ],
+    ingredients: 'عسل الليمون الحر • أملو كاوكاو بعسل الليمون وعدة أنواع من الزرع • زيت بني ملال مطحون على الحجرة • زيتون بني ملال طبيعي بدون سودة',
+    usage: 'يؤكل مباشرة مع الخبز أو المسمن أو البغرير — يمكن استعماله في الفطور أو كوجبة خفيفة',
+    storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس',
+    badge: 'طبيعي 100%',
+    sizes: [
+      { label: 'الباقة الصغيرة', price: 220, image: 'assets/images/bundle-breakfast-small.png' },
+      { label: 'الباقة الكبيرة', price: 289, image: 'assets/images/bundle-breakfast-large.png' }
+    ]
+  },
   'bee-pollen': {
     id: 'bee-pollen',
     nameAr: 'حبوب اللقاح',
@@ -615,16 +648,17 @@ const relatedMap = {
   'eucalyptus':     ['zaatar', 'sidr', 'daghmous', 'aachab'],
   'sidr':           ['zaatar', 'eucalyptus', 'jarjir', 'daghmous'],
   'zaatar':         ['sidr', 'eucalyptus', 'limon', 'kharroub'],
-  'limon':          ['zaatar', 'aachab', 'kharroub', 'jarjir'],
+  'limon':          ['zaatar', 'aachab', 'kharroub', 'bundle-breakfast'],
   'aachab':         ['limon', 'kharroub', 'zaatar', 'eucalyptus'],
-  'olive':          ['zaytoun', 'bundle-sante', 'jarjir', 'kharroub'],
-  'zaytoun':        ['olive', 'bundle-sante', 'jarjir', 'aachab'],
+  'olive':          ['zaytoun', 'bundle-breakfast', 'bundle-sante', 'kharroub'],
+  'zaytoun':        ['olive', 'bundle-breakfast', 'bundle-sante', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-sante', 'jarjir'],
   'bundle-sante':   ['jarjir', 'kharroub', 'olive', 'bee-pollen'],
+  'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
-  'amlou-cacao':    ['amlou-louz', 'energie-royale', 'jarjir', 'limon'],
+  'amlou-cacao':    ['amlou-louz', 'bundle-breakfast', 'jarjir', 'limon'],
   'energie-royale': ['amlou-cacao', 'granola', 'bee-pollen', 'psyllium'],
   'granola':        ['amlou-cacao', 'energie-royale', 'bee-pollen', 'psyllium'],
 };
@@ -1990,7 +2024,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'granola', 'energie-royale', 'amlou-louz', 'amlou-cacao']; // المنتجات الجاهزة للبيع
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-sante', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-louz', 'amlou-cacao']; // المنتجات الجاهزة للبيع
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
