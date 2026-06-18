@@ -101,6 +101,12 @@ const products = {
     sizes: [
       { label: '500 غرام', price: 50 },
       { label: '1 كيلوغرام', price: 90 },
+    ],
+    videos: [
+      'assets/videos/amlou-cacao-1.mp4',
+      'assets/videos/amlou-cacao-2.mp4',
+      'assets/videos/amlou-cacao-3.mp4',
+      'assets/videos/amlou-cacao-4.mp4',
     ]
   },
   'energie-royale': {
