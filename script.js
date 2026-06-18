@@ -1389,6 +1389,8 @@ function submitOrder(e, productId) {
   const msg = `🌿 *طلب جديد - Rahiq Bio*\n\n👤 *الاسم:* ${name}\n📞 *الهاتف:* ${phone}\n🏙️ *المدينة:* ${city}\n📍 *العنوان:* ${address}\n\n🛒 *المنتج:* ${p.nameAr} (${p.nameFr})\n📏 *الحجم:* ${size}\n📦 *الكمية:* ${qty}\n💰 *المجموع:* ${total} درهم${notes ? '\n\n📝 *ملاحظات:* ' + notes : ''}`;
 
   setTimeout(() => {
+    fbq('track', 'Lead');
+    fbq('track', 'Purchase', {value: total, currency: 'MAD'});
     window.open(`https://wa.me/212713793867?text=${encodeURIComponent(msg)}`, '_blank');
     closeProduct();
     showSuccess();
