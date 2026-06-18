@@ -1148,6 +1148,17 @@ function buildProductLanding(p) {
 
     ${p.videosExtra && p.videosExtra.length ? `
     <div class="lp-videos-section lp-videos-extra">
+      <div class="lp-sec-header">
+        <div class="lp-sec-header-inner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <h2 class="lp-sec-title">شاهد المزيد</h2>
+        </div>
+      </div>
+      <div class="lp-sec-divider">
+        <div class="lp-sec-divider-line"></div>
+        <div class="lp-sec-divider-dot"></div>
+        <div class="lp-sec-divider-line" style="background:linear-gradient(90deg,#c8dcc9,transparent)"></div>
+      </div>
       <div class="lp-videos-row">
         ${p.videosExtra.map((src, idx) => {
           const eidx = (p.videos ? p.videos.length : 0) + idx;
