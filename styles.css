@@ -620,7 +620,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 .product-card.maintenance::after {
-  content: 'قيد الإصلاح';
+  content: 'قيد التحديث';
   position: absolute;
   inset: 0;
   background: rgba(26, 51, 40, 0.82);
