@@ -550,6 +550,16 @@ const products = {
     sizes: [
       { label: 'الباقة الصغيرة', price: 220, image: 'assets/images/bundle-breakfast-small.png' },
       { label: 'الباقة الكبيرة', price: 289, image: 'assets/images/bundle-breakfast-large.png' }
+    ],
+    videos: [
+      'assets/videos/bundle-breakfast-1.mp4',
+      'assets/videos/bundle-breakfast-2.mp4',
+      'assets/videos/bundle-breakfast-3.mp4',
+    ],
+    videosExtra: [
+      'assets/videos/bundle-breakfast-4.mp4',
+      'assets/videos/bundle-breakfast-5.mp4',
+      'assets/videos/bundle-breakfast-6.mp4',
     ]
   },
   'bee-pollen': {
