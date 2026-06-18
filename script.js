@@ -75,7 +75,7 @@ const products = {
     nameAr: 'أملو كاكاو',
     nameFr: 'Amlou cacahuète Au Miel De Citron',
     category: 'أملو',
-    price: 80,
+    price: 90,
     image: 'assets/images/amlou-cacao-1.png',
     gallery: [
       'assets/images/amlou-cacao-1.png',
@@ -99,8 +99,8 @@ const products = {
     lot: '01-01AMC',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 40 },
-      { label: '1 كيلوغرام', price: 80 },
+      { label: '500 غرام', price: 50 },
+      { label: '1 كيلوغرام', price: 90 },
     ]
   },
   'energie-royale': {
