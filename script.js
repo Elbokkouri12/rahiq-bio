@@ -347,7 +347,7 @@ const products = {
     nameAr: 'زيت الزيتون الطبيعي',
     nameFr: "Huile d'Olive",
     category: 'زيوت طبيعية',
-    price: 230,
+    price: 225,
     image: 'assets/images/olive-2.png',
     gallery: [
       'assets/images/olive-2.png',
@@ -369,7 +369,7 @@ const products = {
     badge: 'طبيعي 100%',
     sizes: [
       { label: '1 لتر', price: 50, image: 'assets/images/olive-1.png' },
-      { label: '5 لتر', price: 230, image: 'assets/images/olive-2.png' }
+      { label: '5 لتر', price: 225, image: 'assets/images/olive-2.png' }
     ],
     videos: [
       'assets/videos/olive-1.mp4',
