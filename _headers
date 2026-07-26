@@ -1,11 +1,21 @@
+# HTML — دائماً fresh (تظهر التعديلات فوراً)
 /index.html
   Cache-Control: no-cache, no-store, must-revalidate
 
 /*.html
   Cache-Control: no-cache, no-store, must-revalidate
 
-/*.css
-  Cache-Control: no-cache, no-store, must-revalidate
-
+# JS و CSS — يوم واحد (تتحدث مع كل تعديل للسعر)
 /*.js
-  Cache-Control: no-cache, no-store, must-revalidate
+  Cache-Control: public, max-age=86400
+
+/*.css
+  Cache-Control: public, max-age=86400
+
+# صور — 30 يوم (نادراً ما تتغير)
+/assets/images/*
+  Cache-Control: public, max-age=2592000, immutable
+
+# فيديوهات — 7 أيام
+/assets/videos/*
+  Cache-Control: public, max-age=604800

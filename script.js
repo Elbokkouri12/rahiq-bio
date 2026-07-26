@@ -8,11 +8,11 @@ const products = {
     nameFr: 'Olives Naturelles de Béni Mellal',
     category: 'زيوت طبيعية',
     price: 25,
-    image: 'assets/images/olive-beldi-1.png',
+    image: 'assets/images/olive-beldi-1.jpg',
     gallery: [
-      'assets/images/olive-beldi-1.png',
-      'assets/images/olive-beldi-2.png',
-      'assets/images/olive-beldi-3.png',
+      'assets/images/olive-beldi-1.jpg',
+      'assets/images/olive-beldi-2.jpg',
+      'assets/images/olive-beldi-3.jpg',
     ],
     slogan: 'زيتون طبيعي من بني ملال — بدون صودة أو مواد كيميائية',
     shortDesc: 'زيتون طبيعي أصلي من بني ملال، محضَّر بالطريقة التقليدية بدون صودة ولا مواد إضافية',
@@ -43,11 +43,11 @@ const products = {
     nameFr: 'Amlou Amande Au Miel De Citron',
     category: 'أملو',
     price: 220,
-    image: 'assets/images/amlou-louz-1.png',
+    image: 'assets/images/amlou-louz-1.jpg',
     gallery: [
-      'assets/images/amlou-louz-1.png',
-      'assets/images/amlou-louz-2.png',
-      'assets/images/amlou-louz-3.png',
+      'assets/images/amlou-louz-1.jpg',
+      'assets/images/amlou-louz-2.jpg',
+      'assets/images/amlou-louz-3.jpg',
     ],
     slogan: 'مزيج لوز وعسل حر وزيت أركان طبيعي',
     shortDesc: 'أملو اللوز بعسل الليمون — مزيج طبيعي أصيل من لوز محمص وعسل ليمون طبيعي وزيت أركان غذائي',
@@ -76,11 +76,11 @@ const products = {
     nameFr: 'Amlou cacahuète Au Miel De Citron',
     category: 'أملو',
     price: 90,
-    image: 'assets/images/amlou-cacao-1.png',
+    image: 'assets/images/amlou-cacao-1.jpg',
     gallery: [
-      'assets/images/amlou-cacao-1.png',
-      'assets/images/amlou-cacao-2.png',
-      'assets/images/amlou-cacao-3.png',
+      'assets/images/amlou-cacao-1.jpg',
+      'assets/images/amlou-cacao-2.jpg',
+      'assets/images/amlou-cacao-3.jpg',
     ],
     slogan: 'مزيج كاكاو وعسل حر وزيت زيتون طبيعي و بعض الزرارع!',
     shortDesc: 'أملو كاكاو بعسل الليمون — مزيج طبيعي مغربي من الكاكاو (فول سوداني) وعسل الليمون وزيت الزيتون والزرارع',
@@ -115,12 +115,12 @@ const products = {
     nameFr: 'Énergie Royale Mix',
     category: 'مريج ملكي',
     price: 170,
-    image: 'assets/images/energie-royale-900g.png',
+    image: 'assets/images/energie-royale-900g.jpg',
     gallery: [
-      'assets/images/energie-royale-900g.png',
-      'assets/images/energie-royale-450g.png',
-      'assets/images/energie-royale-back-nutrition.png',
-      'assets/images/energie-royale-back-info.png',
+      'assets/images/energie-royale-900g.jpg',
+      'assets/images/energie-royale-450g.jpg',
+      'assets/images/energie-royale-back-nutrition.jpg',
+      'assets/images/energie-royale-back-info.jpg',
     ],
     slogan: 'طاقة طبيعية في كل ملعقة',
     shortDesc: 'مزيج طبيعي فاخر من العسل الحر والمكسرات المختارة — طاقة فورية مثالية للفطور والرياضة والنشاط اليومي',
@@ -138,8 +138,8 @@ const products = {
     nutrition: { calories: '490–510', protein: '11–13غ', fat: '28–30غ', carbs: '48–52غ', sugar: '34–38غ', fiber: '6–7غ' },
     badge: 'الأكثر مبيعاً',
     sizes: [
-      { label: '450 غرام', price: 90, image: 'assets/images/energie-royale-450g.png' },
-      { label: '900 غرام', price: 170, image: 'assets/images/energie-royale-900g.png' },
+      { label: '450 غرام', price: 90, image: 'assets/images/energie-royale-450g.jpg' },
+      { label: '900 غرام', price: 170, image: 'assets/images/energie-royale-900g.jpg' },
     ],
     videos: [
       'assets/videos/energie-royale-1.mp4',
@@ -153,7 +153,7 @@ const products = {
     nameFr: 'Shilajit Pur',
     category: 'مكملات طبيعية',
     price: 170,
-    image: 'assets/images/shilajit-new.png',
+    image: 'assets/images/shilajit-new.jpg',
     shortDesc: 'شيلاجيت نقي 100% — مستخلص أصلي من أعالي جبال الهيمالايا، مقوي طبيعي للطاقة والمناعة والقدرة الجنسية',
     fullDesc: 'شيلاجيت Rahiq Bio مستخلص أصلي من أعالي جبال الهيمالايا. مادة طبيعية نادرة غنية بالمعادن وحمض الفولفيك. مقوي عام للجسم، يزيد الطاقة والنشاط، ويدعم المناعة والقدرة الجنسية. منتج نقي 100% بدون إضافات.',
     benefits: [
@@ -181,12 +181,12 @@ const products = {
     nameFr: "Miel d'Eucalyptus",
     category: 'عسل',
     price: 200,
-    image: 'assets/images/eucalyptus-3.png',
+    image: 'assets/images/eucalyptus-3.jpg',
     gallery: [
-      'assets/images/eucalyptus-3.png',
-      'assets/images/eucalyptus-2.png',
-      'assets/images/eucalyptus-1.png',
-      'assets/images/eucalyptus-4.png',
+      'assets/images/eucalyptus-3.jpg',
+      'assets/images/eucalyptus-2.jpg',
+      'assets/images/eucalyptus-1.jpg',
+      'assets/images/eucalyptus-4.jpg',
     ],
     slogan: '100% طبيعي — 100% شفاء',
     shortDesc: 'عسل الكاليبتوس الطبيعي — مفيد لمشاكل الجهاز التنفسي، يُسهل التنفس ويُقوي المناعة',
@@ -205,8 +205,8 @@ const products = {
     lot: '01-01EUC',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 110, image: 'assets/images/eucalyptus-2.png' },
-      { label: '1 كيلوغرام', price: 200, image: 'assets/images/eucalyptus-3.png' }
+      { label: '500 غرام', price: 110, image: 'assets/images/eucalyptus-2.jpg' },
+      { label: '1 كيلوغرام', price: 200, image: 'assets/images/eucalyptus-3.jpg' }
     ]
   },
   'sidr': {
@@ -215,12 +215,12 @@ const products = {
     nameFr: 'Miel de Jujubier',
     category: 'عسل',
     price: 250,
-    image: 'assets/images/sidr-new-4.png',
+    image: 'assets/images/sidr-new-4.jpg',
     gallery: [
-      'assets/images/sidr-new-4.png',
-      'assets/images/sidr-new-1.png',
-      'assets/images/sidr-new-2.png',
-      'assets/images/sidr-new-3.png',
+      'assets/images/sidr-new-4.jpg',
+      'assets/images/sidr-new-1.jpg',
+      'assets/images/sidr-new-2.jpg',
+      'assets/images/sidr-new-3.jpg',
     ],
     slogan: '100% طبيعي — 100% شفاء',
     shortDesc: 'عسل السدر الطبيعي الذهبي — مفيد للجهاز الهضمي والمعدة، يعزز الطاقة ويساهم في الوقاية من البكتيريا',
@@ -238,8 +238,8 @@ const products = {
     lot: '01-01SID',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 135, image: 'assets/images/sidr-new-1.png' },
-      { label: '1 كيلوغرام', price: 250, image: 'assets/images/sidr-new-4.png' }
+      { label: '500 غرام', price: 135, image: 'assets/images/sidr-new-1.jpg' },
+      { label: '1 كيلوغرام', price: 250, image: 'assets/images/sidr-new-4.jpg' }
     ]
   },
   'zaatar': {
@@ -248,12 +248,12 @@ const products = {
     nameFr: 'Miel de Thym',
     category: 'عسل',
     price: 300,
-    image: 'assets/images/zaatar-4.png',
+    image: 'assets/images/zaatar-4.jpg',
     gallery: [
-      'assets/images/zaatar-4.png',
-      'assets/images/zaatar-1.png',
-      'assets/images/zaatar-2.png',
-      'assets/images/zaatar-3.png',
+      'assets/images/zaatar-4.jpg',
+      'assets/images/zaatar-1.jpg',
+      'assets/images/zaatar-2.jpg',
+      'assets/images/zaatar-3.jpg',
     ],
     slogan: '100% طبيعي — 100% شفاء',
     shortDesc: 'عسل الزعتر الطبيعي — مضاد حيوي طبيعي، مفيد للجهاز التنفسي ويُنشط الدورة الدموية',
@@ -271,8 +271,8 @@ const products = {
     lot: '01-01THY',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 160, image: 'assets/images/zaatar-1.png' },
-      { label: '1 كيلوغرام', price: 300, image: 'assets/images/zaatar-4.png' }
+      { label: '500 غرام', price: 160, image: 'assets/images/zaatar-1.jpg' },
+      { label: '1 كيلوغرام', price: 300, image: 'assets/images/zaatar-4.jpg' }
     ]
   },
   'limon': {
@@ -281,12 +281,12 @@ const products = {
     nameFr: 'Miel de Citronnier',
     category: 'عسل',
     price: 130,
-    image: 'assets/images/limon-1.png',
+    image: 'assets/images/limon-1.jpg',
     gallery: [
-      'assets/images/limon-1.png',
-      'assets/images/limon-4.png',
-      'assets/images/limon-2.png',
-      'assets/images/limon-3.png',
+      'assets/images/limon-1.jpg',
+      'assets/images/limon-4.jpg',
+      'assets/images/limon-2.jpg',
+      'assets/images/limon-3.jpg',
     ],
     slogan: '100% طبيعي — 100% شفاء',
     shortDesc: 'عسل الليمون الذهبي المنعش — يُنقي الجسم، يُهدئ الأعصاب، مفيد للحلق والبلعوم',
@@ -305,8 +305,8 @@ const products = {
     lot: '01-01CIT',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 70, image: 'assets/images/limon-4.png' },
-      { label: '1 كيلوغرام', price: 130, image: 'assets/images/limon-1.png' }
+      { label: '500 غرام', price: 70, image: 'assets/images/limon-4.jpg' },
+      { label: '1 كيلوغرام', price: 130, image: 'assets/images/limon-1.jpg' }
     ]
   },
   'aachab': {
@@ -315,12 +315,12 @@ const products = {
     nameFr: 'Miel Multi Fleurs',
     category: 'عسل',
     price: 280,
-    image: 'assets/images/aachab-1.png',
+    image: 'assets/images/aachab-1.jpg',
     gallery: [
-      'assets/images/aachab-1.png',
-      'assets/images/aachab-4.png',
-      'assets/images/aachab-2.png',
-      'assets/images/aachab-3.png',
+      'assets/images/aachab-1.jpg',
+      'assets/images/aachab-4.jpg',
+      'assets/images/aachab-2.jpg',
+      'assets/images/aachab-3.jpg',
     ],
     slogan: '100% طبيعي — 100% شفاء',
     shortDesc: 'عسل الأعشاب المتعدد الأزهار — يقوي المناعة، يمنح طاقة طبيعية، مناسب للاستهلاك اليومي',
@@ -338,8 +338,8 @@ const products = {
     lot: '01-01HER',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 150, image: 'assets/images/aachab-4.png' },
-      { label: '1 كيلوغرام', price: 280, image: 'assets/images/aachab-1.png' }
+      { label: '500 غرام', price: 150, image: 'assets/images/aachab-4.jpg' },
+      { label: '1 كيلوغرام', price: 280, image: 'assets/images/aachab-1.jpg' }
     ]
   },
   'olive': {
@@ -348,10 +348,10 @@ const products = {
     nameFr: "Huile d'Olive",
     category: 'زيوت طبيعية',
     price: 235,
-    image: 'assets/images/olive-2.png',
+    image: 'assets/images/olive-2.jpg',
     gallery: [
-      'assets/images/olive-2.png',
-      'assets/images/olive-1.png',
+      'assets/images/olive-2.jpg',
+      'assets/images/olive-1.jpg',
     ],
     slogan: '100% طحن تقليدي بالبارد — بني ملال',
     shortDesc: 'زيت زيتون طبيعي 100% من منطقة بني ملال — استخراج تقليدي بالمعصرة الحجرية، يحافظ على جودته العالية ونكهته الأصيلة',
@@ -368,8 +368,8 @@ const products = {
     lot: '01-01OLB',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '1 لتر', price: 50, image: 'assets/images/olive-1.png' },
-      { label: '5 لتر', price: 235, image: 'assets/images/olive-2.png' }
+      { label: '1 لتر', price: 50, image: 'assets/images/olive-1.jpg' },
+      { label: '5 لتر', price: 235, image: 'assets/images/olive-2.jpg' }
     ],
     videos: [
       'assets/videos/olive-1.mp4',
@@ -458,12 +458,12 @@ const products = {
     nameFr: 'Granola Nuts Mix',
     category: 'مكملات طبيعية',
     price: 90,
-    image: 'assets/images/granola-500g.png',
+    image: 'assets/images/granola-500g.jpg',
     gallery: [
-      'assets/images/granola-500g.png',
-      'assets/images/granola-220g.png',
-      'assets/images/granola-back-500g.png',
-      'assets/images/granola-back-220g.png',
+      'assets/images/granola-500g.jpg',
+      'assets/images/granola-220g.jpg',
+      'assets/images/granola-back-500g.jpg',
+      'assets/images/granola-back-220g.jpg',
     ],
     slogan: '100% طبيعي — فطور صحي بالمكسرات',
     shortDesc: 'جرانولا طبيعية 100% بالمكسرات والبذور — فطور صحي لذيذ يمنحك الطاقة والنشاط طوال اليوم',
@@ -481,8 +481,8 @@ const products = {
     lot: '01-01GRA',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '220 غرام', price: 50, image: 'assets/images/granola-220g.png' },
-      { label: '500 غرام', price: 90, image: 'assets/images/granola-500g.png' },
+      { label: '220 غرام', price: 50, image: 'assets/images/granola-220g.jpg' },
+      { label: '500 غرام', price: 90, image: 'assets/images/granola-500g.jpg' },
     ],
     videos: [
       'assets/videos/granola-2.mp4',
@@ -496,13 +496,13 @@ const products = {
     nameFr: 'Santé & Nature',
     category: 'باقات',
     price: 299,
-    image: 'assets/images/bundle-sante-nature.png',
+    image: 'assets/images/bundle-sante-nature.jpg',
     gallery: [
-      'assets/images/bundle-sante-nature.png',
-      'assets/images/bundle-sante-jarjir.png',
-      'assets/images/bundle-sante-kharroub.png',
-      'assets/images/bundle-sante-olive.png',
-      'assets/images/bee-pollen.png',
+      'assets/images/bundle-sante-nature.jpg',
+      'assets/images/bundle-sante-jarjir.jpg',
+      'assets/images/bundle-sante-kharroub.jpg',
+      'assets/images/bundle-sante-olive.jpg',
+      'assets/images/bee-pollen.jpg',
     ],
     slogan: 'وفر 100 درهم — باقة متكاملة من الطبيعة',
     shortDesc: 'باقة متكاملة: عسل الجرجير 500g + عسل الخروب 500g + زيت الزيتون 1L + حبوب اللقاح 50g — بدل 399 درهم بـ 299 درهم فقط',
@@ -531,14 +531,14 @@ const products = {
     nameFr: 'Breakfast Pack',
     category: 'باقات',
     price: 220,
-    image: 'assets/images/bundle-breakfast-small.png',
+    image: 'assets/images/bundle-breakfast-small.jpg',
     gallery: [
-      'assets/images/bundle-breakfast-small.png',
-      'assets/images/bundle-breakfast-large.png',
-      'assets/images/bundle-breakfast-miel.png',
-      'assets/images/bundle-breakfast-amlou.png',
-      'assets/images/bundle-breakfast-huile.png',
-      'assets/images/bundle-breakfast-olives.png',
+      'assets/images/bundle-breakfast-small.jpg',
+      'assets/images/bundle-breakfast-large.jpg',
+      'assets/images/bundle-breakfast-miel.jpg',
+      'assets/images/bundle-breakfast-amlou.jpg',
+      'assets/images/bundle-breakfast-huile.jpg',
+      'assets/images/bundle-breakfast-olives.jpg',
     ],
     slogan: 'طاقة طبيعية ليومك — جودة وصحة في كل منتج',
     shortDesc: 'باقة متكاملة للفطور الطبيعي: عسل الليمون، أملو كاوكاو، زيت الزيتون البلدي وزيتون بني ملال — بجودة عالية وبدون أي إضافات',
@@ -554,8 +554,8 @@ const products = {
     storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: 'الباقة الصغيرة', price: 220, image: 'assets/images/bundle-breakfast-small.png' },
-      { label: 'الباقة الكبيرة', price: 289, image: 'assets/images/bundle-breakfast-large.png' }
+      { label: 'الباقة الصغيرة', price: 220, image: 'assets/images/bundle-breakfast-small.jpg' },
+      { label: 'الباقة الكبيرة', price: 289, image: 'assets/images/bundle-breakfast-large.jpg' }
     ],
     videos: [
       'assets/videos/bundle-breakfast-1.mp4',
@@ -574,8 +574,8 @@ const products = {
     nameFr: 'Bee Pollen',
     category: 'مكملات طبيعية',
     price: 50,
-    image: 'assets/images/bee-pollen.png',
-    gallery: ['assets/images/bee-pollen.png'],
+    image: 'assets/images/bee-pollen.jpg',
+    gallery: ['assets/images/bee-pollen.jpg'],
     slogan: '100% طبيعي — غذاء النحل الطبيعي',
     shortDesc: 'حبوب لقاح بلدية طبيعية 100% — غنية بالبروتينات والفيتامينات ومضادات الأكسدة، تدعم الطاقة والمناعة',
     fullDesc: 'حبوب اللقاح البلدية من Rahiq Bio هي كريات طبيعية يجمعها النحل من أزهار متنوعة. غنية بالبروتينات والأحماض الأمينية والفيتامينات والمعادن ومضادات الأكسدة. تُعتبر من أكثر الأغذية الطبيعية قيمة غذائية، تدعم النشاط اليومي والمناعة وصحة الجسم بشكل عام. منتج طبيعي 100% بدون إضافات أو مواد حافظة.',
@@ -598,8 +598,8 @@ const products = {
     nameFr: 'Psyllium Husk',
     category: 'مكملات طبيعية',
     price: 65,
-    image: 'assets/images/psyllium.png',
-    gallery: ['assets/images/psyllium.png'],
+    image: 'assets/images/psyllium.jpg',
+    gallery: ['assets/images/psyllium.jpg'],
     slogan: '100% طبيعي — غني بالألياف الذائبة',
     shortDesc: 'نخالة القاطونة الطبيعية 100% — تحسين الهضم، تنظيم الأمعاء، دعم صحة القلب وتنظيم السكر',
     fullDesc: 'نخالة القاطونة (Psyllium Husk) من Rahiq Bio هي ألياف طبيعية مستخرجة من بذور نبات Plantago ovata. عند مزجها بالماء تكوّن مادة هلامية تساعد على تحسين الهضم وتنظيم حركة الأمعاء بشكل طبيعي. تدعم صحة القلب وتساعد في التحكم بمستويات السكر والكوليسترول ضمن نظام غذائي متوازن. منتج طبيعي 100% معبأ من طرف Rahiq Bio.',
@@ -627,12 +627,12 @@ const products = {
     nameFr: 'Miel de Caroubier',
     category: 'عسل',
     price: 230,
-    image: 'assets/images/kharroub-1.png',
+    image: 'assets/images/kharroub-1.jpg',
     gallery: [
-      'assets/images/kharroub-1.png',
-      'assets/images/kharroub-4.png',
-      'assets/images/kharroub-2.png',
-      'assets/images/kharroub-3.png',
+      'assets/images/kharroub-1.jpg',
+      'assets/images/kharroub-4.jpg',
+      'assets/images/kharroub-2.jpg',
+      'assets/images/kharroub-3.jpg',
     ],
     slogan: '100% طبيعي — 100% شفاء',
     shortDesc: 'عسل الخروب الطبيعي — غني بالمعادن ومضادات الأكسدة، يقوي الجهاز الهضمي ويعزز الطاقة',
@@ -650,8 +650,8 @@ const products = {
     lot: '01-01CAR',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '500 غرام', price: 120, image: 'assets/images/kharroub-1.png' },
-      { label: '1 كيلوغرام', price: 230, image: 'assets/images/kharroub-4.png' }
+      { label: '500 غرام', price: 120, image: 'assets/images/kharroub-1.jpg' },
+      { label: '1 كيلوغرام', price: 230, image: 'assets/images/kharroub-4.jpg' }
     ]
   }
 };
