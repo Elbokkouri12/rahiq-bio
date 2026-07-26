@@ -781,7 +781,7 @@ function openProduct(productId) {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.content = p.shortDesc + ' — توصيل لجميع مدن المغرب. الدفع عند الاستلام.';
   const canonical = document.querySelector('link[rel="canonical"]');
-  if (canonical) canonical.href = 'https://www.rahiqbio.com/' + productId;
+  if (canonical) canonical.href = 'https://rahiqbio.com/' + productId;
 
   // JSON-LD Product Schema for Google
   const minPrice = Math.min(...p.sizes.map(s => s.price));
@@ -791,7 +791,7 @@ function openProduct(productId) {
     '@type': 'Product',
     'name': p.nameAr,
     'description': p.shortDesc,
-    'image': 'https://www.rahiqbio.com/' + p.image,
+    'image': 'https://rahiqbio.com/' + p.image,
     'brand': { '@type': 'Brand', 'name': 'Rahiq Bio' },
     'offers': {
       '@type': 'AggregateOffer',
@@ -832,7 +832,7 @@ function closeProduct() {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.content = 'رحيق بيو – أفضل منتجات طبيعية من المغرب: عسل السدر، عسل الجرجير، زيت الزيتون، شيلاجيت، نخالة القاطونة. توصيل لجميع مدن المغرب. الدفع عند الاستلام.';
   const canonical = document.querySelector('link[rel="canonical"]');
-  if (canonical) canonical.href = 'https://www.rahiqbio.com/';
+  if (canonical) canonical.href = 'https://rahiqbio.com/';
   const jsonldEl = document.getElementById('product-jsonld');
   if (jsonldEl) jsonldEl.remove();
 }
