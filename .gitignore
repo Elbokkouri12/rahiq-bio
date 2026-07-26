@@ -3,3 +3,10 @@ FULL-FIX-REPORT.txt
 claude-output.txt
 google-sheets-setup.js
 .DS_Store
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
