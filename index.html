@@ -1853,5 +1853,22 @@ function zoomImg(el) {
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.getElementById('imgZoomOverlay').style.display='none'; });
 </script>
+
+  <!-- WhatsApp Lead Tracking -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', {
+            content_name: 'WhatsApp Click',
+            content_category: 'Contact'
+          });
+        }
+      });
+    });
+  });
+  </script>
+  <!-- End WhatsApp Lead Tracking -->
 </body>
 </html>
