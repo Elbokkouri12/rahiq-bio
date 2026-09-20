@@ -14,7 +14,7 @@ const PRODUCTS = {
   olive: { nameAr: 'زيت الزيتون الطبيعي', nameFr: "Huile d'Olive", price: '235', desc: "زيت الزيتون الطبيعي 100%. Huile d'Olive naturelle, 1L à 50 dh, 5L à 235 dh." },
   jarjir: { nameAr: 'عسل الجرجير', nameFr: 'Miel de Roquette', price: '320', desc: 'عسل الجرجير الطبيعي 100%. Miel de Roquette naturel, 500g à 179 dh, 1 kg à 320 dh.' },
   daghmous: { nameAr: 'عسل الدغموس', nameFr: 'Miel de Daghmous', price: '300', desc: 'عسل الدغموس الطبيعي 100%. Miel de Daghmous naturel, 500g à 160 dh, 1 kg à 300 dh.' },
-  granola: { nameAr: 'جرانولا بالمكسرات', nameFr: 'Granola Nuts Mix', price: '90', desc: 'جرانولا بالمكسرات الطبيعية. Granola Nuts Mix naturel, 220g à 50 dh, 500g à 90 dh.' },
+  granola: { nameAr: 'جرانولا بالمكسرات', nameFr: 'Granola Nuts Mix', price: '90', desc: 'جرانولا بالمكسرات الطبيعية. Granola Nuts Mix naturel, 500g à 90 dh.' },
   'bundle-sante': { nameAr: 'باقة الصحة والطبيعة', nameFr: 'Santé & Nature', price: '299', desc: 'باقة الصحة والطبيعة من رهيق بيو، وفر 100 درهم. Pack Santé & Nature complet à 299 dh.' },
   'bundle-breakfast': { nameAr: 'باقة الفطور', nameFr: 'Breakfast Pack', price: '220', desc: 'باقة الفطور الطبيعية من رهيق بيو. Breakfast Pack naturel, à partir de 220 dh.' },
   'bee-pollen': { nameAr: 'حبوب اللقاح', nameFr: 'Bee Pollen', price: '50', desc: 'حبوب اللقاح الطبيعية 100%. Bee Pollen naturel, 100g à 50 dh.' },

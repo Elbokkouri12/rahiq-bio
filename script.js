@@ -461,9 +461,7 @@ const products = {
     image: 'assets/images/granola-500g.jpg',
     gallery: [
       'assets/images/granola-500g.jpg',
-      'assets/images/granola-220g.jpg',
       'assets/images/granola-back-500g.jpg',
-      'assets/images/granola-back-220g.jpg',
     ],
     slogan: '100% طبيعي — فطور صحي بالمكسرات',
     shortDesc: 'جرانولا طبيعية 100% بالمكسرات والبذور — فطور صحي لذيذ يمنحك الطاقة والنشاط طوال اليوم',
@@ -481,7 +479,6 @@ const products = {
     lot: '01-01GRA',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: '220 غرام', price: 50, image: 'assets/images/granola-220g.jpg' },
       { label: '500 غرام', price: 90, image: 'assets/images/granola-500g.jpg' },
     ],
     videos: [
