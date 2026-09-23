@@ -773,6 +773,37 @@ const products = {
     lot: 'SASH06/06',
     badge: 'طبيعي 100%',
     sizes: [{ label: '60 كبسولة', price: 120 }]
+  },
+  'moringa': {
+    id: 'moringa',
+    nameAr: 'مورينغا رحيق بيو',
+    nameFr: 'Moringa',
+    category: 'كبسولات',
+    price: 120,
+    image: 'assets/images/moringa.jpg',
+    gallery: [
+      'assets/images/moringa.jpg',
+      'assets/images/moringa-back-1.jpg',
+      'assets/images/moringa-back-2.jpg',
+    ],
+    slogan: '100% طبيعي — توازنك الطبيعي',
+    shortDesc: 'مكمل غذائي بمسحوق أوراق المورينغا — 60 كبسولة، 400mg لكل كبسولة',
+    fullDesc: 'مورينغا رحيق بيو مكمل غذائي نباتي يعتمد على مسحوق أوراق المورينغا، مع إضافة مستخلص الكركم ومستخلص الفلفل الأسود، في كبسولات سهلة الاستعمال، ضمن عبوة تحتوي على 60 كبسولة. مناسب للإدماج ضمن نظام غذائي متنوع ومتوازن.',
+    benefits: [
+      'تركيبة تعتمد على مسحوق أوراق المورينغا، الغنية طبيعياً بالعناصر الغذائية',
+      'تساهم في دعم الرفاه العام والحيوية اليومية',
+      'ترافق نظاماً غذائياً متوازناً',
+      'تحتوي على مستخلص الكركم والفلفل الأسود',
+      'بدون غلوتين وبدون كائنات معدلة وراثياً (Sans OGM)',
+    ],
+    ingredients: 'مسحوق أوراق المورينغا (Moringa): 400 ملغ، مستخلص الكركم (Curcuma): 200 ملغ، مستخلص الفلفل الأسود (Poivre noir): 5 ملغ، غلاف الكبسولة: كبسولة حلال',
+    usage: 'تناول كبسولتين يومياً، ويفضل بعد الوجبات، مع كوب كبير من الماء',
+    storage: 'يُحفظ بعيداً عن الحرارة والضوء والرطوبة',
+    warnings: 'لا تتجاوز الجرعة اليومية الموصى بها • يُحفظ بعيداً عن متناول الأطفال • مخصص للبالغين • يُنصح للحوامل والمرضعات باستشارة مختص صحي قبل الاستعمال • مكمل غذائي وليس دواءً',
+    onssa: 'N° CAPV.26.1009.24',
+    lot: 'SMGR06/26',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '60 كبسولة', price: 120 }]
   }
 };
 
@@ -790,10 +821,11 @@ const relatedMap = {
   'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
-  'spiruline':      ['maca', 'magnesium', 'ashwagandha', 'bee-pollen'],
-  'maca':           ['spiruline', 'magnesium', 'ashwagandha', 'bee-pollen'],
-  'magnesium':      ['spiruline', 'maca', 'ashwagandha', 'bee-pollen'],
-  'ashwagandha':    ['spiruline', 'maca', 'magnesium', 'bee-pollen'],
+  'spiruline':      ['maca', 'magnesium', 'ashwagandha', 'moringa'],
+  'maca':           ['spiruline', 'magnesium', 'ashwagandha', 'moringa'],
+  'magnesium':      ['spiruline', 'maca', 'ashwagandha', 'moringa'],
+  'ashwagandha':    ['spiruline', 'maca', 'magnesium', 'moringa'],
+  'moringa':        ['spiruline', 'maca', 'magnesium', 'ashwagandha'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
@@ -2183,7 +2215,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium', 'ashwagandha'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
