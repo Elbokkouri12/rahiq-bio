@@ -712,6 +712,37 @@ const products = {
     lot: 'SMAC06/26',
     badge: 'طبيعي 100%',
     sizes: [{ label: '60 كبسولة', price: 120 }]
+  },
+  'magnesium': {
+    id: 'magnesium',
+    nameAr: 'مغنيزيوم غليسينات رحيق بيو',
+    nameFr: 'Magnésium Glycinate',
+    category: 'كبسولات',
+    price: 120,
+    image: 'assets/images/magnesium.jpg',
+    gallery: [
+      'assets/images/magnesium.jpg',
+      'assets/images/magnesium-back-1.jpg',
+      'assets/images/magnesium-back-2.jpg',
+    ],
+    slogan: '100% طبيعي — دعم العضلات والجهاز العصبي',
+    shortDesc: 'مكمل غذائي بالمغنيزيوم غليسينات — 60 كبسولة، 500mg لكل كبسولة',
+    fullDesc: 'مغنيزيوم غليسينات رحيق بيو يوفر المغنيزيوم على شكل غليسينات، في كبسولات سهلة الاستعمال، بتركيز 500 ملغ في كل كبسولة، ضمن عبوة تحتوي على 60 كبسولة حلال.',
+    benefits: [
+      'يساهم في تقليل التعب والإرهاق',
+      'يساهم في دعم الوظيفة الطبيعية للعضلات والجهاز العصبي',
+      'يساهم في دعم عملية إنتاج الطاقة الطبيعية في الجسم',
+      'يساهم في دعم الوظائف الطبيعية للجسم',
+      'بدون غلوتين وبدون كائنات معدلة وراثياً (Sans OGM)',
+    ],
+    ingredients: 'مغنيزيوم غليسينات (Magnésium Glycinate): 500 ملغ لكل كبسولة — غلاف الكبسولة: كبسولة حلال',
+    usage: 'تناول كبسولة واحدة يومياً مع كوب من الماء، ويفضل تناولها بعد الوجبات',
+    storage: 'يُحفظ بعيداً عن الحرارة والضوء والرطوبة',
+    warnings: 'لا تتجاوز الجرعة اليومية الموصى بها • يُحفظ بعيداً عن متناول الأطفال • مخصص للبالغين • يُنصح للحوامل والمرضعات باستشارة مختص صحي قبل الاستعمال • مكمل غذائي وليس دواءً',
+    onssa: 'N° CAPV.26.1009.24',
+    lot: 'MGG05/26',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '60 كبسولة', price: 120 }]
   }
 };
 
@@ -729,8 +760,9 @@ const relatedMap = {
   'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
-  'spiruline':      ['maca', 'bee-pollen', 'psyllium', 'shilajit'],
-  'maca':           ['spiruline', 'bee-pollen', 'psyllium', 'shilajit'],
+  'spiruline':      ['maca', 'magnesium', 'bee-pollen', 'psyllium'],
+  'maca':           ['spiruline', 'magnesium', 'bee-pollen', 'psyllium'],
+  'magnesium':      ['spiruline', 'maca', 'bee-pollen', 'psyllium'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
@@ -2120,7 +2152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
