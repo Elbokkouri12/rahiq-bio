@@ -804,6 +804,37 @@ const products = {
     lot: 'SMGR06/26',
     badge: 'طبيعي 100%',
     sizes: [{ label: '60 كبسولة', price: 120 }]
+  },
+  'collagene': {
+    id: 'collagene',
+    nameAr: 'كولاجين رحيق بيو',
+    nameFr: 'Collagène',
+    category: 'كبسولات',
+    price: 120,
+    image: 'assets/images/collagene.jpg',
+    gallery: [
+      'assets/images/collagene.jpg',
+      'assets/images/collagene-back-1.jpg',
+      'assets/images/collagene-back-2.jpg',
+    ],
+    slogan: '100% طبيعي — نضارة البشرة وصحة المفاصل',
+    shortDesc: 'مكمل غذائي بالكولاجين البحري — 60 كبسولة، 400mg لكل كبسولة',
+    fullDesc: 'كولاجين رحيق بيو يحتوي على الكولاجين البحري (Collagène Marin)، في كبسولات سهلة الاستعمال، بتركيز 400 ملغ لكل كبسولة، ضمن عبوة تحتوي على 60 كبسولة حلال.',
+    benefits: [
+      'يساهم في التكوين الطبيعي للكولاجين',
+      'يساعد على الحفاظ على مرونة البشرة ونضارتها',
+      'يساهم في صحة الشعر والأظافر',
+      'يساهم في حماية الخلايا من الإجهاد التأكسدي',
+      'يدعم المفاصل والأنسجة الضامة',
+    ],
+    ingredients: 'كولاجين بحري (Collagène Marin): 400 ملغ لكل كبسولة — غلاف الكبسولة: كبسولة حلال',
+    usage: 'تناول كبسولتين يومياً مع كوب كبير من الماء',
+    storage: 'يُحفظ في مكان جاف بعيداً عن الضوء والرطوبة',
+    warnings: 'لا تتجاوز الجرعة اليومية الموصى بها • يُحفظ بعيداً عن متناول الأطفال • مخصص للبالغين • يُنصح للحوامل والمرضعات باستشارة مختص صحي قبل الاستعمال • يُستحسن استشارة مختص صحي قبل الاستعمال في حالة الإصابة بأمراض مزمنة • عند ظهور أي رد فعل غير مرغوب فيه يجب التوقف عن الاستعمال واستشارة الطبيب • لا يُستعمل إذا كان ختم الأمان تالفاً • مكمل غذائي وليس دواءً',
+    onssa: 'N° CAPV.26.1009.24',
+    lot: 'SCCX06/26',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '60 كبسولة', price: 120 }]
   }
 };
 
@@ -821,11 +852,12 @@ const relatedMap = {
   'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
-  'spiruline':      ['maca', 'magnesium', 'ashwagandha', 'moringa'],
-  'maca':           ['spiruline', 'magnesium', 'ashwagandha', 'moringa'],
-  'magnesium':      ['spiruline', 'maca', 'ashwagandha', 'moringa'],
-  'ashwagandha':    ['spiruline', 'maca', 'magnesium', 'moringa'],
+  'spiruline':      ['maca', 'magnesium', 'ashwagandha', 'collagene'],
+  'maca':           ['spiruline', 'magnesium', 'ashwagandha', 'collagene'],
+  'magnesium':      ['spiruline', 'maca', 'ashwagandha', 'collagene'],
+  'ashwagandha':    ['spiruline', 'maca', 'magnesium', 'collagene'],
   'moringa':        ['spiruline', 'maca', 'magnesium', 'ashwagandha'],
+  'collagene':      ['spiruline', 'maca', 'magnesium', 'ashwagandha'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
@@ -2215,7 +2247,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
