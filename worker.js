@@ -43,7 +43,7 @@ psyllium: { nameAr: 'نخالة القاطونة', nameFr: 'Psyllium Husk', pric
 kharroub: { nameAr: 'عسل الخروب', nameFr: 'Miel de Caroubier', price: '230', desc: 'عسل الخروب الطبيعي 100%. Miel de Caroubier naturel, 500g à 120 dh, 1 kg à 230 dh.' },
 spiruline: { nameAr: 'سبيرولينا رحيق بيو', nameFr: 'Spiruline', price: '120', desc: 'مكمل غذائي بالسبيرولينا 100% طبيعي. Spiruline naturelle, 60 gélules à 300mg, 120 dh.' },
 maca: { nameAr: 'ماكا رحيق بيو', nameFr: 'Maca', price: '120', desc: 'مكمل غذائي بمسحوق جذور الماكا 100% طبيعي. Maca naturelle, 60 gélules à 400mg, 120 dh.' },
-magnesium: { nameAr: 'مغنيزيوم غليسينات رحيق بيو', nameFr: 'Magnésium Glycinate', price: '120', desc: 'مكمل غذائي بالمغنيزيوم غليسينات 100% طبيعي. Magnésium Glycinate, 60 gélules à 500mg, 120 dh.' },
+magnesium: { nameAr: 'مغنيزيوم رحيق بيو', nameFr: 'Magnésium', price: '120', desc: 'مكمل غذائي بالمغنيزيوم 100% طبيعي. Magnésium, 60 gélules à 500mg, 120 dh.' },
 };
 
 function redirect301(location) {
