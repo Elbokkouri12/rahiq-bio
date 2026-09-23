@@ -681,6 +681,37 @@ const products = {
     lot: 'SSPN06/26',
     badge: 'طبيعي 100%',
     sizes: [{ label: '60 كبسولة', price: 120 }]
+  },
+  'maca': {
+    id: 'maca',
+    nameAr: 'ماكا رحيق بيو',
+    nameFr: 'Maca',
+    category: 'كبسولات',
+    price: 120,
+    image: 'assets/images/maca.jpg',
+    gallery: [
+      'assets/images/maca.jpg',
+      'assets/images/maca-back-1.jpg',
+      'assets/images/maca-back-2.jpg',
+    ],
+    slogan: '100% طبيعي — الحيوية النشطة',
+    shortDesc: 'مكمل غذائي بمسحوق جذور الماكا — 60 كبسولة، 400mg لكل كبسولة',
+    fullDesc: 'ماكا رحيق بيو مكمل غذائي طبيعي يحتوي على مسحوق جذور الماكا، بتركيز 400 ملغ في كل كبسولة. يأتي المنتج في كبسولات سهلة الاستعمال بمعدل 60 كبسولة في العبوة، صُمم لتوفير جرعة محددة من مسحوق جذور الماكا في كل كبسولة.',
+    benefits: [
+      'يساهم في دعم الطاقة والحيوية اليومية',
+      'يساعد على دعم التوازن الهرموني',
+      'يساهم في دعم الأداء البدني',
+      'بدون غلوتين وبدون كائنات معدلة وراثياً (Sans OGM)',
+      'كبسولات حلال 100%',
+    ],
+    ingredients: 'مسحوق جذور الماكا (Maca): 400 ملغ لكل كبسولة — غلاف الكبسولة: كبسولة حلال',
+    usage: 'تناول كبسولتين يومياً، ويفضل في الصباح، مع كوب من الماء',
+    storage: 'يُحفظ بعيداً عن الحرارة والضوء والرطوبة',
+    warnings: 'لا تتجاوز الجرعة اليومية الموصى بها • يُحفظ بعيداً عن متناول الأطفال • مخصص للبالغين • يُنصح للحوامل والمرضعات باستشارة مختص صحي قبل الاستعمال • غير موصى به في حالة وجود اضطرابات هرمونية غير متابَعة • مكمل غذائي وليس دواءً',
+    onssa: 'N° CAPV.26.1009.24',
+    lot: 'SMAC06/26',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '60 كبسولة', price: 120 }]
   }
 };
 
@@ -698,7 +729,8 @@ const relatedMap = {
   'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
-  'spiruline':      ['bee-pollen', 'psyllium', 'shilajit', 'energie-royale'],
+  'spiruline':      ['maca', 'bee-pollen', 'psyllium', 'shilajit'],
+  'maca':           ['spiruline', 'bee-pollen', 'psyllium', 'shilajit'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
@@ -2088,7 +2120,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
