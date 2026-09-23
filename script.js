@@ -650,6 +650,37 @@ const products = {
       { label: '500 غرام', price: 120, image: 'assets/images/kharroub-1.jpg' },
       { label: '1 كيلوغرام', price: 230, image: 'assets/images/kharroub-4.jpg' }
     ]
+  },
+  'spiruline': {
+    id: 'spiruline',
+    nameAr: 'سبيرولينا رحيق بيو',
+    nameFr: 'Spiruline',
+    category: 'كبسولات',
+    price: 120,
+    image: 'assets/images/spiruline.jpg',
+    gallery: [
+      'assets/images/spiruline.jpg',
+      'assets/images/spiruline-back-1.jpg',
+      'assets/images/spiruline-back-2.jpg',
+    ],
+    slogan: '100% طبيعي — الطاقة الخضراء الأساسية',
+    shortDesc: 'مكمل غذائي بالسبيرولينا — 60 كبسولة، 300mg لكل كبسولة',
+    fullDesc: 'سبيرولينا رحيق بيو مكمل غذائي يعتمد على السبيرولينا، في شكل كبسولات، بتركيز 300 ملغ من السبيرولينا لكل كبسولة. تتميز بتركيبتها البسيطة ومحتواها من السبيرولينا، وتأتي العبوة في 60 كبسولة حلال. يُقدم المنتج ضمن نظام غذائي متنوع ومتوازن ونمط حياة صحي.',
+    benefits: [
+      'مصدر غني بالبروتينات والفيتامينات والمعادن الطبيعية',
+      'يساعد على دعم الطاقة والحيوية اليومية',
+      'بدون غلوتين وبدون كائنات معدلة وراثياً (Sans OGM)',
+      'بدون ملونات وبدون مواد حافظة',
+      'كبسولات حلال 100%',
+    ],
+    ingredients: 'سبيرولينا (Spiruline): 300 ملغ لكل كبسولة — غلاف الكبسولة: كبسولة حلال',
+    usage: 'تناول كبسولتين يومياً، ويفضل بعد الوجبات، مع كوب كبير من الماء',
+    storage: 'يُحفظ بعيداً عن الحرارة والضوء والرطوبة',
+    warnings: 'لا تتجاوز الجرعة اليومية الموصى بها • يُحفظ بعيداً عن متناول الأطفال • مخصص للبالغين • يُنصح للحوامل والمرضعات باستشارة الطبيب قبل الاستعمال • مكمل غذائي وليس دواءً',
+    onssa: 'N° CAPV.26.1009.24',
+    lot: 'SSPN06/26',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '60 كبسولة', price: 120 }]
   }
 };
 
@@ -667,6 +698,7 @@ const relatedMap = {
   'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
+  'spiruline':      ['bee-pollen', 'psyllium', 'shilajit', 'energie-royale'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
@@ -2049,7 +2081,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
@@ -2059,11 +2091,25 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 // ===== CATEGORY FILTER =====
+// Categories listed here are hidden from "الكل" (all) and only shown when their own tab is selected
+const HIDDEN_FROM_ALL_CATEGORIES = ['كبسولات'];
+
 function filterProducts(category, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.products-grid .product-card').forEach(card => {
-    const show = category === 'all' || card.dataset.category === category;
+    const cardCategory = card.dataset.category;
+    const show = category === 'all'
+      ? !HIDDEN_FROM_ALL_CATEGORIES.includes(cardCategory)
+      : cardCategory === category;
     card.style.display = show ? '' : 'none';
   });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.products-grid .product-card').forEach(card => {
+    if (HIDDEN_FROM_ALL_CATEGORIES.includes(card.dataset.category)) {
+      card.style.display = 'none';
+    }
+  });
+});

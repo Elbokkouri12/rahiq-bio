@@ -498,6 +498,25 @@
     "url": "https://rahiqbio.com/#product-bundle-breakfast"
   }
 }
+</script>   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "سبيرولينا رحيق بيو",
+  "description": "مكمل غذائي بالسبيرولينا — 60 كبسولة، 300mg لكل كبسولة",
+  "image": "https://rahiqbio.com/assets/images/spiruline.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "رحيق بيو"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "120",
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://rahiqbio.com/#product-spiruline"
+  }
+}
 </script> </head>
 <body>
 
@@ -743,6 +762,11 @@
       <button class="filter-btn" onclick="filterProducts('باقات', this)">
         <svg class="fi" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
         الباقات
+      </button>
+
+      <button class="filter-btn" onclick="filterProducts('كبسولات', this)">
+        <svg class="fi" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="6" rx="3" transform="rotate(-35 12 12)"/><path d="M12 12L7 17"/></svg>
+        الكبسولات
       </button>
 
     </div>
@@ -1304,6 +1328,35 @@
       </div>
     </article>
 
+<!-- Product: Spiruline — LIVE — capsules category only, hidden from main grid -->
+    <article class="product-card featured" data-product="spiruline" data-category="كبسولات" style="display:none">
+      <div class="product-image-wrap">
+        <img src="assets/images/spiruline.jpg" alt="سبيرولينا رحيق بيو" loading="lazy" class="product-img" onclick="zoomImg(this)" style="cursor:zoom-in">
+        <div class="product-badge-wrap"><span class="badge-natural">طبيعي 100%</span></div>
+        <div class="product-quick-view" onclick="openProduct('spiruline')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          عرض التفاصيل
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-category">كبسولات</div>
+        <h3 class="product-name-ar">سبيرولينا رحيق بيو</h3>
+        <p class="product-name-fr">Spiruline</p>
+        <div class="product-variants">
+          <button class="variant-btn active" data-price="120">60 كبسولة — 120د</button>
+        </div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="price-val">120</span>
+            <span class="currency">درهم</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart('spiruline', this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            أضف للسلة
+          </button>
+        </div>
+      </div>
+    </article>
 
   </div>
 </section>

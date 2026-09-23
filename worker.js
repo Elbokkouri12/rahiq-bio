@@ -41,6 +41,7 @@ granola: { nameAr: 'جرانولا بالمكسرات', nameFr: 'Granola Nuts Mi
 'bee-pollen': { nameAr: 'حبوب اللقاح', nameFr: 'Bee Pollen', price: '50', desc: 'حبوب اللقاح الطبيعية 100%. Bee Pollen naturel, 100g à 50 dh.' },
 psyllium: { nameAr: 'نخالة القاطونة', nameFr: 'Psyllium Husk', price: '65', desc: 'نخالة القاطونة الطبيعية 100%. Psyllium Husk naturel, 200g à 65 dh.' },
 kharroub: { nameAr: 'عسل الخروب', nameFr: 'Miel de Caroubier', price: '230', desc: 'عسل الخروب الطبيعي 100%. Miel de Caroubier naturel, 500g à 120 dh, 1 kg à 230 dh.' },
+spiruline: { nameAr: 'سبيرولينا رحيق بيو', nameFr: 'Spiruline', price: '120', desc: 'مكمل غذائي بالسبيرولينا 100% طبيعي. Spiruline naturelle, 60 gélules à 300mg, 120 dh.' },
 };
 
 function redirect301(location) {
