@@ -485,6 +485,7 @@ const products = {
       'assets/videos/granola-2.mp4',
       'assets/videos/granola-3.mp4',
       'assets/videos/granola-1.mp4',
+      'assets/videos/granola-4.mp4',
     ]
   },
   'bundle-sante': {
