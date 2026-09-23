@@ -1165,6 +1165,13 @@ function buildProductLanding(p) {
             <span>${ing.trim()}</span>
           </div>`).join('')}
       </div>
+      ${p.usage ? `
+      <div class="lp-usage-wrap">
+        <div class="lp-usage-card">
+          <div class="lp-usage-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><h4>طريقة الاستعمال</h4><p>${p.usage}</p></div>
+        </div>
+      </div>` : ''}
       ${(p.storage || p.warnings) ? `
       <div class="lp-details-cards-row">
         ${p.storage ? `
