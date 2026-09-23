@@ -286,35 +286,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   white-space: nowrap;
 }
 
-/* ===== FREE-FLYING BEES (JS-animated, fixed to viewport) ===== */
-.free-bee {
-  position: fixed;
-  z-index: 100;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  will-change: transform;
-  transform: translate(-9999px, -9999px);
-}
-@media (max-width: 767px) { .free-bee { display: none; } }
-
-.free-bee-img {
-  display: block;
-  /* size set per-bee in JS via inline style */
-  height: auto;
-  filter: drop-shadow(1px 4px 10px rgba(0,0,0,0.5))
-          drop-shadow(0 1px 4px rgba(0,0,0,0.25));
-  /* Wing flap — fast scale oscillation on X (wings spread/close) */
-  animation: bee-flap 0.11s ease-in-out infinite alternate;
-  transform-origin: 50% 38%;
-  will-change: transform;
-}
-
-@keyframes bee-flap {
-  from { transform: scaleX(1)    scaleY(1);    }
-  to   { transform: scaleX(0.82) scaleY(1.06); }
-}
-
 /* ===== SVG HONEY DRIP from top ===== */
 
 .hero-content {
