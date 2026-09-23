@@ -1,4 +1,7 @@
 # HTML — دائماً fresh (تظهر التعديلات فوراً)
+/
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /index.html
   Cache-Control: no-cache, no-store, must-revalidate
 

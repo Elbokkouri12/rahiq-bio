@@ -117,59 +117,9 @@
     };
   }
 
-  /* showSuccess -> Purchase (cart flow) */
-  var _origShowSuccess = window.showSuccess;
-  if (typeof _origShowSuccess === 'function') {
-    window.showSuccess = function () {
-      safeCall(function () {
-        var total = cartTotal();
-        var ids = cartIds();
-        var num = cartNumItems();
-        waitForFbq(function () {
-          fbq('track', 'Purchase', {
-            content_ids: ids,
-            content_type: 'product',
-            num_items: num,
-            value: total,
-            currency: 'MAD'
-          });
-        });
-      });
-      return _origShowSuccess.apply(this, arguments);
-    };
-  }
-
-  /* submitOrder -> Purchase (LP direct-buy form) */
-  var _origSubmitOrder = window.submitOrder;
-  if (typeof _origSubmitOrder === 'function') {
-    window.submitOrder = function (event, productId) {
-      safeCall(function () {
-        var value = 0;
-        var ids = [];
-        var num = 0;
-        if (productId && products[productId]) {
-          var qtyInput = document.querySelector('[name="qty"], #lp-qty, .lp-qty');
-          var qty = qtyInput ? (parseInt(qtyInput.value, 10) || 1) : 1;
-          value = productMinPrice(productId) * qty;
-          ids = [productId];
-          num = qty;
-        } else {
-          value = cartTotal();
-          ids = cartIds();
-          num = cartNumItems();
-        }
-        waitForFbq(function () {
-          fbq('track', 'Purchase', {
-            content_ids: ids,
-            content_type: 'product',
-            num_items: num,
-            value: value,
-            currency: 'MAD'
-          });
-        });
-      });
-      return _origSubmitOrder.apply(this, arguments);
-    };
-  }
+  /* Purchase tracking is fired directly by script.js (submitOrder and
+     submitCartOrder's finalize()) with values captured before the cart
+     is cleared — wrapping showSuccess/submitOrder here would double-count
+     or read stale (already-cleared) cart data. */
 
 })();

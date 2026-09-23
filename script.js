@@ -1571,7 +1571,8 @@ function submitOrder(e, productId) {
   const phone = form.querySelector('[name="phone"]').value.trim();
   const city = form.querySelector('[name="city"]').value;
   const address = form.querySelector('[name="address"]').value.trim();
-  const notes = form.querySelector('[name="notes"]').value.trim();
+  const notesEl = form.querySelector('[name="notes"]');
+  const notes = notesEl ? notesEl.value.trim() : '';
   const qty   = parseInt(document.getElementById(`qty_${productId}`).value);
   const price = getCurrentPrice(productId);
   const size  = getCurrentSizeLabel(productId);
@@ -1584,15 +1585,56 @@ function submitOrder(e, productId) {
 
   const msg = `🌿 *طلب جديد - Rahiq Bio*\n\n👤 *الاسم:* ${name}\n📞 *الهاتف:* ${phone}\n🏙️ *المدينة:* ${city}\n📍 *العنوان:* ${address}\n\n🛒 *المنتج:* ${p.nameAr} (${p.nameFr})\n📏 *الحجم:* ${size}\n📦 *الكمية:* ${qty}\n💰 *المجموع:* ${total} درهم${notes ? '\n\n📝 *ملاحظات:* ' + notes : ''}`;
 
-  setTimeout(() => {
+  const successIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> تأكيد الطلب عبر واتساب`;
+
+  function finalize() {
     fbq('track', 'Lead');
-    fbq('track', 'Purchase', {value: total, currency: 'MAD'});
+    fbq('track', 'Purchase', {
+      content_ids: [productId],
+      content_type: 'product',
+      num_items: qty,
+      value: total,
+      currency: 'MAD'
+    });
     window.open(`https://wa.me/212713793867?text=${encodeURIComponent(msg)}`, '_blank');
     closeProduct();
     showSuccess();
     btn.disabled = false;
-    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> تأكيد الطلب عبر واتساب`;
-  }, 800);
+    btn.innerHTML = successIcon;
+  }
+
+  if (SHEETS_URL) {
+    const now = new Date();
+    const orderDate = now.toLocaleDateString('ar-MA', { timeZone: 'Africa/Casablanca' })
+      + ' ' + now.toLocaleTimeString('ar-MA', { timeZone: 'Africa/Casablanca', hour: '2-digit', minute: '2-digit' });
+
+    const items = [{ name: `${p.nameAr} (${size})`, price: `${price} درهم`, qty }];
+    const payload = { date: orderDate, name, phone, city, address, items };
+
+    let iframe = document.getElementById('_sheetsIframe');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = '_sheetsIframe';
+      iframe.name = '_sheetsIframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+    const sheetForm = document.createElement('form');
+    sheetForm.method = 'POST';
+    sheetForm.action = SHEETS_URL;
+    sheetForm.target = '_sheetsIframe';
+    const inp = document.createElement('input');
+    inp.type = 'hidden';
+    inp.name = 'payload';
+    inp.value = JSON.stringify(payload);
+    sheetForm.appendChild(inp);
+    document.body.appendChild(sheetForm);
+    sheetForm.submit();
+    setTimeout(() => { if (sheetForm.parentNode) sheetForm.parentNode.removeChild(sheetForm); }, 2000);
+    setTimeout(finalize, 800);
+  } else {
+    setTimeout(finalize, 800);
+  }
 }
 
 function showSuccess() {
@@ -1660,136 +1702,6 @@ setTimeout(function() {
 const style = document.createElement('style');
 style.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
 document.head.appendChild(style);
-
-// ===== FREE-FLYING BEE ENGINE =====
-class FreeBee {
-  constructor(el, size, speed, phase) {
-    this.el  = el;
-    this.img = el.querySelector('.free-bee-img');
-    this.img.style.width = size + 'px';
-
-    this.W = window.innerWidth;
-    this.H = window.innerHeight;
-
-    // Start position — spawn from a random edge
-    const edge = Math.floor(Math.random() * 4);
-    if (edge === 0) { this.x = Math.random() * this.W; this.y = -size; }
-    else if (edge === 1) { this.x = this.W + size; this.y = Math.random() * this.H; }
-    else if (edge === 2) { this.x = Math.random() * this.W; this.y = this.H + size; }
-    else { this.x = -size; this.y = Math.random() * this.H; }
-
-    this.vx = 0;
-    this.vy = 0;
-    this.speed   = speed;           // max px/frame
-    this.size    = size;
-    this.angle   = 0;               // current heading in radians
-    this.smoothAngle = 0;
-
-    // Bob cycle offset so two bees don't bob in sync
-    this.bobPhase  = phase;
-    this.bobAmp    = 3;             // px
-    this.bobFreq   = 0.04;         // radians/frame
-
-    this.frame = 0;
-
-    // Pick first waypoint
-    this.tx = 0; this.ty = 0;
-    this._newTarget();
-  }
-
-  _newTarget() {
-    // Mix of interior points and just-outside-edge points
-    const r = Math.random();
-    if (r < 0.75) {
-      // inside viewport (stay visible most of the time)
-      this.tx = this.size * 2 + Math.random() * (this.W - this.size * 4);
-      this.ty = this.size * 2 + Math.random() * (this.H - this.size * 4);
-    } else {
-      // outside edge — enter/exit effect
-      const edge = Math.floor(Math.random() * 4);
-      if (edge === 0) { this.tx = Math.random() * this.W; this.ty = -this.size * 1.5; }
-      else if (edge === 1) { this.tx = this.W + this.size; this.ty = Math.random() * this.H; }
-      else if (edge === 2) { this.tx = Math.random() * this.W; this.ty = this.H + this.size; }
-      else { this.tx = -this.size; this.ty = Math.random() * this.H; }
-    }
-    // Min distance to prevent zero-length targets
-    const d = Math.hypot(this.tx - this.x, this.ty - this.y);
-    if (d < 80) this._newTarget();
-  }
-
-  update() {
-    this.frame++;
-    this.W = window.innerWidth;
-    this.H = window.innerHeight;
-
-    // Vector toward target
-    const dx = this.tx - this.x;
-    const dy = this.ty - this.y;
-    const dist = Math.hypot(dx, dy);
-
-    // New target when close enough
-    if (dist < 60) this._newTarget();
-
-    // Desired velocity (normalised × speed)
-    const desVx = (dx / dist) * this.speed;
-    const desVy = (dy / dist) * this.speed;
-
-    // Smooth steering (inertia — feels like a real insect)
-    this.vx += (desVx - this.vx) * 0.025;
-    this.vy += (desVy - this.vy) * 0.025;
-
-    // Bob perpendicular to travel direction
-    const travelAngle = Math.atan2(this.vy, this.vx);
-    const bob = Math.sin(this.frame * this.bobFreq + this.bobPhase) * this.bobAmp;
-    const perpX = -Math.sin(travelAngle) * bob;
-    const perpY =  Math.cos(travelAngle) * bob;
-
-    this.x += this.vx + perpX;
-    this.y += this.vy + perpY;
-
-    // Heading angle: atan2 + 90° because bee image head points UP (0°=up)
-    const targetAngle = Math.atan2(this.vy, this.vx) + Math.PI / 2;
-
-    // Smooth angle interpolation (handle wrap-around)
-    let da = targetAngle - this.smoothAngle;
-    while (da >  Math.PI) da -= 2 * Math.PI;
-    while (da < -Math.PI) da += 2 * Math.PI;
-    this.smoothAngle += da * 0.06;
-
-    // Apply transform: position + rotation
-    this.el.style.transform =
-      `translate(${this.x}px, ${this.y}px) rotate(${this.smoothAngle}rad)`;
-  }
-}
-
-// Create two bees — disabled on mobile to save battery/CPU
-const beeEl1 = document.getElementById('bee1');
-const beeEl2 = document.getElementById('bee2');
-const isMobile = window.innerWidth < 768;
-
-let bee1, bee2;
-
-if (beeEl1 && beeEl2 && !isMobile) {
-  bee1 = new FreeBee(beeEl1, 72, 2.4, 0);
-  bee2 = new FreeBee(beeEl2, 55, 1.9, Math.PI);
-
-  let lastBeeFrame = 0;
-  function animateBees(ts) {
-    if (ts - lastBeeFrame >= 33) { // ~30fps instead of 60fps
-      bee1.update();
-      bee2.update();
-      lastBeeFrame = ts;
-    }
-    requestAnimationFrame(animateBees);
-  }
-  requestAnimationFrame(animateBees);
-
-  // Update viewport size on resize
-  window.addEventListener('resize', () => {
-    if (bee1) { bee1.W = window.innerWidth; bee1.H = window.innerHeight; }
-    if (bee2) { bee2.W = window.innerWidth; bee2.H = window.innerHeight; }
-  });
-}
 
 // ===== REELS PLAYER =====
 const reelVideos = document.querySelectorAll('.reel-video');
@@ -1894,7 +1806,25 @@ function updateSoundIcon(index, muted) {
 }
 
 // ===== CART SYSTEM =====
-const cart = [];
+const CART_STORAGE_KEY = 'rahiqbio_cart';
+
+function loadCart() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
+    if (!Array.isArray(saved)) return [];
+    return saved.filter(i => i && i.key && products[i.id] && i.qty > 0);
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveCart() {
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  } catch (e) { /* private browsing / quota — cart still works for this session */ }
+}
+
+const cart = loadCart();
 
 function addToCart(productId, btn) {
   const card = document.querySelector(`[data-product="${productId}"]`);
@@ -1944,17 +1874,6 @@ function removeFromCart(key) {
 
 function toggleCart() {
   document.getElementById('cartDrawer').classList.toggle('open');
-}
-
-function checkoutWhatsapp() {
-  if (cart.length === 0) return;
-  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-  let msg = 'السلام عليكم، أريد أن أطلب:\n\n';
-  cart.forEach(i => {
-    msg += `• ${i.name} (${i.weight}) × ${i.qty} = ${i.price * i.qty} درهم\n`;
-  });
-  msg += `\nالمجموع الكلي: ${total} درهم`;
-  window.open(`https://wa.me/212713793867?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 // ===== GOOGLE SHEETS URL — أضف رابطك هنا بعد إعداد Apps Script =====
@@ -2105,6 +2024,13 @@ function submitCartOrder(e) {
 
   // ─── Send to Google Sheets ───
   function finalize() {
+    fbq('track', 'Purchase', {
+      content_ids: cart.map(i => i.id),
+      content_type: 'product',
+      num_items: cart.reduce((s, i) => s + i.qty, 0),
+      value: subtotal,
+      currency: 'MAD'
+    });
     window.open(`https://wa.me/212713793867?text=${encodeURIComponent(msg)}`, '_blank');
     cart.length = 0;
     updateCartUI();
@@ -2155,6 +2081,7 @@ function submitCartOrder(e) {
 }
 
 function updateCartUI() {
+  saveCart();
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const count = cart.reduce((s, i) => s + i.qty, 0);
 
@@ -2243,6 +2170,7 @@ document.addEventListener('click', function(e) {
 // Initialize sold-out state on page load
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.product-card').forEach(updateSoldOutState);
+  updateCartUI();
 });
 
 
