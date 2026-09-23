@@ -743,6 +743,36 @@ const products = {
     lot: 'MGG05/26',
     badge: 'طبيعي 100%',
     sizes: [{ label: '60 كبسولة', price: 120 }]
+  },
+  'ashwagandha': {
+    id: 'ashwagandha',
+    nameAr: 'أشواغاندا رحيق بيو',
+    nameFr: 'Ashwagandha',
+    category: 'كبسولات',
+    price: 120,
+    image: 'assets/images/ashwagandha.jpg',
+    gallery: [
+      'assets/images/ashwagandha.jpg',
+      'assets/images/ashwagandha-back-1.jpg',
+      'assets/images/ashwagandha-back-2.jpg',
+    ],
+    slogan: '100% طبيعي — السكينة الطبيعية',
+    shortDesc: 'مكمل غذائي بمستخلص الأشواغاندا — 60 كبسولة، 400mg لكل كبسولة',
+    fullDesc: 'أشواغاندا رحيق بيو مكمل غذائي يحتوي على مستخلص الأشواغاندا، في كبسولات سهلة الاستعمال، بتركيز 400 ملغ لكل كبسولة، ضمن عبوة تحتوي على 60 كبسولة. مخصص للبالغين ويُستهلك وفق الجرعة اليومية الموصى بها.',
+    benefits: [
+      'يساهم في الاسترخاء والراحة النفسية',
+      'يساعد على الحفاظ على التوازن العاطفي بشكل يومي',
+      'يساعد الجسم على التكيف بشكل أفضل مع التوتر',
+      'يدعم الطاقة الطبيعية والحيوية العامة',
+      'بدون غلوتين وبدون كائنات معدلة وراثياً (Sans OGM)',
+    ],
+    ingredients: "مستخلص الأشواغاندا (Extrait d'Ashwagandha): 400 ملغ لكل كبسولة — غلاف الكبسولة: كبسولة حلال",
+    usage: 'تناول كبسولتين يومياً، ويفضل في المساء، مع كوب كبير من الماء',
+    warnings: 'لا تتجاوز الجرعة اليومية الموصى بها • يُحفظ بعيداً عن متناول الأطفال • مخصص للبالغين • يُنصح للحوامل والمرضعات باستشارة مختص صحي قبل الاستعمال • غير موصى به للأطفال ولمن يعانون من اضطرابات المناعة الذاتية • غير موصى به في حالة وجود اضطرابات في الغدة الدرقية، وخاصة فرط نشاطها • مكمل غذائي وليس دواءً',
+    onssa: 'N° CAPV.26.1009.24',
+    lot: 'SASH06/06',
+    badge: 'طبيعي 100%',
+    sizes: [{ label: '60 كبسولة', price: 120 }]
   }
 };
 
@@ -760,9 +790,10 @@ const relatedMap = {
   'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
-  'spiruline':      ['maca', 'magnesium', 'bee-pollen', 'psyllium'],
-  'maca':           ['spiruline', 'magnesium', 'bee-pollen', 'psyllium'],
-  'magnesium':      ['spiruline', 'maca', 'bee-pollen', 'psyllium'],
+  'spiruline':      ['maca', 'magnesium', 'ashwagandha', 'bee-pollen'],
+  'maca':           ['spiruline', 'magnesium', 'ashwagandha', 'bee-pollen'],
+  'magnesium':      ['spiruline', 'maca', 'ashwagandha', 'bee-pollen'],
+  'ashwagandha':    ['spiruline', 'maca', 'magnesium', 'bee-pollen'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
@@ -2152,7 +2183,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium', 'ashwagandha'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {

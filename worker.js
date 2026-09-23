@@ -44,6 +44,7 @@ kharroub: { nameAr: 'عسل الخروب', nameFr: 'Miel de Caroubier', price: '
 spiruline: { nameAr: 'سبيرولينا رحيق بيو', nameFr: 'Spiruline', price: '120', desc: 'مكمل غذائي بالسبيرولينا 100% طبيعي. Spiruline naturelle, 60 gélules à 300mg, 120 dh.' },
 maca: { nameAr: 'ماكا رحيق بيو', nameFr: 'Maca', price: '120', desc: 'مكمل غذائي بمسحوق جذور الماكا 100% طبيعي. Maca naturelle, 60 gélules à 400mg, 120 dh.' },
 magnesium: { nameAr: 'مغنيزيوم رحيق بيو', nameFr: 'Magnésium', price: '120', desc: 'مكمل غذائي بالمغنيزيوم 100% طبيعي. Magnésium, 60 gélules à 500mg, 120 dh.' },
+ashwagandha: { nameAr: 'أشواغاندا رحيق بيو', nameFr: 'Ashwagandha', price: '120', desc: 'مكمل غذائي بمستخلص الأشواغاندا 100% طبيعي. Ashwagandha, 60 gélules à 400mg, 120 dh.' },
 };
 
 function redirect301(location) {
