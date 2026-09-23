@@ -168,6 +168,7 @@ const products = {
     warnings: 'لا يُنصح به للنساء الحوامل أو المرضعات • يُمنع على الأشخاص المصابين بأمراض مزمنة دون استشارة طبية • يُحفظ بعيداً عن متناول الأطفال',
     lot: '01-01SHI',
     badge: 'نقي 100% طبيعي',
+    soldOut: true,
     sizes: [{ label: '50 غرام', price: 170 }],
     videos: [
       'assets/videos/shilajit-1.mp4',
@@ -367,6 +368,7 @@ const products = {
     warnings: 'لا توجد مواد مسببة للحساسية • يُحفظ بعيداً عن الأطفال',
     lot: '01-01OLB',
     badge: 'طبيعي 100%',
+    soldOut: true,
     sizes: [
       { label: '1 لتر', price: 50, image: 'assets/images/olive-1.jpg' },
       { label: '5 لتر', price: 235, image: 'assets/images/olive-2.jpg' }
@@ -1000,11 +1002,11 @@ function openProduct(productId) {
   }
   jsonldEl.textContent = JSON.stringify(jsonld);
 
-  // Show sticky button
+  // Show sticky button (hidden for sold-out products — nothing to buy)
   var stickyBuy = document.getElementById('globalStickyBuy');
   var stickyBtn = document.getElementById('globalStickyBtn');
   if (stickyBuy) {
-    stickyBuy.style.display = 'block';
+    stickyBuy.style.display = p.soldOut ? 'none' : 'block';
     if (stickyBtn) stickyBtn.dataset.pid = productId;
   }
 }
@@ -1150,6 +1152,7 @@ function buildProductLanding(p) {
           ${p.slogan ? `<div class="lp-slogan lp-slogan--center">${p.slogan}</div>` : ''}
           ${p.onssa ? `<div class="lp-onssa-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> مراقب من ONSSA — ${p.onssa}</div>` : ''}
           <div class="lp-v2-rating">${STAR}${STAR}${STAR}${STAR}${STAR}<span>4.9 · <strong>+127 تقييم</strong></span></div>
+          ${p.soldOut ? `<div class="lp-soldout-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg> نفذ من المخزون حالياً</div>` : ''}
         </div>
 
         <!-- Size picker -->
@@ -1175,6 +1178,14 @@ function buildProductLanding(p) {
         </div>
 
         <!-- COMPACT ORDER FORM -->
+        ${p.soldOut ? `
+        <div class="lp-v2-form-box lp-v2-form-box--soldout">
+          <p class="lp-v2-form-title">نفذ من المخزون حالياً</p>
+          <p class="lp-soldout-note">هذا المنتج غير متوفر للطلب حالياً. تواصل معنا عبر واتساب لمعرفة موعد التوفر.</p>
+          <a href="https://wa.me/212713793867?text=${encodeURIComponent('السلام عليكم، بغيت نعرف فوقاش غادي يتوفر ' + p.nameAr)}" class="lp-v2-wa" target="_blank">
+            ${WA_SVG} تواصل معنا عبر واتساب
+          </a>
+        </div>` : `
         <div class="lp-v2-form-box">
           <p class="lp-v2-form-title">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -1239,7 +1250,7 @@ function buildProductLanding(p) {
               ${WA_SVG} واتساب مباشر
             </a>
           </form>
-        </div>
+        </div>`}
 
         <!-- Trust signals -->
         <div class="lp-v2-trust">
