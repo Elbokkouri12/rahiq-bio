@@ -8,12 +8,12 @@
 /*.html
   Cache-Control: no-cache, no-store, must-revalidate
 
-# JS و CSS — يوم واحد (تتحدث مع كل تعديل للسعر)
+# JS و CSS — دائماً يتحقق من التحديث (المنتجات والأسعار موجودة فـ script.js)
 /*.js
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache, must-revalidate
 
 /*.css
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache, must-revalidate
 
 # صور — 30 يوم (نادراً ما تتغير)
 /assets/images/*
