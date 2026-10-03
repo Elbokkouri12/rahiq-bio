@@ -3,3 +3,5 @@ FULL-FIX-REPORT.txt
 claude-output.txt
 google-sheets-setup.js
 .DS_Store
+node_modules/
+.wrangler/
