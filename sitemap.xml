@@ -1,159 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://rahiqbio.com/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://rahiqbio.com/zaytoun</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/amlou-louz</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/amlou-cacao</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/energie-royale</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/shilajit</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/eucalyptus</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/sidr</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/zaatar</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/limon</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/aachab</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/olive</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://rahiqbio.com/jarjir</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/jarjir-1.jpg</image:loc>
+      <image:title>عسل الجرجير – Miel de Roquette</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/daghmous</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/granola</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/bundle-sante</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/bundle-breakfast</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/bee-pollen</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rahiqbio.com/psyllium</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/daghmous-1.jpg</image:loc>
+      <image:title>عسل الدغموس – Miel de Daghmous</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/kharroub</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/kharroub-1.jpg</image:loc>
+      <image:title>عسل الخروب – Miel de Caroubier</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/eucalyptus</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/eucalyptus-3.jpg</image:loc>
+      <image:title>عسل الكاليبتوس – Miel d'Eucalyptus</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/sidr</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/sidr-new-4.jpg</image:loc>
+      <image:title>عسل السدر – Miel de Jujubier</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/zaatar</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/zaatar-4.jpg</image:loc>
+      <image:title>عسل الزعتر – Miel de Thym</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/limon</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/limon-1.jpg</image:loc>
+      <image:title>عسل الليمون – Miel de Citronnier</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/aachab</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/aachab-1.jpg</image:loc>
+      <image:title>عسل الأعشاب – Miel Multi Fleurs</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/olive</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/olive-2.jpg</image:loc>
+      <image:title>زيت الزيتون الطبيعي – Huile d'Olive</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/zaytoun</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/olive-beldi-1.jpg</image:loc>
+      <image:title>زيتون طبيعي – Olives Naturelles de Béni Mellal</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/shilajit</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/shilajit-new.jpg</image:loc>
+      <image:title>شيلاجيت – Shilajit Pur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/psyllium</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/psyllium.jpg</image:loc>
+      <image:title>نخالة القاطونة – Psyllium Husk</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/bee-pollen</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/bee-pollen.jpg</image:loc>
+      <image:title>حبوب اللقاح – Bee Pollen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/bundle-breakfast</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/bundle-breakfast-small.jpg</image:loc>
+      <image:title>باقة الفطور – Breakfast Pack</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/granola</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/granola-500g.jpg</image:loc>
+      <image:title>جرانولا بالمكسرات – Granola Nuts Mix</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/energie-royale</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/energie-royale-900g.jpg</image:loc>
+      <image:title>مزيج ملكي بالعسل والمكسرات – Énergie Royale Mix</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/amlou-cacao</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/amlou-cacao-1.jpg</image:loc>
+      <image:title>أملو كاكاو – Amlou cacahuète Au Miel De Citron</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rahiqbio.com/amlou-louz</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/amlou-louz-1.jpg</image:loc>
+      <image:title>أملو اللوز – Amlou Amande Au Miel De Citron</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/spiruline</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/spiruline.jpg</image:loc>
+      <image:title>سبيرولينا رحيق بيو – Spiruline</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/maca</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/maca.jpg</image:loc>
+      <image:title>ماكا رحيق بيو – Maca</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/magnesium</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/magnesium.jpg</image:loc>
+      <image:title>مغنيزيوم رحيق بيو – Magnésium</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/ashwagandha</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/ashwagandha.jpg</image:loc>
+      <image:title>أشواغاندا رحيق بيو – Ashwagandha</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/moringa</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/moringa.jpg</image:loc>
+      <image:title>مورينغا رحيق بيو – Moringa</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rahiqbio.com/collagene</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rahiqbio.com/assets/images/collagene.jpg</image:loc>
+      <image:title>كولاجين رحيق بيو – Collagène</image:title>
+    </image:image>
   </url>
 </urlset>

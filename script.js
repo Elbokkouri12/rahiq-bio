@@ -1019,7 +1019,7 @@ function closeProduct() {
   if (stickyBuy) stickyBuy.style.display = 'none';
   // Restore homepage URL + meta
   history.pushState({}, '', '/');
-  document.title = 'Rahiq Bio | منتجات طبيعية 100% – عسل – زيت – مكملات – المغرب';
+  document.title = 'رحيق بيو Rahiq Bio | عسل طبيعي مغربي، أملو، زيت الزيتون – Miel naturel Maroc';
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.content = 'رحيق بيو – أفضل منتجات طبيعية من المغرب: عسل السدر، عسل الجرجير، زيت الزيتون، شيلاجيت، نخالة القاطونة. توصيل لجميع مدن المغرب. الدفع عند الاستلام.';
   const canonical = document.querySelector('link[rel="canonical"]');
@@ -2218,4 +2218,16 @@ document.addEventListener('DOMContentLoaded', function() {
       card.style.display = 'none';
     }
   });
+});
+
+// Product names are real links (/sidr …) so search engines can crawl each
+// product page; for visitors, open the product in place instead of reloading.
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a.product-link');
+  if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  const pid = link.getAttribute('href').slice(1);
+  if (products[pid]) {
+    e.preventDefault();
+    openProduct(pid);
+  }
 });
