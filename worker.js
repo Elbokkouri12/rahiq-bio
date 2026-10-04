@@ -777,11 +777,14 @@ function productHtml(slug, p) {
 // Shipping: 35 MAD anywhere in Morocco, free from 350 MAD
 const SHIPPING_DETAILS = [{"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "35", "currency": "MAD"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MA"}}, {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "MAD"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MA"}, "eligibleTransactionVolume": {"@type": "PriceSpecification", "price": "350", "priceCurrency": "MAD"}}];
 
+// Returns: 7 days; defects return free, change-of-mind (unopened) at the customer's shipping cost
+const RETURN_POLICY = {"@type": "MerchantReturnPolicy", "applicableCountry": "MA", "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 7, "returnMethod": "https://schema.org/ReturnByMail", "refundType": "https://schema.org/ExchangeRefund", "itemDefectReturnFees": "https://schema.org/FreeReturn", "customerRemorseReturnFees": "https://schema.org/ReturnShippingFees", "customerRemorseReturnShippingFeesAmount": {"@type": "MonetaryAmount", "value": "35", "currency": "MAD"}, "itemCondition": "https://schema.org/NewCondition"};
+
 function productJsonLd(slug, p, canonical) {
   const availability = p.soldOut ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock';
   const offers = p.sizes.length > 1
-    ? { '@type': 'AggregateOffer', lowPrice: p.low, highPrice: p.high, offerCount: p.sizes.length, priceCurrency: 'MAD', availability, url: canonical, shippingDetails: SHIPPING_DETAILS }
-    : { '@type': 'Offer', price: p.low, priceCurrency: 'MAD', availability, url: canonical, itemCondition: 'https://schema.org/NewCondition', shippingDetails: SHIPPING_DETAILS };
+    ? { '@type': 'AggregateOffer', lowPrice: p.low, highPrice: p.high, offerCount: p.sizes.length, priceCurrency: 'MAD', availability, url: canonical, shippingDetails: SHIPPING_DETAILS, hasMerchantReturnPolicy: RETURN_POLICY }
+    : { '@type': 'Offer', price: p.low, priceCurrency: 'MAD', availability, url: canonical, itemCondition: 'https://schema.org/NewCondition', shippingDetails: SHIPPING_DETAILS, hasMerchantReturnPolicy: RETURN_POLICY };
   return [
     {
       '@context': 'https://schema.org/',
