@@ -774,11 +774,14 @@ function productHtml(slug, p) {
 </article>`;
 }
 
+// Shipping: 35 MAD anywhere in Morocco, free from 350 MAD
+const SHIPPING_DETAILS = [{"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "35", "currency": "MAD"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MA"}}, {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "MAD"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MA"}, "eligibleTransactionVolume": {"@type": "PriceSpecification", "price": "350", "priceCurrency": "MAD"}}];
+
 function productJsonLd(slug, p, canonical) {
   const availability = p.soldOut ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock';
   const offers = p.sizes.length > 1
-    ? { '@type': 'AggregateOffer', lowPrice: p.low, highPrice: p.high, offerCount: p.sizes.length, priceCurrency: 'MAD', availability, url: canonical }
-    : { '@type': 'Offer', price: p.low, priceCurrency: 'MAD', availability, url: canonical, itemCondition: 'https://schema.org/NewCondition' };
+    ? { '@type': 'AggregateOffer', lowPrice: p.low, highPrice: p.high, offerCount: p.sizes.length, priceCurrency: 'MAD', availability, url: canonical, shippingDetails: SHIPPING_DETAILS }
+    : { '@type': 'Offer', price: p.low, priceCurrency: 'MAD', availability, url: canonical, itemCondition: 'https://schema.org/NewCondition', shippingDetails: SHIPPING_DETAILS };
   return [
     {
       '@context': 'https://schema.org/',
