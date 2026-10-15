@@ -778,7 +778,15 @@ function productHtml(slug, p) {
 const SHIPPING_DETAILS = [{"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "35", "currency": "MAD"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MA"}}, {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "MAD"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MA"}, "eligibleTransactionVolume": {"@type": "PriceSpecification", "price": "350", "priceCurrency": "MAD"}}];
 
 // Returns: 7 days; defects return free, change-of-mind (unopened) at the customer's shipping cost
-const RETURN_POLICY = {"@type": "MerchantReturnPolicy", "applicableCountry": "MA", "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 7, "returnMethod": "https://schema.org/ReturnByMail", "refundType": "https://schema.org/ExchangeRefund", "itemDefectReturnFees": "https://schema.org/FreeReturn", "customerRemorseReturnFees": "https://schema.org/ReturnShippingFees", "customerRemorseReturnShippingFeesAmount": {"@type": "MonetaryAmount", "value": "35", "currency": "MAD"}, "itemCondition": "https://schema.org/NewCondition"};
+const RETURN_POLICY = {"@type": "MerchantReturnPolicy", "applicableCountry": "MA", "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 7, "returnMethod": "https://schema.org/ReturnByMail", "refundType": "https://schema.org/ExchangeRefund", "returnFees": "https://schema.org/ReturnShippingFees", "returnShippingFeesAmount": {"@type": "MonetaryAmount", "value": "35", "currency": "MAD"}, "itemDefectReturnFees": "https://schema.org/FreeReturn", "customerRemorseReturnFees": "https://schema.org/ReturnShippingFees", "customerRemorseReturnShippingFeesAmount": {"@type": "MonetaryAmount", "value": "35", "currency": "MAD"}, "itemCondition": "https://schema.org/NewCondition"};
+
+// Hand-tuned title/description for pages that get impressions but no clicks
+const SEO_OVERRIDES = {
+  aachab: {
+    title: 'عسل الأعشاب الحر المغربي 100% طبيعي – Miel Multi Fleurs Maroc | رحيق بيو',
+    desc: 'عسل الأعشاب الحر من رحيق بيو، طبيعي 100% بلا إضافات ومراقب من ONSSA. 500غ بـ 150 درهم و1كغ بـ 280 درهم. توصيل لجميع مدن المغرب والدفع عند الاستلام.',
+  },
+};
 
 function productJsonLd(slug, p, canonical) {
   const availability = p.soldOut ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock';
@@ -793,7 +801,6 @@ function productJsonLd(slug, p, canonical) {
       image: [SITE + '/' + p.image],
       description: p.shortDesc,
       sku: slug,
-      category: p.category,
       brand: { '@type': 'Brand', name: 'Rahiq Bio رحيق بيو' },
       url: canonical,
       offers,
@@ -832,7 +839,9 @@ async fetch(request, env) {
   if (slug && PRODUCTS[slug]) {
     const p = PRODUCTS[slug];
     const canonical = SITE + '/' + slug;
-    const title = p.nameAr + ' – ' + p.nameFr + ' | رحيق بيو Rahiq Bio';
+    const seo = SEO_OVERRIDES[slug] || {};
+    const title = seo.title || (p.nameAr + ' – ' + p.nameFr + ' | رحيق بيو Rahiq Bio');
+    const metaDesc = seo.desc || p.desc;
     const image = SITE + '/' + p.image;
 
     const homeUrl = new URL(url);
@@ -845,18 +854,21 @@ async fetch(request, env) {
       .map(o => '<script type="application/ld+json">' + JSON.stringify(o) + '<\/script>').join('\n');
 
     html = html
+      // Homepage carries every product's schema; a product page must describe only its own
+      .replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>\s*/g,
+        (m, body) => /"@type":\s*"Product"/.test(body) ? '' : m)
       .replace(/<title>[^<]*<\/title>/, '<title>' + esc(title) + '<\/title>')
       .replace(/<link rel="canonical"[^>]*>/, '<link rel="canonical" href="' + canonical + '">')
-      .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="' + esc(p.desc) + '">')
+      .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="' + esc(metaDesc) + '">')
       .replace(/<meta property="og:type"[^>]*>/, '<meta property="og:type" content="product">')
       .replace(/<meta property="og:url"[^>]*>/, '<meta property="og:url" content="' + canonical + '">')
       .replace(/<meta property="og:title"[^>]*>/, '<meta property="og:title" content="' + esc(title) + '">')
-      .replace(/<meta property="og:description"[^>]*>/, '<meta property="og:description" content="' + esc(p.desc) + '">')
+      .replace(/<meta property="og:description"[^>]*>/, '<meta property="og:description" content="' + esc(metaDesc) + '">')
       .replace(/<meta property="og:image" [^>]*>/, '<meta property="og:image" content="' + image + '">')
       .replace(/<meta property="og:image:width"[^>]*>/, '<meta property="og:image:width" content="525">')
       .replace(/<meta property="og:image:height"[^>]*>/, '<meta property="og:image:height" content="700">')
       .replace(/<meta name="twitter:title"[^>]*>/, '<meta name="twitter:title" content="' + esc(title) + '">')
-      .replace(/<meta name="twitter:description"[^>]*>/, '<meta name="twitter:description" content="' + esc(p.desc) + '">')
+      .replace(/<meta name="twitter:description"[^>]*>/, '<meta name="twitter:description" content="' + esc(metaDesc) + '">')
       .replace(/<meta name="twitter:image"[^>]*>/, '<meta name="twitter:image" content="' + image + '">')
       // The product is this page's main heading; demote the homepage hero h1
       .replace(/<h1 class="hero-title">([\s\S]*?)<\/h1>/, '<div class="hero-title">$1</div>')
