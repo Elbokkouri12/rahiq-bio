@@ -816,6 +816,18 @@ function productJsonLd(slug, p, canonical) {
   ];
 }
 
+// Old Shopify pages/collections → closest page on the new site (others fall back to the homepage)
+const SHOPIFY_PAGE_MAP = {
+  'الشروط-والأحكام': '/legal#terms',
+  'سياسة-الدفع': '/legal#payment',
+  'سياسة-الخصوصية': '/legal#privacy',
+  'سياسة-الشحن': '/legal#shipping',
+  'سياسة-التوصيل': '/legal#shipping',
+  'سياسة-الإرجاع': '/legal#returns',
+  'contact': '/#contact',
+  'باقات-packs': '/bundle-breakfast',
+};
+
 export default {
 async fetch(request, env) {
   const url = new URL(request.url);
@@ -829,6 +841,10 @@ async fetch(request, env) {
         const oldSlug = path.replace(prefix, '').split('/')[0];
         const newSlug = SHOPIFY_PRODUCT_MAP[oldSlug] || SHOPIFY_PRODUCT_MAP[decodeURIComponent(oldSlug)];
         if (newSlug) return redirect301(SITE + '/' + newSlug);
+      }
+      if (/(pages|collections)\/$/.test(prefix)) {
+        const oldSlug = decodeURIComponent(path.replace(prefix, '').split('/')[0]);
+        if (SHOPIFY_PAGE_MAP[oldSlug]) return redirect301(SITE + SHOPIFY_PAGE_MAP[oldSlug]);
       }
       return redirect301(SITE + '/');
     }
