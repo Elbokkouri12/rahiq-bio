@@ -1936,7 +1936,7 @@ function _updateCheckoutTotals(subtotal) {
   const cityEl = document.getElementById('chkCity');
   const city = cityEl ? cityEl.value : '';
   const isTanger = city === 'طنجة';
-  const shipping = !city ? 0 : (isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35));
+  const shipping = !city ? 0 : (isTanger ? (subtotal >= 150 ? 0 : 20) : 35);
   const grand = subtotal + shipping;
 
   const sub = document.getElementById('chkSubtotal');
@@ -1954,25 +1954,22 @@ function _updateCheckoutTotals(subtotal) {
   const bar  = document.getElementById('chkShipBarFill');
   const msg  = document.getElementById('chkShipProgressMsg');
   if (!wrap || !bar || !msg) return;
-  if (!city) { wrap.style.display = 'none'; return; }
+  // Free shipping only exists inside Tanger
+  if (!isTanger) { wrap.style.display = 'none'; return; }
 
-  const threshold = isTanger ? 150 : 350;
+  const threshold = 150;
   const pct = Math.min((subtotal / threshold) * 100, 100);
   bar.style.width = pct + '%';
   wrap.style.display = 'block';
 
   if (subtotal >= threshold) {
     bar.className = 'chk-ship-bar-fill chk-ship-bar-fill--done';
-    msg.innerHTML = isTanger
-      ? '🎉 <strong>مبروك!</strong> توصيل مجاني داخل طنجة'
-      : '🎉 <strong>مبروك!</strong> توصيل مجاني لمدينتك';
+    msg.innerHTML = '🎉 <strong>مبروك!</strong> توصيل مجاني داخل طنجة';
     msg.className = 'chk-ship-progress-msg chk-ship-progress-msg--free';
   } else {
     bar.className = 'chk-ship-bar-fill';
     const remaining = threshold - subtotal;
-    msg.innerHTML = isTanger
-      ? `🚚 أضف <strong>${remaining} درهم</strong> للتوصيل المجاني داخل طنجة`
-      : `🚚 أضف <strong>${remaining} درهم</strong> للتوصيل المجاني (من ${threshold} درهم)`;
+    msg.innerHTML = `🚚 أضف <strong>${remaining} درهم</strong> للتوصيل المجاني داخل طنجة`;
     msg.className = 'chk-ship-progress-msg';
   }
 }
@@ -2008,7 +2005,7 @@ function submitCartOrder(e) {
 
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const isTanger = city === 'طنجة';
-  const shipping = !city ? 0 : (isTanger ? (subtotal >= 150 ? 0 : 20) : (subtotal >= 350 ? 0 : 35));
+  const shipping = !city ? 0 : (isTanger ? (subtotal >= 150 ? 0 : 20) : 35);
   const grand    = subtotal + shipping;
 
   // Build WhatsApp message
