@@ -967,40 +967,16 @@ function openProduct(productId) {
   // Clean URL for SEO (/olive instead of #olive)
   history.pushState({ product: productId }, p.nameAr, '/' + productId);
 
-  // Dynamic title + meta for search engines
-  document.title = p.nameAr + ' – رحيق بيو | Rahiq Bio المغرب';
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.content = p.shortDesc + ' — توصيل لجميع مدن المغرب. الدفع عند الاستلام.';
+  // Title + meta when opened from the homepage. Product URLs loaded directly already
+  // carry server-rendered title/meta/JSON-LD from worker.js — don't overwrite them.
+  const productUrl = 'https://rahiqbio.com/' + productId;
   const canonical = document.querySelector('link[rel="canonical"]');
-  if (canonical) canonical.href = 'https://rahiqbio.com/' + productId;
-
-  // JSON-LD Product Schema for Google
-  const minPrice = Math.min(...p.sizes.map(s => s.price));
-  const maxPrice = Math.max(...p.sizes.map(s => s.price));
-  const jsonld = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    'name': p.nameAr,
-    'description': p.shortDesc,
-    'image': 'https://rahiqbio.com/' + p.image,
-    'brand': { '@type': 'Brand', 'name': 'Rahiq Bio' },
-    'offers': {
-      '@type': 'AggregateOffer',
-      'lowPrice': minPrice,
-      'highPrice': maxPrice,
-      'priceCurrency': 'MAD',
-      'availability': 'https://schema.org/InStock',
-      'seller': { '@type': 'Organization', 'name': 'Rahiq Bio' }
-    }
-  };
-  let jsonldEl = document.getElementById('product-jsonld');
-  if (!jsonldEl) {
-    jsonldEl = document.createElement('script');
-    jsonldEl.type = 'application/ld+json';
-    jsonldEl.id = 'product-jsonld';
-    document.head.appendChild(jsonldEl);
+  if (!canonical || canonical.href !== productUrl) {
+    document.title = p.nameAr + ' – ' + p.nameFr + ' | رحيق بيو Rahiq Bio';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.content = p.shortDesc + ' — توصيل لجميع مدن المغرب. الدفع عند الاستلام.';
+    if (canonical) canonical.href = productUrl;
   }
-  jsonldEl.textContent = JSON.stringify(jsonld);
 
   // Show sticky button (hidden for sold-out products — nothing to buy)
   var stickyBuy = document.getElementById('globalStickyBuy');
@@ -1024,8 +1000,6 @@ function closeProduct() {
   if (metaDesc) metaDesc.content = 'رحيق بيو – أفضل منتجات طبيعية من المغرب: عسل السدر، عسل الجرجير، زيت الزيتون، شيلاجيت، نخالة القاطونة. توصيل لجميع مدن المغرب. الدفع عند الاستلام.';
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.href = 'https://rahiqbio.com/';
-  const jsonldEl = document.getElementById('product-jsonld');
-  if (jsonldEl) jsonldEl.remove();
 }
 
 // Open product directly from URL — supports both /olive and #olive
