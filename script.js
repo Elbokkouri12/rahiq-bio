@@ -642,6 +642,7 @@ const products = {
     usage: 'يؤكل مباشرة مع الخبز أو المسمن أو البغرير — يمكن استعماله في الفطور أو كوجبة خفيفة',
     storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس',
     badge: 'طبيعي 100%',
+    soldOut: true,
     sizes: [
       { label: 'الباقة الصغيرة', price: 220, image: 'assets/images/bundle-breakfast-small.jpg' },
       { label: 'الباقة الكبيرة', price: 289, image: 'assets/images/bundle-breakfast-large.jpg' }
