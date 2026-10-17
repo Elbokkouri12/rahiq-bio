@@ -70,6 +70,35 @@ const products = {
       { label: '1 كيلوغرام', price: 220 },
     ]
   },
+  'amlou-courge': {
+    id: 'amlou-courge',
+    nameAr: 'أملو زريعة القرع',
+    nameFr: 'Amlou Graines De Courge Au Miel De Citron',
+    category: 'أملو',
+    price: 45,
+    image: 'assets/images/amlou-courge-1.jpg',
+    gallery: [
+      'assets/images/amlou-courge-1.jpg',
+      'assets/images/amlou-courge-2.jpg',
+    ],
+    slogan: 'زريعة القرع وعسل الليمون الحر وزيت الزيتون — ثلاث مكونات فقط',
+    shortDesc: 'أملو زريعة القرع بعسل الليمون الحر — مزيج طبيعي من زريعة القرع المطحونة وعسل الليمون الحر وزيت الزيتون',
+    fullDesc: 'أملو زريعة القرع من Rahiq Bio — وصفة طبيعية جديدة بثلاث مكونات فقط: زريعة القرع المطحونة بعناية، عسل الليمون الحر الطبيعي، وزيت الزيتون. طعم مميز ولون أخضر طبيعي، غني بالبروتينات والدهون الصحية والمعادن التي تتميز بها زريعة القرع. بلا سكر مضاف، بلا مواد حافظة، مصنوع بالمغرب 100%.',
+    benefits: [
+      'زريعة القرع غنية بالبروتين النباتي والمعادن',
+      'مصدر طبيعي للطاقة طوال اليوم',
+      'ثلاث مكونات طبيعية فقط',
+      'بلا سكر مضاف، بلا مواد حافظة',
+    ],
+    ingredients: 'زريعة القرع، عسل الليمون الحر، زيت الزيتون',
+    usage: 'مثالي للفطور أو كسناك طبيعي للطاقة — يُدهن على الخبز أو يُستهلك بالملعقة — يمكن إضافته للعصيدة أو الشوفان',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — يُغلق بإحكام بعد الاستعمال',
+    badge: 'جديد',
+    sizes: [
+      { label: '250 غرام', price: 45 },
+      { label: '500 غرام', price: 80 },
+    ]
+  },
   'amlou-cacao': {
     id: 'amlou-cacao',
     nameAr: 'أملو كاكاو',
@@ -863,7 +892,8 @@ const relatedMap = {
   'collagene':      ['spiruline', 'maca', 'magnesium', 'ashwagandha'],
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
-  'amlou-louz':     ['amlou-cacao', 'energie-royale', 'limon', 'kharroub'],
+  'amlou-louz':     ['amlou-cacao', 'amlou-courge', 'energie-royale', 'limon'],
+  'amlou-courge':   ['amlou-louz', 'amlou-cacao', 'limon', 'granola'],
   'amlou-cacao':    ['amlou-louz', 'bundle-breakfast', 'jarjir', 'limon'],
   'energie-royale': ['amlou-cacao', 'granola', 'bee-pollen', 'psyllium'],
   'granola':        ['amlou-cacao', 'energie-royale', 'bee-pollen', 'psyllium'],
@@ -2158,7 +2188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'amlou-courge', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
