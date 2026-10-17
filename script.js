@@ -1155,7 +1155,6 @@ function buildProductLanding(p) {
           <p class="lp-v2-subtitle">${p.nameFr}</p>
           ${p.slogan ? `<div class="lp-slogan lp-slogan--center">${p.slogan}</div>` : ''}
           ${p.onssa ? `<div class="lp-onssa-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> مراقب من ONSSA — ${p.onssa}</div>` : ''}
-          <div class="lp-v2-rating">${STAR}${STAR}${STAR}${STAR}${STAR}<span>4.9 · <strong>+127 تقييم</strong></span></div>
           ${p.soldOut ? `<div class="lp-soldout-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg> نفذ من المخزون حالياً</div>` : ''}
         </div>
 
