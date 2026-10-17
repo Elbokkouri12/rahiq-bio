@@ -99,6 +99,36 @@ const products = {
       { label: '500 غرام', price: 80 },
     ]
   },
+  'amlou-cajou': {
+    id: 'amlou-cajou',
+    nameAr: 'أملو الكاجو',
+    nameFr: 'Amlou Noix De Cajou Au Miel De Citron',
+    category: 'أملو',
+    price: 80,
+    image: 'assets/images/amlou-cajou-1.jpg',
+    gallery: [
+      'assets/images/amlou-cajou-1.jpg',
+      'assets/images/amlou-cajou-2.jpg',
+    ],
+    slogan: 'كاجو محمص وعسل الليمون الحر وزيت أركان أصلي',
+    shortDesc: 'أملو الكاجو بعسل الليمون الحر — مزيج طبيعي كريمي من الكاجو المحمص وعسل الليمون الحر وزيت الأركان',
+    fullDesc: 'أملو الكاجو من Rahiq Bio — مزيج طبيعي كريمي يجمع بين الكاجو المحمص المطحون بعناية، عسل الليمون الحر الطبيعي، وزيت الأركان الغذائي الأصلي. قوام ناعم وطعم غني ولذيذ، مصدر طبيعي للبروتين والدهون الصحية والمعادن. بلا سكر مضاف، بلا مواد حافظة، مصنوع بالمغرب 100%.',
+    benefits: [
+      'مصدر طبيعي للبروتين والدهون الصحية',
+      'غني بالمعادن والطاقة الطبيعية',
+      'يحتوي على زيت أركان غذائي أصلي',
+      'بلا سكر مضاف، بلا مواد حافظة',
+    ],
+    ingredients: 'كاجو محمص، عسل الليمون الحر، زيت أركان غذائي',
+    usage: 'مثالي للفطور أو كسناك طبيعي للطاقة — يُدهن على الخبز أو يُستهلك بالملعقة — يمكن إضافته للعصيدة أو الشوفان',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس — يُغلق بإحكام بعد الاستعمال',
+    warnings: 'يحتوي على الكاجو — غير مناسب للأشخاص الذين يعانون من حساسية المكسرات',
+    badge: 'جديد',
+    sizes: [
+      { label: '250 غرام', price: 80 },
+      { label: '500 غرام', price: 150 },
+    ]
+  },
   'amlou-cacao': {
     id: 'amlou-cacao',
     nameAr: 'أملو كاكاو',
@@ -893,7 +923,8 @@ const relatedMap = {
   'bee-pollen':     ['shilajit', 'psyllium', 'bundle-breakfast', 'jarjir'],
   'bundle-breakfast': ['olive', 'zaytoun', 'limon', 'amlou-cacao'],
   'amlou-louz':     ['amlou-cacao', 'amlou-courge', 'energie-royale', 'limon'],
-  'amlou-courge':   ['amlou-louz', 'amlou-cacao', 'limon', 'granola'],
+  'amlou-courge':   ['amlou-cajou', 'amlou-louz', 'amlou-cacao', 'granola'],
+  'amlou-cajou':    ['amlou-louz', 'amlou-courge', 'amlou-cacao', 'granola'],
   'amlou-cacao':    ['amlou-louz', 'bundle-breakfast', 'jarjir', 'limon'],
   'energie-royale': ['amlou-cacao', 'granola', 'bee-pollen', 'psyllium'],
   'granola':        ['amlou-cacao', 'energie-royale', 'bee-pollen', 'psyllium'],
@@ -2187,7 +2218,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'amlou-courge', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'amlou-courge', 'amlou-cajou', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
