@@ -37,6 +37,34 @@ const products = {
       'assets/videos/zaytoun-3.mp4',
     ]
   },
+  'zaytoun-akhdar': {
+    id: 'zaytoun-akhdar',
+    nameAr: 'زيتون أخضر طري للترقاد',
+    nameFr: 'Olives Vertes Fraîches à Préparer 3kg',
+    category: 'زيوت طبيعية',
+    price: 50,
+    image: 'assets/images/zaytoun-akhdar-1.jpg',
+    gallery: [
+      'assets/images/zaytoun-akhdar-1.jpg',
+    ],
+    slogan: 'زيتون أخضر طري من الشجرة، حبة صحيحة — حضّرو على حساب ذوقك',
+    shortDesc: 'زيتون أخضر طري حبة صحيحة كما جا من الشجرة، محفوظ في الماء فقط — جاهز باش ترقدو بطريقتك: مشرّط، مدقوق أو مرقد',
+    fullDesc: 'زيتون أخضر طري من Rahiq Bio — حبات زيتون خضراء صحيحة، مجنية من الشجرة ومحطوطة في بيدو بالماء فقط، بلا ملح بلا صودة بلا أي معالجة. هذا هو الزيتون الخام اللي كتحضرو فالدار على حساب ذوقك وطريقتك: تشرّطو بالموس، تدقّو بالحجرة (زيتون مدقوق)، ولا ترقدو كامل فالماء والملح مع الليمون والزعتر والثوم. بما أنه زيتون طري ماشي مرقد، فيه مرارة طبيعية كتزول مع تبديل الماء خلال أيام الترقاد. عبوة اقتصادية 3 كيلو بـ 50 درهم، كافية تصبّر منها مونة العائلة لمدة طويلة.',
+    benefits: [
+      'زيتون طري حبة صحيحة كما جا من الشجرة',
+      'محفوظ في الماء فقط — بلا ملح، بلا صودة، بلا مواد كيميائية',
+      'حضّرو بطريقتك: مشرّط، مدقوق أو مرقد بالملح والحامض',
+      'عبوة اقتصادية 3 كيلو بـ 50 درهم فقط',
+    ],
+    ingredients: 'زيتون أخضر طري 100%، ماء',
+    usage: 'لا يؤكل مباشرة لأنه مر — المشرّط: شرّط كل حبة بالموس — المدقوق: دق الحبة بالحجرة حتى تتفتح — من بعد نقعو فالماء وبدّل الماء كل نهار حتى تمشي المرارة (حوالي 7 إلى 15 يوم للمدقوق، وأكثر للمشرّط)، ومن بعد رقدو فالماء والملح مع الحامض والزعتر والثوم أو الفلفلة على حساب ذوقك',
+    storage: 'يُحفظ في مكان بارد بعيداً عن الشمس — يجب أن يبقى الزيتون مغموراً في الماء — يُفضَّل البدء في تحضيره في أقرب وقت بعد الاستلام',
+    warnings: 'زيتون خام غير مرقد — مرّ ولا يؤكل مباشرة قبل التحضير',
+    badge: 'جديد',
+    sizes: [
+      { label: '3 كيلوغرام', price: 50 },
+    ]
+  },
   'amlou-louz': {
     id: 'amlou-louz',
     nameAr: 'أملو اللوز',
@@ -942,7 +970,8 @@ const relatedMap = {
   'limon':          ['zaatar', 'aachab', 'kharroub', 'bundle-breakfast'],
   'aachab':         ['limon', 'kharroub', 'zaatar', 'eucalyptus'],
   'olive':          ['zaytoun', 'bundle-breakfast', 'jarjir', 'kharroub'],
-  'zaytoun':        ['olive', 'bundle-breakfast', 'jarjir', 'aachab'],
+  'zaytoun':        ['zaytoun-akhdar', 'olive', 'jarjir', 'aachab'],
+  'zaytoun-akhdar': ['zaytoun', 'olive', 'amlou-louz', 'jarjir'],
   'shilajit':       ['bee-pollen', 'psyllium', 'energie-royale', 'sidr'],
   'psyllium':       ['shilajit', 'bee-pollen', 'energie-royale', 'aachab'],
   'spiruline':      ['maca', 'magnesium', 'ashwagandha', 'collagene'],
@@ -2250,7 +2279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'amlou-courge', 'amlou-cajou', 'amlou-chocolat', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'zaytoun-akhdar', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'amlou-courge', 'amlou-cajou', 'amlou-chocolat', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
