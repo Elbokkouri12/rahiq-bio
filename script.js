@@ -600,6 +600,49 @@ const products = {
       { label: '250 غرام', price: 45, image: 'assets/images/granola-250g.jpg' },
     ]
   },
+  'bundle-amlou': {
+    id: 'bundle-amlou',
+    nameAr: 'باقة اكتشف نكهات أملو',
+    nameFr: 'Pack Découverte Amlou — 5 Saveurs',
+    category: 'باقات',
+    price: 235,
+    image: 'assets/images/bundle-amlou-main.jpg',
+    gallery: [
+      'assets/images/bundle-amlou-main.jpg',
+      'assets/images/bundle-amlou-chocolat.jpg',
+      'assets/images/bundle-amlou-louz.jpg',
+      'assets/images/bundle-amlou-cajou.jpg',
+      'assets/images/bundle-amlou-cacao.jpg',
+      'assets/images/bundle-amlou-courge.jpg',
+    ],
+    slogan: '5 أنواع أملو في باقة واحدة — وفر 30 درهم',
+    shortDesc: 'باقة اكتشف: 5 أنواع أملو 250g (الشوكولا باللوز، اللوز، الكاجو، الكاوكاو، زريعة القرع) — بدل 265 درهم بـ 235 درهم فقط',
+    fullDesc: 'باقة اكتشف نكهات أملو من Rahiq Bio — حيرتي شنو تختار؟ جرب كلشي! خمسة أنواع من الأملو الطبيعي في باقة واحدة، كل برطمان 250 غرام، كلها محضرة بعسل الليمون الحر: أملو الشوكولا باللوز، أملو اللوز بزيت الأركان، أملو الكاجو بزيت الأركان، أملو الكاوكاو بالأعشاب، وأملو زريعة القرع. باقة مثالية للعائلة، للفطور والسحور، أو كهدية لمن تحب. ثمن الباقة الأصلي 265 درهم، ودابا بـ 235 درهم فقط — وفر 30 درهم. بدون سكر مضاف، بدون مواد حافظة، صنع في المغرب 100%.',
+    benefits: [
+      'أملو الشوكولا باللوز: بديل صحي للشوكولا الصناعية يحبه الصغار',
+      'أملو اللوز: الطعم المغربي الأصيل بزيت الأركان الحر',
+      'أملو الكاجو: قوام كريمي ناعم وطعم غني',
+      'أملو الكاوكاو: بالزنجلان والنافع والخروب والنبك وعرق السوس',
+      'أملو زريعة القرع: غني بالبروتين النباتي والمعادن',
+      'وفر 30 درهم مقارنة بشراء كل نوع وحده',
+    ],
+    ingredients: 'أملو الشوكولا باللوز: لوز، زيت الزيتون، عسل الليمون الحر، بودرة الكاكاو الطبيعي • أملو اللوز: لوز، عسل الليمون الحر، زيت الأركان • أملو الكاجو: كاجو، عسل الليمون الحر، زيت الأركان • أملو الكاوكاو: كاوكاو، عسل الليمون الحر، زيت الزيتون، زنجلان، نافع، حبة حلاوة، بودرة الخروب، بودرة النبك، بودرة عرق السوس • أملو زريعة القرع: زريعة القرع، عسل الليمون الحر، زيت الزيتون',
+    usage: 'مثالي للفطور أو السحور أو كسناك طبيعي للطاقة — يُدهن على الخبز أو الكريب أو يُستهلك بالملعقة — يُخلط جيداً قبل الاستعمال لأن الزيت قد ينفصل بشكل طبيعي',
+    storage: 'يحفظ في مكان بارد وجاف بعيداً عن الحرارة وأشعة الشمس — يُغلق البرطمان بإحكام بعد كل استعمال',
+    warnings: 'يحتوي على لوز وكاجو وكاوكاو (فول سوداني) — غير مناسب للأشخاص الذين يعانون من حساسية المكسرات',
+    badge: 'وفر 30 درهم',
+    sizes: [{ label: 'الباقة الكاملة (5 × 250 غرام)', price: 235 }],
+    videos: [
+      'assets/videos/bundle-amlou-1.mp4',
+      'assets/videos/bundle-amlou-2.mp4',
+      'assets/videos/bundle-amlou-3.mp4',
+      'assets/videos/bundle-amlou-4.mp4',
+      'assets/videos/bundle-amlou-5.mp4',
+      'assets/videos/bundle-amlou-6.mp4',
+      'assets/videos/bundle-amlou-7.mp4',
+      'assets/videos/bundle-amlou-8.mp4',
+    ]
+  },
   'bundle-sante': {
     id: 'bundle-sante',
     nameAr: 'باقة الصحة والطبيعة',
@@ -978,7 +1021,8 @@ const relatedMap = {
   'amlou-louz':     ['amlou-cacao', 'amlou-courge', 'energie-royale', 'limon'],
   'amlou-courge':   ['amlou-cajou', 'amlou-louz', 'amlou-cacao', 'granola'],
   'amlou-cajou':    ['amlou-louz', 'amlou-chocolat', 'amlou-courge', 'granola'],
-  'amlou-chocolat': ['amlou-louz', 'amlou-cajou', 'amlou-cacao', 'granola'],
+  'amlou-chocolat': ['bundle-amlou', 'amlou-louz', 'amlou-cajou', 'amlou-cacao'],
+  'bundle-amlou':   ['amlou-chocolat', 'amlou-louz', 'amlou-cajou', 'amlou-courge'],
   'amlou-cacao':    ['amlou-louz', 'bundle-breakfast', 'jarjir', 'limon'],
   'energie-royale': ['amlou-cacao', 'granola', 'bee-pollen', 'psyllium'],
   'granola':        ['amlou-cacao', 'energie-royale', 'bee-pollen', 'psyllium'],
@@ -2272,7 +2316,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== MAINTENANCE MODE — تعطيل المنتجات مؤقتاً (ماعدا المنتجات الجاهزة) =====
 (function applyMaintenance() {
-  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'zaytoun-akhdar', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'amlou-courge', 'amlou-cajou', 'amlou-chocolat', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
+  const liveProducts = ['jarjir', 'daghmous', 'kharroub', 'eucalyptus', 'sidr', 'zaatar', 'limon', 'aachab', 'olive', 'zaytoun', 'zaytoun-akhdar', 'shilajit', 'psyllium', 'bee-pollen', 'bundle-breakfast', 'granola', 'energie-royale', 'amlou-cacao', 'amlou-louz', 'amlou-courge', 'amlou-cajou', 'amlou-chocolat', 'bundle-amlou', 'spiruline', 'maca', 'magnesium', 'ashwagandha', 'moringa', 'collagene'];
   document.querySelectorAll('.product-card').forEach(card => {
     const pid = card.dataset.product;
     if (!liveProducts.includes(pid)) {
