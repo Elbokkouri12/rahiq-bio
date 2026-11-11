@@ -606,9 +606,9 @@ const products = {
     nameFr: 'Pack Découverte Amlou — 5 Saveurs',
     category: 'باقات',
     price: 235,
-    image: 'assets/images/bundle-amlou-main.jpg',
+    image: 'assets/images/bundle-amlou-cover.jpg',
     gallery: [
-      'assets/images/bundle-amlou-main.jpg',
+      'assets/images/bundle-amlou-cover.jpg',
       'assets/images/bundle-amlou-chocolat.jpg',
       'assets/images/bundle-amlou-louz.jpg',
       'assets/images/bundle-amlou-cajou.jpg',
