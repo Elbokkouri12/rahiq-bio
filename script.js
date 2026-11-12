@@ -682,7 +682,6 @@ const products = {
     image: 'assets/images/bundle-breakfast-small.jpg',
     gallery: [
       'assets/images/bundle-breakfast-small.jpg',
-      'assets/images/bundle-breakfast-large.jpg',
       'assets/images/bundle-breakfast-miel.jpg',
       'assets/images/bundle-breakfast-amlou.jpg',
       'assets/images/bundle-breakfast-huile.jpg',
@@ -702,8 +701,7 @@ const products = {
     storage: 'يحفظ في مكان جاف وبارد بعيداً عن أشعة الشمس',
     badge: 'طبيعي 100%',
     sizes: [
-      { label: 'الباقة الصغيرة', price: 220, image: 'assets/images/bundle-breakfast-small.jpg' },
-      { label: 'الباقة الكبيرة', price: 289, image: 'assets/images/bundle-breakfast-large.jpg' }
+      { label: 'الباقة الصغيرة', price: 220, image: 'assets/images/bundle-breakfast-small.jpg' }
     ],
     videos: [
       'assets/videos/bundle-breakfast-1.mp4',
