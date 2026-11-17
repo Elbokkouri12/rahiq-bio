@@ -4,3 +4,4 @@ node_modules
 *.log
 worker.js
 wrangler.jsonc
+tools

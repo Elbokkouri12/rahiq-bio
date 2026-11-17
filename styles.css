@@ -4617,3 +4617,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .product-link { color: inherit; text-decoration: none; }
 .product-link:hover { color: var(--green-light, inherit); }
+
+/* ===== Product FAQ ===== */
+.lp-faq-section { max-width: 760px; margin: 0 auto; padding: 28px 16px 8px; }
+.lp-faq-section .lp-sec-title span { color: var(--green-dark); }
+.lp-faq-list { display: flex; flex-direction: column; gap: 10px; }
+.lp-faq-item { background: #fff; border: 1.5px solid #edf2ee; border-radius: 14px; padding: 0 16px; box-shadow: 0 2px 10px rgba(42,73,55,.05); }
+.lp-faq-item summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 800; font-size: 15px; color: var(--green-dark); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.lp-faq-item summary::-webkit-details-marker { display: none; }
+.lp-faq-item summary::after { content: '+'; font-size: 20px; font-weight: 700; color: #b8a10c; flex-shrink: 0; }
+.lp-faq-item[open] summary::after { content: '−'; }
+.lp-faq-item p { margin: 0 0 14px; line-height: 1.8; color: #4a5a50; font-size: 14px; }
+/* Related products are real links now */
+a.lp-upsell-card { display: block; color: inherit; text-decoration: none; }
