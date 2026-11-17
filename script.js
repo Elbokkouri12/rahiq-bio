@@ -49,9 +49,9 @@ const products = {
     ],
     slogan: 'زيتون أخضر طري من الشجرة، حبة صحيحة — حضّرو على حساب ذوقك',
     shortDesc: 'زيتون أخضر طري حبة صحيحة كما جا من الشجرة، محفوظ في الماء فقط — جاهز باش ترقدو بطريقتك: مشرّط، مدقوق أو مرقد',
-    fullDesc: 'زيتون أخضر طري من Rahiq Bio — حبات زيتون خضراء صحيحة، مجنية من الشجرة ومحطوطة في بيدو بالماء فقط، بلا ملح بلا صودة بلا أي معالجة. هذا هو الزيتون الخام اللي كتحضرو فالدار على حساب ذوقك وطريقتك: تشرّطو بالموس، تدقّو بالحجرة (زيتون مدقوق)، ولا ترقدو كامل فالماء والملح مع الليمون والزعتر والثوم. بما أنه زيتون طري ماشي مرقد، فيه مرارة طبيعية كتزول مع تبديل الماء خلال أيام الترقاد. عبوة اقتصادية 3 كيلو بـ 45 درهم، كافية تصبّر منها مونة العائلة لمدة طويلة.',
+    fullDesc: 'زيتون أخضر طري من Rahiq Bio — حبات زيتون خضراء صحيحة، مجنية من الشجرة ومحطوطة في بيدو بالماء فقط، بلا ملح بلا صودة بلا أي معالجة. هذا هو الزيتون الخام اللي كتحضرو فالدار على حساب ذوقك وطريقتك: تشرّطو بالموس، تدقّو بالحجرة (زيتون مدقوق)، ولا ترقدو كامل فالماء والملح مع الليمون والزعتر والثوم. بما أنه زيتون طري ماشي مرقد، فيه مرارة طبيعية كتزول مع تبديل الماء خلال أيام الترقاد. إلا كنتي كتقلب على زيتون للترقاد، هذا هو الزيتون الأخضر البلدي اللي كيترقد فالدار بحال ديال زمان. وعلى ثمن الزيتون الأخضر فالمغرب: عبوة اقتصادية 3 كيلو بـ 45 درهم فقط، كافية تصبّر منها مونة العائلة لمدة طويلة.',
     benefits: [
-      'زيتون طري حبة صحيحة كما جا من الشجرة',
+      'زيتون أخضر بلدي طري حبة صحيحة كما جا من الشجرة — زيتون للترقاد',
       'محفوظ في الماء فقط — بلا ملح، بلا صودة، بلا مواد كيميائية',
       'حضّرو بطريقتك: مشرّط، مدقوق أو مرقد بالملح والحامض',
       'عبوة اقتصادية 3 كيلو بـ 45 درهم فقط',
@@ -632,6 +632,7 @@ const products = {
     warnings: 'يحتوي على لوز وكاجو وكاوكاو (فول سوداني) — غير مناسب للأشخاص الذين يعانون من حساسية المكسرات',
     badge: 'وفر 30 درهم',
     sizes: [{ label: 'الباقة الكاملة (5 × 250 غرام)', price: 235 }],
+    contains: ['amlou-chocolat', 'amlou-louz', 'amlou-cajou', 'amlou-cacao', 'amlou-courge'],
     videos: [
       'assets/videos/bundle-amlou-1.mp4',
       'assets/videos/bundle-amlou-2.mp4',
@@ -1069,11 +1070,28 @@ const SEO_PAGES = {
     desc: 'مزيج ملكي بالعسل الحر والمكسرات من رحيق بيو، طبيعي 100% بلا مواد حافظة. 450غ بـ 90 درهم و900غ بـ 170 درهم. توصيل لجميع مدن المغرب والدفع عند الاستلام.',
     h1: 'مزيج ملكي بالعسل الحر والمكسرات – Énergie Royale Mix',
   },
+  'zaytoun-akhdar': {
+    title: 'زيتون أخضر طري للترقاد 3كغ – Olives Vertes Fraîches à Préparer Maroc | رحيق بيو',
+    h1: 'زيتون أخضر طري للترقاد 3كغ – Olives Vertes Fraîches à Préparer',
+  },
+  'bundle-amlou': {
+    title: 'باقة أملو المغربي 5 نكهات – Pack Découverte Amlou Maroc | رحيق بيو',
+    h1: 'باقة أملو المغربي 5 نكهات – Pack Découverte Amlou',
+  },
 };
 
 // Image alt text: "[product] (الحر) رحيق بيو"
 function productAlt(p) {
   return p.nameAr + (p.category === 'عسل' ? ' الحر' : '') + ' رحيق بيو';
+}
+
+// Bundle cross-links: a bundle lists what it contains; each of those products links back to it
+function bundleFor(id, all) {
+  for (const bid in all) if (all[bid].contains && all[bid].contains.includes(id)) return bid;
+  return null;
+}
+function bundleCta(bid, all) {
+  return 'جرب ' + all[bid].contains.length + ' نكهات فباقة وحدة';
 }
 
 // Product FAQ — the same questions are rendered server-side by worker.js
@@ -1371,6 +1389,12 @@ function buildProductLanding(p) {
               <span>${b}</span>
             </div>`).join('')}
         </div>
+
+        ${p.contains ? `<div class="lp-bundle-box">
+          <p class="lp-bundle-title">شنو كاين فالباقة:</p>
+          <div class="lp-bundle-links">${p.contains.filter(id => products[id]).map(id => `<a href="/${id}" onclick="event.preventDefault();openProduct('${id}')">${products[id].nameAr}</a>`).join('')}</div>
+        </div>` : ''}
+        ${(function() { const bid = bundleFor(p.id, products); return bid ? `<a class="lp-bundle-cta" href="/${bid}" onclick="event.preventDefault();openProduct('${bid}')">🎁 ${bundleCta(bid, products)} — ${products[bid].nameAr} بـ ${Math.min(...products[bid].sizes.map(s => s.price))} درهم ←</a>` : ''; })()}
 
         <!-- COMPACT ORDER FORM -->
         ${p.soldOut ? `

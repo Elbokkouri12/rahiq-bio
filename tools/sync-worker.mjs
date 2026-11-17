@@ -14,6 +14,7 @@ for (const [id,p] of Object.entries(products)) {
     low:Math.min(...prices), high:Math.max(...prices), soldOut:!!p.soldOut,
     desc: (OLD[id] && OLD[id].desc) || p.shortDesc + ' — ' + p.nameFr + ' (' + p.sizes.map(s=>s.label+' : '+s.price+' DH').join('، ') + '). توصيل لجميع مدن المغرب، الدفع عند الاستلام.' };
   if (p.onssa) out[id].onssa = p.onssa;
+  if (p.contains) out[id].contains = p.contains;
 }
 const SEO_PAGES = eval('(' + grab(/const SEO_PAGES = (\{[\s\S]*?\n\});/)[1] + ')');
 const relatedMap = eval('(' + grab(/const relatedMap = (\{[\s\S]*?\n\});/)[1] + ')');

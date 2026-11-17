@@ -62,9 +62,9 @@ const PRODUCTS = {
   "category": "زيوت طبيعية",
   "image": "assets/images/zaytoun-akhdar-1.jpg",
   "shortDesc": "زيتون أخضر طري حبة صحيحة كما جا من الشجرة، محفوظ في الماء فقط — جاهز باش ترقدو بطريقتك: مشرّط، مدقوق أو مرقد",
-  "fullDesc": "زيتون أخضر طري من Rahiq Bio — حبات زيتون خضراء صحيحة، مجنية من الشجرة ومحطوطة في بيدو بالماء فقط، بلا ملح بلا صودة بلا أي معالجة. هذا هو الزيتون الخام اللي كتحضرو فالدار على حساب ذوقك وطريقتك: تشرّطو بالموس، تدقّو بالحجرة (زيتون مدقوق)، ولا ترقدو كامل فالماء والملح مع الليمون والزعتر والثوم. بما أنه زيتون طري ماشي مرقد، فيه مرارة طبيعية كتزول مع تبديل الماء خلال أيام الترقاد. عبوة اقتصادية 3 كيلو بـ 45 درهم، كافية تصبّر منها مونة العائلة لمدة طويلة.",
+  "fullDesc": "زيتون أخضر طري من Rahiq Bio — حبات زيتون خضراء صحيحة، مجنية من الشجرة ومحطوطة في بيدو بالماء فقط، بلا ملح بلا صودة بلا أي معالجة. هذا هو الزيتون الخام اللي كتحضرو فالدار على حساب ذوقك وطريقتك: تشرّطو بالموس، تدقّو بالحجرة (زيتون مدقوق)، ولا ترقدو كامل فالماء والملح مع الليمون والزعتر والثوم. بما أنه زيتون طري ماشي مرقد، فيه مرارة طبيعية كتزول مع تبديل الماء خلال أيام الترقاد. إلا كنتي كتقلب على زيتون للترقاد، هذا هو الزيتون الأخضر البلدي اللي كيترقد فالدار بحال ديال زمان. وعلى ثمن الزيتون الأخضر فالمغرب: عبوة اقتصادية 3 كيلو بـ 45 درهم فقط، كافية تصبّر منها مونة العائلة لمدة طويلة.",
   "benefits": [
-   "زيتون طري حبة صحيحة كما جا من الشجرة",
+   "زيتون أخضر بلدي طري حبة صحيحة كما جا من الشجرة — زيتون للترقاد",
    "محفوظ في الماء فقط — بلا ملح، بلا صودة، بلا مواد كيميائية",
    "حضّرو بطريقتك: مشرّط، مدقوق أو مرقد بالملح والحامض",
    "عبوة اقتصادية 3 كيلو بـ 45 درهم فقط"
@@ -591,7 +591,14 @@ const PRODUCTS = {
   "low": 235,
   "high": 235,
   "soldOut": false,
-  "desc": "باقة اكتشف: 5 أنواع أملو 250g (الشوكولا باللوز، اللوز، الكاجو، الكاوكاو، زريعة القرع) — بدل 265 درهم بـ 235 درهم فقط — Pack Découverte Amlou — 5 Saveurs. توصيل لجميع مدن المغرب، الدفع عند الاستلام."
+  "desc": "باقة اكتشف: 5 أنواع أملو 250g (الشوكولا باللوز، اللوز، الكاجو، الكاوكاو، زريعة القرع) — بدل 265 درهم بـ 235 درهم فقط — Pack Découverte Amlou — 5 Saveurs. توصيل لجميع مدن المغرب، الدفع عند الاستلام.",
+  "contains": [
+   "amlou-chocolat",
+   "amlou-louz",
+   "amlou-cajou",
+   "amlou-cacao",
+   "amlou-courge"
+  ]
  },
  "bundle-sante": {
   "nameAr": "باقة الصحة والطبيعة",
@@ -918,6 +925,9 @@ function productHtml(slug, p, seo) {
   const faq = productFaq(p).map(f => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('');
   const related = (RELATED[slug] || []).filter(id => PRODUCTS[id]).slice(0, 4)
     .map(id => `<li><a href="/${id}">${esc(PRODUCTS[id].nameAr)} – ${esc(PRODUCTS[id].nameFr)}</a></li>`).join('');
+  const bundle = bundleFor(slug, PRODUCTS);
+  const contains = (p.contains || []).filter(id => PRODUCTS[id])
+    .map(id => `<li><a href="/${id}">${esc(PRODUCTS[id].nameAr)} – ${esc(PRODUCTS[id].nameFr)}</a></li>`).join('');
   return `
 <article class="seo-product" itemscope>
   <h1>${esc(seo.h1 || (p.nameAr + ' – ' + p.nameFr))}</h1>
@@ -927,9 +937,11 @@ function productHtml(slug, p, seo) {
   <h2>الأحجام والأثمنة</h2>
   <ul>${sizes}</ul>
   ${p.soldOut ? '<p><strong>نفذ من المخزون حالياً</strong></p>' : '<p>الدفع عند الاستلام — توصيل لجميع مدن المغرب.</p>'}
+  ${bundle ? `<p><a href="/${bundle}">${esc(bundleCta(bundle, PRODUCTS))}</a> — ${esc(PRODUCTS[bundle].nameAr)} بـ ${PRODUCTS[bundle].low} درهم</p>` : ''}
   ${benefits ? `<h2>فوائد ${esc(p.nameAr)}</h2><ul>${benefits}</ul>` : ''}
   ${p.ingredients ? `<h2>المكونات</h2><p>${esc(p.ingredients)}</p>` : ''}
   ${p.usage ? `<h2>طريقة الاستعمال</h2><p>${esc(p.usage)}</p>` : ''}
+  ${contains ? `<h2>شنو كاين فالباقة</h2><ul>${contains}</ul>` : ''}
   <h2>أسئلة شائعة حول ${esc(p.nameAr)}</h2>
   ${faq}
   ${related ? `<h2>منتجات مشابهة</h2><ul>${related}</ul>` : ''}
@@ -988,12 +1000,29 @@ const SEO_OVERRIDES = {
   "title": "مزيج ملكي مغربي بالعسل الحر والمكسرات – Énergie Royale Mix Maroc | رحيق بيو",
   "desc": "مزيج ملكي بالعسل الحر والمكسرات من رحيق بيو، طبيعي 100% بلا مواد حافظة. 450غ بـ 90 درهم و900غ بـ 170 درهم. توصيل لجميع مدن المغرب والدفع عند الاستلام.",
   "h1": "مزيج ملكي بالعسل الحر والمكسرات – Énergie Royale Mix"
+ },
+ "zaytoun-akhdar": {
+  "title": "زيتون أخضر طري للترقاد 3كغ – Olives Vertes Fraîches à Préparer Maroc | رحيق بيو",
+  "h1": "زيتون أخضر طري للترقاد 3كغ – Olives Vertes Fraîches à Préparer"
+ },
+ "bundle-amlou": {
+  "title": "باقة أملو المغربي 5 نكهات – Pack Découverte Amlou Maroc | رحيق بيو",
+  "h1": "باقة أملو المغربي 5 نكهات – Pack Découverte Amlou"
  }
 };
 const RELATED = {"jarjir":["kharroub","sidr","daghmous","aachab"],"daghmous":["jarjir","eucalyptus","sidr","kharroub"],"kharroub":["jarjir","daghmous","aachab","limon"],"eucalyptus":["zaatar","sidr","daghmous","aachab"],"sidr":["zaatar","eucalyptus","jarjir","daghmous"],"zaatar":["sidr","eucalyptus","limon","kharroub"],"limon":["zaatar","aachab","kharroub","eucalyptus"],"aachab":["limon","kharroub","zaatar","eucalyptus"],"olive":["zaytoun","zaytoun-akhdar","bundle-breakfast"],"zaytoun":["zaytoun-akhdar","olive","bundle-breakfast"],"zaytoun-akhdar":["zaytoun","olive","bundle-breakfast"],"shilajit":["bee-pollen","psyllium","energie-royale","granola"],"psyllium":["bee-pollen","shilajit","granola","energie-royale"],"bee-pollen":["shilajit","psyllium","energie-royale","granola"],"energie-royale":["granola","bee-pollen","psyllium","shilajit"],"granola":["energie-royale","bee-pollen","psyllium","shilajit"],"spiruline":["maca","magnesium","ashwagandha","collagene"],"maca":["spiruline","magnesium","ashwagandha","collagene"],"magnesium":["spiruline","maca","ashwagandha","collagene"],"ashwagandha":["spiruline","maca","magnesium","collagene"],"moringa":["spiruline","maca","magnesium","ashwagandha"],"collagene":["spiruline","maca","magnesium","ashwagandha"],"amlou-louz":["amlou-cajou","amlou-chocolat","amlou-cacao","bundle-amlou"],"amlou-courge":["amlou-cajou","amlou-louz","amlou-cacao","bundle-amlou"],"amlou-cajou":["amlou-louz","amlou-chocolat","amlou-courge","bundle-amlou"],"amlou-chocolat":["bundle-amlou","amlou-louz","amlou-cajou","amlou-cacao"],"amlou-cacao":["amlou-louz","amlou-chocolat","amlou-courge","bundle-amlou"],"bundle-amlou":["amlou-chocolat","amlou-louz","amlou-cajou","amlou-courge"],"bundle-breakfast":["bundle-amlou","olive","zaytoun","limon"]};
 // Image alt text: "[product] (الحر) رحيق بيو"
 function productAlt(p) {
   return p.nameAr + (p.category === 'عسل' ? ' الحر' : '') + ' رحيق بيو';
+}
+
+// Bundle cross-links: a bundle lists what it contains; each of those products links back to it
+function bundleFor(id, all) {
+  for (const bid in all) if (all[bid].contains && all[bid].contains.includes(id)) return bid;
+  return null;
+}
+function bundleCta(bid, all) {
+  return 'جرب ' + all[bid].contains.length + ' نكهات فباقة وحدة';
 }
 
 // Product FAQ — the same questions are rendered server-side by worker.js

@@ -4630,3 +4630,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lp-faq-item p { margin: 0 0 14px; line-height: 1.8; color: #4a5a50; font-size: 14px; }
 /* Related products are real links now */
 a.lp-upsell-card { display: block; color: inherit; text-decoration: none; }
+/* Bundle cross-links (bundle → its products, product → its bundle) */
+.lp-bundle-box { margin: 12px 32px 0; padding: 12px 14px; background: #fffbea; border: 1.5px solid #f1e3a0; border-radius: 14px; }
+.lp-bundle-title { margin: 0 0 8px; font-weight: 800; font-size: 14px; color: var(--green-dark); }
+.lp-bundle-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.lp-bundle-links a { padding: 6px 12px; background: #fff; border: 1.5px solid #e6d78a; border-radius: 999px; font-size: 13px; font-weight: 700; color: var(--green-dark); text-decoration: none; }
+.lp-bundle-cta { display: block; margin: 12px 32px 0; padding: 12px 14px; background: #fffbea; border: 1.5px dashed #d9bf3a; border-radius: 14px; font-weight: 800; font-size: 14px; color: var(--green-dark); text-decoration: none; text-align: center; }
+@media (max-width: 767px) { .lp-bundle-box, .lp-bundle-cta { margin-left: 16px; margin-right: 16px; } }
