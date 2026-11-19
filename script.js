@@ -465,7 +465,7 @@ const products = {
     nameAr: 'زيت الزيتون الطبيعي',
     nameFr: "Huile d'Olive",
     category: 'زيوت طبيعية',
-    price: 235,
+    price: 250,
     image: 'assets/images/olive-2.jpg',
     gallery: [
       'assets/images/olive-2.jpg',
@@ -485,10 +485,9 @@ const products = {
     warnings: 'لا توجد مواد مسببة للحساسية • يُحفظ بعيداً عن الأطفال',
     lot: '01-01OLB',
     badge: 'طبيعي 100%',
-    soldOut: true,
     sizes: [
       { label: '1 لتر', price: 50, image: 'assets/images/olive-1.jpg' },
-      { label: '5 لتر', price: 235, image: 'assets/images/olive-2.jpg' }
+      { label: '5 لتر', price: 250, image: 'assets/images/olive-2.jpg' }
     ],
     videos: [
       'assets/videos/olive-1.mp4',
